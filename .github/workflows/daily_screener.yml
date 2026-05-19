@@ -27,8 +27,8 @@ jobs:
 
       - name: Run scraper
         env:
-          SCREENER_CSRF: ${{ secrets.SCREENER_CSRF }}
-          SCREENER_SESSION: ${{ secrets.SCREENER_SESSION }}
+          SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
+          SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
         run: python screener_scraper.py
 
       - name: Commit & push reports
