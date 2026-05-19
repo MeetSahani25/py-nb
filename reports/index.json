@@ -1,0 +1,10 @@
+{
+  "reports": [
+    {
+      "date": "2026-05-19",
+      "csv": "reports/2026-05-19/2026-05-19_screener.csv",
+      "html": "reports/2026-05-19/2026-05-19_screener.html"
+    }
+  ],
+  "last_updated": "2026-05-19T14:36:18.215053"
+}
