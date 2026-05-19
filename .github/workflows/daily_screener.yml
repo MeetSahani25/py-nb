@@ -1,0 +1,38 @@
+name: Daily Screener Report
+
+on:
+  schedule:
+    # 6:00 PM IST = 12:30 UTC (Mon–Fri)
+    - cron: "30 12 * * 1-5"
+  workflow_dispatch:  # allows manual trigger from GitHub UI anytime
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # needed to push reports back to repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Run scraper
+        run: python screener_scraper.py
+
+      - name: Commit & push reports
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --cached --quiet || git commit -m "📈 Daily report $(date +'%Y-%m-%d')"
+          git push
