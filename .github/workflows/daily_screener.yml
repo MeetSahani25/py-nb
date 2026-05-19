@@ -2,16 +2,16 @@ name: Daily Screener Report
 
 on:
   schedule:
-    # 6:00 PM IST = 12:30 UTC (Mon–Fri)
+    # 6:00 PM IST = 12:30 UTC, Mon–Fri
     - cron: "30 12 * * 1-5"
-  workflow_dispatch:  # allows manual trigger from GitHub UI anytime
+  workflow_dispatch:  # manual trigger anytime from GitHub UI
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # needed to push reports back to repo
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -23,10 +23,12 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4
 
       - name: Run scraper
+        env:
+          SCREENER_CSRF: ${{ secrets.SCREENER_CSRF }}
+          SCREENER_SESSION: ${{ secrets.SCREENER_SESSION }}
         run: python screener_scraper.py
 
       - name: Commit & push reports
