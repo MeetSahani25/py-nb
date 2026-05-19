@@ -1,6 +1,6 @@
 """
-Screener.in Daily Stock Report Scraper v4
-- Uses session cookies (from GitHub Secrets) to fetch as logged-in user
+Screener.in Daily Stock Report Scraper v5
+- Logs in fresh every day using email + password (no cookie maintenance)
 - Gets your custom columns exactly as you see them on Screener
 - Saves CSV, HTML, JSON
 """
@@ -13,32 +13,76 @@ import os
 from datetime import datetime, date
 
 # ── CONFIG ───────────────────────────────────────────────────────────────────
-SCREEN_URL = "https://www.screener.in/screens/3664072/screen1/"
-OUTPUT_DIR = "reports"
+SCREEN_URL   = "https://www.screener.in/screens/3664072/screen1/"
+LOGIN_URL    = "https://www.screener.in/login/"
+OUTPUT_DIR   = "reports"
 
-# Injected from GitHub Secrets
-CSRF_TOKEN = os.environ.get("SCREENER_CSRF", "")
-SESSION_ID = os.environ.get("SCREENER_SESSION", "")
+EMAIL        = os.environ.get("SCREENER_EMAIL", "")
+PASSWORD     = os.environ.get("SCREENER_PASSWORD", "")
 # ─────────────────────────────────────────────────────────────────────────────
 
-def get_session():
+def make_session():
     s = requests.Session()
     s.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-IN,en;q=0.9",
-        "Referer": "https://www.screener.in/",
     })
-    if CSRF_TOKEN and SESSION_ID:
-        s.cookies.set("csrftoken", CSRF_TOKEN, domain="www.screener.in")
-        s.cookies.set("sessionid", SESSION_ID, domain="www.screener.in")
-        s.cookies.set("theme", "dark", domain="www.screener.in")
-        print("  🔐 Authenticated session active")
-    else:
-        print("  ⚠️  No cookies — fetching as guest (default columns only)")
     return s
 
+def login(session):
+    if not EMAIL or not PASSWORD:
+        print("  ⚠️  No credentials — fetching as guest (default columns only)")
+        return False
+
+    # Step 1: GET login page to grab csrftoken
+    resp = session.get(LOGIN_URL, timeout=15)
+    resp.raise_for_status()
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+
+    # Extract CSRF token from the login form
+    csrf_input = soup.find("input", {"name": "csrfmiddlewaretoken"})
+    if not csrf_input:
+        # Fallback: grab from cookie
+        csrf_token = session.cookies.get("csrftoken", "")
+    else:
+        csrf_token = csrf_input["value"]
+
+    if not csrf_token:
+        print("  ❌ Could not get CSRF token for login")
+        return False
+
+    # Step 2: POST login credentials
+    payload = {
+        "csrfmiddlewaretoken": csrf_token,
+        "username": EMAIL,
+        "password": PASSWORD,
+    }
+    session.headers.update({
+        "Referer": LOGIN_URL,
+        "Origin": "https://www.screener.in",
+    })
+
+    resp = session.post(LOGIN_URL, data=payload, timeout=15)
+
+    # Check if login succeeded — Screener redirects to home on success
+    if resp.url == "https://www.screener.in/" or "logout" in resp.text.lower():
+        print(f"  ✅ Logged in as {EMAIL}")
+        return True
+    elif "Invalid" in resp.text or "incorrect" in resp.text.lower():
+        print("  ❌ Login failed — check SCREENER_EMAIL and SCREENER_PASSWORD secrets")
+        return False
+    else:
+        # Sometimes Screener redirects to dashboard — check for session cookie
+        if session.cookies.get("sessionid"):
+            print(f"  ✅ Logged in as {EMAIL} (session cookie confirmed)")
+            return True
+        print("  ⚠️  Login status unclear — proceeding anyway")
+        return True
+
 def fetch_screen(session, url):
+    session.headers.update({"Referer": "https://www.screener.in/"})
     resp = session.get(url, timeout=15)
     resp.raise_for_status()
     return resp.text
@@ -69,13 +113,13 @@ def parse_table(html):
         if not cells_raw:
             continue
         if all(c.name == "th" for c in cells_raw):
-            continue  # pure header row, skip
+            continue
         cells = [
             (td.find("a").get_text(strip=True) if td.find("a") else td.get_text(strip=True))
             for td in cells_raw
         ]
         if cells[:2] == headers[:2]:
-            continue  # content-based header repeat, skip
+            continue
         if not any(cells):
             continue
         rows.append(cells)
@@ -191,10 +235,11 @@ def update_index(report_date, csv_path, html_path, json_path, total):
 
 def main():
     today = date.today().isoformat()
-    print(f"\n🚀 Screener Daily Scraper v4 — {today}")
+    print(f"\n🚀 Screener Daily Scraper v5 — {today}")
     print(f"📡 {SCREEN_URL}\n")
 
-    session = get_session()
+    session = make_session()
+    login(session)
     html = fetch_screen(session, SCREEN_URL)
     headers, rows = parse_table(html)
     print(f"\n📊 {len(rows)} stocks · {len(headers)} columns\n")
