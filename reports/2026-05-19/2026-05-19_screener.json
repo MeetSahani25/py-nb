@@ -1,0 +1,189 @@
+{
+  "date": "2026-05-19",
+  "screen_url": "https://www.screener.in/screens/3664072/screen1/",
+  "total_stocks": 25,
+  "headers": [
+    "S.No.",
+    "Name",
+    "CMPRs.",
+    "P/E",
+    "Mar CapRs.Cr."
+  ],
+  "stocks": [
+    {
+      "S.No.": "1.",
+      "Name": "SPARC",
+      "CMPRs.": "179.77",
+      "P/E": "3.73",
+      "Mar CapRs.Cr.": "5836.80"
+    },
+    {
+      "S.No.": "2.",
+      "Name": "International Ge",
+      "CMPRs.": "332.70",
+      "P/E": "27.03",
+      "Mar CapRs.Cr.": "14368.78"
+    },
+    {
+      "S.No.": "3.",
+      "Name": "Infosys",
+      "CMPRs.": "1196.90",
+      "P/E": "16.14",
+      "Mar CapRs.Cr.": "485460.05"
+    },
+    {
+      "S.No.": "4.",
+      "Name": "Dynacons Sys.",
+      "CMPRs.": "1547.80",
+      "P/E": "23.59",
+      "Mar CapRs.Cr.": "1976.87"
+    },
+    {
+      "S.No.": "5.",
+      "Name": "Euro Pratik Sale",
+      "CMPRs.": "260.00",
+      "P/E": "32.29",
+      "Mar CapRs.Cr.": "2678.50"
+    },
+    {
+      "S.No.": "6.",
+      "Name": "Blue Cloud Soft.",
+      "CMPRs.": "18.97",
+      "P/E": "23.26",
+      "Mar CapRs.Cr.": "1428.59"
+    },
+    {
+      "S.No.": "7.",
+      "Name": "Triveni Turbine",
+      "CMPRs.": "638.05",
+      "P/E": "56.26",
+      "Mar CapRs.Cr.": "20325.87"
+    },
+    {
+      "S.No.": "8.",
+      "Name": "eClerx Services",
+      "CMPRs.": "1553.80",
+      "P/E": "20.68",
+      "Mar CapRs.Cr.": "14604.19"
+    },
+    {
+      "S.No.": "9.",
+      "Name": "Hexaware Tech.",
+      "CMPRs.": "510.55",
+      "P/E": "21.32",
+      "Mar CapRs.Cr.": "31262.83"
+    },
+    {
+      "S.No.": "10.",
+      "Name": "Supriya Lifesci.",
+      "CMPRs.": "720.60",
+      "P/E": "31.30",
+      "Mar CapRs.Cr.": "5809.78"
+    },
+    {
+      "S.No.": "11.",
+      "Name": "TBO Tek",
+      "CMPRs.": "1178.10",
+      "P/E": "54.73",
+      "Mar CapRs.Cr.": "12787.08"
+    },
+    {
+      "S.No.": "12.",
+      "Name": "Sumitomo Chemi.",
+      "CMPRs.": "468.90",
+      "P/E": "43.16",
+      "Mar CapRs.Cr.": "23404.95"
+    },
+    {
+      "S.No.": "13.",
+      "Name": "Saksoft",
+      "CMPRs.": "144.04",
+      "P/E": "14.59",
+      "Mar CapRs.Cr.": "1912.28"
+    },
+    {
+      "S.No.": "14.",
+      "Name": "Ajax Engineering",
+      "CMPRs.": "568.00",
+      "P/E": "28.52",
+      "Mar CapRs.Cr.": "6487.80"
+    },
+    {
+      "S.No.": "15.",
+      "Name": "Coforge",
+      "CMPRs.": "1412.00",
+      "P/E": "36.93",
+      "Mar CapRs.Cr.": "60650.43"
+    },
+    {
+      "S.No.": "16.",
+      "Name": "Tata Technolog.",
+      "CMPRs.": "668.55",
+      "P/E": "44.29",
+      "Mar CapRs.Cr.": "27155.22"
+    },
+    {
+      "S.No.": "17.",
+      "Name": "SEAMEC Ltd",
+      "CMPRs.": "1561.60",
+      "P/E": "15.78",
+      "Mar CapRs.Cr.": "3967.70"
+    },
+    {
+      "S.No.": "18.",
+      "Name": "Hind Rectifiers",
+      "CMPRs.": "992.95",
+      "P/E": "84.92",
+      "Mar CapRs.Cr.": "3399.36"
+    },
+    {
+      "S.No.": "19.",
+      "Name": "Fineotex Chem",
+      "CMPRs.": "33.22",
+      "P/E": "35.54",
+      "Mar CapRs.Cr.": "3864.68"
+    },
+    {
+      "S.No.": "20.",
+      "Name": "Mastek",
+      "CMPRs.": "1660.90",
+      "P/E": "12.12",
+      "Mar CapRs.Cr.": "5144.70"
+    },
+    {
+      "S.No.": "21.",
+      "Name": "BLS E-Services",
+      "CMPRs.": "201.12",
+      "P/E": "31.79",
+      "Mar CapRs.Cr.": "1828.07"
+    },
+    {
+      "S.No.": "22.",
+      "Name": "S P I C",
+      "CMPRs.": "70.99",
+      "P/E": "7.16",
+      "Mar CapRs.Cr.": "1442.02"
+    },
+    {
+      "S.No.": "23.",
+      "Name": "Lodha Developers",
+      "CMPRs.": "892.20",
+      "P/E": "26.01",
+      "Mar CapRs.Cr.": "89156.67"
+    },
+    {
+      "S.No.": "24.",
+      "Name": "Deep Industries",
+      "CMPRs.": "474.05",
+      "P/E": "8.20",
+      "Mar CapRs.Cr.": "3033.58"
+    },
+    {
+      "S.No.": "25.",
+      "Name": "Diffusion Eng",
+      "CMPRs.": "329.70",
+      "P/E": "24.30",
+      "Mar CapRs.Cr.": "1235.71"
+    }
+  ]
+}
