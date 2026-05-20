@@ -21,7 +21,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 yfinance
 
       - name: Run daily scraper
         env:
@@ -29,13 +29,15 @@ jobs:
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
         run: python screener_scraper.py
 
-      - name: Run weekly analysis on Fridays
+      - name: Run weekly analysis + cleanup on Fridays
         run: |
           if [ "$(date +'%u')" = "5" ]; then
-            echo "Friday detected — running weekly analysis"
+            echo "📊 Friday — running weekly analysis..."
             python weekly_analysis.py
+            echo "🧹 Running cleanup (180 day retention)..."
+            python cleanup.py
           else
-            echo "Not Friday ($(date +'%A')) — skipping weekly analysis"
+            echo "📅 $(date +'%A') — skipping weekly analysis"
           fi
 
       - name: Commit and push
@@ -43,5 +45,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/
-          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d') daily report"
+          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d')$([ $(date +'%u') -eq 5 ] && echo ' + weekly analysis' || echo '')"
           git push
