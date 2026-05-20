@@ -2,8 +2,9 @@ name: Daily Screener Report
 
 on:
   schedule:
-    - cron: "30 12 * * 1-5"
-  workflow_dispatch:
+    - cron: "30 12 * * 1-5"   # 6pm IST Mon-Fri (daily report)
+    - cron: "30 4 * * 6"      # 10am IST Saturday (weekly email)
+  workflow_dispatch:           # manual trigger — always runs both
 
 jobs:
   scrape:
@@ -29,21 +30,43 @@ jobs:
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
         run: python screener_scraper.py
 
-      - name: Run weekly analysis + cleanup on Fridays
+      - name: Run weekly analysis
+        run: |
+          DAY=$(date +'%u')
+          EVENT="${{ github.event_name }}"
+          if [ "$DAY" = "5" ] || [ "$DAY" = "6" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "Running weekly analysis (day=$DAY event=$EVENT)..."
+            python weekly_analysis.py
+          else
+            echo "Skipping weekly analysis (day=$DAY)"
+          fi
+
+      - name: Run cleanup (Fridays only)
         run: |
           if [ "$(date +'%u')" = "5" ]; then
-            echo "📊 Friday — running weekly analysis..."
-            python weekly_analysis.py
-            echo "🧹 Running cleanup (180 day retention)..."
+            echo "Running 180-day cleanup..."
             python cleanup.py
-          else
-            echo "📅 $(date +'%A') — skipping weekly analysis"
           fi
+
+      - name: Send weekly email
+        run: |
+          DAY=$(date +'%u')
+          EVENT="${{ github.event_name }}"
+          if [ "$DAY" = "5" ] || [ "$DAY" = "6" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "Sending weekly email..."
+            python send_email.py
+          else
+            echo "Skipping email (not Friday/Saturday/manual)"
+          fi
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/
-          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d')$([ $(date +'%u') -eq 5 ] && echo ' + weekly analysis' || echo '')"
+          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d') — daily$([ $(date +'%u') -ge 5 ] && echo ' + weekly' || echo '')"
           git push
