@@ -12,330 +12,260 @@
   .top h1{font-size:22px;font-weight:700}
   .top p{font-size:14px;opacity:.6;margin-top:6px}
   .meta{display:flex;gap:20px;padding:14px 32px;background:#f8f9ff;border:1px solid #e8eaf0;border-top:none;font-size:13px;color:#555;flex-wrap:wrap}
-  .card{background:#fff;border-radius:0 0 12px 12px;border:1px solid #e8eaf0;border-top:none;margin-bottom:24px;overflow:hidden}
-  .section{padding:24px 28px;border-bottom:1px solid #f0f0f0}
-  .section:last-child{border-bottom:none}
-  .section-title{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-  .section-sub{font-size:12px;color:#888;margin-bottom:16px}
-  .badge-wrap{margin-top:10px;line-height:2.2}
-  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  .meta a{color:#4a6cf7}
+  .section{background:#fff;border:1px solid #e8eaf0;border-radius:10px;margin:16px 0;overflow:hidden}
+  .sec-head{padding:16px 24px;border-bottom:1px solid #f0f0f0;background:#fafbff}
+  .sec-head h2{font-size:15px;font-weight:700;color:#1a1a2e}
+  .sec-head p{font-size:12px;color:#888;margin-top:3px}
+  .sec-body{padding:20px 24px}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .stat-box{background:#f8f9ff;border-radius:8px;padding:14px 18px;border:1px solid #e8eaf0}
+  .stat-box .val{font-size:24px;font-weight:700;color:#1a1a2e}
+  .stat-box .lbl{font-size:11px;color:#888;margin-top:4px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
   thead th{background:#1a1a2e;color:#c8d0ff;padding:10px 14px;text-align:right;font-weight:500;font-size:12px;white-space:nowrap}
   thead th:first-child{text-align:left}
   tbody td{padding:9px 14px;border-bottom:1px solid #f5f5f5;text-align:right;white-space:nowrap}
   tbody td:first-child{text-align:left}
   tbody tr:hover td{background:#f5f7ff}
-  tbody tr:nth-child(even){background:#fafbff}
-  .conviction{background:linear-gradient(135deg,#fef9e7,#fff8e1);border:1px solid #f0c040}
-  .foot{padding:12px 28px;font-size:11px;color:#bbb;text-align:center;margin-top:8px}
-  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:12px}
-  .stat-box{background:#f8f9ff;border-radius:8px;padding:14px 18px;border:1px solid #e8eaf0}
-  .stat-box .val{font-size:22px;font-weight:700;color:#1a1a2e}
-  .stat-box .lbl{font-size:11px;color:#888;margin-top:4px}
+  .foot{padding:12px;font-size:11px;color:#bbb;text-align:center;margin-top:8px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="top">
-    <h1>📊 Weekly Breakout Analysis</h1>
-    <p>Screener Momentum Screen · 2026-05-18 → 2026-05-22 · 87 unique stocks across 2 trading days</p>
+    <h1>📊 Weekly Breakout & Big Player Analysis</h1>
+    <p>Screener Momentum Screen · 2026-05-18 → 2026-05-22 · 87 unique stocks · 2 trading days</p>
   </div>
   <div class="meta">
-    <span>📅 Days tracked: <strong>2026-05-19, 2026-05-20</strong></span>
-    <span>🔗 <a href="https://www.screener.in/screens/3664072/screen1/" target="_blank" style="color:#4a6cf7">screener.in/screens/3664072/screen1</a></span>
+    <span>📅 <strong>2026-05-19, 2026-05-20</strong></span>
+    <span>🔗 <a href="https://www.screener.in/screens/3664072/screen1/">screener.in/screens/3664072/screen1</a></span>
   </div>
 
-  <div class="card">
-
-    <!-- Summary Stats -->
-    <div class="section">
-      <div class="section-title">📈 Week at a Glance</div>
-      <div class="section-sub">High-level numbers for the week</div>
+  <!-- Glance -->
+  <div class="section">
+    <div class="sec-head"><h2>📈 Week at a Glance</h2></div>
+    <div class="sec-body">
       <div class="stat-grid">
-        <div class="stat-box"><div class="val">87</div><div class="lbl">Unique stocks appeared</div></div>
+        <div class="stat-box"><div class="val">87</div><div class="lbl">Unique stocks</div></div>
         <div class="stat-box"><div class="val">0</div><div class="lbl">Appeared all 5 days</div></div>
-        <div class="stat-box"><div class="val">0</div><div class="lbl">Appeared 4+ days</div></div>
-        <div class="stat-box"><div class="val">0</div><div class="lbl">Appeared 3+ days</div></div>
+        <div class="stat-box"><div class="val">4</div><div class="lbl">Appeared 2+ days</div></div>
         <div class="stat-box"><div class="val">0</div><div class="lbl">Conviction picks</div></div>
+        <div class="stat-box"><div class="val">4</div><div class="lbl">Earnings catalysts</div></div>
       </div>
     </div>
+  </div>
 
-    <!-- Stocks appeared all 5 days -->
-    <div class="section">
-      <div class="section-title">🔁 Appeared All 5 Days</div>
-      <div class="section-sub">These stocks triggered the breakout screen every single day this week — highest conviction signals</div>
-      <div class="badge-wrap"><em style='color:#aaa'>None this week</em></div>
-    </div>
+  <!-- All 5 days -->
+  <div class="section">
+    <div class="sec-head"><h2>🔁 Appeared All 5 Days — Highest Conviction</h2><p>These stocks triggered the breakout screen every single trading day this week</p></div>
+    <div class="sec-body"><em style='color:#aaa'>None this week</em></div>
+  </div>
 
-    <div class="section">
-      <div class="section-title">4-Day Appearances</div>
-      <div class="section-sub">Strong repeat breakouts — appeared 4 out of 5 days</div>
-      <div class="badge-wrap"><em style='color:#aaa'>None</em></div>
-    </div>
-
-    <!-- Conviction Picks -->
-    <div class="section conviction">
-      <div class="section-title">⭐ Conviction Picks of the Week</div>
-      <div class="section-sub">Appeared 3+ days · Avg 1-day return > 0% · Avg volume spike ≥ 1.5× — the strongest signals of the week</div>
-      <table>
-        <thead><tr>
-          <th>Stock</th><th>Frequency</th><th>Avg 1d Return</th><th>Avg Vol Spike</th>
-          <th>Week Price Chg</th><th>1Mo Return</th><th>ROCE%</th><th>CMP</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <!-- Frequency Table -->
-    <div class="section">
-      <div class="section-title">📅 Appearance Frequency</div>
-      <div class="section-sub">How many days each stock appeared in the breakout screen this week</div>
-      <table>
-        <thead><tr>
-          <th>Stock</th><th>Days</th><th>Avg 1d Return</th><th>Week Chg</th><th>Avg Vol Spike</th><th>Positive Days</th>
-        </tr></thead>
-        <tbody>
-        <tr>
+  <!-- Earnings Catalyst -->
+  <div class="section">
+    <div class="sec-head"><h2>💥 Earnings Catalysts — Brilliant Quarter + Volume</h2><p>Stocks with strong QoQ profit growth appearing multiple days — riding earnings momentum</p></div>
+    <div class="sec-body" style="margin-bottom:16px"><span style="display:inline-block;background:#fff3e0;color:#3d1a00;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">Dredging Corpn.</span><span style="display:inline-block;background:#fff3e0;color:#3d1a00;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">Dec.Gold Mines</span><span style="display:inline-block;background:#fff3e0;color:#3d1a00;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">Apollo Micro Sys</span><span style="display:inline-block;background:#fff3e0;color:#3d1a00;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">International Ge</span></div>
+    <div style="padding:0 24px 20px">
+    <table>
+      <thead><tr><th>Stock</th><th>QoQ Profit%</th><th>QoQ Sales%</th><th>Profit Growth%</th><th>Days in Screen</th><th>Avg Vol Spike</th><th>CMP</th></tr></thead>
+      <tbody><tr>
+          <td style="text-align:left;font-weight:500">Dredging Corpn.</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;452.86%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;73.22%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;110.44%</span></td>
+          <td>2/5</td>
+          <td>—×</td>
+          <td>₹1,088.0</td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:500">Dec.Gold Mines</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;125.82%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;561.70%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-60.37%</span></td>
+          <td>2/5</td>
+          <td>—×</td>
+          <td>₹150.5</td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:500">Apollo Micro Sys</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;60.80%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;16.27%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;100.21%</span></td>
+          <td>2/5</td>
+          <td>—×</td>
+          <td>₹356.7</td>
+        </tr><tr>
           <td style="text-align:left;font-weight:500">International Ge</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#e0e0e0;letter-spacing:2px">░░░</span> 2/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;32.49%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;19.93%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;28.06%</span></td>
+          <td>2/5</td>
+          <td>—×</td>
+          <td>₹352.3</td>
+        </tr></tbody>
+    </table></div>
+  </div>
+
+  <!-- Big Player Radar -->
+  <div class="section">
+    <div class="sec-head"><h2>🎯 Big Player Radar — Institutional Footprint Score</h2><p>Unusual volume + multi-day appearance = potential institutional accumulation. Score 0–100.</p></div>
+    <div style="padding:0 24px 20px">
+    <table>
+      <thead><tr><th>Stock</th><th>Frequency</th><th>BP Score</th><th>Avg Vol Spike</th><th>Avg 1d Return</th><th>Week Change</th><th>ROCE%</th><th>QoQ Profits%</th></tr></thead>
+      <tbody><tr>
+          <td style="text-align:left;font-weight:600">International Ge</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#ddd;letter-spacing:2px">░░░</span> <strong>2/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">24</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;6.04%</span></td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;5.89%</span></td>
-          <td>—×</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Apollo Micro Sys</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#e0e0e0;letter-spacing:2px">░░░</span> 2/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;30.72%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;32.49%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Apollo Micro Sys</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#ddd;letter-spacing:2px">░░░</span> <strong>2/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">24</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;7.12%</span></td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.70%</span></td>
-          <td>—×</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dredging Corpn.</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#e0e0e0;letter-spacing:2px">░░░</span> 2/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;14.47%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;60.80%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Dredging Corpn.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#ddd;letter-spacing:2px">░░░</span> <strong>2/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">24</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;12.17%</span></td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.29%</span></td>
-          <td>—×</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dec.Gold Mines</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#e0e0e0;letter-spacing:2px">░░░</span> 2/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.28%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;452.86%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Dec.Gold Mines</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">██</span><span style="color:#ddd;letter-spacing:2px">░░░</span> <strong>2/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">24</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;11.18%</span></td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;10.80%</span></td>
-          <td>—×</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">SPARC</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-13.09%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;125.82%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">SPARC</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;10.81%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Infosys</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;165.00%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;2285.30%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Infosys</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.76%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dynacons Sys.</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;39.95%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;27.65%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Dynacons Sys.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;11.93%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Euro Pratik Sale</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;39.17%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;3.85%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Euro Pratik Sale</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;6.06%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Blue Cloud Soft.</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;38.38%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-8.96%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Blue Cloud Soft.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.21%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Triveni Turbine</td>
-          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#e0e0e0;letter-spacing:2px">░░░░</span> 1/5</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;37.07%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;20.49%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Triveni Turbine</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;6.94%</span></td>
           <td>—</td>
-          <td>—×</td>
-          <td>1/5</td>
-        </tr></tbody>
-      </table>
-    </div>
-
-    <!-- Volume Spikes -->
-    <div class="section">
-      <div class="section-title">🔊 Top Volume Spikes</div>
-      <div class="section-sub">Stocks with the highest volume relative to their weekly average — unusual activity signals</div>
-      <table>
-        <thead><tr>
-          <th>Stock</th><th>Avg Vol Spike</th><th>Max Vol Spike</th><th>Days</th><th>Avg 1d Return</th><th>CMP</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <!-- Weekly Price Movers -->
-    <div class="section">
-      <div class="section-title">🚀 Top Weekly Price Movers</div>
-      <div class="section-sub">Stocks with highest price gain from Monday open to Friday close this week</div>
-      <table>
-        <thead><tr>
-          <th>Stock</th><th>Week Chg</th><th>1Mo Return</th><th>3Mo Return</th><th>1Yr Return</th><th>Days in Screen</th>
-        </tr></thead>
-        <tbody>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dec.Gold Mines</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;10.80%</span></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dredging Corpn.</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.29%</span></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">International Ge</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;5.89%</span></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Apollo Micro Sys</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.70%</span></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>2/5</td>
-        </tr></tbody>
-      </table>
-    </div>
-
-    <!-- Fundamentals -->
-    <div class="section">
-      <div class="section-title">🏦 Fundamentals of Breakout Stocks</div>
-      <div class="section-sub">Top ROCE stocks among this week's breakouts — quality filter on momentum</div>
-      <table>
-        <thead><tr>
-          <th>Stock</th><th>ROCE%</th><th>P/E</th><th>Profit Growth%</th><th>QoQ Profits%</th><th>QoQ Sales%</th><th>Days</th>
-        </tr></thead>
-        <tbody>
-        <tr>
-          <td style="text-align:left;font-weight:500">SPARC</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;165.00%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;553.15%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;2285.30%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;21831.60%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Glottis</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;89.96%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;81.01%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-78.16%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-32.99%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">GE Vernova T&D</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;76.43%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;110.26%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;20.97%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-3.74%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">International Ge</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;53.62%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;24.41%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;3.67%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;5.24%</span></td>
-          <td>2/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Infosys</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;39.95%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;13.45%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;27.65%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;2.03%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Dynacons Sys.</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;39.17%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;22.28%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;3.85%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-3.57%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Euro Pratik Sale</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;38.38%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.11%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-8.96%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;16.31%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">TAC Infosec</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;38.14%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;57.20%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-30.70%</span></td>
-          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-5.80%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Blue Cloud Soft.</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;37.07%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;54.31%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;20.49%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.94%</span></td>
-          <td>1/5</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;font-weight:500">Triveni Turbine</td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;35.86%</span></td>
-          <td>—</td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.56%</span></td>
           <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;11.12%</span></td>
-          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;8.91%</span></td>
-          <td>1/5</td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">eClerx Services</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;5.39%</span></td>
+          <td>—</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;34.81%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-1.13%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Hexaware Tech.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.85%</span></td>
+          <td>—</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;30.07%</span></td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;20.58%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Supriya Lifesci.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;5.35%</span></td>
+          <td>—</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;27.46%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-1.49%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">TBO Tek</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.16%</span></td>
+          <td>—</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;26.68%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-20.52%</span></td>
+        </tr><tr>
+          <td style="text-align:left;font-weight:600">Sumitomo Chemi.</td>
+          <td><span style="color:#4a6cf7;letter-spacing:2px">█</span><span style="color:#ddd;letter-spacing:2px">░░░░</span> <strong>1/5</strong></td>
+          <td><span style="color:#d94b4b;font-weight:700">12</span><span style="color:#ddd;font-size:11px"> /100</span></td>
+          <td>—× </td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;4.28%</span></td>
+          <td>—</td>
+          <td><span style="color:#1a9e6d;font-weight:600">▲&nbsp;25.14%</span></td>
+          <td><span style="color:#d94b4b;font-weight:600">▼&nbsp;-57.94%</span></td>
         </tr></tbody>
-      </table>
-    </div>
-
+    </table></div>
   </div>
-  <div class="foot">Auto-generated via GitHub Actions · Screener.in · 2026-05-20 14:27 UTC</div>
+
+  <!-- Volume Analysis 2+ days -->
+  <div class="section">
+    <div class="sec-head"><h2>🔊 Volume Analysis — Stocks Appearing 2+ Days</h2><p>Daily volume progression — looking for sustained accumulation vs one-day spikes</p></div>
+    <div style="padding:0 24px 20px">
+    <table>
+      <thead><tr><th>Stock</th><th>Days</th><th>Avg Spike</th><th>Max Spike</th><th>Daily Vol Progression</th><th>Avg 1d Ret</th><th>QoQ Profits%</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+  <!-- Conviction Stock Deep Dives -->
+  <div class="section">
+    <div class="sec-head"><h2>⭐ Conviction Stock Deep Dives</h2><p>Technical analysis + news + social sentiment for top conviction picks</p></div>
+    <div class="sec-body"></div>
+  </div>
+
+  <div class="foot">Auto-generated via GitHub Actions · Screener.in · 2026-05-20 20:00 UTC</div>
 </div>
 </body></html>
