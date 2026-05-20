@@ -2,14 +2,13 @@ name: Daily Screener Report
 
 on:
   schedule:
-    # 6:00 PM IST = 12:30 UTC, Mon–Fri
+    # 6:00 PM IST = 12:30 UTC, Mon–Fri (daily scrape)
     - cron: "30 12 * * 1-5"
-  workflow_dispatch:  # manual trigger anytime from GitHub UI
+  workflow_dispatch:  # manual trigger anytime
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
@@ -25,16 +24,24 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Run scraper
+      - name: Get day of week
+        id: get-day
+        run: echo "day=$(date +'%A' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
+      - name: Run daily scraper
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
         run: python screener_scraper.py
 
-      - name: Commit & push reports
+      - name: Run weekly analysis (Fridays only)
+        if: steps.get-day.outputs.day == 'friday' || github.event_name == 'workflow_dispatch'
+        run: python weekly_analysis.py
+
+      - name: Commit & push all reports
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/
-          git diff --cached --quiet || git commit -m "📈 Daily report $(date +'%Y-%m-%d')"
+          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d') — daily$([ $(date +'%u') -eq 5 ] && echo ' + weekly analysis' || echo '')"
           git push
