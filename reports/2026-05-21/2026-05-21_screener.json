@@ -209,6 +209,27 @@
     },
     {
       "S.No.": "7.",
+      "Name": "Datamatics Glob.",
+      "CMPRs.": "809.45",
+      "Vol 1d": "425144",
+      "Avg Vol 1Wk": "157100",
+      "1day return%": "5.64",
+      "1wk return%": "8.66",
+      "1mth return%": "11.26",
+      "Avg Vol 1Mth": "125965",
+      "3mth return%": "2.16",
+      "1Yr return%": "31.22",
+      "Mar CapRs.Cr.": "4784.37",
+      "Qtr Profit Var%": "31.10",
+      "Profit growth%": "47.78",
+      "QoQ Sales%": "1.80",
+      "QoQ Profits%": "23.47",
+      "6mth return%": "-6.28",
+      "Sales growth%": "15.31",
+      "ROCE%": "20.81"
+    },
+    {
+      "S.No.": "8.",
       "Name": "Wework India",
       "CMPRs.": "573.90",
       "Vol 1d": "5491842",
@@ -229,7 +250,7 @@
       "ROCE%": "20.57"
     },
     {
-      "S.No.": "8.",
+      "S.No.": "9.",
       "Name": "Poly Medicure",
       "CMPRs.": "1550.60",
       "Vol 1d": "248927",
@@ -250,7 +271,7 @@
       "ROCE%": "20.08"
     },
     {
-      "S.No.": "9.",
+      "S.No.": "10.",
       "Name": "OBSC Perfection",
       "CMPRs.": "434.75",
       "Vol 1d": "444000",
@@ -271,7 +292,7 @@
       "ROCE%": "19.52"
     },
     {
-      "S.No.": "10.",
+      "S.No.": "11.",
       "Name": "South West Pinn.",
       "CMPRs.": "255.98",
       "Vol 1d": "830199",
@@ -292,7 +313,7 @@
       "ROCE%": "19.16"
     },
     {
-      "S.No.": "11.",
+      "S.No.": "12.",
       "Name": "Ganesh Consumer",
       "CMPRs.": "205.91",
       "Vol 1d": "158626",
@@ -313,7 +334,7 @@
       "ROCE%": "18.97"
     },
     {
-      "S.No.": "12.",
+      "S.No.": "13.",
       "Name": "Sh. Rama Multi.",
       "CMPRs.": "45.97",
       "Vol 1d": "281751",
@@ -334,7 +355,7 @@
       "ROCE%": "17.70"
     },
     {
-      "S.No.": "13.",
+      "S.No.": "14.",
       "Name": "JNK",
       "CMPRs.": "409.90",
       "Vol 1d": "1717801",
@@ -355,7 +376,7 @@
       "ROCE%": "17.35"
     },
     {
-      "S.No.": "14.",
+      "S.No.": "15.",
       "Name": "SBC Exports",
       "CMPRs.": "37.88",
       "Vol 1d": "30672337",
@@ -376,7 +397,7 @@
       "ROCE%": "16.98"
     },
     {
-      "S.No.": "15.",
+      "S.No.": "16.",
       "Name": "Sanghvi Movers",
       "CMPRs.": "352.20",
       "Vol 1d": "9901764",
@@ -397,7 +418,7 @@
       "ROCE%": "16.68"
     },
     {
-      "S.No.": "16.",
+      "S.No.": "17.",
       "Name": "Techno Elec.Engg",
       "CMPRs.": "1294.30",
       "Vol 1d": "1742014",
@@ -418,7 +439,7 @@
       "ROCE%": "16.54"
     },
     {
-      "S.No.": "17.",
+      "S.No.": "18.",
       "Name": "Jay Bharat Maru.",
       "CMPRs.": "117.35",
       "Vol 1d": "29677576",
@@ -439,7 +460,7 @@
       "ROCE%": "16.44"
     },
     {
-      "S.No.": "18.",
+      "S.No.": "19.",
       "Name": "Deepak Fertilis.",
       "CMPRs.": "1383.70",
       "Vol 1d": "766867",
@@ -460,7 +481,7 @@
       "ROCE%": "15.67"
     },
     {
-      "S.No.": "19.",
+      "S.No.": "20.",
       "Name": "Indo Borax & Ch.",
       "CMPRs.": "324.35",
       "Vol 1d": "2344319",
@@ -481,7 +502,7 @@
       "ROCE%": "15.60"
     },
     {
-      "S.No.": "20.",
+      "S.No.": "21.",
       "Name": "MTAR Technologie",
       "CMPRs.": "7947.50",
       "Vol 1d": "5427737",
@@ -502,7 +523,7 @@
       "ROCE%": "15.20"
     },
     {
-      "S.No.": "21.",
+      "S.No.": "22.",
       "Name": "Adani Total Gas",
       "CMPRs.": "638.10",
       "Vol 1d": "11932035",
@@ -523,7 +544,7 @@
       "ROCE%": "15.16"
     },
     {
-      "S.No.": "22.",
+      "S.No.": "23.",
       "Name": "Sudarshan Pharma",
       "CMPRs.": "34.19",
       "Vol 1d": "324000",
@@ -544,7 +565,7 @@
       "ROCE%": "15.13"
     },
     {
-      "S.No.": "23.",
+      "S.No.": "24.",
       "Name": "Goodluck India",
       "CMPRs.": "1437.40",
       "Vol 1d": "657277",
@@ -565,7 +586,7 @@
       "ROCE%": "15.10"
     },
     {
-      "S.No.": "24.",
+      "S.No.": "25.",
       "Name": "Genesys Intl.",
       "CMPRs.": "241.55",
       "Vol 1d": "4754771",
@@ -584,27 +605,6 @@
       "6mth return%": "-48.09",
       "Sales growth%": "10.32",
       "ROCE%": "15.03"
-    },
-    {
-      "S.No.": "25.",
-      "Name": "Datamatics Glob.",
-      "CMPRs.": "809.45",
-      "Vol 1d": "425144",
-      "Avg Vol 1Wk": "157100",
-      "1day return%": "5.64",
-      "1wk return%": "8.66",
-      "1mth return%": "11.26",
-      "Avg Vol 1Mth": "125965",
-      "3mth return%": "2.16",
-      "1Yr return%": "31.22",
-      "Mar CapRs.Cr.": "4777.51",
-      "Qtr Profit Var%": "31.06",
-      "Profit growth%": "17.04",
-      "QoQ Sales%": "4.05",
-      "QoQ Profits%": "-42.67",
-      "6mth return%": "-6.28",
-      "Sales growth%": "19.90",
-      "ROCE%": "15.01"
     },
     {
       "S.No.": "26.",
@@ -797,6 +797,27 @@
     },
     {
       "S.No.": "35.",
+      "Name": "Dr Agarwal's Hea",
+      "CMPRs.": "481.10",
+      "Vol 1d": "504372",
+      "Avg Vol 1Wk": "147419",
+      "1day return%": "4.66",
+      "1wk return%": "7.81",
+      "1mth return%": "5.17",
+      "Avg Vol 1Mth": "115612",
+      "3mth return%": "7.89",
+      "1Yr return%": "22.87",
+      "Mar CapRs.Cr.": "15248.84",
+      "Qtr Profit Var%": "14.88",
+      "Profit growth%": "73.58",
+      "QoQ Sales%": "6.46",
+      "QoQ Profits%": "14.51",
+      "6mth return%": "-2.56",
+      "Sales growth%": "21.57",
+      "ROCE%": "11.12"
+    },
+    {
+      "S.No.": "36.",
       "Name": "JSW Cement",
       "CMPRs.": "127.46",
       "Vol 1d": "42224265",
@@ -817,7 +838,7 @@
       "ROCE%": "11.05"
     },
     {
-      "S.No.": "36.",
+      "S.No.": "37.",
       "Name": "Mangalam Cement",
       "CMPRs.": "836.55",
       "Vol 1d": "414386",
@@ -838,7 +859,7 @@
       "ROCE%": "10.76"
     },
     {
-      "S.No.": "37.",
+      "S.No.": "38.",
       "Name": "Amber Enterp.",
       "CMPRs.": "7537.00",
       "Vol 1d": "1398642",
@@ -857,27 +878,6 @@
       "6mth return%": "4.74",
       "Sales growth%": "22.19",
       "ROCE%": "10.25"
-    },
-    {
-      "S.No.": "38.",
-      "Name": "Dr Agarwal's Hea",
-      "CMPRs.": "481.10",
-      "Vol 1d": "504372",
-      "Avg Vol 1Wk": "147419",
-      "1day return%": "4.66",
-      "1wk return%": "7.81",
-      "1mth return%": "5.17",
-      "Avg Vol 1Mth": "115612",
-      "3mth return%": "7.89",
-      "1Yr return%": "22.87",
-      "Mar CapRs.Cr.": "15199.24",
-      "Qtr Profit Var%": "51.03",
-      "Profit growth%": "42.16",
-      "QoQ Sales%": "6.25",
-      "QoQ Profits%": "19.57",
-      "6mth return%": "-2.56",
-      "Sales growth%": "23.54",
-      "ROCE%": "9.99"
     },
     {
       "S.No.": "39.",
