@@ -254,9 +254,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 10.74,
-        "max_ret1d": 13.07,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 6.09,
         "latest_cmp": 449.35,
         "latest_ret1d": 6.09,
@@ -333,9 +331,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.56,
-        "max_ret1d": 6.56,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 423.25,
         "latest_ret1d": 6.56,
@@ -394,9 +390,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.1,
-        "max_ret1d": 7.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 130.19,
         "latest_ret1d": 7.1,
@@ -455,9 +449,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.55,
-        "max_ret1d": 6.55,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 429.55,
         "latest_ret1d": 6.55,
@@ -516,9 +508,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 9.12,
-        "max_ret1d": 9.26,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.26,
         "latest_cmp": 77.16,
         "latest_ret1d": 9.26,
@@ -577,9 +567,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.4,
-        "max_ret1d": 5.4,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 57.53,
         "latest_ret1d": 5.4,
@@ -638,9 +626,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.5,
-        "max_ret1d": 9.83,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.83,
         "latest_cmp": 1357.0,
         "latest_ret1d": 9.83,
@@ -699,9 +685,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.66,
-        "max_ret1d": 4.66,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 100.17,
         "latest_ret1d": 4.66,
@@ -760,9 +744,7 @@
       {
         "appearances": 4,
         "avg_ret1d": 14.7,
-        "max_ret1d": 20.0,
         "pos_days": 4,
-        "scr_vol_spike": null,
         "price_change_week": 31.26,
         "latest_cmp": 274.71,
         "latest_ret1d": 9.39,
@@ -857,9 +839,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.09,
-        "max_ret1d": 9.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.11,
         "latest_cmp": 1252.5,
         "latest_ret1d": 5.08,
@@ -918,9 +898,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.9,
-        "max_ret1d": 10.0,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 13.59,
         "latest_cmp": 2903.5,
         "latest_ret1d": 10.0,
@@ -979,9 +957,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.18,
-        "max_ret1d": 6.18,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 68.38,
         "latest_ret1d": 6.18,
@@ -1040,9 +1016,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.39,
-        "max_ret1d": 6.3,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.45,
         "latest_cmp": 549.35,
         "latest_ret1d": 6.3,
@@ -1101,9 +1075,7 @@
       {
         "appearances": 5,
         "avg_ret1d": 8.24,
-        "max_ret1d": 20.0,
         "pos_days": 5,
-        "scr_vol_spike": null,
         "price_change_week": 33.93,
         "latest_cmp": 425.3,
         "latest_ret1d": 7.17,
@@ -1216,9 +1188,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.03,
-        "max_ret1d": 9.82,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 12.08,
         "latest_cmp": 325.3,
         "latest_ret1d": 4.23,
@@ -1277,9 +1247,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 9.86,
-        "max_ret1d": 11.56,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 11.56,
         "latest_cmp": 825.35,
         "latest_ret1d": 11.56,
@@ -1356,9 +1324,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 8.31,
-        "max_ret1d": 10.0,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 6.63,
         "latest_cmp": 238.84,
         "latest_ret1d": 6.63,
@@ -1417,9 +1383,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.86,
-        "max_ret1d": 4.86,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 623.85,
         "latest_ret1d": 4.86,
@@ -1478,9 +1442,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.17,
-        "max_ret1d": 7.17,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 605.85,
         "latest_ret1d": 7.17,
@@ -1539,9 +1501,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.85,
-        "max_ret1d": 4.85,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 142.41,
         "latest_ret1d": 4.85,
@@ -1600,9 +1560,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.02,
-        "max_ret1d": 4.02,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 471.5,
         "latest_ret1d": 4.02,
@@ -1661,9 +1619,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.72,
-        "max_ret1d": 5.72,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 145.83,
         "latest_ret1d": 5.72,
@@ -1722,9 +1678,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 6.27,
-        "max_ret1d": 10.31,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 3.91,
         "latest_cmp": 1058.65,
         "latest_ret1d": 4.25,
@@ -1801,9 +1755,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.22,
-        "max_ret1d": 4.22,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 10299.5,
         "latest_ret1d": 4.22,
@@ -1862,9 +1814,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.17,
-        "max_ret1d": 6.17,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 510.45,
         "latest_ret1d": 6.17,
@@ -1923,9 +1873,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.87,
-        "max_ret1d": 6.87,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 4428.1,
         "latest_ret1d": 6.87,
@@ -1984,9 +1932,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 11.24,
-        "max_ret1d": 11.24,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 6027.5,
         "latest_ret1d": 11.24,
@@ -2045,9 +1991,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.48,
-        "max_ret1d": 5.48,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 3878.7,
         "latest_ret1d": 5.48,
@@ -2106,9 +2050,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.33,
-        "max_ret1d": 6.33,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 934.8,
         "latest_ret1d": 6.33,
@@ -2167,9 +2109,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 9.55,
-        "max_ret1d": 10.0,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 10.0,
         "latest_cmp": 111.77,
         "latest_ret1d": 10.0,
@@ -2246,9 +2186,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.32,
-        "max_ret1d": 4.32,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 37550.0,
         "latest_ret1d": 4.32,
@@ -2307,9 +2245,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.25,
-        "max_ret1d": 5.25,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 1540.1,
         "latest_ret1d": 5.25,
@@ -2368,9 +2304,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 9.55,
-        "max_ret1d": 9.55,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 171.89,
         "latest_ret1d": 9.55,
@@ -2429,9 +2363,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.1,
-        "max_ret1d": 7.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 13426.0,
         "latest_ret1d": 7.1,
@@ -2490,9 +2422,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.14,
-        "max_ret1d": 5.14,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 5097.7,
         "latest_ret1d": 5.14,
@@ -2551,9 +2481,7 @@
     "SPARC": {
       "appearances": 1,
       "avg_ret1d": 11.07,
-      "max_ret1d": 11.07,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 232.99,
       "latest_ret1d": 11.07,
@@ -2571,9 +2499,7 @@
     "JD Cables": {
       "appearances": 1,
       "avg_ret1d": 8.5,
-      "max_ret1d": 8.5,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 224.6,
       "latest_ret1d": 8.5,
@@ -2591,9 +2517,7 @@
     "Crizac": {
       "appearances": 2,
       "avg_ret1d": 8.31,
-      "max_ret1d": 10.0,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 6.63,
       "latest_cmp": 238.84,
       "latest_ret1d": 6.63,
@@ -2611,9 +2535,7 @@
     "Emmvee Photovol.": {
       "appearances": 2,
       "avg_ret1d": 7.03,
-      "max_ret1d": 9.82,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 12.08,
       "latest_cmp": 325.3,
       "latest_ret1d": 4.23,
@@ -2631,9 +2553,7 @@
     "Schneider Elect.": {
       "appearances": 1,
       "avg_ret1d": 4.37,
-      "max_ret1d": 4.37,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1364.7,
       "latest_ret1d": 4.37,
@@ -2651,9 +2571,7 @@
     "Dynacons Sys.": {
       "appearances": 1,
       "avg_ret1d": 9.27,
-      "max_ret1d": 9.27,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1895.1,
       "latest_ret1d": 9.27,
@@ -2671,9 +2589,7 @@
     "Solex Energy": {
       "appearances": 1,
       "avg_ret1d": 7.46,
-      "max_ret1d": 7.46,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1396.5,
       "latest_ret1d": 7.46,
@@ -2691,9 +2607,7 @@
     "Indo SMC": {
       "appearances": 1,
       "avg_ret1d": 4.98,
-      "max_ret1d": 4.98,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 272.85,
       "latest_ret1d": 4.98,
@@ -2711,9 +2625,7 @@
     "Prec. Wires (I)": {
       "appearances": 1,
       "avg_ret1d": 6.61,
-      "max_ret1d": 6.61,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 442.6,
       "latest_ret1d": 6.61,
@@ -2731,9 +2643,7 @@
     "Enviro Infra": {
       "appearances": 1,
       "avg_ret1d": 12.16,
-      "max_ret1d": 12.16,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 209.69,
       "latest_ret1d": 12.16,
@@ -2751,9 +2661,7 @@
     "Modison": {
       "appearances": 4,
       "avg_ret1d": 14.7,
-      "max_ret1d": 20.0,
       "pos_days": 4,
-      "scr_vol_spike": null,
       "price_change_week": 31.26,
       "latest_cmp": 274.71,
       "latest_ret1d": 9.39,
@@ -2771,9 +2679,7 @@
     "Eicher Motors": {
       "appearances": 1,
       "avg_ret1d": 6.19,
-      "max_ret1d": 6.19,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 7414.0,
       "latest_ret1d": 6.19,
@@ -2791,9 +2697,7 @@
     "Kothari Petroche": {
       "appearances": 1,
       "avg_ret1d": 5.51,
-      "max_ret1d": 5.51,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 129.14,
       "latest_ret1d": 5.51,
@@ -2811,9 +2715,7 @@
     "Panorama Studios": {
       "appearances": 1,
       "avg_ret1d": 12.91,
-      "max_ret1d": 12.91,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 45.38,
       "latest_ret1d": 12.91,
@@ -2831,9 +2733,7 @@
     "Syncom Formul.": {
       "appearances": 1,
       "avg_ret1d": 10.53,
-      "max_ret1d": 10.53,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 15.85,
       "latest_ret1d": 10.53,
@@ -2851,9 +2751,7 @@
     "Guj. Themis Bio.": {
       "appearances": 3,
       "avg_ret1d": 13.56,
-      "max_ret1d": 17.54,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 11.01,
       "latest_cmp": 432.2,
       "latest_ret1d": 17.54,
@@ -2871,9 +2769,7 @@
     "Tinna Rubber": {
       "appearances": 1,
       "avg_ret1d": 6.3,
-      "max_ret1d": 6.3,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 786.8,
       "latest_ret1d": 6.3,
@@ -2891,9 +2787,7 @@
     "Insolation Ener": {
       "appearances": 1,
       "avg_ret1d": 6.29,
-      "max_ret1d": 6.29,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 146.83,
       "latest_ret1d": 6.29,
@@ -2911,9 +2805,7 @@
     "Ram Ratna Wires": {
       "appearances": 1,
       "avg_ret1d": 8.74,
-      "max_ret1d": 8.74,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 470.45,
       "latest_ret1d": 8.74,
@@ -2931,9 +2823,7 @@
     "Aditya Infotech": {
       "appearances": 2,
       "avg_ret1d": 7.9,
-      "max_ret1d": 10.0,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 13.59,
       "latest_cmp": 2903.5,
       "latest_ret1d": 10.0,
@@ -2951,9 +2841,7 @@
     "Park Medi World": {
       "appearances": 1,
       "avg_ret1d": 7.68,
-      "max_ret1d": 7.68,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 279.09,
       "latest_ret1d": 7.68,
@@ -2971,9 +2859,7 @@
     "Astra Microwave": {
       "appearances": 2,
       "avg_ret1d": 7.5,
-      "max_ret1d": 9.83,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 9.83,
       "latest_cmp": 1357.0,
       "latest_ret1d": 9.83,
@@ -2991,9 +2877,7 @@
     "J Kumar Infra": {
       "appearances": 1,
       "avg_ret1d": 4.35,
-      "max_ret1d": 4.35,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 508.4,
       "latest_ret1d": 4.35,
@@ -3011,9 +2895,7 @@
     "Fineotex Chem": {
       "appearances": 1,
       "avg_ret1d": 17.42,
-      "max_ret1d": 17.42,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 39.03,
       "latest_ret1d": 17.42,
@@ -3031,9 +2913,7 @@
     "Vintage Coffee": {
       "appearances": 2,
       "avg_ret1d": 7.47,
-      "max_ret1d": 7.48,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 7.46,
       "latest_cmp": 149.76,
       "latest_ret1d": 7.46,
@@ -3051,9 +2931,7 @@
     "20 Microns": {
       "appearances": 1,
       "avg_ret1d": 11.11,
-      "max_ret1d": 11.11,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 196.67,
       "latest_ret1d": 11.11,
@@ -3071,9 +2949,7 @@
     "Kellton Tech": {
       "appearances": 1,
       "avg_ret1d": 4.4,
-      "max_ret1d": 4.4,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 15.88,
       "latest_ret1d": 4.4,
@@ -3091,9 +2967,7 @@
     "Lloyds Engineeri": {
       "appearances": 1,
       "avg_ret1d": 7.58,
-      "max_ret1d": 7.58,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 74.63,
       "latest_ret1d": 7.58,
@@ -3111,9 +2985,7 @@
     "Paras Defence": {
       "appearances": 1,
       "avg_ret1d": 5.39,
-      "max_ret1d": 5.39,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 855.75,
       "latest_ret1d": 5.39,
@@ -3131,9 +3003,7 @@
     "Bliss GVS Pharma": {
       "appearances": 5,
       "avg_ret1d": 8.24,
-      "max_ret1d": 20.0,
       "pos_days": 5,
-      "scr_vol_spike": null,
       "price_change_week": 33.93,
       "latest_cmp": 425.3,
       "latest_ret1d": 7.17,
@@ -3151,9 +3021,7 @@
     "India Pesticides": {
       "appearances": 1,
       "avg_ret1d": 6.65,
-      "max_ret1d": 6.65,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 176.32,
       "latest_ret1d": 6.65,
@@ -3171,9 +3039,7 @@
     "Vikran Engg.": {
       "appearances": 2,
       "avg_ret1d": 9.12,
-      "max_ret1d": 9.26,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 9.26,
       "latest_cmp": 77.16,
       "latest_ret1d": 9.26,
@@ -3191,9 +3057,7 @@
     "Hariom Pipe": {
       "appearances": 1,
       "avg_ret1d": 19.99,
-      "max_ret1d": 19.99,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 413.2,
       "latest_ret1d": 19.99,
@@ -3211,9 +3075,7 @@
     "Narayana Hrudaya": {
       "appearances": 1,
       "avg_ret1d": 4.55,
-      "max_ret1d": 4.55,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1940.0,
       "latest_ret1d": 4.55,
@@ -3231,9 +3093,7 @@
     "Aptech": {
       "appearances": 1,
       "avg_ret1d": 16.4,
-      "max_ret1d": 16.4,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 112.0,
       "latest_ret1d": 16.4,
@@ -3251,9 +3111,7 @@
     "WPIL": {
       "appearances": 1,
       "avg_ret1d": 8.2,
-      "max_ret1d": 8.2,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 459.4,
       "latest_ret1d": 8.2,
@@ -3271,9 +3129,7 @@
     "Artemis Medicare": {
       "appearances": 1,
       "avg_ret1d": 5.45,
-      "max_ret1d": 5.45,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 287.92,
       "latest_ret1d": 5.45,
@@ -3291,9 +3147,7 @@
     "Apollo Micro Sys": {
       "appearances": 1,
       "avg_ret1d": 14.97,
-      "max_ret1d": 14.97,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 408.2,
       "latest_ret1d": 14.97,
@@ -3311,9 +3165,7 @@
     "Rishabh Instrum.": {
       "appearances": 1,
       "avg_ret1d": 6.28,
-      "max_ret1d": 6.28,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 549.9,
       "latest_ret1d": 6.28,
@@ -3331,9 +3183,7 @@
     "Sandhar Tech": {
       "appearances": 1,
       "avg_ret1d": 13.35,
-      "max_ret1d": 13.35,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 705.6,
       "latest_ret1d": 13.35,
@@ -3351,9 +3201,7 @@
     "Ajmera Realty": {
       "appearances": 1,
       "avg_ret1d": 9.52,
-      "max_ret1d": 9.52,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 131.37,
       "latest_ret1d": 9.52,
@@ -3371,9 +3219,7 @@
     "Apollo Tyres": {
       "appearances": 1,
       "avg_ret1d": 4.45,
-      "max_ret1d": 4.45,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 388.35,
       "latest_ret1d": 4.45,
@@ -3391,9 +3237,7 @@
     "Amara Raja Ener.": {
       "appearances": 1,
       "avg_ret1d": 7.65,
-      "max_ret1d": 7.65,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 883.4,
       "latest_ret1d": 7.65,
@@ -3411,9 +3255,7 @@
     "AWFIS Space": {
       "appearances": 1,
       "avg_ret1d": 4.96,
-      "max_ret1d": 4.96,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 360.6,
       "latest_ret1d": 4.96,
@@ -3431,9 +3273,7 @@
     "Gufic BioScience": {
       "appearances": 1,
       "avg_ret1d": 10.67,
-      "max_ret1d": 10.67,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 325.05,
       "latest_ret1d": 10.67,
@@ -3451,9 +3291,7 @@
     "JK Tyre & Indust": {
       "appearances": 3,
       "avg_ret1d": 4.95,
-      "max_ret1d": 5.13,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 6.95,
       "latest_cmp": 413.3,
       "latest_ret1d": 4.86,
@@ -3471,9 +3309,7 @@
     "Paramount Comm.": {
       "appearances": 1,
       "avg_ret1d": 10.0,
-      "max_ret1d": 10.0,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 65.35,
       "latest_ret1d": 10.0,
@@ -3491,9 +3327,7 @@
     "Universal Cables": {
       "appearances": 1,
       "avg_ret1d": 15.2,
-      "max_ret1d": 15.2,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1165.9,
       "latest_ret1d": 15.2,
@@ -3511,9 +3345,7 @@
     "Rossell Techsys": {
       "appearances": 3,
       "avg_ret1d": 6.27,
-      "max_ret1d": 10.31,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 3.91,
       "latest_cmp": 1058.65,
       "latest_ret1d": 4.25,
@@ -3531,9 +3363,7 @@
     "Hi-Tech Pipes": {
       "appearances": 1,
       "avg_ret1d": 8.04,
-      "max_ret1d": 8.04,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 92.04,
       "latest_ret1d": 8.04,
@@ -3551,9 +3381,7 @@
     "HBL Engineering": {
       "appearances": 1,
       "avg_ret1d": 5.37,
-      "max_ret1d": 5.37,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 799.45,
       "latest_ret1d": 5.37,
@@ -3571,9 +3399,7 @@
     "Shankara Buildpro": {
       "appearances": 1,
       "avg_ret1d": 7.58,
-      "max_ret1d": 7.58,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1137.6,
       "latest_ret1d": 7.58,
@@ -3591,9 +3417,7 @@
     "Ecos (India)": {
       "appearances": 1,
       "avg_ret1d": 11.91,
-      "max_ret1d": 11.91,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 153.35,
       "latest_ret1d": 11.91,
@@ -3611,9 +3435,7 @@
     "Balu Forge": {
       "appearances": 1,
       "avg_ret1d": 6.43,
-      "max_ret1d": 6.43,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 496.7,
       "latest_ret1d": 6.43,
@@ -3631,9 +3453,7 @@
     "Ceinsys Tech": {
       "appearances": 1,
       "avg_ret1d": 9.05,
-      "max_ret1d": 9.05,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 984.6,
       "latest_ret1d": 9.05,
@@ -3651,9 +3471,7 @@
     "Shivalik Bimetal": {
       "appearances": 1,
       "avg_ret1d": 7.31,
-      "max_ret1d": 7.31,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 748.75,
       "latest_ret1d": 7.31,
@@ -3671,9 +3489,7 @@
     "Diamond Power": {
       "appearances": 1,
       "avg_ret1d": 5.12,
-      "max_ret1d": 5.12,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 206.65,
       "latest_ret1d": 5.12,
@@ -3691,9 +3507,7 @@
     "Redtape": {
       "appearances": 1,
       "avg_ret1d": 11.5,
-      "max_ret1d": 11.5,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 148.49,
       "latest_ret1d": 11.5,
@@ -3711,9 +3525,7 @@
     "Cello World": {
       "appearances": 1,
       "avg_ret1d": 5.18,
-      "max_ret1d": 5.18,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 400.2,
       "latest_ret1d": 5.18,
@@ -3731,9 +3543,7 @@
     "Skipper": {
       "appearances": 2,
       "avg_ret1d": 5.39,
-      "max_ret1d": 6.3,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 9.45,
       "latest_cmp": 549.35,
       "latest_ret1d": 6.3,
@@ -3751,9 +3561,7 @@
     "Campus Activewe.": {
       "appearances": 1,
       "avg_ret1d": 6.12,
-      "max_ret1d": 6.12,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 250.5,
       "latest_ret1d": 6.12,
@@ -3771,9 +3579,7 @@
     "Uniparts India": {
       "appearances": 1,
       "avg_ret1d": 8.55,
-      "max_ret1d": 8.55,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 607.35,
       "latest_ret1d": 8.55,
@@ -3791,9 +3597,7 @@
     "KSH Internationa": {
       "appearances": 3,
       "avg_ret1d": 9.86,
-      "max_ret1d": 11.56,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 11.56,
       "latest_cmp": 825.35,
       "latest_ret1d": 11.56,
@@ -3811,9 +3615,7 @@
     "Grauer & Weil": {
       "appearances": 1,
       "avg_ret1d": 10.16,
-      "max_ret1d": 10.16,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 75.02,
       "latest_ret1d": 10.16,
@@ -3831,9 +3633,7 @@
     "Namo eWaste": {
       "appearances": 1,
       "avg_ret1d": 10.59,
-      "max_ret1d": 10.59,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 246.55,
       "latest_ret1d": 10.59,
@@ -3851,9 +3651,7 @@
     "Pace Digitek": {
       "appearances": 1,
       "avg_ret1d": 5.66,
-      "max_ret1d": 5.66,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 201.18,
       "latest_ret1d": 5.66,
@@ -3871,9 +3669,7 @@
     "Jamna Auto Inds.": {
       "appearances": 1,
       "avg_ret1d": 5.08,
-      "max_ret1d": 5.08,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 123.62,
       "latest_ret1d": 5.08,
@@ -3891,9 +3687,7 @@
     "Vidya Wires": {
       "appearances": 3,
       "avg_ret1d": 9.55,
-      "max_ret1d": 10.0,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 10.0,
       "latest_cmp": 111.77,
       "latest_ret1d": 10.0,
@@ -3911,9 +3705,7 @@
     "Panama Petrochem": {
       "appearances": 1,
       "avg_ret1d": 4.63,
-      "max_ret1d": 4.63,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 350.55,
       "latest_ret1d": 4.63,
@@ -3931,9 +3723,7 @@
     "IFB Industries": {
       "appearances": 2,
       "avg_ret1d": 7.09,
-      "max_ret1d": 9.1,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 9.11,
       "latest_cmp": 1252.5,
       "latest_ret1d": 5.08,
@@ -3951,9 +3741,7 @@
     "Marksans Pharma": {
       "appearances": 1,
       "avg_ret1d": 15.68,
-      "max_ret1d": 15.68,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 254.79,
       "latest_ret1d": 15.68,
@@ -3971,9 +3759,7 @@
     "Indo Rama Synth.": {
       "appearances": 1,
       "avg_ret1d": 19.99,
-      "max_ret1d": 19.99,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 44.47,
       "latest_ret1d": 19.99,
@@ -3991,9 +3777,7 @@
     "Suprajit Engg.": {
       "appearances": 1,
       "avg_ret1d": 6.44,
-      "max_ret1d": 6.44,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 473.6,
       "latest_ret1d": 6.44,
@@ -4011,9 +3795,7 @@
     "Surya Roshni": {
       "appearances": 1,
       "avg_ret1d": 7.16,
-      "max_ret1d": 7.16,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 232.6,
       "latest_ret1d": 7.16,
@@ -4031,9 +3813,7 @@
     "Adani Total Gas": {
       "appearances": 3,
       "avg_ret1d": 11.65,
-      "max_ret1d": 13.39,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 13.39,
       "latest_cmp": 808.55,
       "latest_ret1d": 13.39,
@@ -4051,9 +3831,7 @@
     "Shree Refrigerat": {
       "appearances": 1,
       "avg_ret1d": 11.04,
-      "max_ret1d": 11.04,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 264.6,
       "latest_ret1d": 11.04,
@@ -4071,9 +3849,7 @@
     "Patel Engineerin": {
       "appearances": 1,
       "avg_ret1d": 5.67,
-      "max_ret1d": 5.67,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 27.77,
       "latest_ret1d": 5.67,
@@ -4091,9 +3867,7 @@
     "GRM Overseas": {
       "appearances": 1,
       "avg_ret1d": 4.14,
-      "max_ret1d": 4.14,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 163.84,
       "latest_ret1d": 4.14,
@@ -4111,9 +3885,7 @@
     "Asahi India Glas": {
       "appearances": 1,
       "avg_ret1d": 4.52,
-      "max_ret1d": 4.52,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 891.6,
       "latest_ret1d": 4.52,
@@ -4131,9 +3903,7 @@
     "IOL Chemicals": {
       "appearances": 1,
       "avg_ret1d": 9.73,
-      "max_ret1d": 9.73,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 136.06,
       "latest_ret1d": 9.73,
@@ -4151,9 +3921,7 @@
     "Greaves Cotton": {
       "appearances": 1,
       "avg_ret1d": 5.75,
-      "max_ret1d": 5.75,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 181.51,
       "latest_ret1d": 5.75,
@@ -4171,9 +3939,7 @@
     "Samhi Hotels": {
       "appearances": 1,
       "avg_ret1d": 4.58,
-      "max_ret1d": 4.58,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 169.95,
       "latest_ret1d": 4.58,
@@ -4191,9 +3957,7 @@
     "Exide Inds.": {
       "appearances": 3,
       "avg_ret1d": 7.01,
-      "max_ret1d": 7.62,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 7.62,
       "latest_cmp": 394.15,
       "latest_ret1d": 7.62,
@@ -4211,9 +3975,7 @@
     "PSP Projects": {
       "appearances": 3,
       "avg_ret1d": 5.44,
-      "max_ret1d": 8.23,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 4.04,
       "latest_cmp": 869.85,
       "latest_ret1d": 4.04,
@@ -4231,9 +3993,7 @@
     "Chemcon Special.": {
       "appearances": 1,
       "avg_ret1d": 5.5,
-      "max_ret1d": 5.5,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 202.92,
       "latest_ret1d": 5.5,
@@ -4251,9 +4011,7 @@
     "Prism Johnson": {
       "appearances": 1,
       "avg_ret1d": 6.2,
-      "max_ret1d": 6.2,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 124.81,
       "latest_ret1d": 6.2,
@@ -4271,9 +4029,7 @@
     "Adani Enterp.": {
       "appearances": 1,
       "avg_ret1d": 4.2,
-      "max_ret1d": 4.2,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 2969.3,
       "latest_ret1d": 4.2,
@@ -4291,9 +4047,7 @@
     "Info Edg.(India)": {
       "appearances": 1,
       "avg_ret1d": 4.5,
-      "max_ret1d": 4.5,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 980.7,
       "latest_ret1d": 4.5,
@@ -4311,9 +4065,7 @@
     "Mercury EV-Tech": {
       "appearances": 3,
       "avg_ret1d": 4.99,
-      "max_ret1d": 4.99,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 4.99,
       "latest_cmp": 33.44,
       "latest_ret1d": 4.99,
@@ -4331,9 +4083,7 @@
     "Walchan. Inds.": {
       "appearances": 1,
       "avg_ret1d": 8.27,
-      "max_ret1d": 8.27,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 265.27,
       "latest_ret1d": 8.27,
@@ -4351,9 +4101,7 @@
     "Prataap Snacks": {
       "appearances": 1,
       "avg_ret1d": 13.34,
-      "max_ret1d": 13.34,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1110.7,
       "latest_ret1d": 13.34,
@@ -4371,9 +4119,7 @@
     "E2E Networks": {
       "appearances": 1,
       "avg_ret1d": 4.94,
-      "max_ret1d": 4.94,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 3884.7,
       "latest_ret1d": 4.94,
@@ -4391,9 +4137,7 @@
     "Quadrant Future": {
       "appearances": 1,
       "avg_ret1d": 4.95,
-      "max_ret1d": 4.95,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 302.95,
       "latest_ret1d": 4.95,
@@ -4411,9 +4155,7 @@
     "Dec.Gold Mines": {
       "appearances": 1,
       "avg_ret1d": 19.29,
-      "max_ret1d": 19.29,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 176.86,
       "latest_ret1d": 19.29,
@@ -4431,9 +4173,7 @@
     "Timex Group": {
       "appearances": 3,
       "avg_ret1d": 10.74,
-      "max_ret1d": 13.07,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 6.09,
       "latest_cmp": 449.35,
       "latest_ret1d": 6.09,
@@ -4451,9 +4191,7 @@
     "GE Vernova T&D": {
       "appearances": 2,
       "avg_ret1d": 5.14,
-      "max_ret1d": 5.14,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 5097.7,
       "latest_ret1d": 5.14,
@@ -4471,9 +4209,7 @@
     "Oracle Fin.Serv.": {
       "appearances": 2,
       "avg_ret1d": 4.22,
-      "max_ret1d": 4.22,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 10299.5,
       "latest_ret1d": 4.22,
@@ -4491,9 +4227,7 @@
     "Natl. Aluminium": {
       "appearances": 2,
       "avg_ret1d": 4.05,
-      "max_ret1d": 4.05,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 433.05,
       "latest_ret1d": 4.05,
@@ -4511,9 +4245,7 @@
     "Cummins India": {
       "appearances": 2,
       "avg_ret1d": 11.24,
-      "max_ret1d": 11.24,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 6027.5,
       "latest_ret1d": 11.24,
@@ -4531,9 +4263,7 @@
     "Indrapr.Medical": {
       "appearances": 2,
       "avg_ret1d": 5.41,
-      "max_ret1d": 5.41,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 391.8,
       "latest_ret1d": 5.41,
@@ -4551,9 +4281,7 @@
     "Suzlon Energy": {
       "appearances": 2,
       "avg_ret1d": 5.4,
-      "max_ret1d": 5.4,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 57.53,
       "latest_ret1d": 5.4,
@@ -4571,9 +4299,7 @@
     "Apar Inds.": {
       "appearances": 2,
       "avg_ret1d": 7.1,
-      "max_ret1d": 7.1,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 13426.0,
       "latest_ret1d": 7.1,
@@ -4591,9 +4317,7 @@
     "Hitachi Energy": {
       "appearances": 2,
       "avg_ret1d": 4.32,
-      "max_ret1d": 4.32,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 37550.0,
       "latest_ret1d": 4.32,
@@ -4611,9 +4335,7 @@
     "Monarch Networth": {
       "appearances": 2,
       "avg_ret1d": 4.75,
-      "max_ret1d": 4.75,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 346.15,
       "latest_ret1d": 4.75,
@@ -4631,9 +4353,7 @@
     "CG Power & Ind": {
       "appearances": 2,
       "avg_ret1d": 6.33,
-      "max_ret1d": 6.33,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 934.8,
       "latest_ret1d": 6.33,
@@ -4651,9 +4371,7 @@
     "TPL Plastech": {
       "appearances": 3,
       "avg_ret1d": 5.68,
-      "max_ret1d": 6.21,
       "pos_days": 3,
-      "scr_vol_spike": null,
       "price_change_week": 4.63,
       "latest_cmp": 73.06,
       "latest_ret1d": 4.63,
@@ -4671,9 +4389,7 @@
     "Siemens": {
       "appearances": 2,
       "avg_ret1d": 5.48,
-      "max_ret1d": 5.48,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 3878.7,
       "latest_ret1d": 5.48,
@@ -4691,9 +4407,7 @@
     "Pasupati Acrylon": {
       "appearances": 2,
       "avg_ret1d": 6.19,
-      "max_ret1d": 6.19,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 61.93,
       "latest_ret1d": 6.19,
@@ -4711,9 +4425,7 @@
     "AIA Engineering": {
       "appearances": 2,
       "avg_ret1d": 6.87,
-      "max_ret1d": 6.87,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 4428.1,
       "latest_ret1d": 6.87,
@@ -4731,9 +4443,7 @@
     "Usha Martin": {
       "appearances": 2,
       "avg_ret1d": 6.17,
-      "max_ret1d": 6.17,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 510.45,
       "latest_ret1d": 6.17,
@@ -4751,9 +4461,7 @@
     "Hind Rectifiers": {
       "appearances": 2,
       "avg_ret1d": 15.28,
-      "max_ret1d": 15.28,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 1152.35,
       "latest_ret1d": 15.28,
@@ -4771,9 +4479,7 @@
     "Jash Engineering": {
       "appearances": 2,
       "avg_ret1d": 6.56,
-      "max_ret1d": 6.56,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 423.25,
       "latest_ret1d": 6.56,
@@ -4791,9 +4497,7 @@
     "Finolex Cables": {
       "appearances": 2,
       "avg_ret1d": 8.39,
-      "max_ret1d": 8.39,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 1177.25,
       "latest_ret1d": 8.39,
@@ -4811,9 +4515,7 @@
     "FDC": {
       "appearances": 2,
       "avg_ret1d": 6.55,
-      "max_ret1d": 6.55,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 429.55,
       "latest_ret1d": 6.55,
@@ -4831,9 +4533,7 @@
     "Tube Investments": {
       "appearances": 2,
       "avg_ret1d": 5.64,
-      "max_ret1d": 5.64,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 3210.5,
       "latest_ret1d": 5.64,
@@ -4851,9 +4551,7 @@
     "Deep Industries": {
       "appearances": 2,
       "avg_ret1d": 6.01,
-      "max_ret1d": 6.01,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 487.15,
       "latest_ret1d": 6.01,
@@ -4871,9 +4569,7 @@
     "Pennar Industrie": {
       "appearances": 2,
       "avg_ret1d": 9.55,
-      "max_ret1d": 9.55,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 171.89,
       "latest_ret1d": 9.55,
@@ -4891,9 +4587,7 @@
     "Samvardh. Mothe.": {
       "appearances": 2,
       "avg_ret1d": 4.85,
-      "max_ret1d": 4.85,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 142.41,
       "latest_ret1d": 4.85,
@@ -4911,9 +4605,7 @@
     "Minda Corp": {
       "appearances": 2,
       "avg_ret1d": 4.86,
-      "max_ret1d": 4.86,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 623.85,
       "latest_ret1d": 4.86,
@@ -4931,9 +4623,7 @@
     "TGV Sraac": {
       "appearances": 2,
       "avg_ret1d": 6.51,
-      "max_ret1d": 6.51,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 113.7,
       "latest_ret1d": 6.51,
@@ -4951,9 +4641,7 @@
     "Stove Kraft": {
       "appearances": 2,
       "avg_ret1d": 7.17,
-      "max_ret1d": 7.17,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 605.85,
       "latest_ret1d": 7.17,
@@ -4971,9 +4659,7 @@
     "Adani Energy Sol": {
       "appearances": 2,
       "avg_ret1d": 5.25,
-      "max_ret1d": 5.25,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 1540.1,
       "latest_ret1d": 5.25,
@@ -4991,9 +4677,7 @@
     "Modern Insulator": {
       "appearances": 2,
       "avg_ret1d": 4.02,
-      "max_ret1d": 4.02,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 471.5,
       "latest_ret1d": 4.02,
@@ -5011,9 +4695,7 @@
     "JSW Energy": {
       "appearances": 2,
       "avg_ret1d": 4.52,
-      "max_ret1d": 4.52,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 602.05,
       "latest_ret1d": 4.52,
@@ -5031,9 +4713,7 @@
     "Tirupati Forge": {
       "appearances": 2,
       "avg_ret1d": 4.89,
-      "max_ret1d": 4.89,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 45.93,
       "latest_ret1d": 4.89,
@@ -5051,9 +4731,7 @@
     "JP Power Ven.": {
       "appearances": 2,
       "avg_ret1d": 19.55,
-      "max_ret1d": 19.55,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 22.87,
       "latest_ret1d": 19.55,
@@ -5071,9 +4749,7 @@
     "GHCL Textiles": {
       "appearances": 2,
       "avg_ret1d": 4.66,
-      "max_ret1d": 4.66,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 100.17,
       "latest_ret1d": 4.66,
@@ -5091,9 +4767,7 @@
     "IFCI": {
       "appearances": 2,
       "avg_ret1d": 6.18,
-      "max_ret1d": 6.18,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 68.38,
       "latest_ret1d": 6.18,
@@ -5111,9 +4785,7 @@
     "Ramco Inds.": {
       "appearances": 2,
       "avg_ret1d": 4.43,
-      "max_ret1d": 4.43,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 311.35,
       "latest_ret1d": 4.43,
@@ -5131,9 +4803,7 @@
     "Fino Payments": {
       "appearances": 2,
       "avg_ret1d": 4.75,
-      "max_ret1d": 4.75,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 133.97,
       "latest_ret1d": 4.75,
@@ -5151,9 +4821,7 @@
     "Pine Labs": {
       "appearances": 2,
       "avg_ret1d": 5.72,
-      "max_ret1d": 5.72,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 145.83,
       "latest_ret1d": 5.72,
@@ -5171,9 +4839,7 @@
     "Camlin Fine": {
       "appearances": 2,
       "avg_ret1d": 7.1,
-      "max_ret1d": 7.1,
       "pos_days": 2,
-      "scr_vol_spike": null,
       "price_change_week": 0.0,
       "latest_cmp": 130.19,
       "latest_ret1d": 7.1,
@@ -5191,9 +4857,7 @@
     "KIOCL": {
       "appearances": 1,
       "avg_ret1d": 4.78,
-      "max_ret1d": 4.78,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 416.1,
       "latest_ret1d": 4.78,
@@ -5211,9 +4875,7 @@
     "Jaykay Enter.": {
       "appearances": 1,
       "avg_ret1d": 6.61,
-      "max_ret1d": 6.61,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 213.94,
       "latest_ret1d": 6.61,
@@ -5231,9 +4893,7 @@
     "GE Power": {
       "appearances": 1,
       "avg_ret1d": 4.72,
-      "max_ret1d": 4.72,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 865.15,
       "latest_ret1d": 4.72,
@@ -5251,9 +4911,7 @@
     "Kernex Microsys.": {
       "appearances": 1,
       "avg_ret1d": 13.76,
-      "max_ret1d": 13.76,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1689.9,
       "latest_ret1d": 13.76,
@@ -5271,9 +4929,7 @@
     "Netweb Technol.": {
       "appearances": 1,
       "avg_ret1d": 14.7,
-      "max_ret1d": 14.7,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 4670.7,
       "latest_ret1d": 14.7,
@@ -5291,9 +4947,7 @@
     "Banco Products": {
       "appearances": 1,
       "avg_ret1d": 4.86,
-      "max_ret1d": 4.86,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 656.25,
       "latest_ret1d": 4.86,
@@ -5311,9 +4965,7 @@
     "Shaily Engineer.": {
       "appearances": 1,
       "avg_ret1d": 12.34,
-      "max_ret1d": 12.34,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 2989.5,
       "latest_ret1d": 12.34,
@@ -5331,9 +4983,7 @@
     "Silver Touch": {
       "appearances": 1,
       "avg_ret1d": 4.96,
-      "max_ret1d": 4.96,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 168.31,
       "latest_ret1d": 4.96,
@@ -5351,9 +5001,7 @@
     "R R Kabel": {
       "appearances": 1,
       "avg_ret1d": 5.4,
-      "max_ret1d": 5.4,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 2056.3,
       "latest_ret1d": 5.4,
@@ -5371,9 +5019,7 @@
     "Sudeep Pharma": {
       "appearances": 1,
       "avg_ret1d": 10.0,
-      "max_ret1d": 10.0,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 742.15,
       "latest_ret1d": 10.0,
@@ -5391,9 +5037,7 @@
     "Gulf Oil Lubric.": {
       "appearances": 1,
       "avg_ret1d": 4.62,
-      "max_ret1d": 4.62,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 973.05,
       "latest_ret1d": 4.62,
@@ -5411,9 +5055,7 @@
     "Sky Gold & Diam.": {
       "appearances": 1,
       "avg_ret1d": 7.06,
-      "max_ret1d": 7.06,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 521.0,
       "latest_ret1d": 7.06,
@@ -5431,9 +5073,7 @@
     "Thangamayil Jew.": {
       "appearances": 1,
       "avg_ret1d": 7.16,
-      "max_ret1d": 7.16,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 4204.9,
       "latest_ret1d": 7.16,
@@ -5451,9 +5091,7 @@
     "Supriya Lifesci.": {
       "appearances": 1,
       "avg_ret1d": 20.0,
-      "max_ret1d": 20.0,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 968.7,
       "latest_ret1d": 20.0,
@@ -5471,9 +5109,7 @@
     "T B Z": {
       "appearances": 1,
       "avg_ret1d": 20.0,
-      "max_ret1d": 20.0,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 165.49,
       "latest_ret1d": 20.0,
@@ -5491,9 +5127,7 @@
     "ABS Marine": {
       "appearances": 1,
       "avg_ret1d": 4.83,
-      "max_ret1d": 4.83,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 285.15,
       "latest_ret1d": 4.83,
@@ -5511,9 +5145,7 @@
     "Ashapura Minech.": {
       "appearances": 1,
       "avg_ret1d": 13.06,
-      "max_ret1d": 13.06,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 739.5,
       "latest_ret1d": 13.06,
@@ -5531,9 +5163,7 @@
     "Viyash Scientific": {
       "appearances": 1,
       "avg_ret1d": 4.67,
-      "max_ret1d": 4.67,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 261.94,
       "latest_ret1d": 4.67,
@@ -5551,9 +5181,7 @@
     "Marine Electric.": {
       "appearances": 1,
       "avg_ret1d": 8.48,
-      "max_ret1d": 8.48,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 268.94,
       "latest_ret1d": 8.48,
@@ -5571,9 +5199,7 @@
     "J.G.Chemicals": {
       "appearances": 1,
       "avg_ret1d": 7.52,
-      "max_ret1d": 7.52,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 436.2,
       "latest_ret1d": 7.52,
@@ -5591,9 +5217,7 @@
     "Omnitech Engg.": {
       "appearances": 1,
       "avg_ret1d": 14.42,
-      "max_ret1d": 14.42,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 497.65,
       "latest_ret1d": 14.42,
@@ -5611,9 +5235,7 @@
     "India Nipp.Elec.": {
       "appearances": 1,
       "avg_ret1d": 12.79,
-      "max_ret1d": 12.79,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 921.2,
       "latest_ret1d": 12.79,
@@ -5631,9 +5253,7 @@
     "Kamat Hotels": {
       "appearances": 1,
       "avg_ret1d": 6.79,
-      "max_ret1d": 6.79,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 180.9,
       "latest_ret1d": 6.79,
@@ -5651,9 +5271,7 @@
     "Servotech Renew": {
       "appearances": 1,
       "avg_ret1d": 4.64,
-      "max_ret1d": 4.64,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 97.51,
       "latest_ret1d": 4.64,
@@ -5671,9 +5289,7 @@
     "Thermax": {
       "appearances": 1,
       "avg_ret1d": 8.54,
-      "max_ret1d": 8.54,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 4982.7,
       "latest_ret1d": 8.54,
@@ -5691,9 +5307,7 @@
     "Kirloskar Oil": {
       "appearances": 1,
       "avg_ret1d": 5.36,
-      "max_ret1d": 5.36,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1928.0,
       "latest_ret1d": 5.36,
@@ -5711,9 +5325,7 @@
     "Aegis Logistics": {
       "appearances": 1,
       "avg_ret1d": 4.82,
-      "max_ret1d": 4.82,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 748.45,
       "latest_ret1d": 4.82,
@@ -5731,9 +5343,7 @@
     "Parag Milk Foods": {
       "appearances": 1,
       "avg_ret1d": 4.08,
-      "max_ret1d": 4.08,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 222.31,
       "latest_ret1d": 4.08,
@@ -5751,9 +5361,7 @@
     "Moschip Tech.": {
       "appearances": 1,
       "avg_ret1d": 5.74,
-      "max_ret1d": 5.74,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 219.91,
       "latest_ret1d": 5.74,
@@ -5771,9 +5379,7 @@
     "TajGVK Hotels": {
       "appearances": 1,
       "avg_ret1d": 7.8,
-      "max_ret1d": 7.8,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 346.3,
       "latest_ret1d": 7.8,
@@ -5791,9 +5397,7 @@
     "Paisalo Digital": {
       "appearances": 1,
       "avg_ret1d": 4.5,
-      "max_ret1d": 4.5,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 51.58,
       "latest_ret1d": 4.5,
@@ -5811,9 +5415,7 @@
     "Bajel Projects": {
       "appearances": 1,
       "avg_ret1d": 6.04,
-      "max_ret1d": 6.04,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 195.47,
       "latest_ret1d": 6.04,
@@ -5831,9 +5433,7 @@
     "Confidence Petro": {
       "appearances": 1,
       "avg_ret1d": 6.26,
-      "max_ret1d": 6.26,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 67.77,
       "latest_ret1d": 6.26,
@@ -5851,9 +5451,7 @@
     "Landmark Cars": {
       "appearances": 1,
       "avg_ret1d": 4.22,
-      "max_ret1d": 4.22,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 379.35,
       "latest_ret1d": 4.22,
@@ -5871,9 +5469,7 @@
     "Birla Cable": {
       "appearances": 1,
       "avg_ret1d": 5.0,
-      "max_ret1d": 5.0,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 193.91,
       "latest_ret1d": 5.0,
@@ -5891,9 +5487,7 @@
     "Rain Industries": {
       "appearances": 1,
       "avg_ret1d": 6.56,
-      "max_ret1d": 6.56,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 188.07,
       "latest_ret1d": 6.56,
@@ -5911,9 +5505,7 @@
     "Tega Inds.": {
       "appearances": 1,
       "avg_ret1d": 10.4,
-      "max_ret1d": 10.4,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1766.0,
       "latest_ret1d": 10.4,
@@ -5931,9 +5523,7 @@
     "Wockhardt": {
       "appearances": 1,
       "avg_ret1d": 14.7,
-      "max_ret1d": 14.7,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 2031.4,
       "latest_ret1d": 14.7,
@@ -5951,9 +5541,7 @@
     "Yatra Online": {
       "appearances": 1,
       "avg_ret1d": 4.05,
-      "max_ret1d": 4.05,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 100.3,
       "latest_ret1d": 4.05,
@@ -5971,9 +5559,7 @@
     "Nuvoco Vistas": {
       "appearances": 1,
       "avg_ret1d": 5.09,
-      "max_ret1d": 5.09,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 348.65,
       "latest_ret1d": 5.09,
@@ -5991,9 +5577,7 @@
     "Kopran": {
       "appearances": 1,
       "avg_ret1d": 6.56,
-      "max_ret1d": 6.56,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 206.27,
       "latest_ret1d": 6.56,
@@ -6011,9 +5595,7 @@
     "Primo Chemicals": {
       "appearances": 1,
       "avg_ret1d": 5.99,
-      "max_ret1d": 5.99,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 23.02,
       "latest_ret1d": 5.99,
@@ -6031,9 +5613,7 @@
     "Neogen Chemicals": {
       "appearances": 1,
       "avg_ret1d": 4.54,
-      "max_ret1d": 4.54,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 1858.1,
       "latest_ret1d": 4.54,
@@ -6051,9 +5631,7 @@
     "Focus Lighting": {
       "appearances": 1,
       "avg_ret1d": 4.02,
-      "max_ret1d": 4.02,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 82.8,
       "latest_ret1d": 4.02,
@@ -6071,9 +5649,7 @@
     "Guj Inds. Power": {
       "appearances": 1,
       "avg_ret1d": 4.82,
-      "max_ret1d": 4.82,
       "pos_days": 1,
-      "scr_vol_spike": null,
       "price_change_week": null,
       "latest_cmp": 165.17,
       "latest_ret1d": 4.82,
@@ -6095,9 +5671,7 @@
       {
         "appearances": 5,
         "avg_ret1d": 8.24,
-        "max_ret1d": 20.0,
         "pos_days": 5,
-        "scr_vol_spike": null,
         "price_change_week": 33.93,
         "latest_cmp": 425.3,
         "latest_ret1d": 7.17,
@@ -6118,9 +5692,7 @@
       {
         "appearances": 4,
         "avg_ret1d": 14.7,
-        "max_ret1d": 20.0,
         "pos_days": 4,
-        "scr_vol_spike": null,
         "price_change_week": 31.26,
         "latest_cmp": 274.71,
         "latest_ret1d": 9.39,
@@ -6141,9 +5713,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 13.56,
-        "max_ret1d": 17.54,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 11.01,
         "latest_cmp": 432.2,
         "latest_ret1d": 17.54,
@@ -6164,9 +5734,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 11.65,
-        "max_ret1d": 13.39,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 13.39,
         "latest_cmp": 808.55,
         "latest_ret1d": 13.39,
@@ -6187,9 +5755,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 10.74,
-        "max_ret1d": 13.07,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 6.09,
         "latest_cmp": 449.35,
         "latest_ret1d": 6.09,
@@ -6210,9 +5776,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 9.86,
-        "max_ret1d": 11.56,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 11.56,
         "latest_cmp": 825.35,
         "latest_ret1d": 11.56,
@@ -6233,9 +5797,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 9.55,
-        "max_ret1d": 10.0,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 10.0,
         "latest_cmp": 111.77,
         "latest_ret1d": 10.0,
@@ -6256,9 +5818,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 7.01,
-        "max_ret1d": 7.62,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 7.62,
         "latest_cmp": 394.15,
         "latest_ret1d": 7.62,
@@ -6279,9 +5839,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 6.27,
-        "max_ret1d": 10.31,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 3.91,
         "latest_cmp": 1058.65,
         "latest_ret1d": 4.25,
@@ -6302,9 +5860,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 5.68,
-        "max_ret1d": 6.21,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 4.63,
         "latest_cmp": 73.06,
         "latest_ret1d": 4.63,
@@ -6325,9 +5881,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 5.44,
-        "max_ret1d": 8.23,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 4.04,
         "latest_cmp": 869.85,
         "latest_ret1d": 4.04,
@@ -6348,9 +5902,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 4.99,
-        "max_ret1d": 4.99,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 4.99,
         "latest_cmp": 33.44,
         "latest_ret1d": 4.99,
@@ -6371,9 +5923,7 @@
       {
         "appearances": 3,
         "avg_ret1d": 4.95,
-        "max_ret1d": 5.13,
         "pos_days": 3,
-        "scr_vol_spike": null,
         "price_change_week": 6.95,
         "latest_cmp": 413.3,
         "latest_ret1d": 4.86,
@@ -6394,9 +5944,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 19.55,
-        "max_ret1d": 19.55,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 22.87,
         "latest_ret1d": 19.55,
@@ -6417,9 +5965,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 15.28,
-        "max_ret1d": 15.28,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 1152.35,
         "latest_ret1d": 15.28,
@@ -6440,9 +5986,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 11.24,
-        "max_ret1d": 11.24,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 6027.5,
         "latest_ret1d": 11.24,
@@ -6463,9 +6007,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 9.55,
-        "max_ret1d": 9.55,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 171.89,
         "latest_ret1d": 9.55,
@@ -6486,9 +6028,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 9.12,
-        "max_ret1d": 9.26,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.26,
         "latest_cmp": 77.16,
         "latest_ret1d": 9.26,
@@ -6509,9 +6049,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 8.39,
-        "max_ret1d": 8.39,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 1177.25,
         "latest_ret1d": 8.39,
@@ -6532,9 +6070,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 8.31,
-        "max_ret1d": 10.0,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 6.63,
         "latest_cmp": 238.84,
         "latest_ret1d": 6.63,
@@ -6555,9 +6091,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.9,
-        "max_ret1d": 10.0,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 13.59,
         "latest_cmp": 2903.5,
         "latest_ret1d": 10.0,
@@ -6578,9 +6112,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.5,
-        "max_ret1d": 9.83,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.83,
         "latest_cmp": 1357.0,
         "latest_ret1d": 9.83,
@@ -6601,9 +6133,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.47,
-        "max_ret1d": 7.48,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 7.46,
         "latest_cmp": 149.76,
         "latest_ret1d": 7.46,
@@ -6624,9 +6154,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.17,
-        "max_ret1d": 7.17,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 605.85,
         "latest_ret1d": 7.17,
@@ -6647,9 +6175,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.1,
-        "max_ret1d": 7.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 13426.0,
         "latest_ret1d": 7.1,
@@ -6670,9 +6196,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.1,
-        "max_ret1d": 7.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 130.19,
         "latest_ret1d": 7.1,
@@ -6693,9 +6217,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.09,
-        "max_ret1d": 9.1,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.11,
         "latest_cmp": 1252.5,
         "latest_ret1d": 5.08,
@@ -6716,9 +6238,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 7.03,
-        "max_ret1d": 9.82,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 12.08,
         "latest_cmp": 325.3,
         "latest_ret1d": 4.23,
@@ -6739,9 +6259,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.87,
-        "max_ret1d": 6.87,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 4428.1,
         "latest_ret1d": 6.87,
@@ -6762,9 +6280,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.56,
-        "max_ret1d": 6.56,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 423.25,
         "latest_ret1d": 6.56,
@@ -6785,9 +6301,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.55,
-        "max_ret1d": 6.55,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 429.55,
         "latest_ret1d": 6.55,
@@ -6808,9 +6322,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.51,
-        "max_ret1d": 6.51,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 113.7,
         "latest_ret1d": 6.51,
@@ -6831,9 +6343,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.33,
-        "max_ret1d": 6.33,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 934.8,
         "latest_ret1d": 6.33,
@@ -6854,9 +6364,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.19,
-        "max_ret1d": 6.19,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 61.93,
         "latest_ret1d": 6.19,
@@ -6877,9 +6385,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.18,
-        "max_ret1d": 6.18,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 68.38,
         "latest_ret1d": 6.18,
@@ -6900,9 +6406,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.17,
-        "max_ret1d": 6.17,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 510.45,
         "latest_ret1d": 6.17,
@@ -6923,9 +6427,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 6.01,
-        "max_ret1d": 6.01,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 487.15,
         "latest_ret1d": 6.01,
@@ -6946,9 +6448,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.72,
-        "max_ret1d": 5.72,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 145.83,
         "latest_ret1d": 5.72,
@@ -6969,9 +6469,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.64,
-        "max_ret1d": 5.64,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 3210.5,
         "latest_ret1d": 5.64,
@@ -6992,9 +6490,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.48,
-        "max_ret1d": 5.48,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 3878.7,
         "latest_ret1d": 5.48,
@@ -7015,9 +6511,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.41,
-        "max_ret1d": 5.41,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 391.8,
         "latest_ret1d": 5.41,
@@ -7038,9 +6532,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.4,
-        "max_ret1d": 5.4,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 57.53,
         "latest_ret1d": 5.4,
@@ -7061,9 +6553,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.39,
-        "max_ret1d": 6.3,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 9.45,
         "latest_cmp": 549.35,
         "latest_ret1d": 6.3,
@@ -7084,9 +6574,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.25,
-        "max_ret1d": 5.25,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 1540.1,
         "latest_ret1d": 5.25,
@@ -7107,9 +6595,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 5.14,
-        "max_ret1d": 5.14,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 5097.7,
         "latest_ret1d": 5.14,
@@ -7130,9 +6616,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.89,
-        "max_ret1d": 4.89,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 45.93,
         "latest_ret1d": 4.89,
@@ -7153,9 +6637,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.86,
-        "max_ret1d": 4.86,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 623.85,
         "latest_ret1d": 4.86,
@@ -7176,9 +6658,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.85,
-        "max_ret1d": 4.85,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 142.41,
         "latest_ret1d": 4.85,
@@ -7199,9 +6679,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.75,
-        "max_ret1d": 4.75,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 346.15,
         "latest_ret1d": 4.75,
@@ -7222,9 +6700,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.75,
-        "max_ret1d": 4.75,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 133.97,
         "latest_ret1d": 4.75,
@@ -7245,9 +6721,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.66,
-        "max_ret1d": 4.66,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 100.17,
         "latest_ret1d": 4.66,
@@ -7268,9 +6742,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.52,
-        "max_ret1d": 4.52,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 602.05,
         "latest_ret1d": 4.52,
@@ -7291,9 +6763,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.43,
-        "max_ret1d": 4.43,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 311.35,
         "latest_ret1d": 4.43,
@@ -7314,9 +6784,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.32,
-        "max_ret1d": 4.32,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 37550.0,
         "latest_ret1d": 4.32,
@@ -7337,9 +6805,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.22,
-        "max_ret1d": 4.22,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 10299.5,
         "latest_ret1d": 4.22,
@@ -7360,9 +6826,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.05,
-        "max_ret1d": 4.05,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 433.05,
         "latest_ret1d": 4.05,
@@ -7383,9 +6847,7 @@
       {
         "appearances": 2,
         "avg_ret1d": 4.02,
-        "max_ret1d": 4.02,
         "pos_days": 2,
-        "scr_vol_spike": null,
         "price_change_week": 0.0,
         "latest_cmp": 471.5,
         "latest_ret1d": 4.02,
