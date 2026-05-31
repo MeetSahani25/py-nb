@@ -1,196 +1,125 @@
 """
 send_email.py
-Sends the latest weekly analysis HTML report via Gmail SMTP.
-Runs every Saturday 10am IST and on manual workflow_dispatch.
+Sends weekly analysis + silent horse reports via Gmail SMTP.
+Runs every Friday evening and Saturday 10am IST.
 """
 
-import os
-import smtplib
-import json
-import glob
+import os, smtplib, json, glob
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 from datetime import date, timedelta
 
-# ── Config from GitHub Secrets ────────────────────────────────────────────────
-SENDER    = os.environ.get("EMAIL_SENDER", "")
-PASSWORD  = os.environ.get("EMAIL_PASSWORD", "")
-RECEIVER  = os.environ.get("EMAIL_RECEIVER", "")
-REPORTS   = "reports"
-# ─────────────────────────────────────────────────────────────────────────────
+SENDER   = os.environ.get("EMAIL_SENDER", "")
+PASSWORD = os.environ.get("EMAIL_PASSWORD", "")
+RECEIVER = os.environ.get("EMAIL_RECEIVER", "")
+REPORTS  = "reports"
 
-def find_latest_weekly_report():
-    """Find the most recent weekly analysis HTML."""
-    pattern = os.path.join(REPORTS, "weekly", "week_*_analysis.html")
+def latest(pattern):
     files = sorted(glob.glob(pattern), reverse=True)
     return files[0] if files else None
 
-def find_latest_weekly_json():
-    """Find the most recent weekly analysis JSON for summary data."""
-    pattern = os.path.join(REPORTS, "weekly", "week_*_analysis.json")
-    files = sorted(glob.glob(pattern), reverse=True)
-    return files[0] if files else None
-
-def find_this_week_dailies():
-    """Find daily CSV reports for this week."""
-    today = date.today()
+def this_week_csvs():
+    today  = date.today()
     monday = today - timedelta(days=today.weekday())
-    files = []
+    out = []
     for i in range(5):
         d = (monday + timedelta(days=i)).isoformat()
-        path = os.path.join(REPORTS, d, f"{d}_screener.csv")
-        if os.path.exists(path):
-            files.append(path)
-    return files
+        p = os.path.join(REPORTS, d, f"{d}_screener.csv")
+        if os.path.exists(p): out.append(p)
+    return out
 
-def build_email_body(json_path):
-    """Build a clean plain-text summary for the email body."""
-    if not json_path or not os.path.exists(json_path):
-        return "Weekly analysis report attached. Open the HTML file for the full breakdown."
+def build_body():
+    # Try to read weekly JSON for summary
+    wj = latest(os.path.join(REPORTS, "weekly", "week_*_analysis.json"))
+    mj_4wk = latest(os.path.join(REPORTS, "monthly", "silent_horse_4wk_*.json"))
+    mj_3wk = latest(os.path.join(REPORTS, "monthly", "silent_horse_3wk_*.json"))
 
-    try:
-        with open(json_path) as f:
-            data = json.load(f)
+    lines = [f"📊 SCREENER WEEKLY + SILENT HORSE REPORT — {date.today().strftime('%d %b %Y')}",
+             "="*55, ""]
 
-        dates      = data.get("dates", [])
-        total      = data.get("total_unique", 0)
-        all5       = data.get("appeared_all5", [])
-        conviction = data.get("conviction_picks", [])
-        earnings   = data.get("earnings_catalyst", [])
+    if wj and os.path.exists(wj):
+        try:
+            d = json.load(open(wj))
+            lines += [
+                "WEEKLY BREAKOUT SUMMARY",
+                f"  Days tracked    : {len(d.get('dates',[]))}",
+                f"  Unique stocks   : {d.get('total_unique',0)}",
+                f"  All-5-day stocks: {len(d.get('appeared_all5',[]))} — {', '.join(d.get('appeared_all5',[])[:5])}",
+                f"  2+ day stocks   : {len(d.get('appeared_2p',[]))}",
+                "",
+            ]
+        except: pass
 
-        # Top conviction picks summary
-        top_picks = []
-        if isinstance(conviction, list):
-            for item in conviction[:5]:
-                if isinstance(item, (list, tuple)) and len(item) >= 2:
-                    name = item[0]
-                    stats = item[1] if isinstance(item[1], dict) else {}
-                    bp = stats.get("bp_score", "—")
-                    ret = stats.get("avg_ret1d", "—")
-                    spike = stats.get("avg_vol_spike", "—")
-                    top_picks.append(f"  • {name} — BP Score: {bp}, Avg 1d Return: {ret}%, Vol Spike: {spike}×")
+    for label, jpath in [("4-WEEK SILENT HORSE", mj_4wk), ("3-WEEK SILENT HORSE", mj_3wk)]:
+        if jpath and os.path.exists(jpath):
+            try:
+                d = json.load(open(jpath))
+                gold   = d.get("gold", [])
+                silver = d.get("silver", [])
+                watch  = d.get("watch", [])
+                stage1 = d.get("stage1_bases", [])
+                lines += [
+                    label,
+                    f"  🥇 Gold  ({len(gold)}): {', '.join(n for n,_ in gold[:5])}",
+                    f"  🥈 Silver({len(silver)}): {', '.join(n for n,_ in silver[:5])}",
+                    f"  👁  Watch ({len(watch)}): {', '.join(n for n,_ in watch[:5])}",
+                    f"  🔍 Stage 1 bases (8wk): {len(stage1)}",
+                    "",
+                ]
+            except: pass
 
-        # Top earnings catalysts
-        earn_list = []
-        if isinstance(earnings, list):
-            for item in earnings[:3]:
-                if isinstance(item, (list, tuple)) and len(item) >= 2:
-                    name = item[0]
-                    stats = item[1] if isinstance(item[1], dict) else {}
-                    qoqp = stats.get("latest_qoqp", "—")
-                    earn_list.append(f"  • {name} — QoQ Profit Growth: {qoqp}%")
+    lines += [
+        "="*55,
+        "Attachments: weekly HTML · silent horse 3wk + 4wk HTML · daily CSVs",
+        "Open HTML files in Chrome for best experience.",
+        "",
+        "Screen: https://www.screener.in/screens/3664072/screen1/",
+    ]
+    return "\n".join(lines)
 
-        week_label = f"{dates[0]} → {dates[-1]}" if dates else "this week"
-
-        body = f"""
-📊 WEEKLY BREAKOUT ANALYSIS — {week_label}
-{'='*55}
-
-Week at a Glance
-  • Trading days tracked : {len(dates)}
-  • Unique stocks        : {total}
-  • Appeared all 5 days : {len(all5)} ({", ".join(all5) if all5 else "None"})
-  • Conviction picks     : {len(conviction)}
-  • Earnings catalysts   : {len(earnings)}
-
-⭐ Top Conviction Picks (3+ days, vol spike ≥1.5×, positive return)
-{chr(10).join(top_picks) if top_picks else "  None this week"}
-
-💥 Earnings Catalysts (strong QoQ profit + multi-day appearance)
-{chr(10).join(earn_list) if earn_list else "  None this week"}
-
-{'='*55}
-Full interactive report is attached as HTML.
-Open in Chrome for the best experience — includes:
-  → Technical analysis (RSI, MACD, EMA, Bollinger)
-  → Big Player Radar (institutional footprint score)
-  → Volume progression for 2+ day stocks
-  → Google News + StockTwits sentiment
-  → Comeback mode detection
-
-This report was auto-generated by your py-nb GitHub Actions workflow.
-Screen: https://www.screener.in/screens/3664072/screen1/
-"""
-        return body.strip()
-
-    except Exception as e:
-        return f"Weekly analysis attached. (Summary generation error: {e})"
-
-def send_email(html_path, json_path, daily_csvs):
-    if not SENDER or not PASSWORD or not RECEIVER:
-        print("  ❌ Email credentials not set. Skipping.")
-        return False
-
-    today = date.today().strftime("%d %b %Y")
-    subject = f"📊 Weekly Breakout Analysis — {today}"
-
-    msg = MIMEMultipart("mixed")
-    msg["From"]    = SENDER
-    msg["To"]      = RECEIVER
-    msg["Subject"] = subject
-
-    # Plain text body
-    body = build_email_body(json_path)
-    msg.attach(MIMEText(body, "plain"))
-
-    # Attach weekly HTML report
-    if html_path and os.path.exists(html_path):
-        with open(html_path, "rb") as f:
-            part = MIMEBase("application", "octet-stream")
-            part.set_payload(f.read())
-            encoders.encode_base64(part)
-            fname = os.path.basename(html_path)
-            part.add_header("Content-Disposition", f'attachment; filename="{fname}"')
-            msg.attach(part)
-        print(f"  📎 Attached: {fname}")
-    else:
-        print("  ⚠️  No weekly HTML found to attach")
-
-    # Attach this week's daily CSVs
-    for csv_path in daily_csvs:
-        with open(csv_path, "rb") as f:
-            part = MIMEBase("application", "octet-stream")
-            part.set_payload(f.read())
-            encoders.encode_base64(part)
-            fname = os.path.basename(csv_path)
-            part.add_header("Content-Disposition", f'attachment; filename="{fname}"')
-            msg.attach(part)
-        print(f"  📎 Attached: {fname}")
-
-    # Send via Gmail SMTP
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(SENDER, PASSWORD)
-            server.sendmail(SENDER, RECEIVER, msg.as_string())
-        print(f"  ✅ Email sent to {RECEIVER}")
-        return True
-    except smtplib.SMTPAuthenticationError:
-        print("  ❌ Gmail auth failed — check EMAIL_PASSWORD secret (use App Password, not your Gmail password)")
-        return False
-    except Exception as e:
-        print(f"  ❌ Email failed: {e}")
-        return False
+def attach(msg, path):
+    if not path or not os.path.exists(path):
+        return
+    with open(path, "rb") as f:
+        part = MIMEBase("application", "octet-stream")
+        part.set_payload(f.read())
+        encoders.encode_base64(part)
+        part.add_header("Content-Disposition", f'attachment; filename="{os.path.basename(path)}"')
+        msg.attach(part)
+    print(f"  📎 {os.path.basename(path)}")
 
 def main():
-    print(f"\n📧 Weekly Email Sender")
-    print(f"   From    : {SENDER}")
-    print(f"   To      : {RECEIVER}\n")
+    if not SENDER or not PASSWORD or not RECEIVER:
+        print("  ❌ Email credentials missing"); return
 
-    html_path   = find_latest_weekly_report()
-    json_path   = find_latest_weekly_json()
-    daily_csvs  = find_this_week_dailies()
+    today   = date.today().strftime("%d %b %Y")
+    subject = f"📊 Weekly + Silent Horse Report — {today}"
 
-    print(f"  📄 Weekly report : {html_path or 'NOT FOUND'}")
-    print(f"  📊 Daily CSVs    : {len(daily_csvs)} files")
+    msg = MIMEMultipart("mixed")
+    msg["From"] = SENDER; msg["To"] = RECEIVER; msg["Subject"] = subject
+    msg.attach(MIMEText(build_body(), "plain"))
 
-    if not html_path:
-        print("\n  ⚠️  No weekly analysis found — running weekly_analysis.py first is required.")
-        print("  Make sure weekly_analysis.py runs before send_email.py in the workflow.")
-        return
+    print(f"\n📧 Sending to {RECEIVER}...")
 
-    send_email(html_path, json_path, daily_csvs)
+    # Attach weekly HTML
+    attach(msg, latest(os.path.join(REPORTS, "weekly", "week_*_analysis.html")))
+    # Attach silent horse reports
+    attach(msg, latest(os.path.join(REPORTS, "monthly", "silent_horse_4wk_*.html")))
+    attach(msg, latest(os.path.join(REPORTS, "monthly", "silent_horse_3wk_*.html")))
+    # Attach daily CSVs
+    for csv in this_week_csvs(): attach(msg, csv)
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
+            s.login(SENDER, PASSWORD)
+            s.sendmail(SENDER, RECEIVER, msg.as_string())
+        print(f"  ✅ Email sent!")
+    except smtplib.SMTPAuthenticationError:
+        print("  ❌ Auth failed — check EMAIL_PASSWORD (use App Password, not Gmail password)")
+    except Exception as e:
+        print(f"  ❌ Failed: {e}")
 
 if __name__ == "__main__":
     main()
