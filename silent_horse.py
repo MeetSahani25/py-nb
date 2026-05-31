@@ -444,7 +444,8 @@ def freq_spark(wf,all_weeks):
     for wk in all_weeks:
         f=wf.get(wk,0); h=max(2,int((f/max(mf,1))*28))
         col="#4a6cf7" if f>=3 else "#93b4f7" if f>=1 else "#e8e8e8"
-        bars+=f'<div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:{h}px;background:{col};border-radius:2px 2px 0 0"></div><div style="font-size:9px;color:#aaa">{f}</div></div>'
+        wlabel=f"W{wk[1]}" if isinstance(wk,tuple) else str(wk)
+        bars+=f'<div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:{h}px;background:{col};border-radius:2px 2px 0 0" title="{wlabel}:{f}d"></div><div style="font-size:9px;color:#aaa">{f}</div></div>'
     return f'<div style="display:flex;align-items:flex-end;gap:3px;height:38px">{bars}</div>'
 
 def render_news(items):
@@ -487,7 +488,8 @@ def gold_card(name,sd,scored,ta,news,twits,twit_sent,reddit,all_weeks):
     for wk in all_weeks:
         f=scored["week_freq_map"].get(wk,0)
         bg="#4a6cf7" if f>=3 else "#93b4f7" if f>=2 else "#d0d8ff" if f>=1 else "#f0f0f0"
-        wf_disp+=f'<div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:{bg};color:{"#fff" if f>0 else "#ccc"};display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">{f}</div><div style="color:#aaa;margin-top:1px">W{wk[1]}</div></div>'
+        wlabel=f"W{wk[1]}" if isinstance(wk,tuple) else str(wk)
+        wf_disp+=f'<div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:{bg};color:{"#fff" if f>0 else "#ccc"};display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">{f}</div><div style="color:#aaa;margin-top:1px">{wlabel}</div></div>'
 
     obv_banner=""
     if warn and ta and ta.get("obv_divergence"):
@@ -712,12 +714,19 @@ def run_analysis(daily_reports, window_weeks, today, stage1_list=None):
     with open(path,"w",encoding="utf-8") as f: f.write(html)
     print(f"  ✅ HTML → {path}")
 
+    def clean_scored(s):
+        """Convert tuple keys in week_freq_map to strings for JSON serialization."""
+        out = {k: v for k, v in s.items() if k != "breakdown"}
+        if "week_freq_map" in out:
+            out["week_freq_map"] = {f"{y}-W{w:02d}": v for (y, w), v in out["week_freq_map"].items()}
+        return out
+
     jpath=os.path.join(MONTHLY_DIR,f"silent_horse_{suffix}_{today}.json")
     with open(jpath,"w",encoding="utf-8") as f:
         json.dump({"date":today,"window_weeks":window_weeks,
-            "gold":[(n,{k:v for k,v in s.items() if k!="breakdown"}) for n,s in gold],
-            "silver":[(n,{k:v for k,v in s.items() if k!="breakdown"}) for n,s in silver],
-            "watch":[(n,{k:v for k,v in s.items() if k!="breakdown"}) for n,s in watch],
+            "gold":[(n, clean_scored(s)) for n,s in gold],
+            "silver":[(n, clean_scored(s)) for n,s in silver],
+            "watch":[(n, clean_scored(s)) for n,s in watch],
             "stage1_bases":stage1_list or []},
         f,indent=2,ensure_ascii=False,default=str)
     print(f"  ✅ JSON → {jpath}")
