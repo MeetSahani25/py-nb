@@ -3,7 +3,6 @@ name: Daily Screener Report
 on:
   schedule:
     - cron: "30 12 * * 1-5"   # 6pm IST Mon-Fri — daily scrape
-    - cron: "30 4 * * 6"      # 10am IST Saturday — weekly email
   workflow_dispatch:
 
 jobs:
@@ -24,30 +23,37 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4 yfinance
 
-      - name: Run daily scraper
+      - name: Run daily scraper (Mon-Fri only)
+        run: |
+          DAY=$(date +'%u')
+          EVENT="${{ github.event_name }}"
+          if [ "$DAY" -le "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "Running daily scraper (day=$DAY)..."
+            python screener_scraper.py
+          else
+            echo "Saturday — skipping daily scrape"
+          fi
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
-        run: python screener_scraper.py
 
-      - name: Run weekly analysis (Fridays + manual)
+      - name: Run weekly analysis (Fridays + manual only)
         run: |
           DAY=$(date +'%u')
           EVENT="${{ github.event_name }}"
           if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running weekly analysis..."
+            echo "Running weekly analysis (day=$DAY)..."
             python weekly_analysis.py
           else
-            echo "Not Friday — skipping weekly (day=$DAY)"
+            echo "Not Friday — skipping weekly analysis (day=$DAY)"
           fi
 
-      - name: Run silent horse analysis (EVERY Friday + manual)
+      - name: Run silent horse analysis (Fridays + manual only)
         run: |
           DAY=$(date +'%u')
           EVENT="${{ github.event_name }}"
-          DOM=$(date +'%d')
           if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running silent horse 3-week + 4-week windows..."
+            echo "Running silent horse 3-week + 4-week..."
             python silent_horse.py
           else
             echo "Not Friday — skipping silent horse (day=$DAY)"
@@ -65,8 +71,10 @@ jobs:
           DAY=$(date +'%u')
           EVENT="${{ github.event_name }}"
           if [ "$DAY" = "5" ] || [ "$DAY" = "6" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Sending email report..."
+            echo "Sending email..."
             python send_email.py
+          else
+            echo "Not email day — skipping"
           fi
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
