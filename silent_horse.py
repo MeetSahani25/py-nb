@@ -429,7 +429,7 @@ def get_ta(name):
 
 def pc(v,d=2):
     if v is None: return "—"
-    c="#1a9e6d" if v>0 else "#d94b4b" if v<0 else "#888"
+    c="var(--green)" if v>0 else "var(--red)" if v<0 else "var(--text3)"
     a="▲" if v>0 else "▼" if v<0 else ""
     return f'<span style="color:{c};font-weight:600">{a}&nbsp;{v:.{d}f}%</span>'
 
@@ -445,36 +445,36 @@ def freq_spark(wf,all_weeks):
         f=wf.get(wk,0); h=max(2,int((f/max(mf,1))*28))
         col="#4a6cf7" if f>=3 else "#93b4f7" if f>=1 else "#e8e8e8"
         wlabel=f"W{wk[1]}" if isinstance(wk,tuple) else str(wk)
-        bars+=f'<div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:{h}px;background:{col};border-radius:2px 2px 0 0" title="{wlabel}:{f}d"></div><div style="font-size:9px;color:#aaa">{f}</div></div>'
+        bars+=f'<div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:{h}px;background:{col};border-radius:2px 2px 0 0" title="{wlabel}:{f}d"></div><div style="font-size:9px;color:var(--text3)">{f}</div></div>'
     return f'<div style="display:flex;align-items:flex-end;gap:3px;height:38px">{bars}</div>'
 
 def render_news(items):
-    if not items: return '<em style="font-size:11px;color:#aaa">No news found</em>'
-    return "".join(f'<div style="padding:4px 0;border-bottom:0.5px solid #f5f5f5"><div style="font-size:10px;color:#999">{i["date"]}</div><div style="font-size:11px;line-height:1.4">{i["title"]}</div></div>' for i in items)
+    if not items: return '<em style="font-size:11px;color:var(--text3)">No news found</em>'
+    return "".join(f'<div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">{i["date"]}</div><div style="font-size:11px;line-height:1.4">{i["title"]}</div></div>' for i in items)
 
 def render_twits(items,sm):
-    if not items: return '<em style="font-size:11px;color:#aaa">No StockTwits data</em>'
-    s=f'<div style="font-size:11px;font-weight:500;margin-bottom:4px;background:#f8f9ff;padding:2px 8px;border-radius:4px">{sm}</div>' if sm else ""
+    if not items: return '<em style="font-size:11px;color:var(--text3)">No StockTwits data</em>'
+    s=f'<div style="font-size:11px;font-weight:500;margin-bottom:4px;background:var(--bg4);padding:2px 8px;border-radius:4px">{sm}</div>' if sm else ""
     return s+"".join(f'<div style="font-size:10px;padding:2px 0;border-bottom:0.5px solid #f8f8f8"><span style="color:{"#1a9e6d" if i["sent"]=="Bullish" else "#d94b4b" if i["sent"]=="Bearish" else "#888"}">{"🐂" if i["sent"]=="Bullish" else "🐻" if i["sent"]=="Bearish" else "💬"}</span> {i["text"]}</div>' for i in items)
 
 def render_reddit(posts):
-    if not posts: return '<em style="font-size:11px;color:#aaa">No Reddit mentions</em>'
+    if not posts: return '<em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>'
     return "".join(f'<div style="font-size:10px;padding:2px 0;border-bottom:0.5px solid #f8f8f8"><span style="color:#ff6314">r/{p["sub"]}</span> ↑{p["score"]} — {p["title"]}</div>' for p in posts)
 
 def render_ta(ta):
-    if not ta: return '<em style="font-size:11px;color:#aaa">Technical data unavailable</em>'
+    if not ta: return '<em style="font-size:11px;color:var(--text3)">Technical data unavailable</em>'
     rc="#d94b4b" if ta["rsi"] and ta["rsi"]>70 else "#1a9e6d" if ta["rsi"] and ta["rsi"]<40 else "#555"
-    sigs="".join(f'<div style="font-size:11px;padding:2px 0;color:{"#A32D2D" if "⚠" in s else "#2d5a27"}">{"⚠" if "⚠" in s else "✓"} {s}</div>' for s in ta["signals"]) or '<div style="font-size:11px;color:#aaa">No strong signals</div>'
-    obv_warn=f'<div style="background:#FCEBEB;border:0.5px solid #A32D2D;border-radius:4px;padding:5px 8px;margin-bottom:6px;font-size:11px;color:#A32D2D;font-weight:500">⚠ OBV DIVERGENCE DETECTED — possible distribution top</div>' if ta.get("obv_divergence") else ""
+    sigs="".join(f'<div style="font-size:11px;padding:2px 0;color:{"#A32D2D" if "⚠" in s else "#2d5a27"}">{"⚠" if "⚠" in s else "✓"} {s}</div>' for s in ta["signals"]) or '<div style="font-size:11px;color:var(--text3)">No strong signals</div>'
+    obv_warn=f'<div style="background:var(--red-dim);border:0.5px solid #A32D2D;border-radius:4px;padding:5px 8px;margin-bottom:6px;font-size:11px;color:#A32D2D;font-weight:500">⚠ OBV DIVERGENCE DETECTED — possible distribution top</div>' if ta.get("obv_divergence") else ""
     return f"""{obv_warn}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:7px">
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">RSI(14)</div><div style="font-weight:500;font-size:12px;color:{rc}">{ta['rsi'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">MACD</div><div style="font-weight:500;font-size:12px;color:{'#1a9e6d' if ta['macd'] and ta['macd']>0 else '#d94b4b'}">{ta['macd'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">Vol ratio</div><div style="font-weight:500;font-size:12px">{ta['vol_ratio'] or '—'}×</div></div>
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">EMA20/50</div><div style="font-size:11px">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">EMA200</div><div style="font-size:11px">{ta['ema200'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:5px;border-radius:5px"><div style="font-size:9px;color:#888">From 52w high</div><div style="font-size:11px;font-weight:500;color:{'#d94b4b' if ta['pfh']<-20 else '#555'}">{ta['pfh']}%</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">RSI(14)</div><div style="font-weight:500;font-size:12px;color:{rc}">{ta['rsi'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">MACD</div><div style="font-weight:500;font-size:12px;color:{'#1a9e6d' if ta['macd'] and ta['macd']>0 else '#d94b4b'}">{ta['macd'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">Vol ratio</div><div style="font-weight:500;font-size:12px">{ta['vol_ratio'] or '—'}×</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">EMA20/50</div><div style="font-size:11px">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">EMA200</div><div style="font-size:11px">{ta['ema200'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">From 52w high</div><div style="font-size:11px;font-weight:500;color:{'#d94b4b' if ta['pfh']<-20 else '#555'}">{ta['pfh']}%</div></div>
     </div>
-    <div style="background:#f0faf0;border:0.5px solid #c3e6c3;border-radius:6px;padding:7px">
+    <div style="background:var(--green-dim);border:0.5px solid #c3e6c3;border-radius:6px;padding:7px">
       <div style="font-size:11px;font-weight:500;margin-bottom:3px">{ta['verdict']}</div>{sigs}
     </div>"""
 
@@ -489,19 +489,19 @@ def gold_card(name,sd,scored,ta,news,twits,twit_sent,reddit,all_weeks):
         f=scored["week_freq_map"].get(wk,0)
         bg="#4a6cf7" if f>=3 else "#93b4f7" if f>=2 else "#d0d8ff" if f>=1 else "#f0f0f0"
         wlabel=f"W{wk[1]}" if isinstance(wk,tuple) else str(wk)
-        wf_disp+=f'<div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:{bg};color:{"#fff" if f>0 else "#ccc"};display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">{f}</div><div style="color:#aaa;margin-top:1px">{wlabel}</div></div>'
+        wf_disp+=f'<div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:{bg};color:{"#fff" if f>0 else "#ccc"};display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">{f}</div><div style="color:var(--text3);margin-top:1px">{wlabel}</div></div>'
 
     obv_banner=""
     if warn and ta and ta.get("obv_divergence"):
-        obv_banner=f'<div style="background:#FCEBEB;border-bottom:0.5px solid #A32D2D;padding:8px 16px;font-size:12px;color:#A32D2D;font-weight:500">⚠ DISTRIBUTION WARNING — Price near highs but OBV declining. Institutions may be exiting. Verify before entering.</div>'
+        obv_banner=f'<div style="background:var(--red-dim);border-bottom:0.5px solid #A32D2D;padding:8px 16px;font-size:12px;color:#A32D2D;font-weight:500">⚠ DISTRIBUTION WARNING — Price near highs but OBV declining. Institutions may be exiting. Verify before entering.</div>'
     elif warn:
-        obv_banner=f'<div style="background:#FAEEDA;border-bottom:0.5px solid #854F0B;padding:8px 16px;font-size:12px;color:#854F0B;font-weight:500">⚠ STAGE 3 RISK — {stage_desc}</div>'
+        obv_banner=f'<div style="background:var(--amber-dim);border-bottom:0.5px solid #854F0B;padding:8px 16px;font-size:12px;color:#854F0B;font-weight:500">⚠ STAGE 3 RISK — {stage_desc}</div>'
 
-    bdown="".join(f'<div style="font-size:10px;color:#888;padding:1px 0">→ {b}</div>' for b in scored["breakdown"])
+    bdown="".join(f'<div style="font-size:10px;color:var(--text3);padding:1px 0">→ {b}</div>' for b in scored["breakdown"])
 
     return f"""
 <div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
-  <div style="background:linear-gradient(90deg,#0f0c29,#302b63);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
     <div>
       <span style="font-size:15px;font-weight:500">{name}</span>
       <span style="font-size:10px;opacity:.5;margin-left:8px">{sym}</span>
@@ -515,32 +515,32 @@ def gold_card(name,sd,scored,ta,news,twits,twit_sent,reddit,all_weeks):
   </div>
   {obv_banner}
   <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
-    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:#888;font-size:9px">Weeks</div><div style="font-weight:500">{scored['n_weeks']}/{len(all_weeks)}</div></div>
-    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:#888;font-size:9px">Total freq</div><div style="font-weight:500">{scored['total_freq']}d</div></div>
-    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:#888;font-size:9px">Price Δ</div>{pc(scored['price_pct'],1)}</div>
-    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:#888;font-size:9px">QoQ profit</div>{pc(lx.get('qoqp'),1)}</div>
-    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:#888;font-size:9px">1mo return</div>{pc(lx.get('ret1m'),1)}</div>
-    <div style="padding:7px 10px"><div style="color:#888;font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">{scored['pattern']}</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">{scored['n_weeks']}/{len(all_weeks)}</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">{scored['total_freq']}d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div>{pc(scored['price_pct'],1)}</div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div>{pc(lx.get('qoqp'),1)}</div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div>{pc(ta.get("p20") if ta and lx.get("ret1m") is None and ta.get("p20") is not None else lx.get("ret1m"),1)}<div style="font-size:8px;color:var(--text3)">{("yf~" if ta and lx.get("ret1m") is None and ta.get("p20") is not None else "")}</div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">{scored['pattern']}</div></div>
   </div>
-  <div style="padding:10px 16px;background:#fafbff;border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
-    <div><div style="font-size:11px;font-weight:500;color:#1a1a2e;margin-bottom:5px">Weekly pattern</div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
       <div style="display:flex;gap:8px">{wf_disp}</div>
-      <div style="font-size:10px;color:#888;margin-top:3px">{scored['pattern_desc']}</div></div>
-    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:#1a1a2e;margin-bottom:3px">Score breakdown</div>{bdown}</div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">{scored['pattern_desc']}</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div>{bdown}</div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
     <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
-      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:#1a1a2e">📊 Chart + Stage Analysis</div>
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
       {render_ta(ta)}
     </div>
     <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
-      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:#1a1a2e">📰 News</div>
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
       {render_news(news)}
-      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:#1a1a2e">🗣 Reddit</div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
       {render_reddit(reddit)}
     </div>
     <div style="padding:11px 13px">
-      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:#1a1a2e">💬 StockTwits</div>
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
       {render_twits(twits,twit_sent)}
     </div>
   </div>
@@ -568,7 +568,7 @@ def build_html(gold,silver,watch,stage1,all_weeks,window_weeks,report_date,ta_d,
       <td>{sc['total_freq']}d</td>
       <td>{freq_spark(sc['week_freq_map'],all_weeks)}</td>
       <td>{pc(sc['price_pct'],1)}</td>
-      <td style="font-size:10px;color:#888">{sc['pattern']}</td>
+      <td style="font-size:10px;color:var(--text3)">{sc['pattern']}</td>
     </tr>""" for nm_,sc in watch)
 
     stage1_rows="".join(f"""<tr>
@@ -582,35 +582,143 @@ def build_html(gold,silver,watch,stage1,all_weeks,window_weeks,report_date,ta_d,
     </tr>""" for s in stage1[:10])
 
     gold_html="".join(gold_card(nm_,tracker[nm_],sc,ta_d.get(nm_),news_d.get(nm_,[]),*twit_d.get(nm_,([],None)),reddit_d.get(nm_,[]),all_weeks) for nm_,sc in gold)
-    if not gold_html: gold_html='<em style="color:#aaa;font-size:13px">No Gold horses yet — need more data weeks.</em>'
+    if not gold_html: gold_html='<em style="color:var(--text3);font-size:13px">No Gold horses yet — need more data weeks.</em>'
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Silent Horse {title_suffix} — {report_date}</title>
 <style>
-  *{{box-sizing:border-box;margin:0;padding:0}}
-  body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;padding:20px;color:#1a1a1a}}
-  .wrap{{max-width:1500px;margin:0 auto}}
-  .top{{background:linear-gradient(135deg,#1a1200,#2d2000);color:#fff;padding:24px 30px;border-radius:12px 12px 0 0}}
-  .top h1{{font-size:20px;font-weight:500}}.top p{{font-size:12px;opacity:.55;margin-top:4px}}
-  .meta{{display:flex;gap:18px;padding:10px 30px;background:#fffdf0;border:0.5px solid #f0c040;border-top:none;font-size:12px;color:#555;flex-wrap:wrap}}
-  .sec{{background:#fff;border:0.5px solid #e8eaf0;border-radius:10px;margin:14px 0;overflow:hidden}}
-  .sh{{padding:12px 20px;border-bottom:0.5px solid #f0f0f0;background:#fafbff}}
-  .sh h2{{font-size:13px;font-weight:500;color:#1a1a2e}}.sh p{{font-size:10px;color:#888;margin-top:2px}}
-  .sb{{padding:14px 20px}}
-  .sg{{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}}
-  .sb2{{background:#f8f9ff;border-radius:8px;padding:10px 13px;border:0.5px solid #e8eaf0}}
-  .sb2 .v{{font-size:19px;font-weight:500;color:#1a1a2e}}.sb2 .l{{font-size:10px;color:#888;margin-top:2px}}
-  table{{width:100%;border-collapse:collapse;font-size:12px}}
-  thead th{{background:#1a1a2e;color:#c8d0ff;padding:8px 11px;text-align:right;font-weight:500;font-size:11px;white-space:nowrap}}
-  thead th:first-child{{text-align:left}}
-  tbody td{{padding:7px 11px;border-bottom:0.5px solid #f5f5f5;text-align:right;white-space:nowrap}}
-  tbody td:first-child{{text-align:left}}
-  tbody tr:hover td{{background:#f5f7ff}}
-  .foot{{padding:10px;font-size:10px;color:#bbb;text-align:center;margin-top:8px}}
-  .stage-key{{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:11px}}
-  .sk{{padding:3px 10px;border-radius:20px;color:#fff}}
+/* ── Bloomberg-inspired dark theme ─────────────────────────── */
+:root {
+  --bg:        #0d0f14;
+  --bg2:       #131620;
+  --bg3:       #1a1d2e;
+  --bg4:       #1e2235;
+  --border:    #252840;
+  --border2:   #2e3250;
+  --text:      #e2e4f0;
+  --text2:     #9198b8;
+  --text3:     #545c7a;
+  --amber:     #f0a500;
+  --amber-dim: #3d2900;
+  --green:     #00c875;
+  --green-dim: #002e1a;
+  --red:       #ff4560;
+  --red-dim:   #3d0010;
+  --blue:      #4a9eff;
+  --blue-dim:  #0a1f3d;
+  --mono:      'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+/* Header */
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+/* Stat strip */
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+/* Sections */
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+/* Tables */
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+/* Pct colors */
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.neu{color:var(--text2)}
+/* Stock card */
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.card-score-line{font-size:10px;color:var(--text2);margin-top:2px;text-align:right;font-family:var(--mono)}
+/* Metrics row */
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+/* 3-col body */
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+/* TA grid */
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+/* Verdict box */
+.verdict-box{border-left:2px solid;padding:7px 10px;border-radius:3px;margin-top:6px}
+.verdict-box.strong{background:var(--green-dim);border-color:var(--green)}
+.verdict-box.moderate{background:var(--amber-dim);border-color:var(--amber)}
+.verdict-box.weak{background:var(--bg4);border-color:var(--border2)}
+.verdict-box.bearish{background:var(--red-dim);border-color:var(--red)}
+.verdict-title{font-size:11px;font-weight:600;margin-bottom:4px}
+.verdict-box.strong .verdict-title{color:var(--green)}
+.verdict-box.moderate .verdict-title{color:var(--amber)}
+.verdict-box.weak .verdict-title{color:var(--text2)}
+.verdict-box.bearish .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+/* News */
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+/* Twits */
+.twit-summary{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 10px;margin-bottom:6px;font-family:var(--mono);font-size:11px}
+.twit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+/* Badges */
+.badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.4px}
+.badge-gold{background:var(--amber-dim);color:var(--amber)}
+.badge-silver{background:var(--blue-dim);color:var(--blue)}
+.badge-watch{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}
+.badge-fresh{background:var(--blue-dim);color:var(--blue)}
+.badge-recover{background:var(--green-dim);color:var(--green)}
+.badge-stage2{background:var(--green-dim);color:var(--green)}
+.badge-extended{background:var(--amber-dim);color:var(--amber)}
+.badge-danger{background:var(--red-dim);color:var(--red)}
+/* OBV warning */
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+/* Vol bar chart */
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text)}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar.week{background:var(--amber)}
+.vol-bar.prior{background:var(--blue-dim);border:1px solid var(--blue)}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+/* Week pattern boxes */
+.week-pattern{display:flex;gap:5px;margin:5px 0}
+.wk-box{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}
+.wk-box.hit3{background:var(--amber);color:#000}
+.wk-box.hit2{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber)}
+.wk-box.hit1{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue)}
+.wk-box.miss{background:var(--bg4);color:var(--text3);border:1px solid var(--border)}
+/* Score breakdown */
+.score-list{font-size:10px;color:var(--text3);font-family:var(--mono);line-height:1.7}
+/* Stage 1 table */
+.stage1-note{padding:16px 24px;font-size:12px;color:var(--text3);background:var(--bg2);text-align:center}
+/* Footer */
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+/* Legend strip */
+.legend{display:flex;gap:16px;padding:8px 24px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:10px;color:var(--text3);flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px}
 </style></head><body>
 <div class="wrap">
   <div class="top">
@@ -659,14 +767,14 @@ def build_html(gold,silver,watch,stage1,all_weeks,window_weeks,report_date,ta_d,
   <p>{len(silver)} stocks · 2+ weeks, freq &gt;3 OR blowout week</p></div>
   <div style="padding:0 20px 16px"><table>
     <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>QoQ profit</th><th>1mo return</th><th>Signal</th><th>Score</th></tr></thead>
-    <tbody>{silver_rows or '<tr><td colspan="9" style="text-align:center;color:#aaa;padding:14px">No Silver horses yet</td></tr>'}</tbody>
+    <tbody>{silver_rows or '<tr><td colspan="9" style="text-align:center;color:var(--text3);padding:14px">No Silver horses yet</td></tr>'}</tbody>
   </table></div></div>
 
   <div class="sec"><div class="sh"><h2>👁 Watch List</h2>
   <p>{len(watch)} stocks · 2 weeks, freq 3-4 · track for 3rd week reappearance</p></div>
   <div style="padding:0 20px 16px"><table>
     <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>Signal</th></tr></thead>
-    <tbody>{watch_rows or '<tr><td colspan="6" style="text-align:center;color:#aaa;padding:14px">No Watch stocks yet</td></tr>'}</tbody>
+    <tbody>{watch_rows or '<tr><td colspan="6" style="text-align:center;color:var(--text3);padding:14px">No Watch stocks yet</td></tr>'}</tbody>
   </table></div></div>
 
   {'<div class="sec"><div class="sh"><h2>🔍 Stage 1 Bases — 8-Week Slow Tracker</h2><p>Appearing quietly 1-2×/week for 6+ weeks — Weinstein accumulation fingerprint</p></div><div style="padding:0 20px 16px"><table><thead><tr><th>Stock</th><th>Weeks</th><th>Avg/wk</th><th>Max gap</th><th>Price Δ</th><th>QoQ profit</th><th>CMP</th></tr></thead><tbody>'+stage1_rows+'</tbody></table></div></div>' if stage1 else ''}
