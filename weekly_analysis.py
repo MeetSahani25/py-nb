@@ -400,7 +400,7 @@ def analyse_week(reports):
 
 def pct(v,d=2):
     if v is None: return "—"
-    c="#1a9e6d" if v>0 else "#d94b4b" if v<0 else "#888"
+    c="var(--green)" if v>0 else "var(--red)" if v<0 else "var(--text3)"
     a="▲" if v>0 else "▼" if v<0 else ""
     return f'<span style="color:{c};font-weight:600">{a}&nbsp;{v:.{d}f}%</span>'
 
@@ -410,13 +410,13 @@ def n(v,d=2):
     except: return str(v)
 
 def freq_bar(count,mx=5):
-    return (f'<span style="color:#4a6cf7;letter-spacing:2px">{"█"*count}</span>'
+    return (f'<span style="color:var(--blue);letter-spacing:2px">{"█"*count}</span>'
             f'<span style="color:#ddd;letter-spacing:2px">{"░"*(mx-count)}</span>'
             f' <b>{count}/5</b>')
 
 def score_badge(s):
     c="#1a9e6d" if s>=70 else "#f0a500" if s>=50 else "#d94b4b"
-    return f'<span style="font-size:20px;font-weight:700;color:{c}">{s}</span><span style="color:#aaa;font-size:11px">/100</span>'
+    return f'<span style="font-size:20px;font-weight:700;color:{c}">{s}</span><span style="color:var(--text3);font-size:11px">/100</span>'
 
 def fmt_vol(v):
     if not v: return "—"
@@ -428,7 +428,7 @@ def fmt_vol(v):
 def vol_bar_chart(vd):
     """Render a mini bar chart of daily volumes for last 10 days + week vs month comparison."""
     if not vd:
-        return '<em style="color:#aaa;font-size:12px">Volume data loading... (yfinance fetching NSE data)</em>'
+        return '<em style="color:var(--text3);font-size:12px">Volume data loading... (yfinance fetching NSE data)</em>'
 
     v5   = vd["vol5d"]
     v22  = vd["vol22d"]
@@ -443,20 +443,20 @@ def vol_bar_chart(vd):
     # Summary boxes
     summary = f"""
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px">
-      <div style="background:#f0faf0;border:1px solid #c3e6c3;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:#888">Vol (5d avg)</div>
+      <div style="background:var(--green-dim);border:1px solid #c3e6c3;border-radius:6px;padding:8px;text-align:center">
+        <div style="font-size:10px;color:var(--text3)">Vol (5d avg)</div>
         <div style="font-weight:700;font-size:13px">{fmt_vol(v5)}</div>
       </div>
-      <div style="background:#f8f9ff;border:1px solid #d0d8ff;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:#888">Vol (1mo avg)</div>
+      <div style="background:var(--bg4);border:1px solid #d0d8ff;border-radius:6px;padding:8px;text-align:center">
+        <div style="font-size:10px;color:var(--text3)">Vol (1mo avg)</div>
         <div style="font-weight:700;font-size:13px">{fmt_vol(v22)}</div>
       </div>
-      <div style="background:#fff8f0;border:1px solid #ffd0a0;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:#888">Vol (3mo avg)</div>
+      <div style="background:var(--bg2)8f0;border:1px solid #ffd0a0;border-radius:6px;padding:8px;text-align:center">
+        <div style="font-size:10px;color:var(--text3)">Vol (3mo avg)</div>
         <div style="font-weight:700;font-size:13px">{fmt_vol(v63)}</div>
       </div>
-      <div style="background:#f8f9ff;border:1px solid #c0c8ff;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:#888">Week/Month Ratio</div>
+      <div style="background:var(--bg4);border:1px solid #c0c8ff;border-radius:6px;padding:8px;text-align:center">
+        <div style="font-size:10px;color:var(--text3)">Week/Month Ratio</div>
         <div style="font-weight:700;font-size:15px;color:{rc}">{ratio or '—'}×</div>
       </div>
     </div>"""
@@ -472,16 +472,16 @@ def vol_bar_chart(vd):
         bc  = "#ff8c00" if is_recent else col
         bars += f"""
         <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
-          <div style="font-size:9px;color:#aaa">{fmt_vol(v)}</div>
+          <div style="font-size:9px;color:var(--text3)">{fmt_vol(v)}</div>
           <div style="width:18px;height:{h}px;background:{bc};border-radius:2px 2px 0 0" title="{d}: {fmt_vol(v)}"></div>
-          <div style="font-size:8px;color:#999;transform:rotate(-45deg);margin-top:2px">{d[-5:]}</div>
+          <div style="font-size:8px;color:var(--text3);transform:rotate(-45deg);margin-top:2px">{d[-5:]}</div>
         </div>"""
 
     chart = f"""
     <div style="display:flex;align-items:flex-end;gap:3px;height:90px;padding:0 4px;margin-top:8px;overflow-x:auto">
       {bars}
     </div>
-    <div style="font-size:10px;color:#888;margin-top:24px">
+    <div style="font-size:10px;color:var(--text3);margin-top:24px">
       🟠 = This week &nbsp; 🔵 = Prior weeks &nbsp; Green bar = above 1mo avg
     </div>"""
 
@@ -489,37 +489,37 @@ def vol_bar_chart(vd):
 
 def render_ta(ta):
     if not ta:
-        return '<div style="background:#fff8f0;border-radius:6px;padding:10px;font-size:12px;color:#888">Technical data unavailable — NSE ticker not found in yfinance</div>'
+        return '<div style="background:var(--bg2)8f0;border-radius:6px;padding:10px;font-size:12px;color:var(--text3)">Technical data unavailable — NSE ticker not found in yfinance</div>'
     rsi_c = "#d94b4b" if ta["rsi"] and ta["rsi"]>70 else "#1a9e6d" if ta["rsi"] and ta["rsi"]<40 else "#555"
     m_c   = "#1a9e6d" if ta["macd"] and ta["macd"]>0 else "#d94b4b"
-    sigs  = "".join(f'<div style="font-size:11px;padding:2px 0;color:#2d5a27">✓ {s}</div>' for s in ta["signals"]) or '<div style="font-size:11px;color:#aaa">No strong signals</div>'
+    sigs  = "".join(f'<div style="font-size:11px;padding:2px 0;color:#2d5a27">✓ {s}</div>' for s in ta["signals"]) or '<div style="font-size:11px;color:var(--text3)">No strong signals</div>'
     return f"""
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:8px;font-size:11px">
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">RSI(14)</div><div style="font-weight:700;color:{rsi_c}">{ta['rsi'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">MACD</div><div style="font-weight:700;color:{m_c}">{ta['macd'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">EMA20/50</div><div style="font-weight:600">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">EMA200</div><div style="font-weight:600">{ta['ema200'] or '—'}</div></div>
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">From 52w High</div><div style="font-weight:700;color:{'#d94b4b' if ta['pfh']<-20 else '#555'}">{ta['pfh']}%</div></div>
-      <div style="background:#f8f9ff;padding:6px;border-radius:5px"><div style="color:#888;font-size:9px">5d / 20d</div><div style="font-weight:600">{pct(ta['p5'],1)}/{pct(ta['p20'],1)}</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">RSI(14)</div><div style="font-weight:700;color:{rsi_c}">{ta['rsi'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">MACD</div><div style="font-weight:700;color:{m_c}">{ta['macd'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">EMA20/50</div><div style="font-weight:600">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">EMA200</div><div style="font-weight:600">{ta['ema200'] or '—'}</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">From 52w High</div><div style="font-weight:700;color:{'#d94b4b' if ta['pfh']<-20 else '#555'}">{ta['pfh']}%</div></div>
+      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">5d / 20d</div><div style="font-weight:600">{pct(ta['p5'],1)}/{pct(ta['p20'],1)}</div></div>
     </div>
-    <div style="background:#f0faf0;border:1px solid #c3e6c3;border-radius:6px;padding:8px">
+    <div style="background:var(--green-dim);border:1px solid #c3e6c3;border-radius:6px;padding:8px">
       <div style="font-size:12px;font-weight:700;margin-bottom:4px">{ta['verdict']}</div>
       {sigs}
     </div>
-    <div style="font-size:10px;color:#aaa;margin-top:4px">BB: {ta['bb_lo']}/{ta['bb_mid']}/{ta['bb_hi']} | 52w: {ta['l52']}–{ta['h52']}</div>"""
+    <div style="font-size:10px;color:var(--text3);margin-top:4px">BB: {ta['bb_lo']}/{ta['bb_mid']}/{ta['bb_hi']} | 52w: {ta['l52']}–{ta['h52']}</div>"""
 
 def render_news(items):
-    if not items: return '<em style="color:#aaa;font-size:11px">No recent news found</em>'
-    return "".join(f'<div style="padding:5px 0;border-bottom:1px solid #f5f5f5"><div style="font-size:10px;color:#999">{i["date"]}</div><div style="font-size:12px;line-height:1.4">{i["title"]}</div></div>' for i in items)
+    if not items: return '<em style="color:var(--text3);font-size:11px">No recent news found</em>'
+    return "".join(f'<div style="padding:5px 0;border-bottom:1px solid #f5f5f5"><div style="font-size:10px;color:var(--text3)">{i["date"]}</div><div style="font-size:12px;line-height:1.4">{i["title"]}</div></div>' for i in items)
 
 def render_twits(items, summary):
-    if not items: return '<em style="color:#aaa;font-size:11px">No StockTwits data</em>'
-    s = f'<div style="font-size:11px;font-weight:600;margin-bottom:4px;padding:4px 8px;background:#f8f9ff;border-radius:4px">{summary}</div>' if summary else ""
+    if not items: return '<em style="color:var(--text3);font-size:11px">No StockTwits data</em>'
+    s = f'<div style="font-size:11px;font-weight:600;margin-bottom:4px;padding:4px 8px;background:var(--bg4);border-radius:4px">{summary}</div>' if summary else ""
     rows = "".join(f'<div style="padding:3px 0;border-bottom:1px solid #f8f8f8;font-size:11px;line-height:1.4"><span style="color:{"#1a9e6d" if i["sent"]=="Bullish" else "#d94b4b" if i["sent"]=="Bearish" else "#888"}">{"🐂" if i["sent"]=="Bullish" else "🐻" if i["sent"]=="Bearish" else "💬"}</span> {i["text"]}</div>' for i in items)
     return s+rows
 
 def render_reddit(posts):
-    if not posts: return '<em style="color:#aaa;font-size:11px">No Reddit mentions this week</em>'
+    if not posts: return '<em style="color:var(--text3);font-size:11px">No Reddit mentions this week</em>'
     return "".join(f'<div style="padding:4px 0;border-bottom:1px solid #f8f8f8;font-size:11px"><span style="color:#ff6314;font-size:10px">r/{p["sub"]}</span> ↑{p["score"]} — {p["title"]}</div>' for p in posts)
 
 def deep_dive_card(name, s, vd, ta, news, twits, twit_sent, reddit):
@@ -539,33 +539,33 @@ def deep_dive_card(name, s, vd, ta, news, twits, twit_sent, reddit):
           <div style="font-size:11px;opacity:.7">{freq_bar(s['appearances'])} &nbsp;|&nbsp; Upside: {score_badge(score)}</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid #f0f0f0;font-size:11px">
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:#888;font-size:9px">Avg 1d Ret</div>{pct(s['avg_ret1d'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:#888;font-size:9px">Week Chg</div>{pct(s['price_change_week'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:#888;font-size:9px">1Mo Return</div>{pct(s['latest_ret1m'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:#888;font-size:9px">QoQ Profit</div>{pct(s['latest_qoqp'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:#888;font-size:9px">ROCE%</div>{pct(s['latest_roce'])}</div>
-        <div style="padding:8px 10px"><div style="color:#888;font-size:9px">Mkt Cap</div><div style="font-weight:600">₹{n(s['latest_mktcap'],0) if s['latest_mktcap'] else '—'}Cr</div></div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border);font-size:11px">
+        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Avg 1d Ret</div>{pct(s['avg_ret1d'])}</div>
+        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Week Chg</div>{pct(s['price_change_week'])}</div>
+        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1Mo Return</div>{pct(ta.get("p20") if ta and s.get("latest_ret1m") is None and ta.get("p20") is not None else s.get("latest_ret1m"))}<div style="font-size:8px;color:var(--text3)">{("yf" if ta and s.get("latest_ret1m") is None and ta.get("p20") is not None else "")}</div></div>
+        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ Profit</div>{pct(s['latest_qoqp'])}</div>
+        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">ROCE%</div>{pct(s['latest_roce'])}</div>
+        <div style="padding:8px 10px"><div style="color:var(--text3);font-size:9px">Mkt Cap</div><div style="font-weight:600">₹{n(s['latest_mktcap'],0) if s['latest_mktcap'] else '—'}Cr</div></div>
       </div>
       <!-- Volume chart full width -->
-      <div style="padding:12px 16px;background:#fafbff;border-bottom:1px solid #f0f0f0">
-        <div style="font-size:12px;font-weight:700;color:#1a1a2e;margin-bottom:8px">🔊 Volume Analysis — Week vs Month vs 3-Month</div>
+      <div style="padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border)">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">🔊 Volume Analysis — Week vs Month vs 3-Month</div>
         {vol_bar_chart(vd)}
       </div>
       <!-- 3 columns -->
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
         <div style="padding:12px 14px;border-right:1px solid #f0f0f0">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:#1a1a2e">📊 Chart Analysis</div>
+          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">📊 Chart Analysis</div>
           {render_ta(ta)}
         </div>
         <div style="padding:12px 14px;border-right:1px solid #f0f0f0">
-          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#1a1a2e">📰 News</div>
+          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text)">📰 News</div>
           {render_news(news)}
-          <div style="font-size:12px;font-weight:700;margin:10px 0 6px;color:#1a1a2e">🗣 Reddit</div>
+          <div style="font-size:12px;font-weight:700;margin:10px 0 6px;color:var(--text)">🗣 Reddit</div>
           {render_reddit(reddit)}
         </div>
         <div style="padding:12px 14px">
-          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:#1a1a2e">💬 StockTwits</div>
+          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text)">💬 StockTwits</div>
           {render_twits(twits, twit_sent)}
         </div>
       </div>
@@ -575,7 +575,7 @@ def build_html(analysis, vol_d, tech_d, news_d, twit_d, reddit_d, week_dates):
     stats = analysis["stock_stats"]
     wl    = f"{week_dates[0]} → {week_dates[-1]}" if week_dates else "This Week"
 
-    all5_badges = "".join(f'<span style="display:inline-block;background:#e8f0ff;color:#1a3a8f;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">{n}</span>' for n in analysis["appeared_all5"]) or "<em style='color:#aaa'>None this week</em>"
+    all5_badges = "".join(f'<span style="display:inline-block;background:#e8f0ff;color:#1a3a8f;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">{n}</span>' for n in analysis["appeared_all5"]) or "<em style='color:var(--text3)'>None this week</em>"
 
     earn_rows = "".join(f"""<tr>
       <td style="text-align:left;font-weight:500">{nm}</td>
@@ -613,27 +613,136 @@ def build_html(analysis, vol_d, tech_d, news_d, twit_d, reddit_d, week_dates):
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Weekly Analysis — {wl}</title>
 <style>
-  *{{box-sizing:border-box;margin:0;padding:0}}
-  body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;padding:20px;color:#1a1a1a}}
-  .wrap{{max-width:1500px;margin:0 auto}}
-  .top{{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;padding:28px 32px;border-radius:12px 12px 0 0}}
-  .top h1{{font-size:22px;font-weight:700}}.top p{{font-size:13px;opacity:.6;margin-top:6px}}
-  .meta{{display:flex;gap:20px;padding:12px 32px;background:#f8f9ff;border:1px solid #e8eaf0;border-top:none;font-size:13px;color:#555;flex-wrap:wrap}}
-  .meta a{{color:#4a6cf7}}
-  .sec{{background:#fff;border:1px solid #e8eaf0;border-radius:10px;margin:16px 0;overflow:hidden}}
-  .sh{{padding:14px 24px;border-bottom:1px solid #f0f0f0;background:#fafbff}}
-  .sh h2{{font-size:14px;font-weight:700;color:#1a1a2e}}.sh p{{font-size:11px;color:#888;margin-top:3px}}
-  .sb{{padding:18px 24px}}
-  .sg{{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}}
-  .sb2{{background:#f8f9ff;border-radius:8px;padding:12px 16px;border:1px solid #e8eaf0}}
-  .sb2 .v{{font-size:22px;font-weight:700;color:#1a1a2e}}.sb2 .l{{font-size:11px;color:#888;margin-top:3px}}
-  table{{width:100%;border-collapse:collapse;font-size:12px}}
-  thead th{{background:#1a1a2e;color:#c8d0ff;padding:9px 12px;text-align:right;font-weight:500;font-size:11px;white-space:nowrap}}
-  thead th:first-child{{text-align:left}}
-  tbody td{{padding:8px 12px;border-bottom:1px solid #f5f5f5;text-align:right;white-space:nowrap}}
-  tbody td:first-child{{text-align:left}}
-  tbody tr:hover td{{background:#f5f7ff}}
-  .foot{{padding:12px;font-size:11px;color:#bbb;text-align:center;margin-top:8px}}
+/* ── Bloomberg-inspired dark theme ─────────────────────────── */
+:root {
+  --bg:        #0d0f14;
+  --bg2:       #131620;
+  --bg3:       #1a1d2e;
+  --bg4:       #1e2235;
+  --border:    #252840;
+  --border2:   #2e3250;
+  --text:      #e2e4f0;
+  --text2:     #9198b8;
+  --text3:     #545c7a;
+  --amber:     #f0a500;
+  --amber-dim: #3d2900;
+  --green:     #00c875;
+  --green-dim: #002e1a;
+  --red:       #ff4560;
+  --red-dim:   #3d0010;
+  --blue:      #4a9eff;
+  --blue-dim:  #0a1f3d;
+  --mono:      'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+/* Header */
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+/* Stat strip */
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+/* Sections */
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+/* Tables */
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+/* Pct colors */
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.neu{color:var(--text2)}
+/* Stock card */
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.card-score-line{font-size:10px;color:var(--text2);margin-top:2px;text-align:right;font-family:var(--mono)}
+/* Metrics row */
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+/* 3-col body */
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+/* TA grid */
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+/* Verdict box */
+.verdict-box{border-left:2px solid;padding:7px 10px;border-radius:3px;margin-top:6px}
+.verdict-box.strong{background:var(--green-dim);border-color:var(--green)}
+.verdict-box.moderate{background:var(--amber-dim);border-color:var(--amber)}
+.verdict-box.weak{background:var(--bg4);border-color:var(--border2)}
+.verdict-box.bearish{background:var(--red-dim);border-color:var(--red)}
+.verdict-title{font-size:11px;font-weight:600;margin-bottom:4px}
+.verdict-box.strong .verdict-title{color:var(--green)}
+.verdict-box.moderate .verdict-title{color:var(--amber)}
+.verdict-box.weak .verdict-title{color:var(--text2)}
+.verdict-box.bearish .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+/* News */
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+/* Twits */
+.twit-summary{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 10px;margin-bottom:6px;font-family:var(--mono);font-size:11px}
+.twit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+/* Badges */
+.badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.4px}
+.badge-gold{background:var(--amber-dim);color:var(--amber)}
+.badge-silver{background:var(--blue-dim);color:var(--blue)}
+.badge-watch{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}
+.badge-fresh{background:var(--blue-dim);color:var(--blue)}
+.badge-recover{background:var(--green-dim);color:var(--green)}
+.badge-stage2{background:var(--green-dim);color:var(--green)}
+.badge-extended{background:var(--amber-dim);color:var(--amber)}
+.badge-danger{background:var(--red-dim);color:var(--red)}
+/* OBV warning */
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+/* Vol bar chart */
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text)}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar.week{background:var(--amber)}
+.vol-bar.prior{background:var(--blue-dim);border:1px solid var(--blue)}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+/* Week pattern boxes */
+.week-pattern{display:flex;gap:5px;margin:5px 0}
+.wk-box{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}
+.wk-box.hit3{background:var(--amber);color:#000}
+.wk-box.hit2{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber)}
+.wk-box.hit1{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue)}
+.wk-box.miss{background:var(--bg4);color:var(--text3);border:1px solid var(--border)}
+/* Score breakdown */
+.score-list{font-size:10px;color:var(--text3);font-family:var(--mono);line-height:1.7}
+/* Stage 1 table */
+.stage1-note{padding:16px 24px;font-size:12px;color:var(--text3);background:var(--bg2);text-align:center}
+/* Footer */
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+/* Legend strip */
+.legend{display:flex;gap:16px;padding:8px 24px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:10px;color:var(--text3);flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px}
 </style></head><body>
 <div class="wrap">
   <div class="top">
