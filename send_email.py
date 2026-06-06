@@ -95,13 +95,19 @@ def main():
         print("  ❌ Email credentials missing"); return
 
     today   = date.today().strftime("%d %b %Y")
-    subject = f"📊 Weekly + Silent Horse Report — {today}"
+    subject = f"📊 Weekly + Earnings + Silent Horse — {today}"
 
     msg = MIMEMultipart("mixed")
     msg["From"] = SENDER; msg["To"] = RECEIVER; msg["Subject"] = subject
     msg.attach(MIMEText(build_body(), "plain"))
 
     print(f"\n📧 Sending to {RECEIVER}...")
+
+    # Attach latest earnings report if exists
+    import glob as _glob
+    earnings_latest = sorted(_glob.glob(os.path.join("reports","earnings","earnings_*.html")), reverse=True)
+    if earnings_latest:
+        attach(msg, earnings_latest[0])
 
     # Attach weekly HTML
     attach(msg, latest(os.path.join(REPORTS, "weekly", "week_*_analysis.html")))
