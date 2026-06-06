@@ -2,7 +2,8 @@ name: Daily Screener Report
 
 on:
   schedule:
-    - cron: "30 12 * * 1-5"   # 6pm IST Mon-Fri — daily scrape
+    - cron: "30 12 * * 1-5"   # 6:00 PM IST Mon-Fri — daily momentum scrape
+    - cron: "0 19 * * 1-5"    # 12:30 AM IST Mon-Fri — earnings scanner
   workflow_dispatch:
 
 jobs:
@@ -23,58 +24,60 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4 yfinance
 
-      - name: Run daily scraper (Mon-Fri only)
+      - name: Run daily momentum scraper (6pm run only)
         run: |
-          DAY=$(date +'%u')
+          HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
-          if [ "$DAY" -le "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running daily scraper (day=$DAY)..."
+          if [ "$HOUR" = "12" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "6pm run — scraping momentum screen..."
             python screener_scraper.py
           else
-            echo "Saturday — skipping daily scrape"
+            echo "Not 6pm run (hour=$HOUR) — skipping momentum scrape"
           fi
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
 
-      - name: Run weekly analysis (Fridays + manual only)
+      - name: Run earnings scanner (12:30am run + manual)
         run: |
-          DAY=$(date +'%u')
+          HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
-          if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running weekly analysis (day=$DAY)..."
-            python weekly_analysis.py
+          if [ "$HOUR" = "19" ] || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "12:30am run — scanning today's quarterly results..."
+            python earnings_scanner.py
           else
-            echo "Not Friday — skipping weekly analysis (day=$DAY)"
+            echo "Not earnings run (hour=$HOUR) — skipping"
           fi
+        env:
+          SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
+          SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
 
-      - name: Run silent horse analysis (Fridays + manual only)
+      - name: Run weekly analysis + silent horse (Fridays + manual)
         run: |
           DAY=$(date +'%u')
+          HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
-          if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running silent horse 3-week + 4-week..."
+          if ([ "$DAY" = "5" ] && [ "$HOUR" = "12" ]) || [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "Friday 6pm — running weekly analysis + silent horse..."
+            python weekly_analysis.py
             python silent_horse.py
           else
-            echo "Not Friday — skipping silent horse (day=$DAY)"
+            echo "Not Friday 6pm — skipping weekly/silent horse"
           fi
 
-      - name: Run cleanup (Fridays only)
+      - name: Run cleanup (Fridays 6pm only)
         run: |
-          if [ "$(date +'%u')" = "5" ]; then
-            echo "Running 180-day cleanup..."
+          if [ "$(date +'%u')" = "5" ] && [ "$(date +'%H')" = "12" ]; then
             python cleanup.py
           fi
 
-      - name: Send email (Fridays + Saturdays + manual)
+      - name: Send email (Fridays 6pm + manual)
         run: |
           DAY=$(date +'%u')
+          HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
-          if [ "$DAY" = "5" ] || [ "$DAY" = "6" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Sending email..."
+          if ([ "$DAY" = "5" ] && [ "$HOUR" = "12" ]) || [ "$EVENT" = "workflow_dispatch" ]; then
             python send_email.py
-          else
-            echo "Not email day — skipping"
           fi
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
@@ -86,5 +89,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/
-          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d')$([ $(date +'%u') -eq 5 ] && echo ' + weekly + silent horse' || echo '')"
+          git diff --cached --quiet || git commit -m "📈 $(date +'%Y-%m-%d %H:%M') UTC"
           git push
