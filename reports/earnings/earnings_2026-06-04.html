@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earnings Scanner — 2026-06-04</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);
+  padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.filter-bar{background:var(--bg3);border-bottom:1px solid var(--border);
+  padding:8px 24px;font-size:11px;color:var(--text2);display:flex;gap:20px}
+.filter-tag{background:var(--amber-dim);color:var(--amber);padding:2px 10px;
+  border-radius:3px;font-weight:600;font-family:var(--mono);font-size:10px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:16px;padding:16px 24px}
+/* ── Company card ── */
+.card{background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden}
+.card-header{background:var(--bg3);padding:12px 16px;
+  border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.card-meta{display:flex;gap:16px;font-family:var(--mono);font-size:11px;color:var(--text2)}
+.card-meta span strong{color:var(--amber)}
+/* ── Result table ── */
+.result-table{width:100%;border-collapse:collapse;font-size:12px}
+.result-table th{padding:7px 12px;text-align:right;font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.4px;color:var(--text3);
+  background:var(--bg4);border-bottom:1px solid var(--border2);white-space:nowrap}
+.result-table th:first-child{text-align:left}
+.result-table td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:12px;white-space:nowrap}
+.result-table td:first-child{text-align:left;font-family:-apple-system,
+  BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text2);font-size:11px}
+.result-table tr:last-child td{border-bottom:none}
+.result-table tr:hover td{background:var(--bg4)}
+/* ── YoY badge ── */
+.yoy{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600}
+.yoy.up{color:var(--green)}
+.yoy.dn{color:var(--red)}
+.yoy.neu{color:var(--text3)}
+/* ── Profit highlight ── */
+.profit-highlight{background:var(--green-dim);border-top:1px solid var(--green)}
+.profit-highlight td:first-child{color:var(--green) !important;font-weight:600}
+/* ── Empty state ── */
+.empty{padding:40px 24px;text-align:center;color:var(--text3);font-size:13px}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);
+  background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+</style>
+</head><body>
+
+<div class="page-header">
+  <div class="page-title">⚡ EARNINGS SCANNER — 2026-06-04</div>
+  <div class="page-meta">QUARTERLY RESULTS · 1 COMPANIES REPORTED · 0 PASSED FILTERS</div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat">
+    <div class="stat-val">1</div>
+    <div class="stat-lbl">Results filed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" style="color:var(--green)">0</div>
+    <div class="stat-lbl">Passed filters</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" style="color:var(--text3)">1</div>
+    <div class="stat-lbl">Filtered out</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span>Active filters:</span>
+  <span class="filter-tag">M.Cap &gt; ₹500 Cr</span>
+  <span class="filter-tag">Net Profit YoY &gt; 50%</span>
+  <span>Sorted by highest profit growth</span>
+</div>
+
+<div class="cards-grid"><div class="empty">No companies matched the filters today.<br>Try lowering the profit growth threshold or check if results were filed.</div></div>
+
+<div class="page-foot">
+  Earnings Scanner v2 · 2026-06-06 08:14 UTC · Source: Screener.in/results/latest/
+</div>
+</body></html>
