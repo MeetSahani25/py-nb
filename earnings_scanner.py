@@ -136,30 +136,6 @@ def fetch_results_page(session, target_date):
     resp.raise_for_status()
     html = resp.text
 
-    # Debug: print page structure to logs
-    from bs4 import BeautifulSoup as _BS
-    _soup = _BS(html, "html.parser")
-
-    # Print all div/section class names to understand structure
-    print("\n  [DEBUG] Top-level containers found:")
-    for tag in _soup.find_all(["div","section","article","li"], limit=200):
-        cls = " ".join(tag.get("class", []))
-        if cls and any(k in cls.lower() for k in ["result","company","card","item","row","entry"]):
-            txt = tag.get_text(strip=True)[:60]
-            print(f"    <{tag.name} class='{cls}'> → {txt}")
-
-    # Print all company links
-    print("\n  [DEBUG] Company links (/company/ hrefs):")
-    for a in _soup.find_all("a", href=lambda h: h and "/company/" in h)[:10]:
-        print(f"    {a.get('href','')} → '{a.get_text(strip=True)[:40]}'")
-        # Print parent chain
-        p = a.parent
-        for _ in range(4):
-            if p:
-                print(f"      parent: <{p.name} class='{' '.join(p.get('class',[]))}'>")
-                p = p.parent
-
-    print()
     return html
 
 # ── Parse cards ───────────────────────────────────────────────────────────────
@@ -182,166 +158,133 @@ def parse_yoy(text):
 def parse_results_cards(html):
     """
     Parse the card-based results page.
-    Each company card contains:
-      - Company name, Price, M.Cap, PE
-      - A table with rows: Sales, EBIDT, Net profit, EPS
-        and columns: YoY%, [Latest Quarter], [Prev Quarter], [Year Ago Quarter]
-    Returns list of company dicts.
+    Each card is a div with class containing 'flex-row flex-space-between'
+    that contains a company link (href=/company/...) and a table.
     """
     soup = BeautifulSoup(html, "html.parser")
     companies = []
 
-    # Screener wraps each company result in a div with class "result-card" or similar
-    # Try multiple selectors based on Screener's HTML structure
-    cards = (soup.find_all("div", class_=re.compile(r"result", re.I)) or
-             soup.find_all("section", class_=re.compile(r"result", re.I)) or
-             soup.find_all("div", class_=re.compile(r"company", re.I)))
+    # Find all card containers — they have the long flex class
+    # Each card = div containing /company/ link (not PDF) + a table
+    cards = soup.find_all("div", class_=lambda c: c and
+                          "flex-row" in " ".join(c) and
+                          "flex-space-between" in " ".join(c) and
+                          "margin-top-32" in " ".join(c))
 
-    # Fallback: find by structure — look for divs containing both a company link and a table
-    if not cards:
-        # Try finding all tables on the page — each company has one
-        all_tables = soup.find_all("table")
-        print(f"  Found {len(all_tables)} tables on page")
-        
-        for tbl in all_tables:
-            # Find parent that contains company info
-            parent = tbl.parent
-            for _ in range(5):  # walk up max 5 levels
-                if parent is None: break
-                name_el = parent.find(["h2","h3","h4","a"], class_=re.compile(r"name|company|title", re.I))
-                if not name_el:
-                    name_el = parent.find("a", href=re.compile(r"/company/"))
-                if name_el:
-                    company = parse_single_card(parent, name_el, tbl)
-                    if company:
-                        companies.append(company)
+    print(f"  Found {len(cards)} company cards")
+
+    for card in cards:
+        try:
+            # Get company name — first /company/ link that is NOT a PDF link
+            name_link = None
+            for a in card.find_all("a", href=True):
+                href = a.get("href","")
+                text = a.get_text(strip=True)
+                if "/company/" in href and text != "PDF" and text:
+                    name_link = a
                     break
-                parent = parent.parent
-    else:
-        print(f"  Found {len(cards)} result cards")
-        for card in cards:
-            name_el = (card.find("a", href=re.compile(r"/company/")) or
-                      card.find(["h2","h3","h4"]))
-            tbl = card.find("table")
-            if name_el and tbl:
-                company = parse_single_card(card, name_el, tbl)
-                if company:
-                    companies.append(company)
 
-    # Deduplicate by name
+            if not name_link:
+                continue
+
+            name = name_link.get_text(strip=True)
+            if not name or len(name) < 2:
+                continue
+
+            # Get the table inside this card
+            table = card.find("table")
+            if not table:
+                continue
+
+            # Parse Price, M.Cap, PE from card text
+            card_text = card.get_text(" ", strip=True)
+            price  = None
+            mcap   = None
+            pe     = None
+
+            p_match  = re.search(r"Price\s*[₹]?\s*([\d,]+\.?\d*)", card_text)
+            m_match  = re.search(r"M\.Cap\s*[₹]?\s*([\d,]+\.?\d*)", card_text)
+            pe_match = re.search(r"PE\s+([\d.]+)", card_text)
+
+            if p_match:  price = safe_float(p_match.group(1))
+            if m_match:  mcap  = safe_float(m_match.group(1))
+            if pe_match: pe    = safe_float(pe_match.group(1))
+
+            # Parse the result table
+            # Structure: rows = Sales, EBIDT, Net profit, EPS
+            # Cols: [metric_name, YoY%, latest_q, prev_q, year_ago_q]
+            thead = table.find("thead")
+            tbody = table.find("tbody") or table
+
+            # Get quarter labels
+            quarters = []
+            if thead:
+                ths = thead.find_all(["th","td"])
+                quarters = [th.get_text(strip=True) for th in ths]
+
+            rows_data = {}
+            for tr in tbody.find_all("tr"):
+                tds = tr.find_all(["td","th"])
+                if len(tds) < 2: continue
+                row_name = tds[0].get_text(strip=True).lower()
+                if not row_name: continue
+                vals = [td.get_text(strip=True) for td in tds[1:]]
+                rows_data[row_name] = vals
+
+            def get_yoy(key):
+                for k, vals in rows_data.items():
+                    if key in k and vals:
+                        return parse_yoy(vals[0])
+                return None
+
+            def get_qvals(key):
+                for k, vals in rows_data.items():
+                    if key in k and len(vals) >= 2:
+                        return [safe_float(re.sub(r"[%↑↓▲▼,]","",v).strip())
+                                for v in vals[1:4]]
+                return [None, None, None]
+
+            sales_yoy  = get_yoy("sales") or get_yoy("revenue")
+            ebidt_yoy  = get_yoy("ebidt") or get_yoy("ebitda")
+            profit_yoy = get_yoy("net profit") or get_yoy("profit")
+            eps_yoy    = get_yoy("eps")
+
+            sales_q    = get_qvals("sales") or get_qvals("revenue")
+            ebidt_q    = get_qvals("ebidt") or get_qvals("ebitda")
+            profit_q   = get_qvals("net profit") or get_qvals("profit")
+            eps_q      = get_qvals("eps")
+
+            companies.append({
+                "name":       name,
+                "price":      price,
+                "mcap":       mcap,
+                "pe":         pe,
+                "quarters":   quarters,
+                "sales_yoy":  sales_yoy,
+                "ebidt_yoy":  ebidt_yoy,
+                "profit_yoy": profit_yoy,
+                "eps_yoy":    eps_yoy,
+                "sales_q":    sales_q,
+                "ebidt_q":    ebidt_q,
+                "profit_q":   profit_q,
+                "eps_q":      eps_q,
+                "rows_raw":   rows_data,
+            })
+
+        except Exception as e:
+            continue
+
+    # Deduplicate
     seen = set()
     unique = []
     for c in companies:
-        if c["name"] and c["name"] not in seen:
+        if c["name"] not in seen:
             seen.add(c["name"])
             unique.append(c)
 
     return unique
 
-def parse_single_card(card_el, name_el, table_el):
-    """Parse one company card into a dict."""
-    try:
-        name = name_el.get_text(strip=True)
-        if not name or len(name) < 2: return None
 
-        # Extract Price, M.Cap, PE from card header text
-        card_text = card_el.get_text(" ", strip=True)
-        
-        price  = None
-        mcap   = None
-        pe     = None
-
-        # Try to find price/mcap/pe spans or text patterns
-        price_el = (card_el.find(string=re.compile(r"Price|CMP|₹\s*[\d.]+", re.I)) or
-                   card_el.find(class_=re.compile(r"price|cmp", re.I)))
-        
-        # Parse from text using regex
-        p_match = re.search(r"Price\s*[₹:]?\s*([\d,]+\.?\d*)", card_text)
-        m_match = re.search(r"M\.?Cap\s*[₹:]?\s*([\d,]+\.?\d*)", card_text)
-        pe_match= re.search(r"PE\s*[:]?\s*([\d.]+)", card_text)
-        
-        if p_match:  price = safe_float(p_match.group(1))
-        if m_match:  mcap  = safe_float(m_match.group(1))
-        if pe_match: pe    = safe_float(pe_match.group(1))
-
-        # Parse the result table
-        rows_data = {}
-        quarters  = []
-
-        thead = table_el.find("thead")
-        tbody = table_el.find("tbody")
-
-        # Get quarter labels from header
-        if thead:
-            header_cells = thead.find_all(["th","td"])
-            quarters = [c.get_text(strip=True) for c in header_cells[1:]]  # skip first col
-
-        # Get data rows
-        if tbody:
-            for tr in tbody.find_all("tr"):
-                cells = tr.find_all(["td","th"])
-                if not cells: continue
-                row_name = cells[0].get_text(strip=True)
-                if not row_name: continue
-                
-                row_values = []
-                for cell in cells[1:]:
-                    # Each cell may have YoY% and actual value
-                    cell_text = cell.get_text(" ", strip=True)
-                    row_values.append(cell_text)
-                
-                rows_data[row_name.lower()] = row_values
-
-        # Extract YoY% for key metrics
-        # Column 0 of data is typically YoY%, cols 1-3 are quarterly values
-        def get_yoy(row_key):
-            for k in rows_data:
-                if row_key in k:
-                    vals = rows_data[k]
-                    if vals:
-                        return parse_yoy(vals[0])  # first col = YoY
-            return None
-
-        def get_quarterly_values(row_key):
-            """Get [latest_q, prev_q, year_ago_q] values."""
-            for k in rows_data:
-                if row_key in k:
-                    vals = rows_data[k]
-                    # Skip YoY col (index 0), return next 3
-                    result = []
-                    for v in vals[1:4]:
-                        result.append(safe_float(re.sub(r'[%↑↓▲▼]','',v).strip()))
-                    return result
-            return [None, None, None]
-
-        sales_yoy   = get_yoy("sales") or get_yoy("revenue") or get_yoy("turnover")
-        ebidt_yoy   = get_yoy("ebidt") or get_yoy("ebitda") or get_yoy("operating")
-        profit_yoy  = get_yoy("net profit") or get_yoy("profit") or get_yoy("pat")
-        eps_yoy     = get_yoy("eps") or get_yoy("earning")
-
-        sales_q     = get_quarterly_values("sales") or get_quarterly_values("revenue")
-        ebidt_q     = get_quarterly_values("ebidt") or get_quarterly_values("ebitda")
-        profit_q    = get_quarterly_values("net profit") or get_quarterly_values("profit")
-        eps_q       = get_quarterly_values("eps")
-
-        return {
-            "name":       name,
-            "price":      price,
-            "mcap":       mcap,
-            "pe":         pe,
-            "quarters":   quarters,
-            "sales_yoy":  sales_yoy,
-            "ebidt_yoy":  ebidt_yoy,
-            "profit_yoy": profit_yoy,
-            "eps_yoy":    eps_yoy,
-            "sales_q":    sales_q,
-            "ebidt_q":    ebidt_q,
-            "profit_q":   profit_q,
-            "eps_q":      eps_q,
-            "rows_raw":   rows_data,
-        }
-    except Exception as e:
-        return None
 
 # ── Filter ────────────────────────────────────────────────────────────────────
 
@@ -358,9 +301,7 @@ def apply_filters(companies):
         
         # Apply filters
         mcap_ok   = mcap  is None or mcap  >= MIN_MCAP_CR        # include if mcap unknown
-        profit_ok = pyoy is not None and pyoy >= MIN_PROFIT_YOY_PC
-        
-        if profit_ok and mcap_ok:
+        if mcap_ok:
             filtered.append(c)
     
     # Sort by profit YoY descending
@@ -473,7 +414,7 @@ def build_html(filtered, total_fetched, report_date):
 <div class="filter-bar">
   <span>Active filters:</span>
   <span class="filter-tag">M.Cap &gt; ₹{MIN_MCAP_CR} Cr</span>
-  <span class="filter-tag">Net Profit YoY &gt; {MIN_PROFIT_YOY_PC}%</span>
+  <span class="filter-tag">Sorted by Profit YoY ↓</span>
   <span>Sorted by highest profit growth</span>
 </div>
 
