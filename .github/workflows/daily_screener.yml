@@ -5,6 +5,15 @@ on:
     - cron: "30 12 * * 1-5"   # 6:00 PM IST Mon-Fri — daily momentum scrape
     - cron: "0 19 * * 1-5"    # 12:30 AM IST Mon-Fri — earnings scanner
   workflow_dispatch:
+    inputs:
+      earnings_date:
+        description: 'Run earnings scanner for specific date (YYYY-MM-DD). Leave empty for last 3 days.'
+        required: false
+        default: ''
+      stock_lookup:
+        description: 'Stock history lookup (e.g. "Triveni Turbine"). Leave empty to skip.'
+        required: false
+        default: ''
 
 jobs:
   scrape:
@@ -43,8 +52,13 @@ jobs:
           HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
           if [ "$HOUR" = "19" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "12:30am run — scanning today's quarterly results..."
-            python earnings_scanner.py
+            echo "12:30am run — scanning quarterly results..."
+            if [ -n "${{ github.event.inputs.earnings_date }}" ]; then
+              echo "Running for specific date: ${{ github.event.inputs.earnings_date }}"
+              python earnings_scanner.py ${{ github.event.inputs.earnings_date }}
+            else
+              python earnings_scanner.py
+            fi
           else
             echo "Not earnings run (hour=$HOUR) — skipping"
           fi
@@ -83,6 +97,13 @@ jobs:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+
+      - name: Stock history lookup
+        run: |
+          if [ -n "${{ github.event.inputs.stock_lookup }}" ]; then
+            echo "Looking up history for: ${{ github.event.inputs.stock_lookup }}"
+            python stock_history.py "${{ github.event.inputs.stock_lookup }}"
+          fi
 
       - name: Commit and push
         run: |
