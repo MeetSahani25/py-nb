@@ -134,7 +134,33 @@ def fetch_results_page(session, target_date):
     print(f"  Fetching: {url}")
     resp = session.get(url, timeout=20)
     resp.raise_for_status()
-    return resp.text
+    html = resp.text
+
+    # Debug: print page structure to logs
+    from bs4 import BeautifulSoup as _BS
+    _soup = _BS(html, "html.parser")
+
+    # Print all div/section class names to understand structure
+    print("\n  [DEBUG] Top-level containers found:")
+    for tag in _soup.find_all(["div","section","article","li"], limit=200):
+        cls = " ".join(tag.get("class", []))
+        if cls and any(k in cls.lower() for k in ["result","company","card","item","row","entry"]):
+            txt = tag.get_text(strip=True)[:60]
+            print(f"    <{tag.name} class='{cls}'> → {txt}")
+
+    # Print all company links
+    print("\n  [DEBUG] Company links (/company/ hrefs):")
+    for a in _soup.find_all("a", href=lambda h: h and "/company/" in h)[:10]:
+        print(f"    {a.get('href','')} → '{a.get_text(strip=True)[:40]}'")
+        # Print parent chain
+        p = a.parent
+        for _ in range(4):
+            if p:
+                print(f"      parent: <{p.name} class='{' '.join(p.get('class',[]))}'>")
+                p = p.parent
+
+    print()
+    return html
 
 # ── Parse cards ───────────────────────────────────────────────────────────────
 
