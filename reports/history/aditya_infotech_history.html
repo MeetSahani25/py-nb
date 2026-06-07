@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stock History — Aditya Bir. Fas.</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);
+  padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.summary-strip{background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:10px 24px;display:flex;gap:28px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:18px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.verdict{padding:12px 24px;font-size:13px;font-weight:500;border-bottom:1px solid var(--border)}
+.verdict.caught{background:var(--green-dim);color:var(--green);border-left:3px solid var(--green)}
+.verdict.missed{background:var(--red-dim);color:var(--red);border-left:3px solid var(--red)}
+.verdict.partial{background:var(--amber-dim);color:var(--amber);border-left:3px solid var(--amber)}
+/* Timeline */
+.timeline{padding:20px 24px;position:relative}
+.timeline::before{content:'';position:absolute;left:48px;top:0;bottom:0;
+  width:1px;background:var(--border2)}
+.tl-item{display:flex;gap:16px;margin-bottom:20px;position:relative}
+.tl-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:4px;
+  border:2px solid;z-index:1}
+.tl-dot.daily{background:var(--blue-dim);border-color:var(--blue)}
+.tl-dot.weekly{background:var(--amber-dim);border-color:var(--amber)}
+.tl-dot.gold{background:var(--amber);border-color:var(--amber)}
+.tl-dot.silver{background:var(--blue-dim);border-color:var(--blue)}
+.tl-dot.earnings{background:var(--green-dim);border-color:var(--green)}
+.tl-content{flex:1;background:var(--bg2);border:1px solid var(--border);
+  border-radius:6px;padding:10px 14px}
+.tl-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--text3)}
+.tl-source{font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;letter-spacing:.4px}
+.tl-source.daily{background:var(--blue-dim);color:var(--blue)}
+.tl-source.weekly{background:var(--amber-dim);color:var(--amber)}
+.tl-source.gold{background:var(--amber);color:#000}
+.tl-source.silver{background:var(--blue-dim);color:var(--blue)}
+.tl-source.earnings{background:var(--green-dim);color:var(--green)}
+.tl-metrics{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px}
+.tl-metric{color:var(--text2)}
+.tl-metric span{color:var(--text)}
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+/* Price chart */
+.price-chart{padding:16px 24px;border-bottom:1px solid var(--border)}
+.chart-title{font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--amber);margin-bottom:10px}
+.chart-bars{display:flex;align-items:flex-end;gap:4px;height:60px}
+.chart-bar{flex:1;border-radius:2px 2px 0 0;min-height:3px;position:relative;cursor:default}
+.chart-bar:hover::after{content:attr(title);position:absolute;bottom:100%;left:50%;
+  transform:translateX(-50%);background:var(--bg4);border:1px solid var(--border2);
+  padding:3px 7px;border-radius:3px;font-size:10px;white-space:nowrap;z-index:10;
+  font-family:var(--mono);color:var(--text)}
+.chart-dates{display:flex;justify-content:space-between;
+  font-size:9px;color:var(--text3);font-family:var(--mono);margin-top:4px}
+/* Source legend */
+.legend{display:flex;gap:16px;padding:8px 24px;background:var(--bg3);
+  border-bottom:1px solid var(--border);font-size:10px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;color:var(--text2)}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);
+  background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+.empty{padding:40px 24px;text-align:center;color:var(--text3);font-size:13px}
+.section-head{padding:8px 24px;background:var(--bg3);border-bottom:1px solid var(--border);
+  border-top:1px solid var(--border);font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:1px;color:var(--amber);display:flex;justify-content:space-between}
+</style>
+</head><body>
+
+<div class="page-header">
+  <div class="page-title">🔍 STOCK HISTORY — ADITYA BIR. FAS.</div>
+  <div class="page-meta">QUERY: "Aditya Infotech" · GENERATED: 2026-06-07 13:58 UTC</div>
+</div>
+
+<div class="verdict partial">🟡 PARTIALLY CAUGHT — Reached SILVER in silent horse on 2026-05-31. First seen in daily screen 2026-05-19.</div>
+
+<div class="summary-strip">
+  <div class="stat">
+    <div class="stat-val">8</div>
+    <div class="stat-lbl">Daily appearances</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">3</div>
+    <div class="stat-lbl">Weekly reports</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">8</div>
+    <div class="stat-lbl">Silent horse picks</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">0</div>
+    <div class="stat-lbl">Earnings hits</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" style="color:var(--green)">
+      ▲5199.0%
+    </div>
+    <div class="stat-lbl">Price Δ in system</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val" style="color:var(--text2)">2026-05-19</div>
+    <div class="stat-lbl">First detected</div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Daily screen</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>Weekly analysis</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--amber);border:2px solid #000"></div>Gold pick</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue-dim);border:1px solid var(--blue)"></div>Silver pick</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Earnings scanner</div>
+</div>
+
+
+    <div class="price-chart">
+      <div class="chart-title">Price journey in system — ₹67 → ₹3,538
+        <span style="color:var(--green);font-family:var(--mono);margin-left:10px">
+          ▲5199.0% since first detected
+        </span>
+      </div>
+      <div class="chart-bars"><div class="chart-bar" style="height:3px;background:var(--red)" title="2026-05-21: ₹67"></div><div class="chart-bar" style="height:41px;background:var(--green)" title="2026-05-25: ₹2,556"></div><div class="chart-bar" style="height:47px;background:var(--green)" title="2026-05-29: ₹2,904"></div><div class="chart-bar" style="height:47px;background:var(--green)" title="2026-05-30: ₹2,904"></div><div class="chart-bar" style="height:47px;background:var(--green)" title="2026-05-31: ₹2,904"></div><div class="chart-bar" style="height:50px;background:var(--green)" title="2026-06-01: ₹3,126"></div><div class="chart-bar" style="height:54px;background:var(--green)" title="2026-06-03: ₹3,369"></div><div class="chart-bar" style="height:57px;background:var(--green)" title="2026-06-04: ₹3,538"></div></div>
+      <div class="chart-dates"><span>2026-05-21</span><span>2026-05-31</span><span>2026-06-04</span></div>
+    </div>
+
+<div class="section-head">
+  <span>📅 Full Timeline — 19 events</span>
+  <span style="color:var(--text3)">2026-05-19 → 2026-06-07</span>
+</div>
+<div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot weekly"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-19</span>
+              <span class="tl-source weekly">Weekly Analysis (1 days that week)</span>
+            </div>
+            <div class="tl-metrics">Avg 1d ret <span class="up">▲6.8%</span> · Week chg <span style="color:var(--text3)">—</span> · 1mo <span style="color:var(--text3)">—</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-21</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹66.76 · 1d <span class="up">▲6.8%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲53.5%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-25</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹2556.1 · 1d <span class="up">▲5.8%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲37.1%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot weekly"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-25</span>
+              <span class="tl-source weekly">Weekly Analysis (2 days that week)</span>
+            </div>
+            <div class="tl-metrics">Avg 1d ret <span class="up">▲7.9%</span> · Week chg <span class="up">▲13.6%</span> · 1mo <span style="color:var(--text3)">—</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-29</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹2903.5 · 1d <span class="up">▲10.0%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-30</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹2903.5 · 1d <span class="up">▲10.0%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-31</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹2903.5 · 1d <span class="up">▲10.0%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-31</span>
+              <span class="tl-source silver">Silent Horse — SILVER (3-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 58/100 · 1 weeks · freq 4d · pattern: blowout · price Δ <span class="up">▲13.6%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-05-31</span>
+              <span class="tl-source silver">Silent Horse — SILVER (4-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 58/100 · 1 weeks · freq 4d · pattern: blowout · price Δ <span class="up">▲13.6%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-01</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹3126.0 · 1d <span class="up">▲7.7%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot weekly"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-01</span>
+              <span class="tl-source weekly">Weekly Analysis (3 days that week)</span>
+            </div>
+            <div class="tl-metrics">Avg 1d ret <span class="up">▲5.8%</span> · Week chg <span class="up">▲13.2%</span> · 1mo <span style="color:var(--text3)">—</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-01</span>
+              <span class="tl-source silver">Silent Horse — SILVER (3-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 70/100 · 2 weeks · freq 5d · pattern: blowout · price Δ <span class="up">▲22.3%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-01</span>
+              <span class="tl-source silver">Silent Horse — SILVER (4-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 70/100 · 2 weeks · freq 5d · pattern: blowout · price Δ <span class="up">▲22.3%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-03</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹3369.2 · 1d <span class="up">▲4.8%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot daily"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-04</span>
+              <span class="tl-source daily">Daily Screen</span>
+            </div>
+            <div class="tl-metrics">CMP ₹3537.6 · 1d <span class="up">▲5.0%</span> · 1mo <span style="color:var(--text3)">—</span> · QoQ profit <span class="up">▲76.2%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-06</span>
+              <span class="tl-source silver">Silent Horse — SILVER (3-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 74/100 · 2 weeks · freq 7d · pattern: blowout · price Δ <span class="up">▲38.4%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-06</span>
+              <span class="tl-source silver">Silent Horse — SILVER (4-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 74/100 · 2 weeks · freq 7d · pattern: blowout · price Δ <span class="up">▲38.4%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-07</span>
+              <span class="tl-source silver">Silent Horse — SILVER (3-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 74/100 · 2 weeks · freq 7d · pattern: blowout · price Δ <span class="up">▲38.4%</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot silver"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <span class="tl-date">2026-06-07</span>
+              <span class="tl-source silver">Silent Horse — SILVER (4-week window)</span>
+            </div>
+            <div class="tl-metrics">Score 74/100 · 2 weeks · freq 7d · pattern: blowout · price Δ <span class="up">▲38.4%</span></div>
+          </div>
+        </div></div>
+
+<div class="page-foot">
+  Stock History Tool · py-nb · 2026-06-07 13:58 UTC
+</div>
+</body></html>
