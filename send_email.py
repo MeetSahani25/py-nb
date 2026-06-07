@@ -103,11 +103,19 @@ def main():
 
     print(f"\n📧 Sending to {RECEIVER}...")
 
-    # Attach latest earnings report if exists
+    # Attach earnings reports from last 5 days
     import glob as _glob
-    earnings_latest = sorted(_glob.glob(os.path.join("reports","earnings","earnings_*.html")), reverse=True)
-    if earnings_latest:
-        attach(msg, earnings_latest[0])
+    from datetime import date as _date, timedelta as _td
+    earnings_files = sorted(_glob.glob(os.path.join("reports","earnings","earnings_*.html")), reverse=True)
+    # Only attach files from last 7 days
+    cutoff = (_date.today() - _td(days=7)).isoformat()
+    for ef in earnings_files[:5]:
+        fname = os.path.basename(ef)
+        # Extract date from filename like earnings_2026-06-02.html
+        import re as _re
+        m = _re.search(r'earnings_(\d{4}-\d{2}-\d{2})', fname)
+        if m and m.group(1) >= cutoff:
+            attach(msg, ef)
 
     # Attach weekly HTML
     attach(msg, latest(os.path.join(REPORTS, "weekly", "week_*_analysis.html")))
