@@ -1,0 +1,10 @@
+{
+  "date": "2026-06-02",
+  "total_fetched": 1,
+  "total_filtered": 0,
+  "filters": {
+    "min_mcap_cr": 500,
+    "min_profit_yoy_pc": 50
+  },
+  "companies": []
+}
