@@ -1,0 +1,1834 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>
+  Latest quarterly results
+ - Screener</title>
+    
+
+    <!-- plausible -->
+    <script defer
+            event-user="free"
+            
+            
+            data-domain="screener.in"
+            src="https://plausible.screener.in/js/script.pageview-props.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <script src="https://rybbit.screener.in/api/script.js"
+            data-site-id="5494427e1dc0"
+            defer></script>
+
+    <!-- FONT -->
+    <link rel="stylesheet" href="https://cdn-static.screener.in/inter/inter.bccd7465af74.css?v=2" />
+    <link rel="stylesheet" href="https://cdn-static.screener.in/fontello/css/fontello.835ae8880a8b.css?v=2" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/normalize.a2444750a947.css" media="all">
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/skeleton.e1c50fcb2cfe.css" media="all">
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/custom.face9eb25802.css" media="all">
+
+    
+<style>
+  main {
+    max-width: 720px;
+  }
+
+  #sidebar {
+    margin-top: 18px;
+  }
+
+  @media (min-width: 576px) {
+    #sidebar {
+      margin-left: 72px;
+      max-width: 300px;
+      min-width: 18%;
+    }
+
+    #sidebar .card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    #sidebar {
+      /* align sidebar content till right */
+      margin-right: calc(-1 * var(--container-padding));
+    }
+  }
+</style>
+
+    
+  <style>
+  .change {
+    font-size: 1.2rem;
+    letter-spacing: var(--letter-spacing-12);
+    font-weight: 500;
+  }
+
+  .paginator {
+    margin: 32px 0 16px;
+  }
+
+  .paginator a {
+    padding: 4px 8px;
+    background: var(--base);
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  </style>
+
+
+    <meta name="author" content="Mittal Analytics Private Limited">
+
+    <!-- PWA manifest -->
+    <meta name="theme-color"
+          content="#fff"
+          media="(prefers-color-scheme: light)">
+    <meta name="theme-color"
+          content="#222530"
+          media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/static/manifest.json">
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://cdn-static.screener.in/favicon/apple-touch-icon.b6e5f24bf7d3.png">
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="https://cdn-static.screener.in/favicon/favicon-32x32.00205914303a.png">
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="https://cdn-static.screener.in/favicon/favicon-16x16.2b35594b2f33.png">
+    <link rel="mask-icon"
+          href="https://cdn-static.screener.in/favicon/safari-pinned-tab.adbe3ed3c5ad.svg"
+          color="#8ED443">
+    <meta name="msapplication-TileColor" content="#da532c">
+  </head>
+
+  <body class="light flex-column">
+    
+      <nav class="u-full-width no-print">
+        <div id="mobile-search"><div class="has-addon left-addon dropdown-typeahead">
+  <i class="addon icon-search"></i>
+  <input
+    aria-label="Search for a company"
+    type="search"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="Search for a company"
+    class="u-full-width"
+    
+    data-company-search="true">
+</div>
+</div>
+
+<ul class="bottom-menu-bar hide-from-tablet-landscape">
+  
+    <li class="">
+      <a href="/">
+        <i class="icon-news"></i>
+        <br>
+        Feed
+      </a>
+    </li>
+  
+
+  <li class="">
+    <a href="/explore/">
+      <i class="icon-screens"></i>
+      <br>
+      Screens
+    </a>
+  </li>
+
+  <li>
+    <button type="button"
+            onclick="MobileMenu.toggleSearch(this)"
+            class="search-button"
+            title="Search">
+      <i class="icon-search" style="font-size: 18px"></i>
+    </button>
+  </li>
+
+  <li>
+    <button class="button-plain" onclick="Modal.showInModal('#nav-tools-menu')">
+      <i class="icon-tools"></i>
+      <br>
+      Tools
+    </button>
+  </li>
+
+  
+    <li class="">
+      <button class="button-plain" onclick="Modal.showInModal('#nav-user-menu')">
+        <i class="icon-user"></i>
+        <br>
+        Account
+      </button>
+    </li>
+  
+</ul>
+
+        <div class="top-nav-holder">
+          <div class="container">
+
+
+
+<div class="layer-holder top-navigation">
+  <div class="layer flex flex-space-between"
+       style="align-items: center;
+              height: 50px">
+    <div class="flex" style="align-items: center">
+      <a href="/" class="logo-holder">
+        <img alt="Screener Logo"
+             class="logo"
+             src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg" />
+      </a>
+
+      <div class="desktop-links" style="margin-left: 48px">
+        <a href="/">
+          
+            Feed
+          
+        </a>
+        <a href="/explore/">Screens</a>
+        <div class="dropdown-menu">
+          <button class="button-plain"
+                  type="button"
+                  onclick="Utils.toggleDropdown(event)">
+            Tools
+            <i class="icon-down"></i>
+          </button>
+          <ul class="dropdown-content flex-column tools-menu"
+              style="width: 350px"
+              id="nav-tools-menu">
+            <li>
+              <a href="/screen/new/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square-56">
+                  <img src="https://cdn-static.screener.in/icons/screens.e960a5daedf9.svg" alt="Create a stock screen">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Create a stock screen</div>
+                  <div class="sub font-size-13">Run queries on 10 years of financial data</div>
+                </div>
+              </a>
+            </li>
+            <li class="flex flex-align-center no-hover" style="padding: 4px 0;">
+              <div class="button button-primary premium-indicator flex flex-align-center">
+                <img src="https://cdn-static.screener.in/icons/crown.fb0d2413ee43.svg"
+                     alt="Premium icon"
+                     style="margin-right: 8px">
+                <span>Premium features</span>
+              </div>
+              <hr class="flex-grow" style="padding: 0; margin: 0;">
+            </li>
+            
+              <li>
+                <a href="/ai/"
+                   class="flex flex-align-center flex-gap-16">
+                  <div class="bg-stripes square-56">
+                    <img src="https://cdn-static.screener.in/icons/ai.970ef1d1cabb.svg" alt="Screener AI">
+                  </div>
+                  <div>
+                    <div class="font-weight-500 font-size-14">Screener AI</div>
+                    <div class="sub font-size-13">Extract valuable insights from hundreds of company documents.</div>
+                  </div>
+                </a>
+              </li>
+            
+            <li>
+              <a href="/hs/" class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square-56">
+                  <img src="https://cdn-static.screener.in/icons/export.d623f0029933.svg" alt="Commodity Prices">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Commodity Prices</div>
+                  <div class="sub font-size-13">Analyze price trends for 10,000+ commodities over the past 10 years.</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/people/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square-56">
+                  <img src="https://cdn-static.screener.in/icons/shares.10acc20cb936.svg"
+                       alt="Search shareholders by name">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Search shareholders</div>
+                  <div class="sub font-size-13">Find all companies where a person owns more than 1% of shares.</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/announcements/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square-56">
+                  <img src="https://cdn-static.screener.in/icons/loudspeaker.88769927f6eb.svg" alt="Loudspeaker">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Company Announcements</div>
+                  <div class="sub font-size-13">
+                    Stay updated. Search, filter and set alerts for the newest disclosures and developments.
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+              <li style="padding: 16px;">
+                <a href="/premium/?driver=top-nav-tools"
+                   class="button button-primary text-align-center"
+                   style="color: var(--white);
+                          padding: 10px 24px">Upgrade to premium</a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-from-tablet-landscape flex flex-gap-16"
+         style="justify-content: flex-end;
+                flex: 1 1 400px">
+      <div class="search" id="desktop-search"><div class="has-addon left-addon dropdown-typeahead">
+  <i class="addon icon-search"></i>
+  <input
+    aria-label="Search for a company"
+    type="search"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="Search for a company"
+    class="u-full-width"
+    
+    data-company-search="true">
+</div>
+</div>
+
+      
+        <div id="account-dropdown" class="dropdown-menu">
+          <button class="account" type="button" onclick="Utils.toggleDropdown(event)">
+            <i class="icon-user-line blue-icon"></i>
+            Meet
+            
+            <i class="icon-down"></i>
+          </button>
+
+          <div class="dropdown-content flex-column font-size-14 font-weight-500"
+               style="right: 0;
+                      width: 154px"
+               id="nav-user-menu">
+            <a href="/user/account/">
+              <i class="icon-settings"></i>
+              Profile
+            </a>
+            <a href="/alerts/">
+              <i class="icon-bell"></i>
+              Alerts
+            </a>
+            <a href="/notebook/">
+              <i class="icon-book-open"></i>
+              Notebook
+            </a>
+            
+            
+              <a href="/premium/?driver=user-nav-dropdown">
+                <i class="icon-crown"></i>
+                Upgrade
+              </a>
+            
+            
+              
+                <a href="/ai/?driver=user-nav-dropdown">
+                  <i class="icon-chat-ai"></i>
+                  Screener AI
+                </a>
+              
+            
+            <hr class="no-hover">
+            <form action="/logout/" method="post" style="padding: 0">
+              <input type="hidden" name="csrfmiddlewaretoken" value="uDxzWUN67LudDyqK49pJGyXW2eBeMeKqPtqhI7n5J5tI493JzUZOvGNEh3gvpCbz">
+              <button type="submit"
+                      class="button-plain"
+                      style="width: 100%;
+                             padding: 4px 16px">
+                <i class="icon-off"></i>
+                Logout
+              </button>
+            </form>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+        </div>
+      </nav>
+    
+
+    
+    
+
+    
+<div class="container flex-grow">
+  <div class="breadcrumb">
+  
+    <ul>
+      
+        <li>
+          
+            <a href="/">Dashboard</a>
+          
+        </li>
+      
+        <li>
+          
+            Latest results
+          
+        </li>
+      
+    </ul>
+  
+</div>
+  <div class="flex flex-column-mobile">
+    <main class="flex-grow">
+      
+
+
+  
+    
+    
+    
+
+    
+    
+  
+
+
+
+
+
+
+      
+  <h1 class="h2">Latest quarterly results</h1>
+
+  <div class="no-card change-list">
+    <div id="toolbar-wrapper">
+      
+        
+
+<div id="toolbar"><form id="changelist-search" method="get" role="search">
+<div><!-- DIV needed for valid HTML -->
+<label for="searchbar"><img src="https://cdn-static.screener.in/admin/img/search.7cf54ff789c6.svg" alt="Search"></label>
+<input type="text" size="40" name="q" value="" id="searchbar">
+<input type="submit" value="Search">
+
+    <span class="small quiet">10 results (<a href="?">5471 total</a>)</span>
+
+
+    <input type="hidden" name="all" value="">
+
+    <input type="hidden" name="result_update_date__day" value="10">
+
+    <input type="hidden" name="result_update_date__month" value="6">
+
+    <input type="hidden" name="result_update_date__year" value="2026">
+
+</div>
+
+</form></div>
+
+
+      
+      <button type="button"
+              class="hide-from-tablet-landscape"
+              data-title="Filters"
+              onclick="Modal.showInModal('#change-list-filters', this)">
+        <i class="icon-filter"></i> Filters
+      </button>
+    </div>
+    
+      
+<nav class="toplinks">
+
+
+<a href="?all=&amp;result_update_date__month=6&amp;result_update_date__year=2026" class="date-back">&lsaquo; June 2026</a>
+
+
+
+10 June
+
+
+
+</nav>
+
+
+    
+  </div>
+
+
+  <div class="mark-visited">
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/NFPSAMPOOR/consolidated/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">NFP Sampoorna</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1285878/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">27.5</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">34.7</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">7.7</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    HY-Mar 2026
+                  
+                </th>
+                <th>
+                  
+                </th>
+                <th>
+                  
+                    HY-Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 41%</span></td>
+              <td data-sales-latest-quarter>22.2</td>
+              <td></td>
+              <td>15.8</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 124%</span></td>
+              <td>4.89</td>
+              <td></td>
+              <td>2.18</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 120%</span>
+                
+              </td>
+              <td data-np-latest-quarter>2.55</td>
+              <td></td>
+              <td>1.16</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 67%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;3.12
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;None
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.87
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/531855/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Prabhav Ind</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/2525/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">0.49</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">2.26</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 80%</span></td>
+              <td>-0.03</td>
+              <td>-0.03</td>
+              <td>-0.15</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 98%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.01</td>
+              <td>0.00</td>
+              <td>-0.47</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 100%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.10
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/531898/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Sanguine Media</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/2880/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">0.19</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">2.17</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 50%</span></td>
+              <td data-sales-latest-quarter>0.01</td>
+              <td>0.02</td>
+              <td>0.02</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 67%</span></td>
+              <td>-0.01</td>
+              <td>0.00</td>
+              <td>-0.03</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 67%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.01</td>
+              <td>0.00</td>
+              <td>-0.03</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 0%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/531692/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Khyati Multimed.</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1771/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">4.07</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">4.40</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">23.2</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>0.51</td>
+              <td>0.00</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 282%</span></td>
+              <td>0.40</td>
+              <td>-0.04</td>
+              <td>-0.22</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 114%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.30</td>
+              <td>-0.04</td>
+              <td>0.14</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 115%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.28
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.04
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.13
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/MAHABANK/consolidated/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Bank of Maha</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/397/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">87.3</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">67,147</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">9.6</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 15%</span></td>
+              <td data-sales-latest-quarter>7,755</td>
+              <td>7,344</td>
+              <td>6,731</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 31%</span></td>
+              <td>5,444</td>
+              <td>4,996</td>
+              <td>4,170</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 36%</span>
+                
+              </td>
+              <td data-np-latest-quarter>2,045</td>
+              <td>1,799</td>
+              <td>1,502</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 36%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.66
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.34
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.95
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/VOLTAS/consolidated/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Voltas</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3708/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">1,285</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">42,532</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">108.3</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 3%</span></td>
+              <td data-sales-latest-quarter>4,888</td>
+              <td>3,071</td>
+              <td>4,768</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 39%</span></td>
+              <td>185</td>
+              <td>145</td>
+              <td>301</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 52%</span>
+                
+              </td>
+              <td data-np-latest-quarter>113</td>
+              <td>84.5</td>
+              <td>236</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 52%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;3.51
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.57
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;7.28
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/531997/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">IKOMA Technologies</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1270074/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">63.8</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">148</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">643.1</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Dec 2025
+                  
+                </th>
+                <th>
+                  
+                    Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 100%</span></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.00</td>
+              <td>6.59</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 98%</span></td>
+              <td>-0.04</td>
+              <td>-0.08</td>
+              <td>-1.95</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 94%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.08</td>
+              <td>-0.12</td>
+              <td>-1.35</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 95%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.03
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.05
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.58
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/KHFM/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">KHFM Hospitality</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1274651/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">66.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">152</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">48.5</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    HY-Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    HY-Sep 2025
+                  
+                </th>
+                <th>
+                  
+                    HY-Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 2%</span></td>
+              <td data-sales-latest-quarter>46.8</td>
+              <td>52.4</td>
+              <td>47.7</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 10%</span></td>
+              <td>4.84</td>
+              <td>3.81</td>
+              <td>5.35</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 34%</span>
+                
+              </td>
+              <td data-np-latest-quarter>1.03</td>
+              <td>2.11</td>
+              <td>1.55</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 38%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.45
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.98
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.72
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/544559/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Om Metallogic</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1285711/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">21.6</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">17.0</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">3.6</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    HY-Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    HY-Sep 2025
+                  
+                </th>
+                <th>
+                  
+                    HY-Mar 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 58%</span></td>
+              <td data-sales-latest-quarter>53.1</td>
+              <td>22.1</td>
+              <td>33.7</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 60%</span></td>
+              <td>5.00</td>
+              <td>1.94</td>
+              <td>3.12</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 70%</span>
+                
+              </td>
+              <td data-np-latest-quarter>3.77</td>
+              <td>0.94</td>
+              <td>2.22</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 14%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;4.80
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.79
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;4.22
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/544759/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Goldline Pharmaceutical</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1285976/3/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">46.6</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">44.7</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">10.9</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    HY-Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    HY-Sep 2025
+                  
+                </th>
+                <th>
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>17.3</td>
+              <td>13.9</td>
+              <td></td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td></td>
+              <td>4.31</td>
+              <td>2.64</td>
+              <td></td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  
+                
+              </td>
+              <td data-np-latest-quarter>2.76</td>
+              <td>1.36</td>
+              <td></td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;4.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.97
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;None
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+  </div>
+
+  
+
+<p class="paginator">
+
+10 results
+
+
+</p>
+
+
+    </main>
+    <aside id="sidebar" class="flex-grow show-from-tablet-landscape">
+      
+  
+    <div class="sidebar-panel" id="change-list-filters">
+      <div class="title flex flex-space-between flex-align-center">
+        <span class="show-from-tablet-landscape">
+          <i class="icon-filter ink-700"></i>
+          Filter
+        </span>
+        
+      </div>
+
+      <div class="content">
+        
+          <div class="change-list-filter"><details data-filter-title="Market Cap" open>
+  <summary>By Market Cap</summary>
+  <ul>
+    
+      <li class="selected">
+        <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">All</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=0_to_50&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">0 - 50 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=50_to_500&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">50 - 500 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=500_to_5000&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">500 - 5,000 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=above_5000&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">&gt; 5,000 Cr</a>
+      </li>
+    
+    <li >
+      <form>
+        <input class="small"
+               type="text"
+               name="mcap_min"
+               style="max-width: 60px"
+               placeholder="Min"
+               value="">
+        <input class="small"
+               type="text"
+               name="mcap_max"
+               style="max-width: 60px"
+               placeholder="Max"
+               value="">
+        <input type="hidden" name="mcap" value="custom">
+        <input type="submit" class="button button-small" value="Go">
+      </form>
+    </li>
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Sorting" open>
+  <summary>
+     By Sorting 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">Latest</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sort=growth">Sales Growth</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sort=turnaround">Turnaround</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sort=pe">TTM PE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sort=qtr-pe">Qtr PE</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Exchange" open>
+  <summary>
+     By Exchange 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">All</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sme=bse">BSE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sme=nse">NSE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sme=sme">SME</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;sme=main-board">Non SME</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Watchlist" open>
+  <summary>
+     By Watchlist 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026">No Filter</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=10&amp;result_update_date__month=6&amp;result_update_date__year=2026&amp;watchlist=1836871">In Core Watchlist</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+      </div>
+    </div>
+  
+
+    </aside>
+  </div>
+</div>
+
+
+    
+      
+
+<footer id="large-footer">
+  <div class="flex-row flex-space-between flex-column-tablet container no-print">
+    <div class="hide-from-tablet" style="margin-bottom: 16px;">
+      <img src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg"
+           alt="Screener Logo"
+           style="max-width: 120px"
+           class="logo">
+    </div>
+
+    <div class="show-from-tablet" style="padding: 0 64px 0 0;">
+      <img src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg"
+           alt="Screener Logo"
+           style="max-width: 120px"
+           class="logo">
+      <p class="font-size-19" style="font-weight: 500;">Stock analysis and screening tool</p>
+      <p class="sub">
+        Mittal Analytics Private Ltd &copy; 2009-2025
+        <br>
+        Made with <i class="icon-heart red"></i> in India.
+      </p>
+      <p class="sub font-size-13">Data provided by C-MOTS Internet Technologies Pvt Ltd</p>
+      <p class="font-size-13 sub">
+        <a href="/guides/terms/" class="underline-link">Terms</a> & <a href="/guides/privacy/" class="underline-link">Privacy</a>.
+      </p>
+    </div>
+
+    <div class="flex flex-end flex-space-between flex-grow"
+         style="max-width: 600px">
+      <div class="flex-grow">
+        <div class="title">Product</div>
+        <ul class="items">
+          <li>
+            <a href="/premium/?driver=footer">Premium</a>
+          </li>
+          <li>
+            <a href="/docs/changelog/">What's new?</a>
+          </li>
+          <li>
+            <a href="https://bit.ly/learnscreener">Learn</a>
+          </li>
+          <li>
+            <button class="a2hs button-secondary button-small">
+              <i class="icon-flash"></i>
+              Install
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-grow">
+        <div class="title">Team</div>
+        <ul class="items">
+          <li>
+            <a href="/guides/about-us/">About us</a>
+          </li>
+          <li>
+            <a href="/support/">Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-grow">
+        <div class="title">Theme</div>
+        <ul class="items">
+          <li>
+            <button onclick="SetTheme('light')"
+                    aria-label="Set light theme"
+                    class="button-plain">
+              <i class="icon-sun"></i>
+              Light
+            </button>
+          </li>
+          <li>
+            <button onclick="SetTheme('dark')"
+                    aria-label="Set dark theme"
+                    class="button-plain">
+              <i class="icon-moon"></i>
+              Dark
+            </button>
+          </li>
+          <li>
+            <button onclick="SetTheme('auto')"
+                    aria-label="Set auto theme"
+                    class="button-plain">
+              <i class="icon-monitor"></i>
+              Auto
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hide-from-tablet">
+      <hr>
+      <p class="sub">Mittal Analytics Private Ltd &copy; 2009-2024</p>
+      <p class="sub">Data provided by C-MOTS Internet Technologies Pvt Ltd</p>
+      <p class="sub">
+        <a href="/guides/terms/" class="underline-link">Terms</a>
+        & <a href="/guides/privacy/" class="underline-link">Privacy</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+    
+
+    <!-- Important JS (which provide global objects)- check below too -->
+    <script src="https://cdn-static.screener.in/js/dialog-polyfill.min.2b5bf9a032d2.js"></script>
+    <script src="https://cdn-static.screener.in/js/utils.5fa58987fd69.js"></script>
+    <script src="https://cdn-static.screener.in/js/modal.33ac63eb7887.js"></script>
+    <script src="https://cdn-static.screener.in/js/typeahead.8dcc9ac93685.js"></script>
+    <script src="https://cdn-static.screener.in/js/filter.component.888b0801c31d.js"></script>
+
+    <!-- Independent JS scripts for page interactions -->
+    <script src="https://cdn-static.screener.in/js/navbar.3fe7f0f4a630.js"></script>
+    <script src="https://cdn-static.screener.in/js/company.search.e48f94642999.js"></script>
+    
+    
+
+    <!-- Service worker installer for PWA -->
+    <script src="https://cdn-static.screener.in/js/pwa.6ade38a669c4.js"></script>
+  </body>
+</html>
