@@ -12,7 +12,7 @@ from datetime import date, timedelta
 
 OUTPUT_DIR  = "reports"
 WEEKLY_DIR  = os.path.join(OUTPUT_DIR, "weekly")
-MAX_AGE_DAYS = 180
+MAX_AGE_DAYS = 365  # keep 1 year of daily reports
 
 def cleanup_old_daily_reports():
     cutoff = date.today() - timedelta(days=MAX_AGE_DAYS)
@@ -28,8 +28,8 @@ def cleanup_old_daily_reports():
     for entry in sorted(os.listdir(OUTPUT_DIR)):
         entry_path = os.path.join(OUTPUT_DIR, entry)
 
-        # Skip weekly folder and non-directories
-        if entry == "weekly" or entry == "index.json":
+        # Skip weekly, earnings, history, monthly folders — never delete these
+        if entry in ("weekly", "earnings", "history", "monthly", "index.json"):
             continue
         if not os.path.isdir(entry_path):
             continue
