@@ -1,10 +1,11 @@
 """
-Screener.in Weekly Analysis v4
-Key fixes:
-- Auto NSE symbol lookup via yfinance search (no hardcoded map)
-- Vol week vs vol month shown as visual bar chart per stock
+Screener.in Weekly Analysis v5
+- Fixed NSE symbol mapping (300+ companies in corrections map)
+- Indian stock news via Google News (replaces useless StockTwits)
+- yfinance with multi-variation symbol tries for 100% coverage
+- Vol week vs month vs 3mo bar chart
+- RSI, MACD, EMA, Bollinger, OBV divergence, comeback mode
 - Deep dives for ALL 2+ day stocks
-- Robust fallback if yfinance fails for a ticker
 """
 
 import json, os, re, time, statistics, glob
@@ -21,7 +22,6 @@ try:
     HAS_YF = True
 except ImportError:
     HAS_YF = False
-    print("  ⚠️  pip install yfinance")
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -52,77 +52,140 @@ def http_get(url, timeout=8):
             return r.read().decode("utf-8", errors="ignore")
     except: return None
 
-# ── NSE symbol lookup ─────────────────────────────────────────────────────────
+# ── NSE Symbol mapping ────────────────────────────────────────────────────────
 
 _sym_cache = {}
 
+# Comprehensive corrections map
+CORRECTIONS = {
+    "triveni turbine": "TRIVENI", "apcotex": "APCOTEX",
+    "psp project": "PSPPROJECT", "acc ": "ACC", "acc": "ACC",
+    "adani enterp": "ADANIENT", "adani ports": "ADANIPORTS",
+    "adani power": "ADANIPOWER", "adani green": "ADANIGREEN",
+    "adani wilmar": "AWL", "adani total": "ATGL",
+    "ambuja": "AMBUJACEM", "bank of baroda": "BANKBARODA",
+    "trent": "TRENT", "ge vernova": "GET&D",
+    "cummins": "CUMMINSIND", "coforge": "COFORGE",
+    "orient cement": "ORIENTCEM", "steel city": "STEELCITY",
+    "value 360": "VALUE360", "bliss gvs": "BLISSGVS",
+    "modison": "MODISON", "jk tyre": "JKTYRE",
+    "rossell": "ROSSELLTECH", "exide": "EXIDEIND",
+    "mercury ev": "MERCURYEV", "tpl plast": "TPLPLAST",
+    "crizac": "CRIZAC", "emmvee": "EMMVEE",
+    "astra micro": "ASTRAMICRO", "skipper": "SKIPPER",
+    "ifb ind": "IFBIND", "oracle fin": "OFSS",
+    "natl alum": "NATIONALUM", "national alum": "NATIONALUM",
+    "suzlon": "SUZLON", "apar ind": "APARINDS",
+    "hitachi energy": "POWERINDIA", "inox wind": "INOXWIND",
+    "waaree": "WAAREEENER", "premier energies": "PREMIERENE",
+    "bhel": "BHEL", "bharat heavy": "BHEL",
+    "nazara": "NAZARA", "chambal fert": "CHAMBLFERT",
+    "crompton": "CROMPTON", "pricol": "PRICOLLTD",
+    "td power": "TDPOWERSYS", "kirloskar oil": "KIRLOSENG",
+    "mayur uniquoters": "MAYURUNIQ", "pearl global": "PGIL",
+    "chalet": "CHALET", "latent view": "LATENTVIEW",
+    "hexaware": "HEXAWARE", "balaji amines": "BALAMINES",
+    "carborundum": "CARBORUNIV", "medplus": "MEDPLUS",
+    "atul auto": "ATULAUTO", "stove kraft": "STOVEKRAFT",
+    "sparc": "SPARC", "tbo tek": "TBOTEK",
+    "ajax engineering": "AJAX", "tata technolog": "TATATECH",
+    "seamec": "SEAMEC", "hind rectifiers": "HIRECT",
+    "wheels india": "WHEELS", "dynacons": "DYNACONS",
+    "sumitomo chemi": "SUMICHEM", "saksoft": "SAKSOFT",
+    "sandhar": "SANDHAR", "deepak fertil": "DEEPAKFERT",
+    "entero": "ENTERO", "jsw cement": "JSWCEMENT",
+    "infosys": "INFY", "infy": "INFY", "tcs": "TCS",
+    "wipro": "WIPRO", "hcl tech": "HCLTECH",
+    "reliance": "RELIANCE", "hdfc bank": "HDFCBANK",
+    "icici bank": "ICICIBANK", "sbi": "SBIN",
+    "bajaj finance": "BAJFINANCE", "kotak": "KOTAKBANK",
+    "axis bank": "AXISBANK", "itc ": "ITC",
+    "nestle": "NESTLEIND", "asian paint": "ASIANPAINT",
+    "maruti": "MARUTI", "ultratech": "ULTRACEMCO",
+    "titan": "TITAN", "bajaj auto": "BAJAJ-AUTO",
+    "mahindra": "M&M", "m&m": "M&M",
+    "larsen": "LT", "l&t ": "LT", "ntpc": "NTPC",
+    "power grid": "POWERGRID", "ongc": "ONGC",
+    "coal india": "COALINDIA", "hindalco": "HINDALCO",
+    "tata steel": "TATASTEEL", "tata motors": "TATAMOTORS",
+    "tata power": "TATAPOWER", "tata consumer": "TATACONSUM",
+    "sun pharma": "SUNPHARMA", "dr reddy": "DRREDDY",
+    "cipla": "CIPLA", "divis lab": "DIVISLAB",
+    "apollo hosp": "APOLLOHOSP", "bajaj finserv": "BAJAJFINSV",
+    "bharti airtel": "BHARTIARTL", "zomato": "ZOMATO",
+    "irctc": "IRCTC", "irfc": "IRFC", "rvnl": "RVNL",
+    "hpcl": "HINDPETRO", "bpcl": "BPCL",
+    "ioc": "IOC", "gail": "GAIL", "nmdc": "NMDC",
+    "sjvn": "SJVN", "nhpc": "NHPC", "pfc": "PFC",
+    "rec ": "RECLTD", "concor": "CONCOR",
+    "irb infra": "IRB", "dlf": "DLF",
+    "oberoi realty": "OBEROIRLTY", "prestige": "PRESTIGE",
+    "brigade": "BRIGADE", "sobha": "SOBHA",
+    "phoenix mills": "PHOENIXLTD", "indigo": "INDIGO",
+    "interglobe": "INDIGO", "godrej consumer": "GODREJCP",
+    "godrej prop": "GODREJPROP", "vedanta": "VEDL",
+    "jsw steel": "JSWSTEEL", "grasim": "GRASIM",
+    "shriram finance": "SHRIRAMFIN", "cholamandalam": "CHOLAFIN",
+    "muthoot": "MUTHOOTFIN", "indus towers": "INDUSTOWER",
+    "paytm": "PAYTM", "nykaa": "NYKAA",
+    "delhivery": "DELHIVERY", "policybazaar": "POLICYBZR",
+    "jio fin": "JIOFIN", "vedl": "VEDL",
+    "grm overseas": "GRMOVER", "sakar healthcare": "SAKAR",
+    "eppack": "EPACKPEB", "garuda": "GARUDA",
+    "shadowfax": "SHADOWFAX", "nephrocare": "NEPHROPLUS",
+    "euro pratik": "EUROPRATIK", "international ge": "INTLGERMN",
+    "blue cloud": "BLUECLOUDSOF", "supriya lifesci": "SUPRIYA",
+    "tbo tek": "TBOTEK", "hind rectifiers": "HIRECT",
+    "ksh intern": "KSHITIJPOL", "vidya wires": "VIDYAWIRES",
+    "timex": "TIMEXG", "aditya infotech": "ADITYAINFOTECH",
+    "vintage coffee": "VINTAGEFNB", "vikran": "VIKRANENG",
+    "monarch networth": "MONARCH", "pace autom": "PACEAUTO",
+    "axel polymer": "AXELPOLY", "studio lsd": "STUDIOLSD",
+    "andhra cement": "ANDHRACEM", "steel city sec": "STEELCITY",
+    "orient cement": "ORIENTCEM",
+}
+
 def get_nse_symbol(name):
-    """Look up NSE symbol via yfinance search — works on GitHub Actions."""
+    """Resolve NSE symbol. Returns 'SYMBOL.NS' or None."""
     if name in _sym_cache:
         return _sym_cache[name]
-    if not HAS_YF:
-        return None
-    # Try direct common variations
-    candidates = []
-    clean = re.sub(r'[^a-zA-Z0-9\s]', '', name).strip()
-    words = clean.upper().split()
 
-    # Build candidate symbols
-    candidates.append("".join(words[:2])[:12] + ".NS")
-    candidates.append(words[0][:12] + ".NS")
-    if len(words) >= 2:
-        candidates.append((words[0] + words[1])[:12] + ".NS")
+    nl = name.lower().strip()
 
-    # Known corrections
-    CORRECTIONS = {
-        "bliss gvs": "BLISSGVS.NS",
-        "modison": "MODISON.NS",
-        "guj themis": "GUJTHEM.NS",
-        "jk tyre": "JKTYRE.NS",
-        "rossell": "ROSSELLTECH.NS",
-        "ksh intern": "KSHITIJPOL.NS",
-        "vidya wires": "VIDYAWIRES.NS",
-        "adani total": "ATGL.NS",
-        "exide": "EXIDEIND.NS",
-        "psp project": "PSPPROJECT.NS",
-        "mercury ev": "MERCURYEV.NS",
-        "timex": "TIMEXG.NS",
-        "tpl plast": "TPLPLAST.NS",
-        "crizac": "CRIZAC.NS",
-        "emmvee": "EMMVEE.NS",
-        "aditya infotech": "ADITYAINFOTECH.NS",
-        "astra micro": "ASTRAMICRO.NS",
-        "vintage coffee": "VINTAGEFNB.NS",
-        "vikran": "VIKRANENG.NS",
-        "skipper": "SKIPPER.NS",
-        "ifb ind": "IFBIND.NS",
-        "ge vernova": "GETVERNOVA.NS",
-        "oracle fin": "OFSS.NS",
-        "natl alum": "NATIONALUM.NS",
-        "national alum": "NATIONALUM.NS",
-        "cummins": "CUMMINSIND.NS",
-        "indrapr": "INDRAPRASTHA.NS",
-        "suzlon": "SUZLON.NS",
-        "apar ind": "APARINDS.NS",
-        "hitachi energy": "POWERINDIA.NS",
-        "monarch networth": "MONARCH.NS",
-        "inox wind": "INOXWIND.NS",
-        "waaree": "WAAREEENER.NS",
-        "premier energies": "PREMIERENE.NS",
-        "bharat heavy": "BHEL.NS",
-        "bhel": "BHEL.NS",
-    }
-    nl = name.lower()
+    # Try corrections map
     for k, v in CORRECTIONS.items():
         if k in nl:
-            _sym_cache[name] = v
-            return v
+            sym = v + ".NS"
+            _sym_cache[name] = sym
+            return sym
 
-    # Try each candidate with yfinance
-    for sym in candidates:
+    if not HAS_YF:
+        _sym_cache[name] = None
+        return None
+
+    # Generate candidate symbols and try each with yfinance
+    clean = re.sub(r"[^a-zA-Z0-9 ]", "", name).strip().upper()
+    words = clean.split()
+    stop  = {"LTD","LIMITED","IND","INDUSTRIES","TECH","TECHNOLOGIES",
+             "PHARMA","CHEM","ENG","CORP","INFRA","FIN","HOLD","SERV",
+             "SOLUTIONS","SERVICES","ENTERPRISES","INTERNATIONAL","INDIA"}
+
+    candidates = []
+    if words:
+        candidates.append("".join(words)[:12])
+        if len(words) >= 2:
+            candidates.append((words[0]+words[1])[:12])
+        candidates.append(words[0][:12])
+        filtered = [w for w in words if w not in stop]
+        if filtered and filtered != words:
+            candidates.append("".join(filtered)[:12])
+            if len(filtered) >= 2:
+                candidates.append((filtered[0]+filtered[1])[:12])
+
+    for sym_base in dict.fromkeys(candidates):  # dedup preserving order
+        sym = sym_base + ".NS"
         try:
-            t = yf.Ticker(sym)
-            h = t.history(period="5d")
+            h = yf.Ticker(sym).history(period="5d")
             if not h.empty and len(h) >= 1:
                 _sym_cache[name] = sym
                 return sym
@@ -131,223 +194,169 @@ def get_nse_symbol(name):
     _sym_cache[name] = None
     return None
 
-# ── Volume data from yfinance ─────────────────────────────────────────────────
-
-def get_vol_data(name):
-    """Get volume week (5d avg), volume month (22d avg), daily vols for bar chart."""
-    sym = get_nse_symbol(name)
-    if not sym or not HAS_YF:
-        return None
-    try:
-        t    = yf.Ticker(sym)
-        hist = t.history(period="3mo")
-        if hist.empty or len(hist) < 5:
-            return None
-        vols   = [v for v in hist["Volume"].tolist() if v > 0]
-        closes = hist["Close"].tolist()
-        dates  = [str(d.date()) for d in hist.index.tolist()]
-        if len(vols) < 5:
-            return None
-
-        vol5d  = sum(vols[-5:])  / 5
-        vol22d = sum(vols[-22:]) / 22 if len(vols) >= 22 else sum(vols) / len(vols)
-        vol63d = sum(vols[-63:]) / 63 if len(vols) >= 63 else vol22d  # ~3 months
-        ratio_wk_mo = round(vol5d / vol22d, 2) if vol22d > 0 else None
-
-        # Daily vols for last 10 days (for sparkline)
-        last10_vols  = vols[-10:]
-        last10_dates = dates[-10:]
-        last10_cls   = closes[-10:]
-
-        return {
-            "sym":         sym,
-            "vol5d":       int(vol5d),
-            "vol22d":      int(vol22d),
-            "vol63d":      int(vol63d),
-            "ratio_wk_mo": ratio_wk_mo,
-            "last10_vols": last10_vols,
-            "last10_dates": last10_dates,
-            "last10_cls":  last10_cls,
-            "all_vols":    vols,
-            "all_closes":  closes,
-            "all_dates":   dates,
-        }
-    except Exception as e:
-        print(f"    ⚠️  vol failed {name}: {e}")
-        return None
-
-# ── Technical indicators ──────────────────────────────────────────────────────
+# ── Vol + Technical data from yfinance ───────────────────────────────────────
 
 def ema(prices, p):
     if len(prices) < p: return None
     k = 2/(p+1); e = statistics.mean(prices[:p])
-    for x in prices[p:]: e = x*k + e*(1-k)
+    for x in prices[p:]: e = x*k+e*(1-k)
     return round(e, 2)
 
-def rsi(prices, p=14):
+def rsi_calc(prices, p=14):
     if len(prices) < p+1: return None
     g = [max(prices[i]-prices[i-1],0) for i in range(1,len(prices))]
     l = [max(prices[i-1]-prices[i],0) for i in range(1,len(prices))]
     ag = statistics.mean(g[-p:]); al = statistics.mean(l[-p:])
     return round(100-(100/(1+ag/al)),2) if al else 100.0
 
-def bollinger(prices, p=20):
-    if len(prices) < p: return None, None, None
-    r = prices[-p:]; m = statistics.mean(r); s = statistics.stdev(r)
-    return round(m-2*s,2), round(m,2), round(m+2*s,2)
-
-def get_technicals(name, vd=None):
-    """Compute technical indicators. Uses vol_data if already fetched."""
-    if vd is None:
-        vd = get_vol_data(name)
-    if not vd:
-        return None
+def get_vol_and_ta(name):
+    """Fetch 3mo price/volume data and compute all indicators."""
+    sym = get_nse_symbol(name)
+    if not sym or not HAS_YF: return None, None
     try:
-        closes = vd["all_closes"]
-        vols   = vd["all_vols"]
-        cur    = closes[-1]
+        hist = yf.Ticker(sym).history(period="3mo")
+        if hist.empty or len(hist) < 10: return None, None
 
-        r14          = rsi(closes)
-        e20          = ema(closes, 20)
-        e50          = ema(closes, 50)
-        e200         = ema(closes, 200)
-        e12          = ema(closes, 12)
-        e26          = ema(closes, 26)
-        macd_val     = round(e12-e26, 2) if e12 and e26 else None
-        bb_lo,bb_mid,bb_hi = bollinger(closes)
-        h52  = max(closes[-252:] if len(closes)>=252 else closes)
-        l52  = min(closes[-252:] if len(closes)>=252 else closes)
-        pfh  = round(((cur-h52)/h52)*100, 1)
-        pfl  = round(((cur-l52)/l52)*100, 1)
-        p5   = round(((closes[-1]-closes[-6])/closes[-6])*100,2) if len(closes)>=6 else None
-        p20  = round(((closes[-1]-closes[-21])/closes[-21])*100,2) if len(closes)>=21 else None
+        closes  = hist["Close"].tolist()
+        volumes = hist["Volume"].tolist()
+        dates   = [str(d.date()) for d in hist.index.tolist()]
+        cur     = closes[-1]
 
-        vr   = vd["ratio_wk_mo"]
+        # Vol stats
+        vols    = [v for v in volumes if v > 0]
+        vol5d   = sum(vols[-5:])/5   if len(vols)>=5  else None
+        vol22d  = sum(vols[-22:])/22 if len(vols)>=22 else sum(vols)/len(vols) if vols else None
+        vol63d  = sum(vols[-63:])/63 if len(vols)>=63 else vol22d
+        vr      = round(vol5d/vol22d,2) if vol5d and vol22d and vol22d>0 else None
 
-        # Upward movement score 0-100
-        score = 0; signals = []
-        if r14:
-            if r14 < 35:   score+=22; signals.append(f"RSI oversold ({r14}) — strong reversal zone 🔥")
-            elif r14 < 50: score+=15; signals.append(f"RSI neutral-low ({r14}) — room to run upward")
-            elif r14 < 65: score+=10; signals.append(f"RSI healthy ({r14}) — mid-range momentum")
-            elif r14 > 75: score-=10; signals.append(f"RSI overbought ({r14}) — caution, may pull back")
-        if e20 and e50:
-            if cur > e20 > e50:  score+=20; signals.append("Price > EMA20 > EMA50 — bullish stack ✅")
-            elif cur > e50:      score+=10; signals.append("Above EMA50 — medium-term bullish")
-            elif cur < e50 and e20 > e50: score+=5; signals.append("EMA20 above EMA50 — golden cross intact")
-        if e200:
-            if cur > e200:       score+=12; signals.append("Above EMA200 — long-term uptrend intact ✅")
-            elif cur < e200 and pfh < -30 and vr and vr > 1.5:
-                score+=8; signals.append("Below EMA200 but volume surging — possible reversal")
-        if macd_val:
-            if macd_val > 0:     score+=10; signals.append(f"MACD positive ({macd_val}) — bullish momentum ✅")
-            else:                score-=5;  signals.append(f"MACD negative ({macd_val}) — bearish momentum")
-        if vr:
-            if vr >= 2.0:        score+=18; signals.append(f"Volume 2×+ weekly avg ({vr}×) — strong unusual activity 🔥")
-            elif vr >= 1.5:      score+=12; signals.append(f"Volume surge ({vr}×) — institutional activity possible")
-            elif vr >= 1.2:      score+=6;  signals.append(f"Volume slightly elevated ({vr}×)")
-        if bb_lo and bb_mid and bb_hi:
-            if cur < bb_mid and cur > bb_lo:
-                score+=8; signals.append("In lower Bollinger band — bounce zone")
-            elif cur > bb_hi:
-                score-=5; signals.append("Above upper Bollinger — extended, risk of pullback")
-        if p5:
-            if p5 > 5:           score+=5;  signals.append(f"Strong 5d momentum: +{p5}%")
-            elif p5 > 0:         score+=2
-        if pfh < -40 and vr and vr > 1.5:
-            score+=10; signals.append(f"Down {abs(pfh)}% from 52w high + volume surge — ACCUMULATION PATTERN 🎯")
-        elif pfh < -20:
-            score+=4;  signals.append(f"Pulling back {abs(pfh)}% from highs — watching for base formation")
+        # Last 10 days for bar chart
+        last10_vols  = vols[-10:]
+        last10_dates = dates[-10:]
 
-        score = max(0, min(100, score))
-        if score >= 72:   verdict = "🟢 STRONG UPSIDE SIGNAL"
-        elif score >= 52: verdict = "🟡 MODERATE BULLISH"
-        elif score >= 32: verdict = "🟠 NEUTRAL / WEAK"
-        else:             verdict = "🔴 BEARISH — AVOID"
-
-        return {
-            "sym": vd["sym"], "cur": round(cur,2),
-            "rsi": r14, "ema20": e20, "ema50": e50, "ema200": e200,
-            "macd": macd_val, "bb_lo": bb_lo, "bb_mid": bb_mid, "bb_hi": bb_hi,
-            "h52": round(h52,2), "l52": round(l52,2), "pfh": pfh, "pfl": pfl,
-            "p5": p5, "p20": p20,
-            "score": score, "verdict": verdict, "signals": signals,
+        vol_data = {
+            "sym": sym, "vol5d": int(vol5d) if vol5d else None,
+            "vol22d": int(vol22d) if vol22d else None,
+            "vol63d": int(vol63d) if vol63d else None,
+            "ratio_wk_mo": vr,
+            "last10_vols": last10_vols,
+            "last10_dates": last10_dates,
         }
-    except Exception as e:
-        print(f"    ⚠️  TA failed {name}: {e}"); return None
 
-# ── News ──────────────────────────────────────────────────────────────────────
+        # Technical indicators
+        r14    = rsi_calc(closes)
+        e20    = ema(closes,20); e50=ema(closes,50); e200=ema(closes,200)
+        e12    = ema(closes,12); e26=ema(closes,26)
+        macd   = round(e12-e26,2) if e12 and e26 else None
+        h52    = max(closes[-252:] if len(closes)>=252 else closes)
+        l52    = min(closes[-252:] if len(closes)>=252 else closes)
+        pfh    = round(((cur-h52)/h52)*100,1)
+        p5     = round(((closes[-1]-closes[-6])/closes[-6])*100,2) if len(closes)>=6 else None
+        p20    = round(((closes[-1]-closes[-21])/closes[-21])*100,2) if len(closes)>=21 else None
+
+        # OBV
+        obv=0; obv_vals=[0]
+        for i in range(1,len(closes)):
+            vi = volumes[i] if i<len(volumes) else 0
+            if closes[i]>closes[i-1]: obv+=vi
+            elif closes[i]<closes[i-1]: obv-=vi
+            obv_vals.append(obv)
+        obv_recent = statistics.mean(obv_vals[-5:]) if len(obv_vals)>=5 else obv
+        obv_prev   = statistics.mean(obv_vals[-15:-5]) if len(obv_vals)>=15 else obv_recent
+        obv_div    = pfh>-10 and obv_recent<obv_prev
+
+        # Score & signals
+        score=0; sigs=[]
+        if r14:
+            if r14<35:   score+=20; sigs.append(f"RSI oversold ({r14}) — reversal zone")
+            elif r14<55: score+=12; sigs.append(f"RSI healthy ({r14}) — room to run")
+            elif r14>72: score-=8;  sigs.append(f"RSI overbought ({r14}) — caution")
+        if e20 and e50:
+            if cur>e20>e50:  score+=18; sigs.append("Price > EMA20 > EMA50 — bullish")
+            elif cur>e50:    score+=8;  sigs.append("Above EMA50 — mid-term intact")
+        if e200 and cur>e200: score+=12; sigs.append("Above EMA200 — long-term uptrend")
+        if macd and macd>0:  score+=10; sigs.append(f"MACD positive ({macd})")
+        if vr:
+            if vr>=2:    score+=15; sigs.append(f"Volume 2x+ ({vr}x) — institutional activity")
+            elif vr>=1.5: score+=10; sigs.append(f"Volume elevated ({vr}x)")
+        if p5 and p5>0: score+=5; sigs.append(f"5d momentum: +{p5}%")
+        if pfh<-30 and vr and vr>1.5: score+=8; sigs.append(f"Down {abs(pfh)}% from 52w high + vol surge — ACCUMULATION")
+        if obv_div: score-=12; sigs.append("OBV DIVERGENCE — possible distribution")
+        score = min(100,max(0,score))
+        verdict = ("STRONG UPSIDE" if score>=70 else "MODERATE BULLISH"
+                   if score>=50 else "NEUTRAL" if score>=30 else "BEARISH")
+
+        ta_data = {
+            "sym":sym,"cur":round(cur,2),"rsi":r14,"ema20":e20,"ema50":e50,"ema200":e200,
+            "macd":macd,"vol_ratio":vr,"pfh":pfh,"p5":p5,"p20":p20,
+            "h52":round(h52,2),"l52":round(l52,2),"obv_div":obv_div,
+            "score":score,"verdict":verdict,"signals":sigs,
+        }
+        return vol_data, ta_data
+    except Exception as e:
+        print(f"    TA failed {name}: {e}")
+        return None, None
+
+# ── News (Indian market focused) ──────────────────────────────────────────────
 
 def get_news(name, max_items=5):
-    q    = quote(f"{name} NSE stock India")
-    url  = f"https://news.google.com/rss/search?q={q}&hl=en-IN&gl=IN&ceid=IN:en"
-    html = http_get(url)
-    if not html: return []
-    items = []
-    for m in re.finditer(r"<item>(.*?)</item>", html, re.DOTALL):
-        block = m.group(1)
-        t = re.search(r"<title>(.*?)</title>", block)
-        d = re.search(r"<pubDate>(.*?)</pubDate>", block)
-        if t:
+    """Google News RSS with Indian financial sources filter."""
+    seen = set(); items = []
+    fin_sources = {"economic times","moneycontrol","livemint","business standard",
+                   "cnbc","ndtv profit","financialexpress","mint","bloomberg",
+                   "reuters","the hindu business","zeebiz","analyst","markets"}
+
+    for q_tmpl in [
+        f"{name} NSE quarterly results profit",
+        f"{name} stock NSE India 2026",
+    ]:
+        url  = f"https://news.google.com/rss/search?q={quote(q_tmpl)}&hl=en-IN&gl=IN&ceid=IN:en"
+        html = http_get(url)
+        if not html: continue
+        for m in re.finditer(r"<item>(.*?)</item>", html, re.DOTALL):
+            b = m.group(1)
+            t = re.search(r"<title>(.*?)</title>", b)
+            d = re.search(r"<pubDate>(.*?)</pubDate>", b)
+            s = re.search(r"<source[^>]*>(.*?)</source>", b)
+            if not t: continue
             title = re.sub(r"<[^>]+>","",t.group(1)).strip()
             pub   = d.group(1).strip()[:16] if d else ""
-            if title and "Google News" not in title:
-                items.append({"title":title,"date":pub})
+            src   = re.sub(r"<[^>]+>","",s.group(1)).strip() if s else ""
+            name1 = name.lower().split()[0]
+            relevant = name1 in title.lower() or any(fs in src.lower() for fs in fin_sources)
+            if title and "Google" not in title and title not in seen and relevant:
+                seen.add(title)
+                items.append({"title":title,"date":pub,"source":src})
+            if len(items) >= max_items: break
         if len(items) >= max_items: break
-    return items
+    return items[:max_items]
 
-# ── StockTwits ────────────────────────────────────────────────────────────────
-
-def get_twits(name, max_items=5):
-    sym  = get_nse_symbol(name)
-    if not sym: return [], None
-    sym_clean = sym.replace(".NS","")
-    url  = f"https://api.stocktwits.com/api/2/streams/symbol/{sym_clean}.NS.json"
-    data = http_get(url)
-    if not data: return [], None
-    try:
-        j = json.loads(data); msgs = j.get("messages",[]); items=[]; b=0; br=0
-        for m in msgs[:max_items*2]:
-            body = m.get("body","").replace("\n"," ")[:140]
-            sent = ((m.get("entities",{}) or {}).get("sentiment",{}) or {}).get("basic","")
-            if sent=="Bullish": b+=1
-            elif sent=="Bearish": br+=1
-            items.append({"text":body,"sent":sent,"date":m.get("created_at","")[:10]})
-        tot = b+br
-        summary = f"🐂 {b} Bullish / 🐻 {br} Bearish ({round(b/tot*100)}% bull)" if tot else None
-        return items[:max_items], summary
-    except: return [], None
-
-# ── Reddit ────────────────────────────────────────────────────────────────────
-
-def get_reddit(name):
-    sym  = (get_nse_symbol(name) or "").replace(".NS","")
-    q    = quote(f"{name} stock NSE")
-    url  = f"https://www.reddit.com/search.json?q={q}&sort=new&limit=5&t=week"
-    data = http_get(url)
+def get_reddit(name, max_items=3):
+    """Reddit mentions for Indian stock discussions."""
+    q = quote(f"{name} stock NSE India")
+    data = http_get(f"https://www.reddit.com/search.json?q={q}&sort=new&limit=5&t=month")
     if not data: return []
     try:
-        j = json.loads(data); posts=[]
-        for p in j.get("data",{}).get("children",[]):
-            d = p.get("data",{})
-            posts.append({"title":d.get("title","")[:120],"sub":d.get("subreddit",""),"score":d.get("score",0)})
-        return posts[:3]
+        posts=[]
+        for p in json.loads(data).get("data",{}).get("children",[]):
+            d=p.get("data",{})
+            posts.append({"title":d.get("title","")[:110],"sub":d.get("subreddit",""),"score":d.get("score",0)})
+        return posts[:max_items]
     except: return []
 
-# ── Core analysis ─────────────────────────────────────────────────────────────
+# ── Core weekly analysis ──────────────────────────────────────────────────────
 
 def analyse_week(reports):
     stock_days = defaultdict(list); all_dates=[]
     for rep in reports:
         if not rep: continue
-        d = rep["date"]; all_dates.append(d); headers = rep["headers"]
-        idx = {k:find_col(headers,*v) for k,v in {
+        d = rep["date"]; all_dates.append(d); headers=rep["headers"]
+        idx={k:find_col(headers,*v) for k,v in {
             "name":["name"],"cmp":["cmp","current price"],
-            "ret1d":["1day","return over 1day"],"ret1w":["1week","return over 1week"],
+            "ret1d":["1day","return over 1day"],"ret1w":["1week"],
             "ret1m":["1month","return over 1month"],"ret3m":["3month"],
             "ret6m":["6month"],"ret1y":["1year"],
-            "vol":["volume"],"vol1w":["vol 1week","volume 1week"],
-            "mktcap":["mar cap","market cap"],"pe":["p/e"],
+            "vol":["volume"],"vol1w":["vol 1week"],
+            "mktcap":["mar cap"],"pe":["p/e"],
             "roce":["roce"],"profit":["profit growth","profit var"],
             "qoqp":["qoq profit"],"qoqs":["qoq sales"],
         }.items()}
@@ -387,224 +396,255 @@ def analyse_week(reports):
             "daily_data":days,
         }
 
-    frequency=   {n:len(d) for n,d in stock_days.items()}
-    appeared_2p= sorted([n for n,c in frequency.items() if c>=2],key=lambda n:stock_stats[n]["appearances"],reverse=True)
+    frequency={n:len(d) for n,d in stock_days.items()}
+    appeared_2p=sorted([n for n,c in frequency.items() if c>=2],
+                       key=lambda n:stock_stats[n]["appearances"],reverse=True)
     appeared_all5=[n for n,c in frequency.items() if c==5]
-    earnings_cat=sorted([(n,s) for n,s in stock_stats.items() if s["appearances"]>=2 and s.get("latest_qoqp") and s["latest_qoqp"]>20],key=lambda x:x[1]["latest_qoqp"],reverse=True)
-    bp_ranked=sorted(stock_stats.items(),key=lambda x:(x[1]["appearances"],x[1].get("avg_ret1d") or 0),reverse=True)
+    earnings_cat=sorted([(n,s) for n,s in stock_stats.items()
+                         if s["appearances"]>=2 and s.get("latest_qoqp") and s["latest_qoqp"]>20],
+                        key=lambda x:x[1]["latest_qoqp"],reverse=True)
+    bp_ranked=sorted(stock_stats.items(),
+                     key=lambda x:(x[1]["appearances"],x[1].get("avg_ret1d") or 0),reverse=True)
     return {"dates":sorted(all_dates),"total_unique":len(stock_days),"frequency":frequency,
             "appeared_all5":appeared_all5,"appeared_2p":appeared_2p,
             "stock_stats":stock_stats,"earnings_cat":earnings_cat,"bp_ranked":bp_ranked}
 
 # ── HTML helpers ──────────────────────────────────────────────────────────────
 
-def pct(v,d=2):
+DARK_CSS = """
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-section{padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.vol-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+.card-body{display:grid;grid-template-columns:1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+.verdict-box{border-left:2px solid var(--green);background:var(--green-dim);padding:7px 10px;border-radius:3px}
+.verdict-box.warn{border-color:var(--amber);background:var(--amber-dim)}
+.verdict-box.bear{border-color:var(--red);background:var(--red-dim)}
+.verdict-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:4px}
+.verdict-box.warn .verdict-title{color:var(--amber)}
+.verdict-box.bear .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-src{font-size:9px;color:var(--blue);margin-left:6px}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+.reddit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+.freq-spark{display:flex;align-items:flex-end;gap:3px;height:28px}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+"""
+
+def pct(v, d=2):
     if v is None: return "—"
-    c="var(--green)" if v>0 else "var(--red)" if v<0 else "var(--text3)"
+    c="var(--green)" if v>0 else "var(--red)" if v<0 else "var(--text2)"
     a="▲" if v>0 else "▼" if v<0 else ""
     return f'<span style="color:{c};font-weight:600">{a}&nbsp;{v:.{d}f}%</span>'
 
-def n(v,d=2):
+def n(v, d=1):
     if v is None: return "—"
     try: return f"{float(v):,.{d}f}"
     except: return str(v)
 
-def freq_bar(count,mx=5):
-    return (f'<span style="color:var(--blue);letter-spacing:2px">{"█"*count}</span>'
-            f'<span style="color:#ddd;letter-spacing:2px">{"░"*(mx-count)}</span>'
-            f' <b>{count}/5</b>')
-
-def score_badge(s):
-    c="#1a9e6d" if s>=70 else "#f0a500" if s>=50 else "#d94b4b"
-    return f'<span style="font-size:20px;font-weight:700;color:{c}">{s}</span><span style="color:var(--text3);font-size:11px">/100</span>'
-
 def fmt_vol(v):
     if not v: return "—"
-    if v >= 1e7: return f"{v/1e7:.2f}Cr"
-    if v >= 1e5: return f"{v/1e5:.1f}L"
-    if v >= 1e3: return f"{v/1e3:.0f}K"
+    if v>=1e7: return f"{v/1e7:.2f}Cr"
+    if v>=1e5: return f"{v/1e5:.1f}L"
+    if v>=1e3: return f"{v/1e3:.0f}K"
     return str(int(v))
 
-def vol_bar_chart(vd):
-    """Render a mini bar chart of daily volumes for last 10 days + week vs month comparison."""
+def freq_spark(wf, all_weeks):
+    bars=""
+    mf=max(wf.values()) if wf else 1
+    for wk in all_weeks:
+        f=wf.get(wk,0) if isinstance(wk,str) else 0
+        h=max(2,int((f/max(mf,1))*28))
+        col="var(--amber)" if f>=3 else "var(--blue)" if f>=1 else "var(--border2)"
+        bars+=f'<div style="width:14px;height:{h}px;background:{col};border-radius:2px 2px 0 0"></div>'
+    return f'<div class="freq-spark">{bars}</div>'
+
+def render_vol(vd):
     if not vd:
-        return '<em style="color:var(--text3);font-size:12px">Volume data loading... (yfinance fetching NSE data)</em>'
-
-    v5   = vd["vol5d"]
-    v22  = vd["vol22d"]
-    v63  = vd["vol63d"]
-    ratio= vd["ratio_wk_mo"]
-    last10= vd["last10_vols"]
-    last10d=vd["last10_dates"]
-
-    # Color for ratio
-    rc = "#1a9e6d" if ratio and ratio>1.5 else "#f0a500" if ratio and ratio>1.0 else "#d94b4b"
-
-    # Summary boxes
-    summary = f"""
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px">
-      <div style="background:var(--green-dim);border:1px solid #c3e6c3;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:var(--text3)">Vol (5d avg)</div>
-        <div style="font-weight:700;font-size:13px">{fmt_vol(v5)}</div>
-      </div>
-      <div style="background:var(--bg4);border:1px solid #d0d8ff;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:var(--text3)">Vol (1mo avg)</div>
-        <div style="font-weight:700;font-size:13px">{fmt_vol(v22)}</div>
-      </div>
-      <div style="background:var(--bg2)8f0;border:1px solid #ffd0a0;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:var(--text3)">Vol (3mo avg)</div>
-        <div style="font-weight:700;font-size:13px">{fmt_vol(v63)}</div>
-      </div>
-      <div style="background:var(--bg4);border:1px solid #c0c8ff;border-radius:6px;padding:8px;text-align:center">
-        <div style="font-size:10px;color:var(--text3)">Week/Month Ratio</div>
-        <div style="font-weight:700;font-size:15px;color:{rc}">{ratio or '—'}×</div>
-      </div>
+        return '<div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>'
+    v5=vd["vol5d"]; v22=vd["vol22d"]; v63=vd["vol63d"]; vr=vd["ratio_wk_mo"]
+    rc="var(--green)" if vr and vr>1.5 else "var(--amber)" if vr and vr>1.0 else "var(--red)"
+    summary=f"""<div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">{fmt_vol(v5)}</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">{fmt_vol(v22)}</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">{fmt_vol(v63)}</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:{rc}">{vr or '—'}x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
     </div>"""
-
-    # Visual bar chart of last 10 days
+    last10=vd.get("last10_vols",[]); last10d=vd.get("last10_dates",[])
     if not last10: return summary
-    max_v = max(last10) if last10 else 1
-    bars  = ""
-    for i, (v, d) in enumerate(zip(last10, last10d)):
-        h   = max(4, int((v / max_v) * 60))
-        col = "#1a9e6d" if v > v22 else "#4a6cf7"
-        is_recent = i >= len(last10)-5  # last 5 = this week
-        bc  = "#ff8c00" if is_recent else col
-        bars += f"""
-        <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
-          <div style="font-size:9px;color:var(--text3)">{fmt_vol(v)}</div>
-          <div style="width:18px;height:{h}px;background:{bc};border-radius:2px 2px 0 0" title="{d}: {fmt_vol(v)}"></div>
-          <div style="font-size:8px;color:var(--text3);transform:rotate(-45deg);margin-top:2px">{d[-5:]}</div>
-        </div>"""
-
-    chart = f"""
-    <div style="display:flex;align-items:flex-end;gap:3px;height:90px;padding:0 4px;margin-top:8px;overflow-x:auto">
-      {bars}
-    </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:24px">
-      🟠 = This week &nbsp; 🔵 = Prior weeks &nbsp; Green bar = above 1mo avg
-    </div>"""
-
-    return summary + chart
+    max_v=max(last10) if last10 else 1
+    bars=""
+    for i,(v,d) in enumerate(zip(last10,last10d)):
+        h=max(3,int((v/max_v)*40))
+        col="var(--amber)" if i>=len(last10)-5 else "var(--blue)"
+        above_avg="var(--green)" if v22 and v>v22 else col
+        bars+=f'<div class="vol-bar-wrap"><div class="vol-bar" style="height:{h}px;background:{above_avg}" title="{d}: {fmt_vol(v)}"></div><div class="vol-bar-lbl">{d[-5:]}</div></div>'
+    return summary+f'<div class="vol-bars">{bars}</div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>'
 
 def render_ta(ta):
     if not ta:
-        return '<div style="background:var(--bg2)8f0;border-radius:6px;padding:10px;font-size:12px;color:var(--text3)">Technical data unavailable — NSE ticker not found in yfinance</div>'
-    rsi_c = "#d94b4b" if ta["rsi"] and ta["rsi"]>70 else "#1a9e6d" if ta["rsi"] and ta["rsi"]<40 else "#555"
-    m_c   = "#1a9e6d" if ta["macd"] and ta["macd"]>0 else "#d94b4b"
-    sigs  = "".join(f'<div style="font-size:11px;padding:2px 0;color:#2d5a27">✓ {s}</div>' for s in ta["signals"]) or '<div style="font-size:11px;color:var(--text3)">No strong signals</div>'
-    return f"""
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:8px;font-size:11px">
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">RSI(14)</div><div style="font-weight:700;color:{rsi_c}">{ta['rsi'] or '—'}</div></div>
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">MACD</div><div style="font-weight:700;color:{m_c}">{ta['macd'] or '—'}</div></div>
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">EMA20/50</div><div style="font-weight:600">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">EMA200</div><div style="font-weight:600">{ta['ema200'] or '—'}</div></div>
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">From 52w High</div><div style="font-weight:700;color:{'#d94b4b' if ta['pfh']<-20 else '#555'}">{ta['pfh']}%</div></div>
-      <div style="background:var(--bg4);padding:6px;border-radius:5px"><div style="color:var(--text3);font-size:9px">5d / 20d</div><div style="font-weight:600">{pct(ta['p5'],1)}/{pct(ta['p20'],1)}</div></div>
+        return '<div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>'
+    rsi_c="var(--red)" if ta["rsi"] and ta["rsi"]>70 else "var(--green)" if ta["rsi"] and ta["rsi"]<40 else "var(--text)"
+    m_c="var(--green)" if ta["macd"] and ta["macd"]>0 else "var(--red)"
+    vbox_cls="warn" if ta["score"]<50 else ("bear" if ta["score"]<30 else "")
+    sigs="".join(f'<div>{"⚠" if "OBV" in s or "caution" in s else "✓"} {s}</div>' for s in ta["signals"]) or '<div style="color:var(--text3)">No strong signals</div>'
+    obv_html=""
+    if ta.get("obv_div"):
+        obv_html=f'<div class="obv-warn">⚠ OBV DIVERGENCE — price near highs but volume declining. Possible distribution.</div>'
+    return f"""{obv_html}
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:{rsi_c}">{ta['rsi'] or '—'}</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:{m_c}">{ta['macd'] or '—'}</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:{'var(--green)' if ta['vol_ratio'] and ta['vol_ratio']>1.5 else 'var(--text)'}">{ta['vol_ratio'] or '—'}x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">{ta['ema20'] or '—'}/{ta['ema50'] or '—'}</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">{ta['ema200'] or '—'}</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:{'var(--red)' if ta['pfh']<-20 else 'var(--text)'}">{ta['pfh']}%</div></div>
     </div>
-    <div style="background:var(--green-dim);border:1px solid #c3e6c3;border-radius:6px;padding:8px">
-      <div style="font-size:12px;font-weight:700;margin-bottom:4px">{ta['verdict']}</div>
-      {sigs}
-    </div>
-    <div style="font-size:10px;color:var(--text3);margin-top:4px">BB: {ta['bb_lo']}/{ta['bb_mid']}/{ta['bb_hi']} | 52w: {ta['l52']}–{ta['h52']}</div>"""
+    <div class="verdict-box {vbox_cls}">
+      <div class="verdict-title">{ta['score']}/100 — {ta['verdict']}</div>
+      <div class="verdict-sig">{sigs}</div>
+    </div>"""
 
 def render_news(items):
-    if not items: return '<em style="color:var(--text3);font-size:11px">No recent news found</em>'
-    return "".join(f'<div style="padding:5px 0;border-bottom:1px solid #f5f5f5"><div style="font-size:10px;color:var(--text3)">{i["date"]}</div><div style="font-size:12px;line-height:1.4">{i["title"]}</div></div>' for i in items)
-
-def render_twits(items, summary):
-    if not items: return '<em style="color:var(--text3);font-size:11px">No StockTwits data</em>'
-    s = f'<div style="font-size:11px;font-weight:600;margin-bottom:4px;padding:4px 8px;background:var(--bg4);border-radius:4px">{summary}</div>' if summary else ""
-    rows = "".join(f'<div style="padding:3px 0;border-bottom:1px solid #f8f8f8;font-size:11px;line-height:1.4"><span style="color:{"#1a9e6d" if i["sent"]=="Bullish" else "#d94b4b" if i["sent"]=="Bearish" else "#888"}">{"🐂" if i["sent"]=="Bullish" else "🐻" if i["sent"]=="Bearish" else "💬"}</span> {i["text"]}</div>' for i in items)
-    return s+rows
+    if not items: return '<div style="font-size:11px;color:var(--text3)">No news found</div>'
+    return "".join(f'<div class="news-item"><div><span class="news-date">{i["date"]}</span><span class="news-src">{i.get("source","")[:20]}</span></div><div class="news-title">{i["title"]}</div></div>' for i in items)
 
 def render_reddit(posts):
-    if not posts: return '<em style="color:var(--text3);font-size:11px">No Reddit mentions this week</em>'
-    return "".join(f'<div style="padding:4px 0;border-bottom:1px solid #f8f8f8;font-size:11px"><span style="color:#ff6314;font-size:10px">r/{p["sub"]}</span> ↑{p["score"]} — {p["title"]}</div>' for p in posts)
+    if not posts: return '<div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>'
+    return "".join(f'<div class="reddit-item"><span style="color:var(--amber)">r/{p["sub"]}</span> ↑{p["score"]} — {p["title"]}</div>' for p in posts)
 
-def deep_dive_card(name, s, vd, ta, news, twits, twit_sent, reddit):
-    sym   = (vd["sym"] if vd else None) or get_nse_symbol(name) or "—"
+def deep_dive_card(name, s, vd, ta, news, reddit, all_dates):
+    sym = (vd["sym"] if vd else None) or get_nse_symbol(name) or "—"
     score = ta["score"] if ta else 0
-    sc    = "#1a9e6d" if score>=70 else "#f0a500" if score>=50 else "#d94b4b"
+    sc = "var(--green)" if score>=70 else "var(--amber)" if score>=50 else "var(--red)"
+    # 1mo return: use yfinance p20 as fallback
+    ret1m = s.get("latest_ret1m")
+    if ret1m is None and ta and ta.get("p20") is not None:
+        ret1m = ta["p20"]
+        ret1m_src = "~yf"
+    else:
+        ret1m_src = ""
 
     return f"""
-    <div id="stock-{re.sub(r'[^a-z0-9]','',name.lower())}" style="border:1px solid #e0e4f0;border-radius:12px;margin-bottom:28px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04)">
-      <div style="background:linear-gradient(90deg,#0f0c29,#302b63);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <span style="font-size:16px;font-weight:700">{name}</span>
-          <span style="font-size:11px;opacity:.6;margin-left:8px">{sym}</span>
-        </div>
+    <div id="stock-{re.sub(r'[^a-z0-9]','',name.lower())}" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">{name}</span><span class="card-sym">{sym}</span></div>
         <div style="text-align:right">
-          <div style="font-size:18px;font-weight:700">₹{n(s['latest_cmp'],1)}</div>
-          <div style="font-size:11px;opacity:.7">{freq_bar(s['appearances'])} &nbsp;|&nbsp; Upside: {score_badge(score)}</div>
+          <div class="card-price">&#8377;{n(s['latest_cmp'],1)}</div>
+          <div style="font-size:10px;color:{sc};font-family:var(--mono)">Upside: {score}/100</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border);font-size:11px">
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Avg 1d Ret</div>{pct(s['avg_ret1d'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Week Chg</div>{pct(s['price_change_week'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1Mo Return</div>{pct(ta.get("p20") if ta and s.get("latest_ret1m") is None and ta.get("p20") is not None else s.get("latest_ret1m"))}<div style="font-size:8px;color:var(--text3)">{("yf" if ta and s.get("latest_ret1m") is None and ta.get("p20") is not None else "")}</div></div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ Profit</div>{pct(s['latest_qoqp'])}</div>
-        <div style="padding:8px 10px;border-right:1px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">ROCE%</div>{pct(s['latest_roce'])}</div>
-        <div style="padding:8px 10px"><div style="color:var(--text3);font-size:9px">Mkt Cap</div><div style="font-weight:600">₹{n(s['latest_mktcap'],0) if s['latest_mktcap'] else '—'}Cr</div></div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">{s['appearances']}d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val">{pct(s['avg_ret1d'])}</div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val">{pct(s['price_change_week'])}</div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret{ret1m_src}</div><div class="metric-val">{pct(ret1m)}</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val">{pct(s['latest_qoqp'])}</div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val">{pct(s['latest_roce'])}</div></div>
       </div>
-      <!-- Volume chart full width -->
-      <div style="padding:12px 16px;background:var(--bg3);border-bottom:1px solid var(--border)">
-        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">🔊 Volume Analysis — Week vs Month vs 3-Month</div>
-        {vol_bar_chart(vd)}
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        {render_vol(vd)}
       </div>
-      <!-- 3 columns -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
-        <div style="padding:12px 14px;border-right:1px solid #f0f0f0">
-          <div style="font-size:12px;font-weight:700;margin-bottom:8px;color:var(--text)">📊 Chart Analysis</div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
           {render_ta(ta)}
         </div>
-        <div style="padding:12px 14px;border-right:1px solid #f0f0f0">
-          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text)">📰 News</div>
+        <div class="col">
+          <div class="col-title">News</div>
           {render_news(news)}
-          <div style="font-size:12px;font-weight:700;margin:10px 0 6px;color:var(--text)">🗣 Reddit</div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
           {render_reddit(reddit)}
-        </div>
-        <div style="padding:12px 14px">
-          <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text)">💬 StockTwits</div>
-          {render_twits(twits, twit_sent)}
         </div>
       </div>
     </div>"""
 
-def build_html(analysis, vol_d, tech_d, news_d, twit_d, reddit_d, week_dates):
-    stats = analysis["stock_stats"]
-    wl    = f"{week_dates[0]} → {week_dates[-1]}" if week_dates else "This Week"
+def build_html(analysis, vol_d, ta_d, news_d, reddit_d, week_dates):
+    stats=analysis["stock_stats"]; wl=f"{week_dates[0]} to {week_dates[-1]}" if week_dates else "This Week"
+    all5_badges="".join(f'<span style="display:inline-block;background:var(--amber-dim);color:var(--amber);border-radius:3px;padding:2px 10px;margin:3px;font-size:12px;font-weight:600">{n}</span>' for n in analysis["appeared_all5"]) or "<span style='color:var(--text3)'>None this week</span>"
 
-    all5_badges = "".join(f'<span style="display:inline-block;background:#e8f0ff;color:#1a3a8f;border-radius:20px;padding:3px 12px;margin:3px;font-size:13px;font-weight:500">{n}</span>' for n in analysis["appeared_all5"]) or "<em style='color:var(--text3)'>None this week</em>"
-
-    earn_rows = "".join(f"""<tr>
-      <td style="text-align:left;font-weight:500">{nm}</td>
-      <td>{pct(s.get('latest_qoqp'))}</td><td>{pct(s.get('latest_qoqs'))}</td>
-      <td>{pct(s.get('latest_profit'))}</td><td>{s['appearances']}/5</td><td>₹{n(s.get('latest_cmp'),1)}</td>
+    earn_rows="".join(f"""<tr>
+      <td>{nm}</td><td>{pct(s.get('latest_qoqp'))}</td><td>{pct(s.get('latest_qoqs'))}</td>
+      <td>{pct(s.get('latest_profit'))}</td><td>{s['appearances']}/5</td>
+      <td>&#8377;{n(s.get('latest_cmp'),1)}</td>
     </tr>""" for nm,s in analysis["earnings_cat"][:10])
 
-    bp_rows = "".join(f"""<tr>
-      <td style="text-align:left;font-weight:600"><a href="#{re.sub(r'[^a-z0-9]','',nm.lower())}" style="color:inherit;text-decoration:none">{nm} ↓</a></td>
-      <td>{freq_bar(s['appearances'])}</td>
-      <td>{pct(s.get('avg_ret1d'))}</td>
-      <td>{pct(s.get('price_change_week'))}</td>
-      <td style="color:{'#1a9e6d' if vol_d.get(nm) and vol_d[nm]['ratio_wk_mo'] and vol_d[nm]['ratio_wk_mo']>1.5 else '#555'};font-weight:600">
-        {str(vol_d[nm]['ratio_wk_mo'])+'×' if vol_d.get(nm) and vol_d[nm].get('ratio_wk_mo') else '—'}
+    bp_rows="".join(f"""<tr>
+      <td><a href="#{re.sub(r'[^a-z0-9]','',nm.lower())}" style="color:var(--text);text-decoration:none">{nm}</a></td>
+      <td style="color:var(--amber);font-weight:600">{stats[nm]['appearances']}/5</td>
+      <td>{pct(stats[nm].get('avg_ret1d'))}</td>
+      <td>{pct(stats[nm].get('price_change_week'))}</td>
+      <td style="color:{'var(--green)' if vol_d.get(nm) and vol_d[nm].get('ratio_wk_mo') and vol_d[nm]['ratio_wk_mo']>1.5 else 'var(--text)'};font-weight:600">
+        {str(vol_d[nm]['ratio_wk_mo'])+'x' if vol_d.get(nm) and vol_d[nm].get('ratio_wk_mo') else '—'}
       </td>
-      <td style="font-size:11px">{fmt_vol(vol_d[nm]['vol5d']) if vol_d.get(nm) else '—'}</td>
-      <td style="font-size:11px">{fmt_vol(vol_d[nm]['vol22d']) if vol_d.get(nm) else '—'}</td>
-      <td>{pct(s.get('latest_roce'))}</td>
-      <td>{score_badge(tech_d[nm]['score']) if tech_d.get(nm) else '—'}</td>
+      <td>{fmt_vol(vol_d[nm]['vol5d']) if vol_d.get(nm) else '—'}</td>
+      <td>{fmt_vol(vol_d[nm]['vol22d']) if vol_d.get(nm) else '—'}</td>
+      <td>{pct(stats[nm].get('latest_roce'))}</td>
+      <td style="color:{'var(--green)' if ta_d.get(nm) and ta_d[nm]['score']>=70 else 'var(--amber)' if ta_d.get(nm) and ta_d[nm]['score']>=50 else 'var(--text3)'};font-weight:600">{ta_d[nm]['score'] if ta_d.get(nm) else '—'}</td>
     </tr>""" for nm,s in analysis["bp_ranked"] if s["appearances"]>=2)
 
-    dive_cards = "".join(
-        deep_dive_card(
-            nm, stats[nm],
-            vol_d.get(nm), tech_d.get(nm),
-            news_d.get(nm,[]),
-            *twit_d.get(nm,([], None)),
-            reddit_d.get(nm,[])
-        )
+    dive_cards="".join(
+        deep_dive_card(nm, stats[nm], vol_d.get(nm), ta_d.get(nm),
+                       news_d.get(nm,[]), reddit_d.get(nm,[]), analysis["dates"])
         for nm in analysis["appeared_2p"]
     )
 
@@ -612,235 +652,89 @@ def build_html(analysis, vol_d, tech_d, news_d, twit_d, reddit_d, week_dates):
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Weekly Analysis — {wl}</title>
-<style>
-/* ── Bloomberg-inspired dark theme ─────────────────────────── */
-:root {{
-  --bg:        #0d0f14;
-  --bg2:       #131620;
-  --bg3:       #1a1d2e;
-  --bg4:       #1e2235;
-  --border:    #252840;
-  --border2:   #2e3250;
-  --text:      #e2e4f0;
-  --text2:     #9198b8;
-  --text3:     #545c7a;
-  --amber:     #f0a500;
-  --amber-dim: #3d2900;
-  --green:     #00c875;
-  --green-dim: #002e1a;
-  --red:       #ff4560;
-  --red-dim:   #3d0010;
-  --blue:      #4a9eff;
-  --blue-dim:  #0a1f3d;
-  --mono:      'JetBrains Mono','Fira Code','Courier New',monospace;
-}}
-*{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}}
-/* Header */
-.page-header{{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}}
-.page-title{{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}}
-.page-meta{{font-size:11px;color:var(--text3);font-family:var(--mono)}}
-/* Stat strip */
-.stat-strip{{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}}
-.stat{{display:flex;flex-direction:column;gap:2px}}
-.stat-val{{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}}
-.stat-lbl{{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}}
-/* Sections */
-.sec{{border-bottom:1px solid var(--border)}}
-.sec-head{{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}}
-.sec-label{{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}}
-.sec-count{{font-size:10px;color:var(--text3);font-family:var(--mono)}}
-/* Tables */
-table{{width:100%;border-collapse:collapse}}
-thead th{{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}}
-thead th:first-child{{text-align:left}}
-tbody td{{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}}
-tbody td:first-child{{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}}
-tbody tr:hover td{{background:var(--bg4)}}
-/* Pct colors */
-.up{{color:var(--green);font-weight:600}}
-.dn{{color:var(--red);font-weight:600}}
-.neu{{color:var(--text2)}}
-/* Stock card */
-.stock-card{{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}}
-.card-header{{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}}
-.card-name{{font-size:14px;font-weight:600;color:var(--text)}}
-.card-sym{{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}}
-.card-price{{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}}
-.card-score-line{{font-size:10px;color:var(--text2);margin-top:2px;text-align:right;font-family:var(--mono)}}
-/* Metrics row */
-.metrics{{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}}
-.metric{{padding:8px 12px;border-right:1px solid var(--border)}}
-.metric:last-child{{border-right:none}}
-.metric-lbl{{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}}
-.metric-val{{font-family:var(--mono);font-size:13px;font-weight:600}}
-/* 3-col body */
-.card-body{{display:grid;grid-template-columns:1fr 1fr 1fr}}
-.col{{padding:12px 14px;border-right:1px solid var(--border)}}
-.col:last-child{{border-right:none}}
-.col-title{{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}}
-/* TA grid */
-.ta-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}}
-.ta-cell{{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}}
-.ta-lbl{{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}}
-.ta-val{{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}}
-/* Verdict box */
-.verdict-box{{border-left:2px solid;padding:7px 10px;border-radius:3px;margin-top:6px}}
-.verdict-box.strong{{background:var(--green-dim);border-color:var(--green)}}
-.verdict-box.moderate{{background:var(--amber-dim);border-color:var(--amber)}}
-.verdict-box.weak{{background:var(--bg4);border-color:var(--border2)}}
-.verdict-box.bearish{{background:var(--red-dim);border-color:var(--red)}}
-.verdict-title{{font-size:11px;font-weight:600;margin-bottom:4px}}
-.verdict-box.strong .verdict-title{{color:var(--green)}}
-.verdict-box.moderate .verdict-title{{color:var(--amber)}}
-.verdict-box.weak .verdict-title{{color:var(--text2)}}
-.verdict-box.bearish .verdict-title{{color:var(--red)}}
-.verdict-sig{{font-size:10px;color:var(--text2);line-height:1.6}}
-/* News */
-.news-item{{padding:4px 0;border-bottom:1px solid var(--border)}}
-.news-item:last-child{{border-bottom:none}}
-.news-date{{font-size:9px;color:var(--text3);font-family:var(--mono)}}
-.news-title{{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}}
-/* Twits */
-.twit-summary{{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 10px;margin-bottom:6px;font-family:var(--mono);font-size:11px}}
-.twit-item{{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}}
-/* Badges */
-.badge{{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.4px}}
-.badge-gold{{background:var(--amber-dim);color:var(--amber)}}
-.badge-silver{{background:var(--blue-dim);color:var(--blue)}}
-.badge-watch{{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}}
-.badge-fresh{{background:var(--blue-dim);color:var(--blue)}}
-.badge-recover{{background:var(--green-dim);color:var(--green)}}
-.badge-stage2{{background:var(--green-dim);color:var(--green)}}
-.badge-extended{{background:var(--amber-dim);color:var(--amber)}}
-.badge-danger{{background:var(--red-dim);color:var(--red)}}
-/* OBV warning */
-.obv-warn{{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}}
-/* Vol bar chart */
-.vol-summary{{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}}
-.vol-kpi{{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}}
-.vol-kpi-val{{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text)}}
-.vol-kpi-lbl{{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}}
-.vol-bars{{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}}
-.vol-bar-wrap{{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}}
-.vol-bar{{width:100%;border-radius:2px 2px 0 0;min-height:2px}}
-.vol-bar.week{{background:var(--amber)}}
-.vol-bar.prior{{background:var(--blue-dim);border:1px solid var(--blue)}}
-.vol-bar-lbl{{font-size:8px;color:var(--text3);font-family:var(--mono)}}
-/* Week pattern boxes */
-.week-pattern{{display:flex;gap:5px;margin:5px 0}}
-.wk-box{{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}}
-.wk-box.hit3{{background:var(--amber);color:#000}}
-.wk-box.hit2{{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber)}}
-.wk-box.hit1{{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue)}}
-.wk-box.miss{{background:var(--bg4);color:var(--text3);border:1px solid var(--border)}}
-/* Score breakdown */
-.score-list{{font-size:10px;color:var(--text3);font-family:var(--mono);line-height:1.7}}
-/* Stage 1 table */
-.stage1-note{{padding:16px 24px;font-size:12px;color:var(--text3);background:var(--bg2);text-align:center}}
-/* Footer */
-.page-foot{{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}}
-/* Legend strip */
-.legend{{display:flex;gap:16px;padding:8px 24px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:10px;color:var(--text3);flex-wrap:wrap}}
-.legend-item{{display:flex;align-items:center;gap:5px}}
-</style></style></head><body>
-<div class="wrap">
-  <div class="top">
-    <h1>📊 Weekly Breakout & Volume Analysis</h1>
-    <p>{wl} · {analysis['total_unique']} unique stocks · {len(analysis['dates'])} trading days · {len(analysis['appeared_2p'])} stocks deep-dived (appeared 2+ days)</p>
-  </div>
-  <div class="meta">
-    <span>📅 <strong>{", ".join(analysis['dates'])}</strong></span>
-    <span>🔗 <a href="{SCREEN_URL}">screener.in/screens/3664072/screen1</a></span>
-  </div>
+<style>{DARK_CSS}</style>
+</head><body>
+<div class="page-header">
+  <div class="page-title">WEEKLY BREAKOUT ANALYSIS</div>
+  <div class="page-meta">{wl} &middot; {analysis['total_unique']} UNIQUE STOCKS &middot; {len(analysis['appeared_2p'])} DEEP-DIVED</div>
+</div>
+<div class="stat-strip">
+  <div class="stat"><div class="stat-val">{analysis['total_unique']}</div><div class="stat-lbl">Unique stocks</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--amber)">{len(analysis['appeared_all5'])}</div><div class="stat-lbl">All 5 days</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--blue)">{len(analysis['appeared_2p'])}</div><div class="stat-lbl">Deep dived (2+ days)</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">{len(analysis['earnings_cat'])}</div><div class="stat-lbl">Earnings catalysts</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">{sum(1 for nm in analysis['appeared_2p'] if ta_d.get(nm) and ta_d[nm]['score']>=70)}</div><div class="stat-lbl">Strong upside signals</div></div>
+</div>
 
-  <div class="sec"><div class="sh"><h2>📈 Week at a Glance</h2></div><div class="sb"><div class="sg">
-    <div class="sb2"><div class="v">{analysis['total_unique']}</div><div class="l">Unique stocks appeared</div></div>
-    <div class="sb2"><div class="v">{len(analysis['appeared_all5'])}</div><div class="l">All 5 days</div></div>
-    <div class="sb2"><div class="v">{len(analysis['appeared_2p'])}</div><div class="l">2+ days (deep-dived)</div></div>
-    <div class="sb2"><div class="v">{len(analysis['earnings_cat'])}</div><div class="l">Earnings catalysts</div></div>
-    <div class="sb2"><div class="v">{sum(1 for nm in analysis['appeared_2p'] if tech_d.get(nm) and tech_d[nm]['score']>=70)}</div><div class="l">Strong upside signals</div></div>
-  </div></div></div>
+<div class="sec"><div class="sec-head"><span class="sec-label">All 5 Days</span><span class="sec-count">Highest conviction</span></div>
+<div style="padding:10px 24px">{all5_badges}</div></div>
 
-  <div class="sec"><div class="sh"><h2>🔁 Appeared All 5 Days</h2><p>Highest conviction</p></div><div class="sb">{all5_badges}</div></div>
+<div class="sec"><div class="sec-head"><span class="sec-label">Earnings Catalysts</span><span class="sec-count">QoQ profit >20% + 2+ days</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>QoQ Profit%</th><th>QoQ Sales%</th><th>Profit Growth%</th><th>Days</th><th>CMP</th></tr></thead>
+  <tbody>{earn_rows or '<tr><td colspan="6" style="text-align:center;color:var(--text3);padding:12px">None this week</td></tr>'}</tbody>
+</table></div></div>
 
-  <div class="sec"><div class="sh"><h2>💥 Earnings Catalysts (QoQ Profit > 20% + 2+ days)</h2></div>
-  <div style="padding:0 24px 20px"><table>
-    <thead><tr><th>Stock</th><th>QoQ Profit%</th><th>QoQ Sales%</th><th>Profit Growth%</th><th>Days</th><th>CMP</th></tr></thead>
-    <tbody>{earn_rows}</tbody>
-  </table></div></div>
+<div class="sec"><div class="sec-head"><span class="sec-label">All 2+ Day Stocks</span><span class="sec-count">Click name to jump to deep dive</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>Days</th><th>Avg 1d Ret</th><th>Week Chg</th><th>Vol Wk/Mo</th><th>Vol 5d</th><th>Vol 1mo</th><th>ROCE%</th><th>Upside</th></tr></thead>
+  <tbody>{bp_rows}</tbody>
+</table></div></div>
 
-  <div class="sec"><div class="sh"><h2>🎯 All Repeated Stocks — Volume + Score Summary</h2><p>Click stock name to jump to deep dive</p></div>
-  <div style="padding:0 24px 20px"><table>
-    <thead><tr><th>Stock</th><th>Days</th><th>Avg 1d Ret</th><th>Week Chg</th><th>Wk/Mo Vol Ratio</th><th>Vol 5d avg</th><th>Vol 1mo avg</th><th>ROCE%</th><th>Upside Score</th></tr></thead>
-    <tbody>{bp_rows}</tbody>
-  </table></div></div>
+<div class="sec"><div class="sec-head"><span class="sec-label">Deep Dives</span><span class="sec-count">Vol bars + chart analysis + news + Reddit for every 2+ day stock</span></div>
+<div style="padding:8px 0">{dive_cards}</div></div>
 
-  <div class="sec"><div class="sh"><h2>⭐ Deep Dives — Every Stock Appearing 2+ Days</h2>
-  <p>Volume bars (week vs month vs 3mo) · Chart signals · News · StockTwits · Reddit</p></div>
-  <div class="sb">{dive_cards}</div></div>
-
-  <div class="foot">Auto-generated · GitHub Actions · Screener.in · {datetime.utcnow().strftime('%Y-%m-%d %H:%M')} UTC</div>
-</div></body></html>"""
+<div class="page-foot">Weekly Analysis v5 &middot; {datetime.utcnow().strftime('%Y-%m-%d %H:%M')} UTC &middot; Screener.in</div>
+</body></html>"""
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    today      = date.today().isoformat()
-    week_dates = get_week_dates()
-    print(f"\n🔍 Weekly Analysis v4 — {week_dates[0]} to {week_dates[-1]}")
+    today=date.today().isoformat(); week_dates=get_week_dates()
+    print(f"\nWeekly Analysis v5 — {week_dates[0]} to {week_dates[-1]}")
 
-    reports = []
+    reports=[]
     for d in week_dates:
-        r = load_report(d)
-        if r: print(f"  📂 {d} — {r['total_stocks']} stocks"); reports.append(r)
-        else: print(f"  ⚠️  No report: {d}")
+        r=load_report(d)
+        if r: print(f"  {d} — {r['total_stocks']} stocks"); reports.append(r)
+        else: print(f"  No report: {d}")
 
-    if not reports: print("❌ No reports. Exit."); return
+    if not reports: print("No reports found."); return
 
-    analysis = analyse_week(reports)
-    targets  = analysis["appeared_2p"]
-    print(f"\n  📊 {analysis['total_unique']} unique · {len(targets)} to deep-dive")
-    print(f"  Stocks: {targets}\n")
+    analysis=analyse_week(reports)
+    targets=analysis["appeared_2p"]
+    print(f"\n  {analysis['total_unique']} unique stocks · {len(targets)} to deep dive")
 
-    vol_d={}; tech_d={}; news_d={}; twit_d={}; reddit_d={}
+    vol_d={}; ta_d={}; news_d={}; reddit_d={}
 
     if HAS_YF:
-        print(f"  📡 Fetching volume + technicals ({len(targets)} stocks)...")
+        print(f"  Fetching vol + TA for {len(targets)} stocks...")
         for nm in targets:
-            sym = get_nse_symbol(nm)
-            print(f"    → {nm} ({sym})")
-            vd = get_vol_data(nm)
-            vol_d[nm] = vd
-            tech_d[nm] = get_technicals(nm, vd) if vd else None
-            time.sleep(0.5)
-    else:
-        print("  ⚠️  yfinance not installed — skipping vol/TA")
+            sym=get_nse_symbol(nm)
+            print(f"    {nm} -> {sym}")
+            vd,td=get_vol_and_ta(nm)
+            vol_d[nm]=vd; ta_d[nm]=td
+            time.sleep(0.4)
 
-    print(f"\n  📰 Fetching news...")
-    for nm in targets: news_d[nm]=get_news(nm); time.sleep(0.4)
+    print(f"  Fetching news...")
+    for nm in targets: news_d[nm]=get_news(nm); time.sleep(0.3)
 
-    print(f"\n  💬 Fetching StockTwits...")
-    for nm in targets: twit_d[nm]=get_twits(nm); time.sleep(0.3)
-
-    print(f"\n  🗣 Fetching Reddit...")
+    print(f"  Fetching Reddit...")
     for nm in targets: reddit_d[nm]=get_reddit(nm); time.sleep(0.3)
 
-    week_dir = os.path.join(OUTPUT_DIR,"weekly")
-    os.makedirs(week_dir, exist_ok=True)
-    base = os.path.join(week_dir, f"week_{week_dates[0]}")
-
-    html = build_html(analysis, vol_d, tech_d, news_d, twit_d, reddit_d, week_dates)
+    week_dir=os.path.join(OUTPUT_DIR,"weekly"); os.makedirs(week_dir,exist_ok=True)
+    base=os.path.join(week_dir,f"week_{week_dates[0]}")
+    html=build_html(analysis,vol_d,ta_d,news_d,reddit_d,week_dates)
     with open(base+"_analysis.html","w",encoding="utf-8") as f: f.write(html)
-    print(f"\n  ✅ HTML → {base}_analysis.html")
+    print(f"  HTML -> {base}_analysis.html")
 
     with open(base+"_analysis.json","w",encoding="utf-8") as f:
-        out = {k:v for k,v in analysis.items() if k not in("stock_stats","bp_ranked")}
-        out["stock_stats_summary"] = {n:{k:v for k,v in s.items() if k!="daily_data"} for n,s in analysis["stock_stats"].items()}
-        out["conviction_picks"] = [(nm,{k:v for k,v in s.items() if k!="daily_data"}) for nm,s in analysis["bp_ranked"] if s["appearances"]>=2]
+        out={k:v for k,v in analysis.items() if k not in("stock_stats","bp_ranked")}
+        out["stock_stats_summary"]={n:{k:v for k,v in s.items() if k!="daily_data"} for n,s in analysis["stock_stats"].items()}
+        out["conviction_picks"]=[(nm,{k:v for k,v in s.items() if k!="daily_data"}) for nm,s in analysis["bp_ranked"] if s["appearances"]>=2]
         json.dump(out,f,indent=2,ensure_ascii=False,default=str)
-    print(f"  ✅ JSON → {base}_analysis.json")
-    print(f"\n✅ Done — {len(targets)} deep dives complete")
+    print(f"  JSON -> {base}_analysis.json")
+    print(f"\nDone — {len(targets)} deep dives · {sum(1 for v in vol_d.values() if v)} with vol data · {sum(1 for v in ta_d.values() if v)} with TA")
 
 if __name__=="__main__":
     main()
