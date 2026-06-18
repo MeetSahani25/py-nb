@@ -2,8 +2,9 @@ name: Daily Screener Report
 
 on:
   schedule:
-    - cron: "30 12 * * 1-5"   # 6pm IST Mon-Fri — daily scrape + Friday analysis
-    - cron: "0 19 * * 1-5"    # 12:30am IST Mon-Fri — earnings scanner
+    - cron: "30 12 * * 1-4"  # Mon-Thu
+    - cron: "30 12 * * 5"    # Friday
+    - cron: "0 19 * * 1-5"
   workflow_dispatch:
     inputs:
       earnings_date:
@@ -71,16 +72,16 @@ jobs:
         # Runs on Friday 6pm cron OR manual trigger
         run: |
           DAY=$(date +'%u')
-          HOUR=$(date +'%H')
           EVENT="${{ github.event_name }}"
-          if ([ "$DAY" = "5" ] && [ "$HOUR" = "12" ]) || [ "$EVENT" = "workflow_dispatch" ]; then
+          
+          if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
             echo "Running weekly analysis + silent horse..."
             python weekly_analysis.py
             python silent_horse.py
           else
-            echo "Not Friday 6pm — skipping weekly/silent horse (day=$DAY hour=$HOUR)"
+            echo "Not Friday — skipping weekly/silent horse (day=$DAY)"
           fi
-
+          
       - name: Run cleanup
         # Runs on Friday 6pm only
         run: |
