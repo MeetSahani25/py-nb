@@ -39,7 +39,6 @@ jobs:
         run: |
           echo "Running daily momentum scraper..."
           python screener_scraper.py
-          fi
       
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
@@ -59,26 +58,18 @@ jobs:
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
 
       - name: Run weekly analysis + silent horse
-        # Runs on Friday 6pm cron OR manual trigger
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 5'
         run: |
-          DAY=$(date +'%u')
-          EVENT="${{ github.event_name }}"
-          
-          if [ "$DAY" = "5" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running weekly analysis + silent horse..."
-            python weekly_analysis.py
-            python silent_horse.py
-          else
-            echo "Not Friday — skipping weekly/silent horse (day=$DAY)"
-          fi
+          echo "Running weekly analysis + silent horse..."
+          python weekly_analysis.py
+          python silent_horse.py
           
       - name: Run cleanup
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 5'
         run: |
           echo "Running cleanup..."
           python cleanup.py
-          fi
-
+          
       - name: Stock history lookup
         # Runs only when stock_lookup input is provided
         run: |
