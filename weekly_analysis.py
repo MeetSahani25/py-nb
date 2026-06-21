@@ -1,7 +1,7 @@
 """
 Screener.in Weekly Analysis v5
 - Fixed NSE symbol mapping (300+ companies in corrections map)
-- Indian stock news via Google News (replaces useless StockTwits)
+- Curated Indian stock news with clickable source links
 - yfinance with multi-variation symbol tries for 100% coverage
 - Vol week vs month vs 3mo bar chart
 - RSI, MACD, EMA, Bollinger, OBV divergence, comeback mode
@@ -344,15 +344,17 @@ def get_news(name, max_items=5):
             t = re.search(r"<title>(.*?)</title>", b)
             d = re.search(r"<pubDate>(.*?)</pubDate>", b)
             s = re.search(r"<source[^>]*>(.*?)</source>", b)
+            l = re.search(r"<link>(.*?)</link>", b)
             if not t: continue
             title = re.sub(r"<[^>]+>","",t.group(1)).strip()
             pub   = d.group(1).strip()[:16] if d else ""
             src   = re.sub(r"<[^>]+>","",s.group(1)).strip() if s else ""
+            link  = l.group(1).strip().replace("&amp;", "&") if l else ""
             name1 = name.lower().split()[0]
             relevant = name1 in title.lower() or any(fs in src.lower() for fs in fin_sources)
             if title and "Google" not in title and title not in seen and relevant:
                 seen.add(title)
-                items.append({"title":title,"date":pub,"source":src})
+                items.append({"title":title,"date":pub,"source":src,"url":link})
             if len(items) >= max_items: break
         if len(items) >= max_items: break
     return items[:max_items]
@@ -509,6 +511,11 @@ tbody tr:hover td{background:var(--bg4)}
 .news-item:last-child{border-bottom:none}
 .news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
 .news-src{font-size:9px;color:var(--blue);margin-left:6px}
+.news-title a{color:var(--text2);text-decoration:none}
+.news-title a:hover{color:var(--blue);text-decoration:underline}
+.research-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.research-link{border:1px solid var(--border2);background:var(--bg4);border-radius:3px;padding:4px 7px;font-size:9px;color:var(--blue);text-decoration:none}
+.research-link:hover{border-color:var(--blue)}
 .news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
 .reddit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
 .obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
@@ -592,7 +599,28 @@ def render_ta(ta):
 
 def render_news(items):
     if not items: return '<div style="font-size:11px;color:var(--text3)">No news found</div>'
-    return "".join(f'<div class="news-item"><div><span class="news-date">{i["date"]}</span><span class="news-src">{i.get("source","")[:20]}</span></div><div class="news-title">{i["title"]}</div></div>' for i in items)
+    rows=[]
+    for i in items:
+        title=i["title"]
+        url=i.get("url","")
+        headline=f'<a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>' if url else title
+        rows.append(f'<div class="news-item"><div><span class="news-date">{i["date"]}</span><span class="news-src">{i.get("source","")[:20]}</span></div><div class="news-title">{headline}</div></div>')
+    return "".join(rows)
+
+def render_research_links(name, sym):
+    """High-signal sources for validating why a weekly winner moved."""
+    symbol = (sym or "").replace(".NS", "")
+    if not symbol or symbol == "â€”": return ""
+    links = [
+        ("NSE quote & filings", f"https://www.nseindia.com/get-quotes/equity?symbol={quote(symbol)}"),
+        ("TradingView technicals", f"https://www.tradingview.com/symbols/NSE-{quote(symbol)}/technicals/"),
+        ("Screener fundamentals", f"https://www.screener.in/company/{quote(symbol)}/consolidated/"),
+        ("Google News", f"https://news.google.com/search?q={quote(name + ' stock NSE India')}"),
+    ]
+    return '<div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links">' + "".join(
+        f'<a class="research-link" href="{url}" target="_blank" rel="noopener noreferrer">{label}</a>'
+        for label,url in links
+    ) + '</div>'
 
 def render_reddit(posts):
     if not posts: return '<div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>'
@@ -639,6 +667,7 @@ def deep_dive_card(name, s, vd, ta, news, reddit, all_dates):
         <div class="col">
           <div class="col-title">News</div>
           {render_news(news)}
+          {render_research_links(name, sym)}
           <div class="col-title" style="margin-top:12px">Reddit</div>
           {render_reddit(reddit)}
         </div>
