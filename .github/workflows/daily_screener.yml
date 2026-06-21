@@ -35,34 +35,24 @@ jobs:
         run: pip install requests beautifulsoup4 yfinance
 
       - name: Run daily momentum scraper
-        # Runs on 6pm cron (12 UTC) OR manual trigger
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 1-4' || github.event.schedule == '30 12 * * 5'
         run: |
-          HOUR=$(date +'%H')
-          EVENT="${{ github.event_name }}"
-          if [ "$HOUR" = "12" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running daily momentum scraper..."
-            python screener_scraper.py
-          else
-            echo "Not 6pm run (hour=$HOUR) — skipping momentum scrape"
+          echo "Running daily momentum scraper..."
+          python screener_scraper.py
           fi
+      
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
           SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
 
       - name: Run earnings scanner
-        # Runs on 12:30am cron (19 UTC) OR manual trigger
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 19 * * 1-5'
         run: |
-          HOUR=$(date +'%H')
-          EVENT="${{ github.event_name }}"
-          if [ "$HOUR" = "19" ] || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Running earnings scanner..."
-            if [ -n "${{ github.event.inputs.earnings_date }}" ]; then
-              python earnings_scanner.py ${{ github.event.inputs.earnings_date }}
-            else
-              python earnings_scanner.py
-            fi
+          echo "Running earnings scanner..."
+          if [ -n "${{ github.event.inputs.earnings_date }}" ]; then
+            python earnings_scanner.py ${{ github.event.inputs.earnings_date }}
           else
-            echo "Not earnings run (hour=$HOUR) — skipping"
+            python earnings_scanner.py
           fi
         env:
           SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
@@ -83,13 +73,10 @@ jobs:
           fi
           
       - name: Run cleanup
-        # Runs on Friday 6pm only
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 5'
         run: |
-          DAY=$(date +'%u')
-          HOUR=$(date +'%H')
-          if [ "$DAY" = "5" ] && [ "$HOUR" = "12" ]; then
-            echo "Running cleanup..."
-            python cleanup.py
+          echo "Running cleanup..."
+          python cleanup.py
           fi
 
       - name: Stock history lookup
@@ -101,17 +88,10 @@ jobs:
           fi
 
       - name: Send email
-        # Runs on Friday 6pm cron OR manual trigger — NOT on earnings cron
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 5'
         run: |
-          DAY=$(date +'%u')
-          HOUR=$(date +'%H')
-          EVENT="${{ github.event_name }}"
-          if ([ "$DAY" = "5" ] && [ "$HOUR" = "12" ]) || [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "Sending email..."
-            python send_email.py
-          else
-            echo "Not email time (day=$DAY hour=$HOUR event=$EVENT) — skipping"
-          fi
+          echo "Sending email..."
+          python send_email.py
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
