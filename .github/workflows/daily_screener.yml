@@ -79,15 +79,10 @@ jobs:
           fi
 
       - name: Send email
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 5'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 12 * * 1-4' || github.event.schedule == '30 12 * * 5'
         run: |
           echo "Sending email..."
           python send_email.py
-        env:
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
-          STOCK_LOOKUP: ${{ github.event.inputs.stock_lookup }}
 
       - name: Commit and push
         run: |
