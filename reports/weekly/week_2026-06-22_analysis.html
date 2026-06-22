@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weekly Analysis — 2026-06-22 to 2026-06-26</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-section{padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.vol-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+.card-body{display:grid;grid-template-columns:1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+.verdict-box{border-left:2px solid var(--green);background:var(--green-dim);padding:7px 10px;border-radius:3px}
+.verdict-box.warn{border-color:var(--amber);background:var(--amber-dim)}
+.verdict-box.bear{border-color:var(--red);background:var(--red-dim)}
+.verdict-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:4px}
+.verdict-box.warn .verdict-title{color:var(--amber)}
+.verdict-box.bear .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-src{font-size:9px;color:var(--blue);margin-left:6px}
+.news-title a{color:var(--text2);text-decoration:none}
+.news-title a:hover{color:var(--blue);text-decoration:underline}
+.research-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.research-link{border:1px solid var(--border2);background:var(--bg4);border-radius:3px;padding:4px 7px;font-size:9px;color:var(--blue);text-decoration:none}
+.research-link:hover{border-color:var(--blue)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+.reddit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+.freq-spark{display:flex;align-items:flex-end;gap:3px;height:28px}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+</style>
+</head><body>
+<div class="page-header">
+  <div class="page-title">WEEKLY BREAKOUT ANALYSIS</div>
+  <div class="page-meta">2026-06-22 to 2026-06-26 &middot; 50 UNIQUE STOCKS &middot; 0 DEEP-DIVED</div>
+</div>
+<div class="stat-strip">
+  <div class="stat"><div class="stat-val">50</div><div class="stat-lbl">Unique stocks</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--amber)">0</div><div class="stat-lbl">All 5 days</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--blue)">0</div><div class="stat-lbl">Deep dived (2+ days)</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">0</div><div class="stat-lbl">Earnings catalysts</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">0</div><div class="stat-lbl">Strong upside signals</div></div>
+</div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">All 5 Days</span><span class="sec-count">Highest conviction</span></div>
+<div style="padding:10px 24px"><span style='color:var(--text3)'>None this week</span></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">Earnings Catalysts</span><span class="sec-count">QoQ profit >20% + 2+ days</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>QoQ Profit%</th><th>QoQ Sales%</th><th>Profit Growth%</th><th>Days</th><th>CMP</th></tr></thead>
+  <tbody><tr><td colspan="6" style="text-align:center;color:var(--text3);padding:12px">None this week</td></tr></tbody>
+</table></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">All 2+ Day Stocks</span><span class="sec-count">Click name to jump to deep dive</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>Days</th><th>Avg 1d Ret</th><th>Week Chg</th><th>Vol Wk/Mo</th><th>Vol 5d</th><th>Vol 1mo</th><th>ROCE%</th><th>Upside</th></tr></thead>
+  <tbody></tbody>
+</table></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">Deep Dives</span><span class="sec-count">Vol bars + chart analysis + news + Reddit for every 2+ day stock</span></div>
+<div style="padding:8px 0"></div></div>
+
+<div class="page-foot">Weekly Analysis v5 &middot; 2026-06-22 16:02 UTC &middot; Screener.in</div>
+</body></html>
