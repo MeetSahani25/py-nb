@@ -98,8 +98,18 @@ def parse_table(html):
 
     # Headers from first thead row only
     thead = table.find("thead")
+    
     if thead:
-        headers = [th.get_text(strip=True) for th in thead.find("tr").find_all("th")]
+        all_headers = [th.get_text(strip=True) for th in thead.find_all("th")]
+    
+        headers = []
+        seen = set()
+    
+        for h in all_headers:
+            if h in seen:
+                break
+            headers.append(h)
+            seen.add(h)
     else:
         headers = [th.get_text(strip=True) for th in table.find_all("th")]
 
@@ -123,7 +133,11 @@ def parse_table(html):
         if not any(cells):
             continue
         rows.append(cells)
-
+    print(f"  Parsed rows: {len(rows)}")
+    
+    tbody = table.find("tbody")
+    if tbody:
+        print(f"  Raw TR count: {len(tbody.find_all('tr'))}")
     return headers, rows
 
 def save_csv(headers, rows, filepath):
@@ -241,6 +255,8 @@ def main():
     session = make_session()
     login(session)
     html = fetch_screen(session, SCREEN_URL)
+    with open("raw_screen.html", "w", encoding="utf-8") as f:
+        f.write(html)
     headers, rows = parse_table(html)
     print(f"\n📊 {len(rows)} stocks · {len(headers)} columns\n")
 
