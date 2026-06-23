@@ -86,7 +86,73 @@ def fetch_screen(session, url):
     resp = session.get(url, timeout=15)
     resp.raise_for_status()
     return resp.text
+    
+def fetch_all_pages(session, base_url):
+    all_rows = []
+    headers = None
+    page = 1
 
+    while True:
+        page_url = base_url if page == 1 else f"{base_url}?page={page}"
+
+        print(f"\n📄 Fetching page {page}: {page_url}")
+
+        html = fetch_screen(session, page_url)
+
+        try:
+            page_headers, page_rows = parse_table(html)
+        except Exception:
+            print(f"  No table found on page {page}")
+            break
+
+        print(f"  Rows found: {len(page_rows)}")
+
+        if not page_rows:
+            break
+
+        if headers is None:
+            headers = page_headers
+
+        all_rows.extend(page_rows)
+
+        next_url = f"{base_url}?page={page + 1}"
+        
+        next_html = fetch_screen(session, next_url)
+        
+        try:
+            _, next_rows = parse_table(next_html)
+        except:
+            next_rows = []
+        
+        if not next_rows:
+            break
+        
+        page += 1
+    return headers, all_rows
+    
+def dedupe_rows(headers, rows):
+    try:
+        name_idx = headers.index("Name")
+    except ValueError:
+        return rows
+
+    seen = set()
+    unique = []
+
+    for row in rows:
+        if len(row) <= name_idx:
+            continue
+
+        stock = row[name_idx]
+
+        if stock in seen:
+            continue
+
+        seen.add(stock)
+        unique.append(row)
+
+    return unique
+    
 def parse_table(html):
     soup = BeautifulSoup(html, "html.parser")
 
@@ -254,12 +320,11 @@ def main():
 
     session = make_session()
     login(session)
-    html = fetch_screen(session, SCREEN_URL)
-    with open("raw_screen.html", "w", encoding="utf-8") as f:
-        f.write(html)
-    headers, rows = parse_table(html)
-    print(f"\n📊 {len(rows)} stocks · {len(headers)} columns\n")
-
+    headers, rows = fetch_all_pages(session, SCREEN_URL)
+    
+    rows = dedupe_rows(headers, rows)
+    
+    print(f"\n📊 Total unique stocks: {len(rows)}")
     base = os.path.join(OUTPUT_DIR, today, today)
     os.makedirs(os.path.join(OUTPUT_DIR, today), exist_ok=True)
     save_csv(headers, rows, base + "_screener.csv")
