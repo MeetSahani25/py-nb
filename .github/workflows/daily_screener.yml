@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: "30 12 * * 1-4"  # Mon-Thu
     - cron: "30 12 * * 5"    # Friday
-    - cron: "0 19 * * 1-5"
   workflow_dispatch:
     inputs:
       earnings_date:
