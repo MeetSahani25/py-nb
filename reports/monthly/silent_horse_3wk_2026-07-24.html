@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silent Horse 3-Week Sprint — 2026-07-24</title>
+<style>
+/* ── Bloomberg-inspired dark theme ─────────────────────────── */
+:root {
+  --bg:        #0d0f14;
+  --bg2:       #131620;
+  --bg3:       #1a1d2e;
+  --bg4:       #1e2235;
+  --border:    #252840;
+  --border2:   #2e3250;
+  --text:      #e2e4f0;
+  --text2:     #9198b8;
+  --text3:     #545c7a;
+  --amber:     #f0a500;
+  --amber-dim: #3d2900;
+  --green:     #00c875;
+  --green-dim: #002e1a;
+  --red:       #ff4560;
+  --red-dim:   #3d0010;
+  --blue:      #4a9eff;
+  --blue-dim:  #0a1f3d;
+  --mono:      'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+/* Header */
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+/* Stat strip */
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+/* Sections */
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+/* Tables */
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+/* Pct colors */
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.neu{color:var(--text2)}
+/* Stock card */
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.card-score-line{font-size:10px;color:var(--text2);margin-top:2px;text-align:right;font-family:var(--mono)}
+/* Metrics row */
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+/* 3-col body */
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+/* TA grid */
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+/* Verdict box */
+.verdict-box{border-left:2px solid;padding:7px 10px;border-radius:3px;margin-top:6px}
+.verdict-box.strong{background:var(--green-dim);border-color:var(--green)}
+.verdict-box.moderate{background:var(--amber-dim);border-color:var(--amber)}
+.verdict-box.weak{background:var(--bg4);border-color:var(--border2)}
+.verdict-box.bearish{background:var(--red-dim);border-color:var(--red)}
+.verdict-title{font-size:11px;font-weight:600;margin-bottom:4px}
+.verdict-box.strong .verdict-title{color:var(--green)}
+.verdict-box.moderate .verdict-title{color:var(--amber)}
+.verdict-box.weak .verdict-title{color:var(--text2)}
+.verdict-box.bearish .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+/* News */
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+/* Twits */
+.twit-summary{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 10px;margin-bottom:6px;font-family:var(--mono);font-size:11px}
+.twit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+/* Badges */
+.badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.4px}
+.badge-gold{background:var(--amber-dim);color:var(--amber)}
+.badge-silver{background:var(--blue-dim);color:var(--blue)}
+.badge-watch{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}
+.badge-fresh{background:var(--blue-dim);color:var(--blue)}
+.badge-recover{background:var(--green-dim);color:var(--green)}
+.badge-stage2{background:var(--green-dim);color:var(--green)}
+.badge-extended{background:var(--amber-dim);color:var(--amber)}
+.badge-danger{background:var(--red-dim);color:var(--red)}
+/* OBV warning */
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+/* Vol bar chart */
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text)}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar.week{background:var(--amber)}
+.vol-bar.prior{background:var(--blue-dim);border:1px solid var(--blue)}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+/* Week pattern boxes */
+.week-pattern{display:flex;gap:5px;margin:5px 0}
+.wk-box{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}
+.wk-box.hit3{background:var(--amber);color:#000}
+.wk-box.hit2{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber)}
+.wk-box.hit1{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue)}
+.wk-box.miss{background:var(--bg4);color:var(--text3);border:1px solid var(--border)}
+/* Score breakdown */
+.score-list{font-size:10px;color:var(--text3);font-family:var(--mono);line-height:1.7}
+/* Stage 1 table */
+.stage1-note{padding:16px 24px;font-size:12px;color:var(--text3);background:var(--bg2);text-align:center}
+/* Footer */
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+/* Legend strip */
+.legend{display:flex;gap:16px;padding:8px 24px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:10px;color:var(--text3);flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px}
+</style></style></head><body>
+<div class="wrap">
+  <div class="top">
+    <h1>🐎 Silent Horse — 3-Week Sprint</h1>
+    <p>Rolling 3-week window · last 3 weeks ending 2026-07-24 · Stage 1 vs Stage 3 detection active</p>
+  </div>
+  <div class="meta">
+    <span>📅 2026-07-24</span>
+    <span>🥇 Gold: <strong>0</strong></span>
+    <span>🥈 Silver: <strong>6</strong></span>
+    <span>👁 Watch: <strong>26</strong></span>
+    
+  </div>
+
+  <div class="sec"><div class="sh"><h2>Stage context legend</h2></div><div class="sb">
+    <div class="stage-key">
+      <span class="sk" style="background:#185FA5">Fresh base</span> <span style="color:var(--color-text-secondary)">Down 25%+ from 52w high, low 3mo return — Stage 1 candidate, best risk/reward</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#3B6D11">Recovering</span> <span style="color:var(--color-text-secondary)">Was down, now bouncing — Stage 1→2 transition, high conviction</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#3B6D11">Stage 2 mid-run</span> <span style="color:var(--color-text-secondary)">Healthy uptrend, not overextended — still good entry</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#854F0B">Stage 2 extended / Near highs</span> <span style="color:var(--color-text-secondary)">Momentum intact but reduced margin of safety — manage position size</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#A32D2D">Extended run / Stage 3 risk</span> <span style="color:var(--color-text-secondary)">Up 50%+ or near 52w high with weakening volume — VERIFY OBV before entering</span>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="sh"><h2>📊 Summary</h2></div><div class="sb"><div class="sg">
+    <div class="sb2"><div class="v">0</div><div class="l">Gold — deep dive</div></div>
+    <div class="sb2"><div class="v">6</div><div class="l">Silver — watchlist</div></div>
+    <div class="sb2"><div class="v">26</div><div class="l">Watch — seeding</div></div>
+    <div class="sb2"><div class="v">0</div><div class="l">Gold with clean OBV</div></div>
+    <div class="sb2"><div class="v">0</div><div class="l">Gold with OBV warning</div></div>
+  </div></div></div>
+
+  <div class="sec"><div class="sh"><h2>🥇 Gold Horses — Full Deep Dive</h2>
+  <p>0 stocks · 3+ weeks · freq &gt;5 · Stage context label + OBV divergence check on every card</p></div>
+  <div class="sb"><em style="color:var(--text3);font-size:13px">No Gold horses yet — need more data weeks.</em></div></div>
+
+  <div class="sec"><div class="sh"><h2>🥈 Silver Horses — Watchlist</h2>
+  <p>6 stocks · 2+ weeks, freq &gt;3 OR blowout week</p></div>
+  <div style="padding:0 20px 16px"><table>
+    <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>QoQ profit</th><th>1mo return</th><th>Signal</th><th>Score</th></tr></thead>
+    <tbody><tr>
+      <td style="text-align:left;font-weight:500">Gaudium IVF</td>
+      <td>2/4</td>
+      <td style="color:#185FA5;font-weight:500">6d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W28:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W29:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.1%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;130.3%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">68</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Diamond Power</td>
+      <td>2/4</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W30:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;34.9%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;24.4%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">64</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Krishana Phosch.</td>
+      <td>3/4</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;6.7%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-43.3%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#f0a500">58</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Menon Bearings</td>
+      <td>2/4</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.8%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;2.4%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#f0a500">54</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Aegis Vopak Term</td>
+      <td>3/4</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.8%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-17.0%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Kalyan Jewellers</td>
+      <td>2/4</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W28:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;36.5%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-1.6%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">flat</td>
+      <td style="font-weight:500;color:#888">37</td>
+    </tr></tbody>
+  </table></div></div>
+
+  <div class="sec"><div class="sh"><h2>👁 Watch List</h2>
+  <p>26 stocks · 2 weeks, freq 3-4 · track for 3rd week reappearance</p></div>
+  <div style="padding:0 20px 16px"><table>
+    <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>Signal</th></tr></thead>
+    <tbody><tr>
+      <td style="text-align:left;font-weight:500">Zensar Tech.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.7%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">A C J K Exports</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Stallion India</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;25.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">SG Mart</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;1.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Creative Newtech</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Tanla Platforms</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.4%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Time Technoplast</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">HEG</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;14.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Shukra Pharma.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">M & M Fin. Serv.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W27:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Fermenta Biotec.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.7%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Savita Oil Tech</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.4%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Tirupati Forge</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">T B Z</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;30.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Arkade</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">HLE Glascoat</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">M B Agro Prod.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;23.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Tips Music</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-4.9%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Happiest Minds</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">C P C L</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W30:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Gandhar Oil Ref.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W28:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W29:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;38.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Premier Polyfilm</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;18.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Gabriel India</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.9%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Gujarat Fluoroch</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Praveg</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.9%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Neetu Yoshi</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W27:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W28:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W29:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W30:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr></tbody>
+  </table></div></div>
+
+  
+
+  <div class="foot">Silent Horse Report · 3-Week Sprint · 2026-07-24 14:19 UTC</div>
+</div></body></html>
