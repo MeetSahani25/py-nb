@@ -1,6 +1,13 @@
 {
   "reports": [
     {
+      "date": "2026-07-29",
+      "total_stocks": 45,
+      "csv": "reports/2026-07-29/2026-07-29_screener.csv",
+      "html": "reports/2026-07-29/2026-07-29_screener.html",
+      "json": "reports/2026-07-29/2026-07-29_screener.json"
+    },
+    {
       "date": "2026-07-28",
       "total_stocks": 24,
       "csv": "reports/2026-07-28/2026-07-28_screener.csv",
@@ -337,5 +344,5 @@
       "json": "reports/2026-05-19/2026-05-19_screener.json"
     }
   ],
-  "last_updated": "2026-07-28T14:58:22.043878"
+  "last_updated": "2026-07-29T14:41:00.420383"
 }
