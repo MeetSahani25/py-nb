@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weekly Analysis — 2026-07-27 to 2026-07-31</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-section{padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.vol-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+.card-body{display:grid;grid-template-columns:1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+.verdict-box{border-left:2px solid var(--green);background:var(--green-dim);padding:7px 10px;border-radius:3px}
+.verdict-box.warn{border-color:var(--amber);background:var(--amber-dim)}
+.verdict-box.bear{border-color:var(--red);background:var(--red-dim)}
+.verdict-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:4px}
+.verdict-box.warn .verdict-title{color:var(--amber)}
+.verdict-box.bear .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-src{font-size:9px;color:var(--blue);margin-left:6px}
+.news-title a{color:var(--text2);text-decoration:none}
+.news-title a:hover{color:var(--blue);text-decoration:underline}
+.research-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.research-link{border:1px solid var(--border2);background:var(--bg4);border-radius:3px;padding:4px 7px;font-size:9px;color:var(--blue);text-decoration:none}
+.research-link:hover{border-color:var(--blue)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+.reddit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+.freq-spark{display:flex;align-items:flex-end;gap:3px;height:28px}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+</style>
+</head><body>
+<div class="page-header">
+  <div class="page-title">WEEKLY BREAKOUT ANALYSIS</div>
+  <div class="page-meta">2026-07-27 to 2026-07-31 &middot; 176 UNIQUE STOCKS &middot; 18 DEEP-DIVED</div>
+</div>
+<div class="stat-strip">
+  <div class="stat"><div class="stat-val">176</div><div class="stat-lbl">Unique stocks</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--amber)">0</div><div class="stat-lbl">All 5 days</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--blue)">18</div><div class="stat-lbl">Deep dived (2+ days)</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">9</div><div class="stat-lbl">Earnings catalysts</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--green)">0</div><div class="stat-lbl">Strong upside signals</div></div>
+</div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">All 5 Days</span><span class="sec-count">Highest conviction</span></div>
+<div style="padding:10px 24px"><span style='color:var(--text3)'>None this week</span></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">Earnings Catalysts</span><span class="sec-count">QoQ profit >20% + 2+ days</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>QoQ Profit%</th><th>QoQ Sales%</th><th>Profit Growth%</th><th>Days</th><th>CMP</th></tr></thead>
+  <tbody><tr>
+      <td>S H Kelkar & Co.</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;2423.89%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;1.98%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-63.89%</span></td><td>2/5</td>
+      <td>&#8377;170.0</td>
+    </tr><tr>
+      <td>Deep Industries</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;1334.63%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;12.15%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;132.59%</span></td><td>3/5</td>
+      <td>&#8377;596.9</td>
+    </tr><tr>
+      <td>Sapphire Foods</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;211.01%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;12.46%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-85.80%</span></td><td>2/5</td>
+      <td>&#8377;193.7</td>
+    </tr><tr>
+      <td>Advance Agrolife</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;147.84%</span></td><td><span style="color:var(--red);font-weight:600">▼&nbsp;-6.60%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;37.60%</span></td><td>2/5</td>
+      <td>&#8377;125.0</td>
+    </tr><tr>
+      <td>Apcotex Industri</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;127.23%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;32.21%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;175.58%</span></td><td>2/5</td>
+      <td>&#8377;681.6</td>
+    </tr><tr>
+      <td>Guj. Ambuja Exp</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;105.28%</span></td><td><span style="color:var(--red);font-weight:600">▼&nbsp;-1.19%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;24.01%</span></td><td>2/5</td>
+      <td>&#8377;172.6</td>
+    </tr><tr>
+      <td>Redington</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;57.69%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;5.15%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;41.53%</span></td><td>2/5</td>
+      <td>&#8377;310.9</td>
+    </tr><tr>
+      <td>Balkrishna Inds</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;50.53%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;17.81%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-3.28%</span></td><td>2/5</td>
+      <td>&#8377;2,473.5</td>
+    </tr><tr>
+      <td>Swiggy</td><td><span style="color:var(--green);font-weight:600">▲&nbsp;24.88%</span></td><td><span style="color:var(--green);font-weight:600">▲&nbsp;3.82%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-33.50%</span></td><td>2/5</td>
+      <td>&#8377;287.3</td>
+    </tr></tbody>
+</table></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">All 2+ Day Stocks</span><span class="sec-count">Click name to jump to deep dive</span></div>
+<div style="padding:0 24px 16px"><table>
+  <thead><tr><th>Stock</th><th>Days</th><th>Avg 1d Ret</th><th>Week Chg</th><th>Vol Wk/Mo</th><th>Vol 5d</th><th>Vol 1mo</th><th>ROCE%</th><th>Upside</th></tr></thead>
+  <tbody><tr>
+      <td><a href="#deepindustries" style="color:var(--text);text-decoration:none">Deep Industries</a></td>
+      <td style="color:var(--amber);font-weight:600">3/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.85%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.58%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;16.48%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#smlmahindra" style="color:var(--text);text-decoration:none">SML Mahindra</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.00%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.00%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        1.47x
+      </td>
+      <td>38.3L</td>
+      <td>26.0L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;30.90%</span></td>
+      <td style="color:var(--text3);font-weight:600">33</td>
+    </tr><tr>
+      <td><a href="#baikakajipoly" style="color:var(--text);text-decoration:none">Bai-Kakaji Poly.</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.46%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.92%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;21.18%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#ashikacredit" style="color:var(--text);text-decoration:none">Ashika Credit</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.87%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;14.12%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        2.57x
+      </td>
+      <td>9.5L</td>
+      <td>3.7L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.33%</span></td>
+      <td style="color:var(--text3);font-weight:600">40</td>
+    </tr><tr>
+      <td><a href="#til" style="color:var(--text);text-decoration:none">TIL</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.75%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.77%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        4.14x
+      </td>
+      <td>99.4L</td>
+      <td>24.0L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;2.90%</span></td>
+      <td style="color:var(--text3);font-weight:600">48</td>
+    </tr><tr>
+      <td><a href="#apcotexindustri" style="color:var(--text);text-decoration:none">Apcotex Industri</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.10%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.82%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.80%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#balkrishnainds" style="color:var(--text);text-decoration:none">Balkrishna Inds</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.02%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.22%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        2.01x
+      </td>
+      <td>26K</td>
+      <td>13K</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.18%</span></td>
+      <td style="color:var(--text3);font-weight:600">27</td>
+    </tr><tr>
+      <td><a href="#kaynestech" style="color:var(--text);text-decoration:none">Kaynes Tech</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.89%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.56%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        1.8x
+      </td>
+      <td>25.1L</td>
+      <td>14.0L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.24%</span></td>
+      <td style="color:var(--text3);font-weight:600">33</td>
+    </tr><tr>
+      <td><a href="#shkelkarco" style="color:var(--text);text-decoration:none">S H Kelkar & Co.</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.77%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.02%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.85%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#redington" style="color:var(--text);text-decoration:none">Redington</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.78%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.79%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        3.3x
+      </td>
+      <td>1.92Cr</td>
+      <td>58.1L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;18.39%</span></td>
+      <td style="color:var(--text3);font-weight:600">48</td>
+    </tr><tr>
+      <td><a href="#kirlelectric" style="color:var(--text);text-decoration:none">Kirl. Electric</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.04%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.08%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;14.59%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#asiangranito" style="color:var(--text);text-decoration:none">Asian Granito</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;6.61%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.36%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;3.12%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#swiggy" style="color:var(--text);text-decoration:none">Swiggy</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.55%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.03%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        1.71x
+      </td>
+      <td>4.44Cr</td>
+      <td>2.60Cr</td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-24.08%</span></td>
+      <td style="color:var(--text3);font-weight:600">43</td>
+    </tr><tr>
+      <td><a href="#gujambujaexp" style="color:var(--text);text-decoration:none">Guj. Ambuja Exp</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.03%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.04%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        1.29x
+      </td>
+      <td>32.4L</td>
+      <td>25.2L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.51%</span></td>
+      <td style="color:var(--text3);font-weight:600">23</td>
+    </tr><tr>
+      <td><a href="#rnitaisolution" style="color:var(--text);text-decoration:none">RNIT AI Solution</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.83%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.99%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        —
+      </td>
+      <td>—</td>
+      <td>—</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.15%</span></td>
+      <td style="color:var(--text3);font-weight:600">—</td>
+    </tr><tr>
+      <td><a href="#sapphirefoods" style="color:var(--text);text-decoration:none">Sapphire Foods</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.79%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;3.52%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        2.32x
+      </td>
+      <td>28.4L</td>
+      <td>12.2L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;3.98%</span></td>
+      <td style="color:var(--amber);font-weight:600">60</td>
+    </tr><tr>
+      <td><a href="#csmtechnologies" style="color:var(--text);text-decoration:none">CSM Technologies</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.39%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.57%</span></td>
+      <td style="color:var(--text);font-weight:600">
+        1.41x
+      </td>
+      <td>6.4L</td>
+      <td>4.5L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;29.19%</span></td>
+      <td style="color:var(--text3);font-weight:600">5</td>
+    </tr><tr>
+      <td><a href="#advanceagrolife" style="color:var(--text);text-decoration:none">Advance Agrolife</a></td>
+      <td style="color:var(--amber);font-weight:600">2/5</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.36%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.79%</span></td>
+      <td style="color:var(--green);font-weight:600">
+        2.15x
+      </td>
+      <td>8.1L</td>
+      <td>3.8L</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.28%</span></td>
+      <td style="color:var(--text3);font-weight:600">48</td>
+    </tr></tbody>
+</table></div></div>
+
+<div class="sec"><div class="sec-head"><span class="sec-label">Deep Dives</span><span class="sec-count">Vol bars + chart analysis + news + Reddit for every 2+ day stock</span></div>
+<div style="padding:8px 0">
+    <div id="stock-deepindustries" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Deep Industries</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;596.9</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">3d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.85%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;15.58%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;1334.63%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;16.48%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Tue, 28 Jul 2026</span><span class="news-src">Sahi</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQQTVrU1h4NmZEdUFuRGpCV0JfODlYSkxTN1o0aWtUQkJySm8wOHlTSFRXUjMyRG1NNnBfQ0pVSHRPaWVQaG1ZYkhsRHFIdXB0MzlMVGdVUUJKTDhITFVJbVhNbWE3emVpUU5tS2tpcWRRbGxEYnBUYktnTzJkSXA4SGpLZ3R6UExaY0NJM2xsSmZzUmpwZU9ydVRrUWd3VE5tbDhZX2VFTldLS1RCaTNaMmdLbzQ5dw?oc=5" target="_blank" rel="noopener noreferrer">Deep Industries Reports Q1 Consolidated Net Profit Of ₹85.4 Cr Vs ₹58.8 Cr YoY - Sahi</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQSXRJNmxEaFJfeVFtaWNmeHc2eDhrNlVjTVQ5MTc5eUFYb3g0RGRqWmlDUWdoRXpVOW9fYzNzcER0eG1pUmhaQ3cybGdycW9PeU85VTFqVTJrR3ZvZXVPV19MdHV1SW5ZZm1zOFhBX1ZmSzBETVpTNVB5Z3NkRkZRNjFhQXlKS1lCRm8zb0VzZ1hJVkVQN3FucDBZLVFVVTFhcFRTM1BCMWdSVWRJTk5nRmFXWEx0T1g3WVNQVGhMYUxaQQ?oc=5" target="_blank" rel="noopener noreferrer">Deep Industries Q4 Results: Earnings call recording available online - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Thu, 14 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxPOTBMUkRwNVhsZkZiSGRiMUN1NlU2V2szajAxWG40aDZfcUI5dTNCa2VBMzJNbl9QYk51TlBMS1JQQVV6dnlLb09PNDByMmJZNm9kVlJuZTBDSjZ4VGxsTFBuck1TOGRYdnBHS1d0V01UWm9KQXl6aGxnTVdMSWlZbXlXa0ZGYzdGN0ZpNDViYm5UNEhDbjN0MWlWaU00TjZ4dnFYSG40blcyY3o3MENUMkVDYW53clpPTHdYYmMwQTVvTWJzS1VHaWhfR2plN2xZMDVLcWF5YjNfQdIB3wFBVV95cUxONlY4dGJuME5PV1AzTUxFYzZleXdDRjI5UUhyN0RQbGJBYzRwMjZSVENPYUtKYTNmeDk5WkZSbjk0VlR1dXZFVmRrd0xSVTdQMDRLYS1KSjl0OHRpM1RFaVJTYTFPYnVqdV83LUhCVndoX2lwYXJ5ZmZaS3VJMlJCd1BGZmRXbUlURGVfRU1mVjh3OU1vUm9ZOWV3US1Kb0E5OWlYaWtRbXlSWURjZXpCMTZxNjlCZnVObVpkeXZGU3NHc1JjRXBhVVcyaGhvVDlaRDV1YkJSTlp6RkYtOERB?oc=5" target="_blank" rel="noopener noreferrer">Deep Ind Consolidated March 2026 Net Sales at Rs 248.71 crore, up 48.72% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOcXJNbDNDc1FSRTdzeGd1TjFNNjItM3E2WUdxRUxwT19HR0NtUDJ3WTgxNnFLNFhWbVg2Mkl1VFh0SXhKQzVHTWRnZlF4OTRaVTUyUkNUZFgwZFZOQ2RTTmh6YVlaUzRfOVhmY2pKd3lPdHFHOFdWci05M3lCc3ZpWlhaa0NORVFXMFNaU0xVQ0dka1YyOTJwUWFBZDZCcUxhbWhoTGg4VUdCcXBDM2tCNXdhdGxscmtFR0E?oc=5" target="_blank" rel="noopener noreferrer">Deep Industries Q1FY26 Results: Unaudited financials published - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Sat, 03 Jan 2026</span><span class="news-src">CNBC TV18</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxPR09YTzVjbF95RGZDUF9zTl9zMGV5dkl5T0VZc1haVHI5ZHJpbXJuV1pMb2hZcWwxemFUN1Z6MTBMU2lwczZadTZ2WDR3d3VISEtKa3ktdmJJblVWbVRTUmRJOVp2ZXhCLUlSd2lPbUo4bmppcEZuM1FBRFgxdmg3aGtB?oc=5" target="_blank" rel="noopener noreferrer">Deep Industries Ltd. Share Price Today - Deep Industries Ltd. Stock Price Live NSE/BSE - CNBC TV18</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Deep%20Industries%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-apcotexindustri" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Apcotex Industri</span><span class="card-sym">APCOTEX.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;681.6</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;10.10%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;15.82%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;127.23%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;19.80%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPY2VIcG9FRlJvOTMxdnpFb0hXME1TNXRjR2tyZVAwSWRscFdTVzZ0NE5PbWZPRHEwbzhraHE1SjRGXy1NY0ZXU3c4TnpiZDZvd0UtM3gwbUx3a3JHSTAzUEVLQXd3WkhXLWNZOVphNnBVWTNfMDJ5V2FiYWh5c3RGbUV0WkR4ZG9sWkxNVHNEdmxYbDNHTUFSNUgwcUJ4X0NsczlTYlBiVl9IMnA3MjRZRjFzeDc0WmRTVlIzdnZsdw?oc=5" target="_blank" rel="noopener noreferrer">Apcotex Industries reports record Q1FY27 profit of ₹789M on margin surge - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">Sahi</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQT2IzMjNQdVFoTU5JZ3lwYTFqYmNhNFNSNGtjcFhtUEs4R25kU3VSaTVuOFpkTFBGeTEwWFR5VHRxUnMtSjRvNS1IaTBlcUp2UG1iMVgxc01GQXB6NW1ZNzBodWV3OGhoN25vNHBKMk1nWkNmSnFvbm1oNFo4Y3FaVmJxbmdmcW5KMDUyX2k5MVd3VGVaVG81WHF1ai1wR2xRTTFPTkNwN3gwQXFSU1Q3OGZRT09XQmM?oc=5" target="_blank" rel="noopener noreferrer">Apcotex Industries Standalone Net Profit Surges to ₹79 Crore vs ₹19.2 Crore YoY - Sahi</a></div></div><div class="news-item"><div><span class="news-date">Sat, 25 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE4tRFJEeklncTNHSHMtSUFEVmEyc0pXVzhJQmhPbVNuRlVpX0RVam5GclFDWEZ0UjgyQkp6akRBQTRBWUpUSy1EaW1Yc29uOXhMTTN2SUotWTJHcjNudkJyaHl3UWUzOXFSXy1uaTFWMUs1dWtiTnItbVFLZw?oc=5" target="_blank" rel="noopener noreferrer">Apcotex Industries Ltd Revenue Breakdown – NSE:APCOTEXIND - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Tue, 03 Feb 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxQTE1SWTA1QlRuLU5iN2hKUkFtMG5VVHZPNEJ4Y2tFek9Gakd1NlBrYWFCR2k0VUpJMkdseHZkcWlaV3ZhZVhUdUNKdGVvbTI3clkwanBIOTM2RVpNcnpNNFZCLTlLMklEY0lLaFJKLTRaMHBXRU1LTUVJSmJWakdCRXlxOWlib1NNQWFramZ0QzBFRTl1Y1VadlUwR0JhMlRTSU4wdG5FRjhBODNFVGNqQ2NERmtHWTJLanVRTjJUVzR0bXVvYldYd3VQaV9fMmdGcGlaRF9oVDVZbTdEN0NVX05n0gHnAUFVX3lxTE9WMFRWSjFONXUzN3ZUM3FKdy1ndkJLWExXbWYzSWNqMWxjWkRscnVLcVZnMW5wUkYydGRhNmJ4ckVfSlhXTU9Nb3plRmVmcHZiNnFfazVTeFlHVFVoSDd5NmVpcHgyT25LOXI4eVVnWkx3d1pPaUhpMjVhd0NTdGpZb3I4RFJsTzFwSGZyR1FpLXFfb2kwamV2dEg2ZTJaU3lTNWVVRHZqZlFjT3dURDdXZ1BSOElaeXVuQWR5dWljS2NFY1pSS083c0lHQWRBTVVnaHRDWXFYeHhDaWRlb2RIb0Rqa3ZyQQ?oc=5" target="_blank" rel="noopener noreferrer">Apcotex Industries Limited (NSE:APCOTEXIND) Analysts Are Pretty Bullish On The Stock After Recent Results - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">livemint.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiigJBVV95cUxQdGlhb0RUeFN6cG1Ra3F5SU5NZ0pZd3poa3NJVmJzb1lRV0wxU0RTMnhQNnpqNHU0UVRQMHpKTHpDTVNReDIxZjIzVklYSnFMM2t3cFJMQnZtc0lBblpmRzdVVDl2Y1JyLVVtcnlTekRjbWNjRWg3eGdSNGFiQ2x3cE5wak5xdnM0UEI5SjNBdFRzb2tZLWw5RTNiSmhEU3VZWmhqaXpGVFBra1pzcUdSQ1JFaDlhOElJV3FCeV9hVXFhenhfYndUNVVFM2dNRnowS1pYZnlESTNpdm55YmdYUTQ4THVUX0tmZTdUYTktS21CLXhEQ3V0LXpkRTdkY1ViYzE3Z3hXbEVuUdIBjwJBVV95cUxQV01vZTdDVFNoRExZMV9aZVJlbU9LaDVvR3hnb1pQLXFMMlY4cUxNUHhlXzF1b19sa2poODlHWVk4UzFEZlREd0FQNV9UY19wZjdwSDZoYUdoOHJXSU5ibk5ZZ2oySlpqMjZjYU1vVnhCVTVSckdPNl9XUWZDejI5UTNvam1Hb0dWR3RKNENZODh5djVzRElzUTFMVTRVQ2YxeE4zM1Jlek5aMmRUSkxrNHBnMXduUERlRzd3QXp2YUgycURteWhDMTViS1hQUUkwUkVrRHNEdXFGYlJvSU9vMVZLNU1RckZoYXVlLUhHVWktaGpvVXVnRGVkYlZrVGJFalU1eC00T1RXZWZSZjdR?oc=5" target="_blank" rel="noopener noreferrer">Q1 results 2026: Adani Enterprises to Asian Paints among companies to declare Q1 results today; full list here - livemint.com</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=APCOTEX" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-APCOTEX/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/APCOTEX/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Apcotex%20Industri%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-redington" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Redington</span><span class="card-sym">REDINGTON.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;310.9</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 48/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.78%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;11.79%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;16.96%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;57.69%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;18.39%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">1.92Cr</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">58.1L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">58.9L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">3.3x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 10.6L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-21: 18.2L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-22: 10.3L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 9.0L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-24: 10.2L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--green)" title="2026-07-27: 80.6L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-28: 30.4L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-29: 51.4L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-30: 5.61Cr"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:16px;background:var(--green)" title="2026-07-31: 2.37Cr"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--red)">71.8</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">10.19</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">3.3x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">280.1/259.05</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">0.0%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">48/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (10.19)</div><div>✓ Volume 2x+ (3.3x) — institutional activity</div><div>✓ 5d momentum: +24.17%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxOV3FjRUhsUFpBcEl3TDJ6Y25GalNJc2oyVE8tdWtTOGRXY0pCZW9ueEFiYVI5R25xeUpFNUdJX0w5TEpSallkUFhzWnoxTnBiTXd4Q3JYR0pod1JFcC1SYWs5a2hEaUFvaGRraEt6YWxFSDZYd3BDSkk5b0t1bmJyV2otaTV0d1NORVhoNEE0N0Ftb01XQzlmT3FvOWozSmJPR2h1QTJjdE5VVklIQ1AxWUtzc3JhcTVjeVdHaHNRZlY0dmZ0SjNzRGc5MUk1ZU1hV2w2LWFsbkdVZVdFMVFCaUlDTms0SmY5cDNfag?oc=5" target="_blank" rel="noopener noreferrer">Redington shares rally 18% to hit 52-week high after strong Q1 FY27 performance; check all numbers - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Thu, 14 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxPd2JTd0dJN2pDQ0tjLXR1aHlHZVZzWEMtSDdoOWJtYkVVRU9PZjl3eHo5cW9lRUVOQmlxZDlhWDgwbW1jMkd1dVpPSjZNQUl4RXNnSXRLOHE5Y3Vzdm1ZNTJpUThQeE5zb1p0azFHU043ZGh6VVgzYlB1ZXVqcXNEMEZUbFhaUEU5Y3RxTEdfMVF3aXBZVHpOMlJQMDExY0plNzE0YV80MGtFcjRTUHI2V2hyRFE3eml2VE50bFJsS0tZRk1ycHdxU1BacndienJwXy10aHR4Njd5TWVvOVHSAeMBQVVfeXFMT2gwMHpGNmEyNDJtaUtEUEdTVGM0TnpmT2lSZ05aeE1NdWlkRjNwYXpkemw2bzAyLXlYMHV0RzN3QjR1WE5SMXViS19BMW9kTUd2bUJCWF9ZVWVCbDVXTktabURTUm9XN0xHT3FES3VSMWlleklnWlA5cDJEdGdreDdXb0wzcnZTalN1bUZJdE9yR1hDOTg1TjdsLVdwR2VHalZOVTN2QVJ1cnVwRWtVS1M1MjF6bTNJbVpWRE8yeG95UWJJdnJoVWVHbUFJNUJDWlZlbDFXWUFCMFloODZSMmR4SzQ?oc=5" target="_blank" rel="noopener noreferrer">Redington Consolidated March 2026 Net Sales at Rs 33,213.03 crore, up 25.62% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Sat, 07 Feb 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxQQ0NhOVE0a1gwekJtcGRoT1ZDQjJTUXlOakhnd1R2Rl9ickFHaWN1c1oyc0wxMTlsb0VlVUZEcEIzMkhEVDQ4Mk9oWnQyTkZldEtfYy03V25wYTh2Wmp3aE5Zc05XcDVTaGZSWXdrRnF3NmpHbWRJUUIwVEhOR3o3TEo3SE5jTERHZnpDdU1WSzJ1ak1BbzVDRC1iZk16bVMtVUNqZHZrVWNiVngwNGM3TGxYRHZ0TzNxYkZKTS05QjNxZFdxVjBoYWlnQmtJUdIB0wFBVV95cUxOc2Z6d3Q5b3QzUGVBQUJKTG9FVnVudi1FVmh6cDA1WkFPTUstVzF1STdyVTM5cmdJaGNpV19EWWwxSTg4dWZxYjJOOGxWaGc5OW8tVmdUdktrLXNkUkVySGp4WGg2VFZXWGxSbnVNeWlVM19uZHVPY3ZRSnBDcUt2QlVRY25WVGxiRVNaZEJjUjJIOWZsV2F6R3hkVVNaOVkybkJIRUp1YVlyRTNraGNwV1J6WEx3a1NJVmxqOERDcEhlLWJnRGs3RlpRR3NTZFE3YWpB?oc=5" target="_blank" rel="noopener noreferrer">₹314 - That's What Analysts Think Redington Limited (NSE:REDINGTON) Is Worth After These Results - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Tue, 23 Jun 2026</span><span class="news-src">NDTV Profit</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxQMzQ3Zml1TTBmTjBsLXdJb0UxTl9YMEJqT0dmNjdDUktET0puNTcySXBFWUtPcU1rRmZDOE1mOVhXdWtCaFROYk5vZGdSLXNyazdZZGxYMFZmV0dZRkljdm1Ld1RiNWt4R3ktblQ4WmhfbmhQWXAzdXRJMnVlZGRNZGt5WQ?oc=5" target="_blank" rel="noopener noreferrer">Redington (India) Ltd. Share Price, Stock Price - NSE/BSE Live - NDTV Profit</a></div></div><div class="news-item"><div><span class="news-date">Wed, 20 May 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxNQUlKU01YSmkta3JPdGxPUjNteXFVRElmTUNpdTZQQkp2QVZvLW41amVHckhGWTFtOVhJNXhxMkxuUmxOWER6NmFmU0lEWWN4cXJ0elAyQkFuSTZndGRuNlBzZE1VYm1CR3J5aE1oNER1Tnd6SG1CalBLQXF2cGZxSDhCWmxlQTlUdnNxZlJrTmJzOUpKTEtJYXY0U1ZQVEpsOHFJWnBlbGVReGdZdk9talpIZHJhRnlVSDlUOU9RekxjV1VUTmJKZlBpVU9PZw?oc=5" target="_blank" rel="noopener noreferrer">Redington FY26 Revenue Rises 20%; Board Declares ₹6 Dividend - scanx.trade</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=REDINGTON" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-REDINGTON/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/REDINGTON/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Redington%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-kirlelectric" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Kirl. Electric</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;142.9</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.04%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.08%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-115.37%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;14.59%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Fri, 13 Mar 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSTNBYnBWRFFGYWJpMVpNNHk3UEVVTXg4S0JxdXNXQVgxZV9MQks0dE5wcXRkbEpHVS0xY21oR0ZGbXpXVktMRWljM3dYMzVXODFCWkptRHZaWUFzdEZtVGxXSFZqOVJud3Z1WjRWXzhrU09JNUk5eDZhQV9FLU5LblVNX29DNHRGTkprZ0RQZHhwZW12TTFOaHpVSTJpSWNDVnRlT2dQTFBvNDhGdnY3djdKWkF3VlZ6TnZpSWdPVlhURzE1UTVPSzIyZVhyZlJzY3dFMmt6QU9JejdadWpGOTRhWGzSAeoBQVVfeXFMT2s4aHpsVW92c3Y2cU1sU1lpaGJCRmZoYm9kWlF4elpSUkJ0aThLNFpYakZJVGhmOXZkOHNLRXNGWGVUTFZIZ2FnZUtpMDlxVTd6ZnRCSFQ4V09OTmEzY0lGV1lSMkd6LUgwcllXRU9pX3hPQ1FUYllYQ1NUVUkzaF9ZVFRGTndCWlozWFpMXzByQUVxWWhxbnpUT2pSY2JKdHVFNkZBVXA1NzAxeG54MWFscHJFOXJkNmhFazc1MzFncGladkJxRDY2czY3aTBjOHNjMHJjUFMzbWlUTXI3TlNPVmJyeFRDZmJR?oc=5" target="_blank" rel="noopener noreferrer">Kirl Electric Consolidated December 2025 Net Sales at Rs 151.42 crore, up 26.45% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Thu, 28 May 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNUnVYYURocDlEU3V5U2pYLXduWm5pVzRZR1FacGh1MXVKLXRNd3FaS1B3anFZVDVhNm1iMXMxc3M2QTF5ZDFrOXVYUlZEQkNTeGhxUzZTcm84VlYzQzFXMFhwUWE3OG9GMEcxTmd0Qm9FUHRtYU4zckVKWTZxVGNiZVo0aUV0VU5mS21MNk5hVDEta0RMMWRsSk91cE0xTzI2Y0FwZFVkbWk0VDQ3VDhQV0E3TEZrbUlHOVpSRHE3NEtwVW5abHZkVm9VSUw4QnFiXzdwbzY0ZDR2YWpuakNoa1FvLWZtQdIB6wFBVV95cUxPVXNxa0RvQ3ltMWt1bTU2TVFEVFpna2tGSnZvS1NqOG5DVWtITk5Qa29lcFJEZTJROXZsdlJPUENWUjh4eUZVb0o5Y2t2OVM5aHVjVGNNX29mLTVfdFU4STRnVGtNNFVRdER4REV4U1VyMjNtYnFhNW9TdllfVEplZUR5TFVGZXhYVlRFNGk2aE1WZG1Td2hYOW9scE1GLXFsam54ekhYUk1DQU5VRkZmTkpaZkRCYXVLb2g1cVdwM1lncDVlZ0VFYXdXZUctRkU5d1FSOGlWMW1xMElpb1ZPQTRycEQwbk9JYlF3?oc=5" target="_blank" rel="noopener noreferrer">Q4 results: Ashok Leyland, Alkem Labs, Finolex Cables, 469 more on May 28 - Business Standard</a></div></div><div class="news-item"><div><span class="news-date">Fri, 13 Feb 2026</span><span class="news-src">livemint.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMikgJBVV95cUxNdkVwZXhsU2Z4RGZRR3lTLVpKQ28td0F0NDY1OGVST3ZkbW5rOGdta3VTTGVweHA3empiZW8wem9KTHptbzNweXJvQnZiclc2Tkg2YmE4UklIdDdfV09iV1RzYTF6Tzd0Q1h3YkpMNlYyYmxtZ0t1VnJDZXV2V1hLVzJjZC1wUmlUdk5COWZTc2Q4cnkyandfcDM3Y2dnRllxWkR6cnNMZnJnSWlVeS1UVFVSQzhPRzliYzBYUFNDSDFVLVRVMjhFU0lJRGVqLWhaTXlHV1dtYktaOFlYb1pUWXFSQ3htY0lwdjBPUHloY2hUakM3ZmNjSV9rN3RHLWRoYU01bzFmZTR6UEY1UHJjMHhR0gGXAkFVX3lxTE1pZk5TdHIzeVNMenhkeURnQnBVa0RFQ0ZlNHBNSlkxbFZZa2N6VHU4NG4zZ1VnQzZTUk5fNWNDTUJfVkNrbkxhcWQyaWt6cUpDNE84bG5aam9wcDRzQmpXU3lFclVoNkdQMlpNcEw5Y3RoY3NMVmZhdGZIRGJ4cGUxMnF2cWp0NGFnUG9td3NSVWwtWGwxMVo3bDl1NnpvUHdsOC1TRmVTMzhTTWotMG5oZldNYmVIc0VDOWlkdVVFXzdXUmNxc0VIb00zdEhKRzJIMUhXRlIyZk5HS2hJZThFMzVIV1pVd2phZmFvOU9lMENhWjdqeDlLM3h6M1dyalVDMUNHSERhWVNBTFFSMDZXWE9MU2FzQQ?oc=5" target="_blank" rel="noopener noreferrer">Q3 Results Today: Ola Electric, Fortis Healthcare, NBCC among over 600 companies to report earnings today, February 13 - livemint.com</a></div></div><div class="news-item"><div><span class="news-date">Thu, 07 May 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxPNVR3czJrazAzdElydi1UMkMyOFBpWG1PU2NxRnh1OTVXZ2d2eGdmRkN4aXFNNWlEVTU3TTBOZ1Fhcm1PZDhKdjBoWXROaS01RDEwLUxxd1h4Q3RQejdkaVNZeHZ5NEJDWXl3OUJGWVkzNTh3eFRkS3I0cmFoYmtvVHlpY0lSTEZvWUxQcXFiWGlGS0RhY3NXRWk5WkZycEVPRjRDNlpGTmRSemtZZWJMN3FDZzdFTXFqa2NSNUZubEp6d0NtRk9NOEhibnotcHpjZldZby1KandjUG1LS3VRWWpB0gHnAUFVX3lxTE9UdXdhczN6Z1dfelZHVTdnZFBIdXdaTmhTZ1FEQkVLQlo3alhGenhlOEUxeEpQQkdab0FoMnp4Z0thSkgxR1puVGNmRTFMdXdDb0tFUGNHd2ZZc181WDl4OWhlUHprc3dQY2g2WkN3RGJFYUhwRVBNajh3dUhPNUdQQWxDMTlFT3ZnUXhUZFc2QUhXOThma1o1Tjh1OXA3NVkwNFFMOGQ4aTVMNzI0WDBWd0IyNFl0TDFyRG9MUVdNNXJlTzNXYVcxV1ZjLTZfamljOHFLWUREb3otdndDUnEzV29GTGNQUQ?oc=5" target="_blank" rel="noopener noreferrer">Q4 results today: Britannia, BSE, Biocon, Dabur India, 88 more on May 7 - Business Standard</a></div></div><div class="news-item"><div><span class="news-date">Mon, 09 Mar 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiowJBVV95cUxOem9rU09tZTM3TlRnVS1EOUhtME02VVI5U1VaZE5NVHFaVndZTS1rYVp2eURxeHoxSk9KNXRmTTBEY21qWXppTlpUYVE4XzlmUkVVaWFPUzc3cE9jNjliaVVOdElUeHdBTU9vRngwTmJyTTZLa3E0dTlhcEo1anVhTnA0RVgxa3IyRWVFaFRqeUZxeXZxRVpoU0JieUsxVmQwUEl3bkhaSEdWdUs0WWJsSnBDSkIxckxkSHpwQUkxUlRGdGF4dF9BUkxsNGlNUFM3NXVlQV9DNjB6U2c1Q09lU2JfX1pTWDhlVG92cUlURUUxcW5FZThPeGpwWVdpMF9qMjNUQlV0ODlKcFViTjZ2RkUyQXI1TmZLVTB4R0FiR0w3M3PSAagCQVVfeXFMTkFxRVkyTUNWTnpHaWRYU0NjYVp0UUdfZHZRMkZ0ZGVKdVA4ekFfQ05tYU9XbjVpN0o0ZHlMNUp4WXJrV1Y1UV9JLWgxa0ZITkExRG4zZXd1alpIekdfVXJfTV93VlI2ZXhnVFkwQk1IOTljdVVrb2JBSHpiSFA0c2ZsRTAtOWZoT0dIRkpqQm4tSjFNaDB5RmVvUFUxZ1BiNjNfbjlMeWlvdE96NmZrSFhaTlRYQ0VPNlYyajZPWTg4dkZ0R2JKNHdBNGZtN1FnQ25LRjQxc01rTncxZHNmOWNsanVVSlJ2amIwQk1kaFE4WTVlUGlSVl9Zc3VXSU5JZUZfUzNHUGZkVnVzTnZEOTJZT05GdEx2UFp2d0dGMTNWTUl5VVJ1a1g?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: RITES, GNFC, IRB Infra, Tata Power, Dr Reddys Labs, Max Estates, Meesho, Kwality... - Moneycontrol.com</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Kirl.%20Electric%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-ashikacredit" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Ashika Credit</span><span class="card-sym">ASHIKA.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;490.3</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 40/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;10.87%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;14.12%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;23.51%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-789.72%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;13.33%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">9.5L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">3.7L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">2.1L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">2.57x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--blue)" title="2026-07-17: 2.5L"></div><div class="vol-bar-lbl">07-17</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--blue)" title="2026-07-20: 2.9L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--blue)" title="2026-07-21: 2.8L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--blue)" title="2026-07-22: 2.3L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 1.4L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-24: 1.8L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:19px;background:var(--green)" title="2026-07-27: 9.9L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-28: 20.6L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:21px;background:var(--green)" title="2026-07-29: 11.0L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:8px;background:var(--green)" title="2026-07-30: 4.1L"></div><div class="vol-bar-lbl">07-30</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--red)">84.76</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">19.95</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">2.57x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">421.29/400.1</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-1.7%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">40/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>⚠ RSI overbought (84.76) — caution</div><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (19.95)</div><div>✓ Volume 2x+ (2.57x) — institutional activity</div><div>✓ 5d momentum: +21.49%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Mon, 20 Apr 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE15Z1djenREX0JXMHBEYVBQVVNseWlfWWlYY0htSmlJakliUnlfUlRZWG1WN0NHUXkta29tSjRNb25LZlM0MFpwY29yTkhlb1FRWV93a28yLW82Tkk?oc=5" target="_blank" rel="noopener noreferrer">ASHIKA Stock Price and Chart — NSE:ASHIKA - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Wed, 22 Jul 2026</span><span class="news-src">The Economic Times</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPeUtkeHlSUDA3cVNCNURiSE9td3VKNTRXM3Y1UERxSEZuX1ZvMXJuTmZ0am0wRURVMzdKZGVXY0k1WkdJelA1YmdrNGV6bWM2RUI2MXpLSmMzN1VuTzNUV1lROC1aWkUwcW1QNC04MUR0czlqbXZWeHRyNXNqdWhJcUo1UFEybXJsTnc?oc=5" target="_blank" rel="noopener noreferrer">Ashika Credit Share Price Today, Ashika Credit Stock Price Live NSE/BSE Updates - The Economic Times</a></div></div><div class="news-item"><div><span class="news-date">Wed, 22 Jul 2026</span><span class="news-src">The Economic Times</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQZU9jLUxpblFOQWFGOWFWN19jdzBhNUxWOVdEazBBcFZHR3NlLXRFTGhyRTd6S1Z6Nm1WYnF2NFZxR0gtTldXa25pc1dkdWNZWnBObG9tWmJFQlYyb2o4QzVlU3lYaGgzN3VQM21LbHI3WmFRYXMtU2JJMGlGdmo4azFSTzdWakU2ZS1vcV9FWQ?oc=5" target="_blank" rel="noopener noreferrer">Half Yearly Results, Half yearly Earnings for Ashika Credit - The Economic Times</a></div></div><div class="news-item"><div><span class="news-date">Mon, 27 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE8wOER1aWhjTzZFRnlpUXV2Zl9TTDlHbXRJTWRMQldaYUxOWGtyTHd2NDE2V3VUdFVIZEIwT201emJnZ1dvYkg0Q1RYMmdTZThnZzlEVWFEUWFKeWNf?oc=5" target="_blank" rel="noopener noreferrer">ASHIKAG Stock Price and Chart — NSE:ASHIKAG - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Mon, 01 Jun 2026</span><span class="news-src">The Economic Times</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMijAJBVV95cUxObjhwMEV1cHVyb0NvMUo1R0h6SUVHU1JZV2t1R0NiTzBuektNR2JDRGVfenZmOS01b3JIQ3RaamhwZVc5cThqa3RRdm1UVzh5c2F0SWplOWZCTzZXLThlR0hibUZBSWZlaU5qU0t6Yldic3hTYWhZTklJRmo0Yy04THAzbHp1VU1BMTQ2emhiUkZoYXJIejhhNVZlcFJ2QjBlMzZjZkhic3UxMm1jbG9ZSTdQTnFmRTZ0NlhGbUtqWWp6dFF0YkN1QU1oRi13TnhOTGNnenpIQWZhWk1GcnRtbG8wM3BZRVhnRGdUc2gxVkNBeG9mc1dJSzlyS19qWkk5MEFPYl9uYlJrSWIz0gGSAkFVX3lxTE91STh3NXZxRHJHWUdJa1RnQ083S0RLSFFpaXRHODQ3bDFXMjB6UV9IZEx6Q2UzS0I5VlUtMXR6M0JyM1J2U1JpdGFnRGJra1F6a0JZZWFOT002ZEhaTmkyc0ZBbWRFM2t0T3E0aEcwaTJzRmVtU2dhOGtpdDV2bE9HNmZuNmNtM2hhOHZlWDhCc2xaU21iVkQ4WVdnLWhRMEpWbExRT01qbjd3SFJXVElhY0F1WHBwcDZ6YlVQTDYtR3oxdkpQdE1fcVFfVWtOaWtwWVV0empCcWNnelRzVjJfMC1TSUpHeExsbk5KX3otYVF2S0pVMkNScGFRYkJ5R3RNT25Ud3RZWmE2bm9KczdVc3c?oc=5" target="_blank" rel="noopener noreferrer">NSE pre-IPO window to close soon with filing weeks away. Can buying unlisted shares now make you good mone - The Economic Times</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=ASHIKA" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-ASHIKA/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/ASHIKA/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Ashika%20Credit%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-sapphirefoods" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Sapphire Foods</span><span class="card-sym">SAPPHIRE.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;193.7</div>
+          <div style="font-size:10px;color:var(--amber);font-family:var(--mono)">Upside: 60/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.79%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;3.52%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-0.61%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;211.01%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;3.98%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">28.4L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">12.2L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">13.6L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">2.32x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 3.5L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--blue)" title="2026-07-21: 7.2L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-22: 3.6L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:6px;background:var(--blue)" title="2026-07-23: 8.7L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:37px;background:var(--green)" title="2026-07-24: 53.0L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-27: 56.0L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-28: 5.1L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:17px;background:var(--green)" title="2026-07-29: 24.4L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:23px;background:var(--green)" title="2026-07-30: 33.1L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:16px;background:var(--green)" title="2026-07-31: 23.1L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">47.91</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">1.52</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">2.32x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">184.81/183.35</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-10.0%</div></div>
+    </div>
+    <div class="verdict-box ">
+      <div class="verdict-title">60/100 — MODERATE BULLISH</div>
+      <div class="verdict-sig"><div>✓ RSI healthy (47.91) — room to run</div><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (1.52)</div><div>✓ Volume 2x+ (2.32x) — institutional activity</div><div>✓ 5d momentum: +3.34%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxQNkVLSnlXdHlDTHRsVUFReTBhQkhLM0ZDV3RYOXBFU3hfc2Y0elV2RmdqbWE2NzlDZ1kwODBCbm5rSk9Oall3MlRBRHVhUERFaTZwUkd4RE1EbkZYZnJJTUlNcVpITkc0TDUwUFNWS0ZlTGJ0N0RPNVM1OTlKVG9OVHZqZktoNGpPU29WOE9xbmhBTGZWT2MzNWl6YVphSVliS01UU0pQM3BQVkQ0cGREbFh0QWFXM2N5NnNISDRQV3d1Q2RubXpwX3JiLTVUSnBadXdDeXoxYUdrT1Zjb0lhWtIB5gFBVV95cUxNaXI0bEN3MlJDSnp2MHBTMGx0WWFaSFkxc1BKNVVFVUo3LVo2cGZZSzVjcklQRnk4MlZKUXpCeHFXVU10bnBGdnRpcWVOYzNjRnkwY1hBUkdjQnBJWkhfYVh0RXdJOXZJNWdRWmkzR0RvbHNRcjFDS0FxVHNZVFFWbzVDUUhRUTdBTElEaXRVXzlOUGU4SkdzRXlfeHpoZ3pUa3pOYmN0SzdZdDZzYzliTEg5NWVCMllzdVBvUnJ1ZFVmNU9palk3UllmVDZZZHBHR3RqcGo1UnRFN081YldldWs1d090Zw?oc=5" target="_blank" rel="noopener noreferrer">Sapphire Foods Consolidated June 2026 Net Sales at Rs 890.96 crore, up 14.69% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Mon, 27 Jul 2026</span><span class="news-src">NDTV Profit</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxNLXJOTHE2XzVLdTJ0bXpDeWtoMXByRnVJYV9Eb2NMekt1Wk1pRnRZeGFJMG5xc2VjdEtnTmF6dnhmRXBidUFPcGk5aG9OQXd0a1JLV3hGcXFYc1lCQ3JwZE5GREdwbzVGZHZDaklTaUhPTldFTjVqdzF1RVIzd2ZfR2pzSmZkcEFXNkRmRTlQWmJzYTkxeU5jZ0tDTXVDWVQzUzNVTmhPWVpMRlBSdDVhZWYzRV9CNmFSbGpEbFNRRy1qaXptdENOSjdOUTVFaGtnZ1hrek1kaEZQN3BTeV9Z0gHnAUFVX3lxTE1reHlva1RGNTZEbE9kYVVSX1JJM3dmSmhhWENhMFhtN3djaEplMFdfTzA4Zmxab0ZrVWh0NHlHQmRYZHNvQVRXQ3pyQmxnRVFINHhOQU9Xa0w1bVFDdEk3WTVSMC1YY3Z3ZUstM1owMGp2MFgyS2h2MV9wUl9uSmVQSUhPeldEUTNCc19KRE9fTEIxUGY0SmMxX1UxMkdBYWJyUVhZMU1JRzh5Z2cxMkRPcTZscnBEMWJuSW1qR3k2Q2ZwY3BnM001Q1hVZTFlNTVXQk5ycVRPTXdoRDV0NGx2eDhmaTR1UQ?oc=5" target="_blank" rel="noopener noreferrer">Sapphire Foods Share Price Jumps 6% As KFC India Operator Swings To Profit: Should You Buy? - NDTV Profit</a></div></div><div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZmEteEtIbzAtTHNMYkJvS1dsdFY3RldLZGhhQ3NFQS12RWJyRXRfd0ZOUnhSdldoc3k0MDR1bHFiYmtGV2RNdHdYUmVDM2RDcm1JNTRFXy1IRUJrX0FqWUFRUmdQbU9LZmNMZGdxUEpfM3RjZWg0ckFacWh1SmVkNFd1NlNkX0g1dWZJN3o1eDlCZnIxb1JaU3VDMzFtaUlJcUp2NzhRQWREVTBTa2VCdjVTMU5ocnBJZ0xORExhZE9yNTZmUUE4UUE1MlhEMFB2V0Q3cVoxZ0RySXZzNUNVS2swRdIB4wFBVV95cUxQZmEteEtIbzAtTHNMYkJvS1dsdFY3RldLZGhhQ3NFQS12RWJyRXRfd0ZOUnhSdldoc3k0MDR1bHFiYmtGV2RNdHdYUmVDM2RDcm1JNTRFXy1IRUJrX0FqWUFRUmdQbU9LZmNMZGdxUEpfM3RjZWg0ckFacWh1SmVkNFd1NlNkX0g1dWZJN3o1eDlCZnIxb1JaU3VDMzFtaUlJcUp2NzhRQWREVTBTa2VCdjVTMU5ocnBJZ0xORExhZE9yNTZmUUE4UUE1MlhEMFB2V0Q3cVoxZ0RySXZzNUNVS2swRQ?oc=5" target="_blank" rel="noopener noreferrer">Sapphire Foods Standalone June 2026 Net Sales at Rs 756.07 crore, up 14.49% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Apr 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPMXpWRV9Wd3pzZHd2bXZ4ZGJsekJxRGtVZ0RFcmVObDA0V3dhbmJzOHk4Z1ZWdUk2X0ZRcHVJdnhtTXpLMTBYRVBGSFdIY2RSOUZjak52V0h1SFFxMlZPTElnYW1xMFRmTmxrb3VMX1NSeGE3VlBBLVJzWUJXQ21RaWVYWm9RUXRqeVBEcHg2TVRRMC1OaS1MZnJ2MExqaGtIS3RxS0VyZTFEaWpINVBNcVEyZlhRS3pMWTBiN1AwaG5lOTUwUEZVWlpEMElFRlhF0gHWAUFVX3lxTE8yR2V2ZjJ0RzFWUW15d3MweXhkYm42WGtqdEpOSVMwVFhaT3Z1dE1MV0J2LWdlR0ZNb2lUaWZvdlFJVmxLU2d4cC10ZEE1LTFYcjBod1NJdFdrRVJwd0RrU3JIcG5uOTVyZ0tJcVlfaXNRQk9YSXd1R1o3T0Y4T0F4UjZOMC0tT010UTdkbTEyUVgydVJwVDhDaWtwaDhqeHlCUUN4dHZyOTI3engyRWt2ai1Oemd3dnpQTEhMeU9qLWtOeUhsaDhSemhtWkRVeS1sYkVHVXc?oc=5" target="_blank" rel="noopener noreferrer">Sapphire Foods shares gain 15% on Q4 show; Emkay Global eyes 72% upside - Business Standard</a></div></div><div class="news-item"><div><span class="news-date">Thu, 25 Jun 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE12YlUyZjNrckZ3R1JVMmlrQUM5YWRJcVhRU0xwQk05dEJYMElFckVJV19zdGd3QjBvNUcxZjJKQWwyVUNfN2t4c3c2NXdKNUVzcHdPbXJuSkFXVTN2c2k5TmRUeWNkZTBCMjc0NHNhTERBc19SMkEtV0UtQQ?oc=5" target="_blank" rel="noopener noreferrer">SAPPHIRE Forecast — Price Target — Prediction for 2027 - TradingView</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=SAPPHIRE" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-SAPPHIRE/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/SAPPHIRE/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Sapphire%20Foods%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-advanceagrolife" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Advance Agrolife</span><span class="card-sym">ADVANCE.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;125.0</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 48/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.36%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.79%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;9.85%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;147.84%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;19.28%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">8.1L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">3.8L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">2.7L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">2.15x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 1.4L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-21: 1.7L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--blue)" title="2026-07-22: 3.0L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 92K"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-24: 1.4L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-27: 1.4L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-28: 24.4L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--amber)" title="2026-07-29: 3.0L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:9px;background:var(--green)" title="2026-07-30: 5.5L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:10px;background:var(--green)" title="2026-07-31: 6.2L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">68.26</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">3.12</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">2.15x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">114.02/109.75</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">0.0%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">48/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (3.12)</div><div>✓ Volume 2x+ (2.15x) — institutional activity</div><div>✓ 5d momentum: +13.76%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Sat, 25 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBFM0VYcTRvdTJHZWdxWjZzNmw3ZkJxbzg5R0FRcHFZdHR4UDVpMllTaHNpOVdJZUk3a2ZkX0V5WlliR2tCZWczbHotZXh6NUtEX200YUhkLTNqR0NfekZKX2xkWHJscTNPLUhkSS1nYnA5OEtsazRR?oc=5" target="_blank" rel="noopener noreferrer">Advance Agrolife Ltd. Revenue Breakdown – NSE:ADVANCE - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Tue, 14 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTFBpTEFzUVFkcEpNVFNVRVdId2h4d2ZoSnZoWDF6ZFNOUlNZWEpJWVpRTlZrb1JCTDVVNzdEem1hMDRLaWRPMm1FUnVJOTcwYlFYVklld0l4Q3g2V045?oc=5" target="_blank" rel="noopener noreferrer">ADVANCE Stock Price and Chart — NSE:ADVANCE - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Fri, 03 Jul 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi_gFBVV95cUxNRnVIblNfcl9ZSDFhUDNIWFhRRkhHX3BxMHB0V0F3eWVOVFlGT25KaHlacFhRM19UYXdKMXI3ZjBJQmhCUlNLTC1PbkFqNm5rNUtZSi1xSmN5dUhuME8tQl93YTlqb0E0MkFmVmpCd0tCd25MamdZMnhiNkdnc0RXX3p3TzhFRDk4aUNWdjk5TWhtU2dha21IUEdkcEdZN1hqamZoVjlKak5ZVEJrTlZlQmI1UDg1LWdCZnphcTNfZXBlNkZTZm4zVTU2M0VMTWN4cEJuMDF6Sld6bkpUZ0wzbldLTTQ3YW95dUlIal9nbmxPbE5nTG5zakRlMEU1dw?oc=5" target="_blank" rel="noopener noreferrer">Advance Agrolife IPO allotment: How to check status online on KFin Technologies, NSE, BSE; listing date, time here - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Sun, 10 May 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMimgJBVV95cUxObHJiakxIeU95cHZXX0FOMHZtVDhVdXJQdnRoVVUzaFdQTk9jMUZTZ0l0SWV3VFFMVFZpYmZiSWh5aGFMLUNQRXg4UDhPOGFNR0tLT2dGMTBTcWVxMG8tYUdIaUl4Y0R6a05TbU9vbWt4YTJjelptQVlCdVVHZ3V2aU52NnI2YjZNX3FrYUhoYS16ZWFiTXhrMHNMckRpWkZTWFNjRE9laWJucHNxUnA2ZV85U0lCQTNzS01pTUpkS2NmOVg3T2RfaVFvMTZyQzVNYXlPek9OaFhvVUpqREExWVI0ZERiekxiZk4wTkNiNGFNNUc3UlVvZjBFNEhlT1hvd0F5VzhMR0Y3NW9nYW5jVDRYYWJHYXc3bVE?oc=5" target="_blank" rel="noopener noreferrer">Advance Agrolife FY26: Net Profit Up 38%, Targets 20% Export Share by FY29 - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Wed, 08 Oct 2025</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMitgJBVV95cUxPOHlWMHBmUU8xQ3Mza21HU2RUXzJqMjlyNTFIRUs3Y0FQNllua0JSeGJPcEl5VUY4QlJLQ0FFejBzNzJLUEw4cnJqVm0tOWsxMW9vbGkzUmFza0JCM3NhbHVDVlZia0U0YXJVVDl3b2Vod2pEcjB0d3MwUlZ3Yk9BMXZYV3JoRWpjWENjaVhsSTRYUXdMNWU3cGVoa2dKNHNOaG5fLVhKYU9TbVp5aDN0Y3RKcGNqTlUwd3JNZUF1c3BqOEZLaWlBWGFDUnhXUThiUG4tMURwM2daSTg5ZzNZTmo3LVJONERnU253clB0MFF3azBkTGpZc1l2VkdEcjhqZnA5M2RfZ0VuZ3haNDNndXJGVmZSZGs3eWZNVWo2MWtZNktNaE5wWHVOWkMwRTJzS2hJWTdn0gG7AkFVX3lxTFB0ZG9icDQ5dk95Zkp0UVMxLUY5NzBOemtkT3RoelVWWmM0ZFkxTlJLYlQyWGR4eWJja09ZU2NHRUVwUG5mMTgtWUVGRlplcDVzaVQ0NFVoZUFoVlFvNGU5cExTUjE0Z0x2dTFmazc0NWF3WW5RLUVPWEZTSnl6U0wtcl9LOE54Vm5rTzViQXBsYTFoUjNQU0t1WktLLWd3QUw0V082c004TkVQX1pELVU4eEFFVlJEYXVXVWEya0VISEpQdzNhZWZ5ay1hYkVNLTZxWWtpdUxHeF9lUms5QlZqWUFGRks0b2JkbHZwa3gxcUphTmp6TGZCc3RvQjlEQW8tbTZUV0tHQ29IbmloOUhvbkpreS0wT1ZQc1hCQWNiQmc5ZVlfWmM5OFJQRXZHeWoxYmdMekV0ZEZWUQ?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: Titan, Advance Agrolife, Shaily Engg, Eimco Elecon, Shringar House of Mangalsutra,... - Moneycontrol.com</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=ADVANCE" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-ADVANCE/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/ADVANCE/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Advance%20Agrolife%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-asiangranito" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Asian Granito</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;60.7</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;6.61%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.36%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-272.31%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;3.12%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Sat, 25 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE83VC13d1VMZVZ1REdWUDZ4TFY2OFZWbDN6TmJCTU53dlA0VXNzMHVTVF9ockZvdUlYVzhESTVnaTJOb0JZMlVPYTV4dWdjMVZHNHh0ZFkxT1ppYWJpczBPbl9DN01ZcWY3MThoR2p1cUoyajBZRWhQZTBaTQ?oc=5" target="_blank" rel="noopener noreferrer">Asian Granito India Limited Revenue Breakdown – NSE:ASIANTILES - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Sun, 07 Jun 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi6AFBVV95cUxNTnRCUGMtbjhSd09zdmh4azItQkxiR3lyOGNtNU0zWFM4b2o4RVRiMDVfQUJaci1sOTdDLV8tMGV4TWN2QTdaeHc3MHAtV0tTUmo3THFhRXI2SWZNUkhwODd3SjA5eUVFZWFlNEs5ZnpVYWJUM29KSWRhVDlScnlYdS1MWWc5Skl1ZkxWTVNhRDlmeE1NdmZvcE16VFJFaE9VLVAydkhwbVdYOGpqNS1tb3EwbDZ6QU93NUt5Q0NCRWR5MFhpOTBoMlRJcG5VVVJOTGZKS3Y3TGZuTExmWi1adHh6TlRtd0FR0gHuAUFVX3lxTE84S1pacmx6ZEtmaEZqTEFnWjU4bXJObmJ0UTAtQmZOaVVIUThYYXMxTG03ZnZiaFR3NzA3cDNYVnpyakFKNHdjbHQxTFdQWnZIX0k1cHlENEJ4RXhiWERzLWx0MXRfOGFCQ3gzVUd3Y0JnU21Ka0Y3b1RxcDZybHZpX2dXNDhpWlo5RS1aVUg0dFVTRFgxZGVNMFJNTG12UDJ4ZjZwU1d6dnYzeHpfdzRJZE9OSm13UTBtWURxazFseS1CM2pzTVdSTDF5cFNfSnVqaGNUdXJ2eTFZUTV2MTdYSlNnZHd5VjdSVkd6Q2c?oc=5" target="_blank" rel="noopener noreferrer">Asian Granito India's (NSE:ASIANTILES) Weak Earnings May Only Reveal A Part Of The Whole Picture - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Tue, 28 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMivwJBVV95cUxNR1dhS0JFYzlVQVEwbkxRb29xS25kMTBoUklUMjNwODNrSXB3MUZ6djFZaDZsRm1mRDc1Y3F4WGNxZTBXQ1oyUVpoeEN5c0xjTlhEMEJOZjNISWNMSXlyRzdnWXM1U3pMa1dYblhBZGQxeENQc1hJdDY2Um5zUnU4Q2NmZTZ1NG1JamkwdkdmRS1IOTY1SU9uOUEwWkhBYmNLV1VmZnpYWmJCcXVrVU54dENGV0ZEZGo5RnVyOFEwX20xR3hCVkhuT1lfRHQzZjdBQlZRcmxtaWJzWGk1RXpxMWxpeUc3XzQ4MV84aWFkNjVzV1NGUG90V0JUdWNMeWdQeThiVVgyVk9yRnIyYkpXNTZuQnZ5OXZEVmV5VDdMQUV4ZFV3eUNFbmtnaHh2VWJQNWdWQ2VpV2ZWaEZYM0Rv0gHEAkFVX3lxTE9NX09UZ0xBYTIwVkw3bFZlRHZKa1M1dEN2WllXOHZpSDZmUTFhTmdhQ0UzRWRCbEZqTnRUMUgzVVY3VXlreDlaM2x1dElwczgtNW9xdUtaMWdPSVVjQTBtUUFMMnVfa1hYeWtUME5IZi1aazVjS2xla1VEd1g1QzZnXzJnVGQ5WTNnR0lmRkNkR2F0MThZdVo1MjRHSjhQWG5lYUtHX3JLV3VIamtVdXlPTDNEOXZkX3M0Uk0xMjhxZEJ2ekgzRm10cnpicEFPakFMc3RJYUtFRVNEZWpvZ3JqWW56VnhNR3BSdlp5U29OQzAyZG5UUEJrUG9HSm5QaV9WZ3FCb2VuN0EtdGt2REY4OUM1ZHlaRjl5WEVVRmxla2NMQ3BPTjhXMTZJdXAtcmlOM094aUlZb21VZHI3YTlWS2hMOQ?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: Graphite India, Rail Vikas Nigam, Larsen and Toubro, Birlasoft, Tata Capital,... - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Tue, 02 Jun 2026</span><span class="news-src">outlookbusiness.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxNLVlfRHZMSGl5T1BpTnBYWXFkV3NZWkpaRlduaXViMWE2Z2ljTndxNkVROXZlQVZPZGRsN0Z2dXlMREZvZXZIUGI4bG9EbGR1bWF2WmliVVdXUXp1SDhSSno1Y2ZNYmZlX1p5NFpuMXpOUF9RS1h1ZFlGdEs3Tks2RzhNUG4yLWNIY2QxZXl0aFdETlR2ZzVDZURMUWN3RmNtek1KRTZlMTljeHZFZUdQbm9SX3RLLVkwdloyR25hdUJwM3hKeExseDVYbVhZRE5fbmlEVDVFNUNlcDJPZE5lbXN2dFlJQ3VJVEhYUDRYS0lrNGZSVS0ybTFPbE5TdHBF0gGOAkFVX3lxTFBNcXctQ2N3VF9HVURlVEtrWVlJM2l6RUJjTkxFU1BuTFFvVjFKcTN0NXhSRmluQnZsWlp0ci1HdE9rQWtSQ1BDOFRpMjRSRXA4c1RSaFRSZkNhRWM0MGp2aWJOUXdrWWI2Rk52U1pleGdBc2ZPdEdVTGktQTVLVjVPLXkyWENrWmVWeWVuZUMtc1RZZzFyQ2hhUC1WWDM2TmY3ejduZ3lUQ2VGSm1idldha01VZUJmVC1mYWNPY1FsWFhwd2tYU3JLdjRCdEQxM3NXdUNaeU1GSEoxSy0wZlQ0NEV4MTBsR0FzS0lkRUxaUVdQQXRJc0Z6N0dHWTJqel9IVWNJUnltNW9YMFhLQQ?oc=5" target="_blank" rel="noopener noreferrer">Asian Granito India Ltd Net Profit Jumps 89.69 Percent Y-o-Y To Rs. 18.74 Crore In FY26, Driven By Strong Domestic Demand - outlookbusiness.com</a></div></div><div class="news-item"><div><span class="news-date">Mon, 01 Jun 2026</span><span class="news-src">ThePrint</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi-wFBVV95cUxNMHNkNVdmMlVMNzE4SU9aWmdmN3hvZ2oycTN2aG93bFpBTzVtQUkzN0tsbkFYV3lRN3puZkFxdktKeTFVVnAxZUN5YVdfNmlua1liX0JCaHo0d1JrNm9ncVFaVTZrdWpya2I2aFpjeDctYnpJYWpvTFBoVTVBMkZkMXJabGRhNl9JcDg2cERzOGZiRmVjQ2M1cUl2VjVOUXhVbjRGOHBNZmNRTWVROEVxMXR4MWpta1VYU0FLYXBmdW5XaFZPWWlDZDlBRkUwUjR6b2hkMVgtazBGcHd1Wk1PWXlURTh0Q1YyeXR4dl9YUEFyel9wdU9hZDVyVdIBgAJBVV95cUxOcThSMlA5WnV2UXM3Um84MDQxU2VLZVpPYUp5bVY2X3dRekxhOVdHaG1kU2ZNSmxqeGNwaE1YRVE3YjhuSTBPeTVwXzNYZHc4MmdSNHRkTzk0elE2YW1SNUJSb0RhNzRfYktSeU0wal9KeTdhbXZjcmo1Ul9vOW9tenZoNXNxVElsNnpMbi00YkdqM0YyLXdmVXdTU213aUdsdk9DZVcyODhSbU1hbDVRU3BoNUdxSmVEWnFyLTRhZWwwSGN0ajlkZjlxQzNIR3Zma21va1FMajBNaGZWeUN6cW51ZUZ2V0Z2VG45WFBIUHh5alVqb1c5WnJwb085cE5W?oc=5" target="_blank" rel="noopener noreferrer">Asian Granito India Ltd Net Profit jumps 89.69 Percent Y-o-Y to Rs. 18.74 crore in FY26, driven by strong domestic demand - ThePrint</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Asian%20Granito%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-til" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">TIL</span><span class="card-sym">TIL.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;262.5</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 48/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;10.75%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;12.77%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;22.86%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-45.55%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;2.90%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">99.4L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">24.0L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">9.4L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">4.14x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 2.0L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-21: 30K"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-22: 3.0L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 85K"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-24: 1.1L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-27: 97K"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--amber)" title="2026-07-28: 9.3L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-29: 3.82Cr"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:7px;background:var(--green)" title="2026-07-30: 72.6L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--green)" title="2026-07-31: 32.2L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">65.18</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">9.48</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">4.14x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">224.01/211.27</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-3.8%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">48/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (9.48)</div><div>✓ Volume 2x+ (4.14x) — institutional activity</div><div>✓ 5d momentum: +19.39%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Mon, 27 Jul 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi8wFBVV95cUxOU0t0a2dSWjVucVlibW0tQmpyc2lfX3FGT1lfbWNIUVZmME9mTjloeUNiSDF0MEl6SDgwU2QtdC11d243T3dUeU1iQlJHUExRRmU3Zk5WREZIR2N4SElRUEhpaVZlT0JhYWtGaTVuclZMSXRCRGdVUngwcWRaLWJkUC1BNFc1cHRxQklZaGllWkVJUWh4LUF6b3J2eTZNOHo3dVNNQ3hnaU82WERkQk0tTGNZRlVjS1pWSmg2TE9ldE05bnI2N25LWEh1X0xQaWU0b3ZDeVRhUnYyUEN6cWUwV044TUZNTVlRNEwxb3RSZ0Z3V1nSAfgBQVVfeXFMTnMxS29lSEJmb3lGcUMwWk5RUTdwd3g1bEdxaC1Sclo1ZEZERmoxNlVjc1RiR3p5SHJVbEMzWF9WamxjTldpX2NPRER6OVI4SHhwOXlXaHFabDNObnJuRzcwQ3NwMnhHS0hCRDF3S2ZNZGZ0UXJUMEpwWHRpTXhHazF0S0pZWWJfTk0xTXJ0Vi0wQVZfN1BtemdqOXFPbTlQdkxmbUw1RXYya0ZObU1XdVBHejQ5UzREcXM0MzhvamJxTDhTQjdBZXFRWTAzU3ZmZFZmSFpPN2ExZWF0WXdJZm5CbjJ2OGpldXlRcmdOc004QVU4c2FJQUU?oc=5" target="_blank" rel="noopener noreferrer">Just Three Days Till Britannia Industries Limited (NSE:BRITANNIA) Will Be Trading Ex-Dividend - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Sun, 15 Feb 2026</span><span class="news-src">etedge-insights.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxQVTk3VjcycTltWm0zZ0NQbTRpRVJ6U2huT0RTaE52QnBHVWJUbHZ4UExJSGpIaHM3eDJ0dGIwZWtHak9XZlFteTQ3bFJCcFhzOWRNb0p1bTBZelQyVDVRb1J0OXJ1WFJqVHozMWVXWkZlT2ZfYm8xbzhGWjF0NnVUdjNPTEVzXzExTEtETi1qRFNmRGRpZWpONnNtdVo0enQxaHl6V2o0aE9LZ3lTV2lxcnB4RWRqN0pWRUJmQk0xV2w?oc=5" target="_blank" rel="noopener noreferrer">TIL Limited reports Q3FY26 results with strong revenue growth and record order intake - etedge-insights.com</a></div></div><div class="news-item"><div><span class="news-date">Mon, 19 Jan 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxPQnpIUlZYQjhPNjhqWTFvbmpXdEFOSlJjcmtxUGJFU2VFZ05hVUl0R2JiVXBWUVFPZnE3S2RIWkZUdkt2V1lLaVJOanJuVmRLWTJUamxJeHhCNXZ2a3lnSTZ5UzhHM3Jic01Db3p6bjRaNXYzZ1laanlaUjM2emtwNUhoOU80T3kzaThGekVQT25yWmg2d09ZQW1NSWVZT3Uwb3hpTFRlSkE1aEZmRFhmYnowVkxzbEpveGdPX3U1SkEwRlpwOXYzRWduUlJ3SkU4T2huT1l1SlBCRG5tMEN0M3ctWlNZazc5TFY3elNNeUFJN1hjTXF0QWYzMG9DanBn0gGGAkFVX3lxTE9TNGNNRDR6VnViY296UTdJNjQ2TVFzWXgwSXZsTEpEVjRwRHdtM19OQjZPN01xOFM5bzAzZVNtcUhlUXdCWjNtS3NadG1YSVB1X2p3SWZ2Sk81U3hvLXkyZDFUQTJ5Z2pGUFVORi1QblBiMWNBMHhpTmlMalRvOEwwNkxISFBxSkowUHpqU1VPblM1emFpSDRhM2xXdllMQ3RMb25vNDhpY19WZ0N0RVVtQklFRklrODJsb0pfMHM2THJvbGREY25LNzF5Zk16MEZXOGN0RVNEWUhVOF9HXy1lcU5aQ3huRzZiYU83cU5iLW5vSENLc1BhMFgtdTExY3hoTGItNVE?oc=5" target="_blank" rel="noopener noreferrer">ICICI Bank shares crash 3% today even as brokerages bullish on Q3 results, view CEO extension a key relief - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Thu, 18 Jun 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPQWRNSDVaQnlQNkdPTGhjLTNORFhHUHRqdXg0b19pWnItVk9UMGQ4V1hCM3FZcGQyQ1pDNm9HMGJkb1Y3Z1o5a1Z4ZEhPNXEtSzZBN0xiU0k4V0xHVXRQZFJieGNNRjRnTGkxQWRlNDZXR2N5ZXNBSnkwNWxzRkNiV0RnZldRb2FxeUlTOUdNTmdVaGJJWkJhNjFvLVJSa19iMm03SG9adkk0WHdCTTBCNUN5RDlHaC1RSTRTMUx4WmdUQU5zSklXSnFn?oc=5" target="_blank" rel="noopener noreferrer">Bhageria Industries closes trading window from July 1 till Q1 results - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Thu, 22 Jan 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPamJ2VkdwTmQzbERrNXBIQld4aVV1NUVfbExpZi1RMHVzNUZJV2h5VU1RQnlnTTFNNmM5Q1l3am9kRFRaV1FOSEhQWUxUQnluQ2JmUl95ai1OMElScGZrX0tWR0J4ejUwdWwzMV9SMGVuTldmc0dlRFNlQ0VEbklKMnI5TWxYRG5jOUtsVkpDRVRleU13dHF5aW1pVWxNM2VkWHd0ZjBueWFCNW04VmRHaXlYdGxRVmI4bFJlZ1RDVThXYlFKS1JwZ1RB0gHPAUFVX3lxTE5CbWVxV3llNzlBZy1PQUxQTWw0UVBTWDJQZkRidXZnUGhvamhMMEpfdDBGS0ItQU5nVHdnbmNyMXhrMHhVTmUwVUNZdjBGZXUwUHI5X3ZQSnhtX0VVeVNLODhUMGNJdlJ6XzgyWkpDR3RxZGptZGpaNVpXMFJRT3ZjSHNYWkFMd3VkYWtSSURLeXB3RlcybFFNUXhmRmxHc3dxSmdEODM1WXZKVmk4NzZrcW4wX01sd2ZDUlZwZENYZHlZblhTZUNSV0w0ZHFYbw?oc=5" target="_blank" rel="noopener noreferrer">Why We're Not Concerned About TIL Limited's (NSE:TIL) Share Price - simplywall.st</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=TIL" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-TIL/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/TIL/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=TIL%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-swiggy" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Swiggy</span><span class="card-sym">SWIGGY.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;287.3</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 43/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.55%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.03%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;14.74%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;24.88%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-24.08%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">4.44Cr</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">2.60Cr</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">1.64Cr</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">1.71x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--blue)" title="2026-07-20: 92.1L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-21: 50.6L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--blue)" title="2026-07-22: 76.2L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 70.6L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:18px;background:var(--green)" title="2026-07-24: 3.44Cr"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:13px;background:var(--amber)" title="2026-07-27: 2.39Cr"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:19px;background:var(--green)" title="2026-07-28: 3.56Cr"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-29: 7.33Cr"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:23px;background:var(--green)" title="2026-07-30: 4.22Cr"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:25px;background:var(--green)" title="2026-07-31: 4.68Cr"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">58.45</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">6.55</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">1.71x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">269.21/263.75</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-3.7%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">43/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (6.55)</div><div>✓ Volume elevated (1.71x)</div><div>✓ 5d momentum: +13.3%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">IndiaIPO</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQSnc4eFdlR25fdnNLODRZNE1iQ2tPY2xuVC1RNGd0dFZXXzBBbmdzWVJKejlhTDFTYVFYbEVtakZnVUJKeVBQZFVKYjNiMVRxMGRWcGVvX0FXZmxtemZwOTVZVEtwc1EzY1VocWFPNDljekt4QnEtbHczam9tR0I4UVZ0RlFqMlFCU1NGLVNyMkJ1OFYtZ2tpcnpaLWlyZXk4YkhPbkhB?oc=5" target="_blank" rel="noopener noreferrer">Swiggy Q1 results: Net loss narrows to Rs 791 crore, revenue rises 37% - IndiaIPO</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi8gFBVV95cUxPbEJhNzBSb3dwU0ExVW1VQUdWSjBvSFptZGlwNS1ja1NhbkhPNmNsSjk5S1pPS096SkFhSlMtYk9MUXBxaGljNWRtTGctM25IaXlsQi1TVHRCb0huWlJRZHdMbzNEYXJsMllyTmZnNVdGbDFqYXIyalV0NGVfdXRxalQwdGl3U1lDUHNxa1g2djFWcnE4cEZENFdfbzBHWnVZMl9laHJCVnFibVRfQlNUUzFUczVuUWZIbU1vbmZlcm04czdBSHMyRlY0aVpxOV9HZ2Q3V3RSaTliYVRlT3RFWVQxVGJUOGVvaGlpU0MtRm5LZw?oc=5" target="_blank" rel="noopener noreferrer">Swiggy shares extend rally up to 8% today; what Morgan Stanley expects post Instamart leadership change - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Fri, 31 Jul 2026</span><span class="news-src">Business Outreach Ma</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGM2QlgyemRseFhyc0JhampNRW01MDA4bHY0UDdoRFM0R0FDbk80a2pyX2gzU19TZnFzVm1PRHEwcDU2aW5TN0dXWkhHREdJSGo2UzcyWVY2MG5ZSi16S3NpbVRjcEhfX0NuamxHZGFDYzdjWF9Rc1dwdXlPRVBuUk5oNHJieU0?oc=5" target="_blank" rel="noopener noreferrer">Swiggy Q1 Results: Shares Fall After Earnings, Brokerages Cut Ratings - Business Outreach Magazine</a></div></div><div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiygJBVV95cUxNY3p5QXBVeHU1M3RxdjJYUHRZTmJNQ1BhUkd1WTA5VEVXZHFOOHZoanBFRmZsVnV1b1E0eHRJX2o5QUs3TTU5N2lELUJpWGxSSGt5aWlQWnp5VTlQYUxrckhLcWUwZlgwQW04c1F2SzVjN3NGbVVhcHRORXBKd0Z2ZHphTS1tb2E0d1UzZzdnNUwxcURpVGFtMjNLOVlSNHBKcFowcmRhVFllZDVaTk41YlVXakJIS0FPMFNaM2MzaDZRcVNsc2t2dTBYTHRfd0ozN1FSb2pHampmeFlTZlZvVUJCdWRBMUR1bEp4NWcwSmhsU1Ztb3FfaXNxZFNOREpQNFNJZlphbl9jUUFKNG1vdWVRdW1HRFV0Q19XMG1JdW03WjVMN0FTVjVYSlUxeEJPZUdtUkVXMjZ1bjBIeERackp0Wk1PSEhtekHSAc8CQVVfeXFMTk5wOFNGckQzczBDc3oyV3hMODN0MHNCNGRCUDRqVHhacEFVZFduaGFsSWs5M2k3SnA5c2hxS0lpSmhKeHJ6ZFZZYUdtTG1yLThLNGdRYklTeUpMNnlSU2pVZHdhSFhGWGNtQjdFZW5MY1NDV0FnalFoME9CaFlrTVVWSWtXMDlUTk1RTndHUFE0c2VCTmNHMDI2ZGtyclJSR29aOGp0Z2lKanBkQzFiS2MydVZBb2hweXE2UkxzSDYtNjNVRDBNd195bUczU21Vd1FoOEp3bkY5Y2wza1lQVXNvbW5GdGZlZnFDek9SbU9TazhJaGcxNFVBNEdFWWc5RXFzTFhnQXVuaU8zRV9ZSk5vWDVlalVoVEtXeEgzSEwzWVdIaWE1elZ4UEdSZjR2OTMxMjFKelhhcmkyR2pJQkZJX3lJaXpXcGRIQ0NFbG8?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: Astra Microwave, Navin Fluorine, Tata Steel, Swiggy, Mazagon Dock, Aarti... - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Wed, 06 May 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMihAJBVV95cUxPMUtmM3VrckRJbDloVVJDUGdFRTQxN2F2dkxiNVlwbXJqRk1yYW9KUFpBcWp5bWpJdlVJbEtTWjFvVlZ2bnFhVWFBT2l4WHQ5RUNVdi1Nd1VkNFNVX0NGVV9YSzE4QjRTVUxuVnpTYUVNZVRIM2Zhakx0TmJjcmdSUW9DbC1yM2NDY1lhdFdienZZWE5iWGJTNXN4d3g2Sm15Q2dBQlRyMmFnRWlXT3hBUzRGc2NqaUlPY2UwbkY1V1NNSGdxaEFXaWxpSmhDX1pfbHdpUTU0ZUxXYTA0ZXpSMk85bW40ZjRRR0RlblNWaUJ3cjJqU3VfMFhRa0tVQlVEdmtuLdIBigJBVV95cUxNUG9BUGVPWnNPTFc5OW5oeVJZeU1PWFY1RkpLeXZtRXh3V0VUMkF3U1JVT0NoWWtwSUtpclBfVDJJUEU3ckRVWUJNNmxOalJUbk1EU0JDVEhHNXJUNUNGMUJqbmF4d1VFUDlzMHBWRWNoM2xua3J5cEZMald4cklqelBsVmtLSHIzbXZJUzBWNFVZMF8wbWc1WjIwSWFVYXJfVmxSUzN5NEdoeUFWX3YwV3JHeFhHYUlZRHRkTjJoa3ZBS09FN0o4QmRPbFNBTG1ERzBaODEyODdIQ2ZzQUVaWndlSDZldTI1U1NNaV8tcnN1OHpDV29WMnVTNGJ1Y3dCSy1rVGtxYzNjUQ?oc=5" target="_blank" rel="noopener noreferrer">Swiggy Q4 preview: Loss may narrow YoY, rev to rise 40%; QC growth eyed - Business Standard</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=SWIGGY" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-SWIGGY/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/SWIGGY/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Swiggy%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-smlmahindra" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">SML Mahindra</span><span class="card-sym">M&M.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;5,479.2</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 33/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;20.00%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;20.00%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;8.34%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;17.38%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;30.90%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">38.3L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">26.0L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">30.5L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--amber)">1.47x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:11px;background:var(--blue)" title="2026-07-20: 17.7L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:11px;background:var(--blue)" title="2026-07-21: 17.8L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:11px;background:var(--blue)" title="2026-07-22: 17.8L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:17px;background:var(--green)" title="2026-07-23: 27.1L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:13px;background:var(--blue)" title="2026-07-24: 21.4L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:14px;background:var(--amber)" title="2026-07-27: 22.6L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:14px;background:var(--amber)" title="2026-07-28: 22.1L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:24px;background:var(--green)" title="2026-07-29: 36.9L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:31px;background:var(--green)" title="2026-07-30: 48.5L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-31: 61.3L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">66.8</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">53.67</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--text)">1.47x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">3199.69/3141.16</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">0.0%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">33/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Price > EMA20 > EMA50 — bullish</div><div>✓ MACD positive (53.67)</div><div>✓ 5d momentum: +7.5%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOTVFtLVV1UEExa25XQ2k5QWVoZkV5MUEzRVlKV1FrMzBOSVFiSEVSQXRTbHdVeldDOXViX01ORk5KbVNHa3RYTzZZcmROYW1SZzZfeU5yQ0VDc1ZUUl9IYVJfOWxxbzZjdUJpSVNfRWVHZG00NXdSNklJUVFnMWcyMzNiS2Q4TGFlNEkyRTBRNlFNU25kMnFqcFpyd3VMOThQUTdFTWg0U2liTjExZVFWOGJsRjVibmpsT2JGUTBBbXAwbGdXbGMzUFI4akpaZkNMbkVPcDAzMWRnd9IB3wFBVV95cUxPZzZHSTJjRm04bXVLYjlDQTV0eGR4X0F5dnVkV0VHUFBTdFp5UFdJWXBrMm9oR3BIellSRFFDbkg5aklMeVgxWlo4a1BHajJGXzNBekJBSFktVHZESjA4NEdFekxpTm5hT3ozbS1pdDdhUUlVZ0xkOE5wV1hEbjF6cDVHT0o0aGhVcE5DcFRvbEdPR2EzNDJ5M01DVVlqaTFqdE15VjdndzJEU2h6QXR3YTBpUFJUNTVKT0QzRmVScjJ6UXBhMXJfTUY2TkpWTmZWN0RYNHp4czdYNmxWLWUw?oc=5" target="_blank" rel="noopener noreferrer">SML Mahindra Standalone June 2026 Net Sales at Rs 957.54 crore, up 13.2% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Fri, 19 Jun 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNUEJqdFVzeFQtZ1lzM01wbTIxbUdDNmVQNHVQQVlYV1FzMkUyZ3Z0YXY3dVp6Y21hOHhjTDNfTGY4aC0tNk5jQ0Vaem5vRXQ2aVRkTXE3X0J4NVo0NFdhaFpIa1RwcmtsY1NWejFIWS1KQXoyNU9CNDJvU1d4Y3hpN3hVVzI4MFdzTWdZeGV1d0xnN0lOM3hnY2wtakJfNjNGQXktcHg4MHlZTnd5TWdKSEZRandxczRRN25ha19mVE9wdklMSnU5S3NIWE9aT2JkanpLYXlpcmlZZ9IB3wFBVV95cUxNaHZ3QlJtb0tYYWJnWFBzN2I4N25PaXpNMDZrR1ZzcjlVeTJCYnpqMUFBRWxqdnhYSVB2dEVNNTZIU3ZsQWNtU29uU1BZQ1V6MTh4NjdzenV5b1Y4aHFjeEdlbmY2eHU2aGlEOGdGS0RhNFctY0lzTGVjSy1KbHAzem1pdTYwcW9zRmxRc3pRMWVtdXk5eTUybHI3RWhYSWVOOXp4ODRZaHZpRWRiZmtQemRFWXI1WlNfUjQ3OWZ0bWZnOUpyMkpMYjcxVDZ3YWJJN0ZSREpmc3BNVnJ4ZG5F?oc=5" target="_blank" rel="noopener noreferrer">Here's Why SML Mahindra (NSE:SMLMAH) Has Caught The Eye Of Investors - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Tue, 21 Apr 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxNWGFZa05BM2JjSHh5RnRyUTJnUE1UYUNnN0lPYTV3dzRRMmRQN2hFUEJoR09Ka3FycXFBRDNBOHJJN1ZuYm85R0U1NVJiVkdRU3lycWxRWFdNM2lGc1BXQkZ5OG1LcG80YXB0VHFHeFdGaEttUWVvY09pdzh4NGQ4RXYtME9Yb3NVbExjSWRyY0RUNF81M0ozMXBUZVJjRjRQSTMtYkV5S21EVW9qQlV4QUZxUGtXMFlMQy1hcjh3Wjl6bmRCanJ6Y3VtS3BqSkdoaW9vMTUtdkN0QdIB3wFBVV95cUxQYk8xZW5HSFNHcVpJa0hqV0V1bWpoSU9qcnYwaFh6TlI3RFN0Q3JGZUktcWZ2eXVNanR3b2pGcUVBLVJiR0F4ZDNhNkg1VlBNdi16cktTRHJGeTlkM1AzSHVxVklmb3hBRmV1M3Btd3dkR0piTjRsUUZoMlk0VjZ6ekRsMUVvTG1PeDRTN0hwNEE3czhJOC1reWYzWTlMRHpUYUIzSDFqY3E2cy1zQzE0ODZhTm9XalZzRzZXNzI2cURPU203MUFmRFY3V2IwSlJvOTMxemNSYUc4M0diTmY4?oc=5" target="_blank" rel="noopener noreferrer">SML Mahindra slips 6% post Q4; Nomura flags cost pressure as negative - Business Standard</a></div></div><div class="news-item"><div><span class="news-date">Mon, 20 Apr 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxPc0M4SUtrckh0TFhaT2FPOVU3MUx5TFBlem5QQUxCd2MyVHBJeFd2QXhhSWpWZXNmRUdwWFRjLVBVSmJHdnZfS0h2RERDZXdCdEVmVWxFUWFTOUlMYzViT1EySHZnZEZKeE5XMHo5XzREY2NIcFRSS0R1MXRwd3NSMVJXRzljWUktaVdVeXR6eDZDOVowM2Z0QjRWTHhyTmU2ZFZxUkkwWWtMQy1LdjgwQk5RdnNLSGd1QWVIdFRGWXZRUlBBcmx1a3p5eVpxdUVGUkkwVVZn?oc=5" target="_blank" rel="noopener noreferrer">SML Mahindra slips nearly 6% post earnings, dividend announcement; check Q4 numbers - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Mon, 20 Apr 2026</span><span class="news-src">NDTV Profit</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxNaVhhZERYQ1VkWWpWc1ExT2NCYVczNzltSzB1cHVxT1NPZ0pGZXpycHd0SFRLUnVnU2xZUGVrUWRraEpTSl94SmVwQzI5NXlLMkM1VkpEbFZVNjJCNWlZV0NyaUpwRko4SkEzbTRYQVRaZTVWOG1TaEFRX2pvSnY5b0NrWVNDdUQyQVN4M0NCRmY4RldiQjQ3bVU1YjVsU3VlOUltemN1U0JabGVhNTZBNUM3Nm95T0NPWUFqakx5TVNEMTNubXBqb3l4VFlPajBNX0h6eXZR0gHeAUFVX3lxTE40SzBkb3h0UlhkWDFkMXBaOXJXLWloNWFhTjBmdEZfT2RqZVlrWEJrMkJoS0ZDSHB0TlBUT1J3TTBuSHJjSWR3QUlkMkVram50NVNFWE5oSWpGTTRmSjFsdXJLS0IxMG5KbGxxM1NDdFNUTWdpc1AzeFl6R0U3OTFrWHRJOTVpbVhWalA2Z1YtaUxscHlCVTBxWFZPcFBtbWRHQTlJSnk4bFU4U0RCSUdWWFBkcWFvM05PWU5BYzVncUNxdUlIQURqcjFRbEJqQWR1NlpoOEFOenZqaFJXQQ?oc=5" target="_blank" rel="noopener noreferrer">Rs 23.5/Share: This M&amp;M-Owned CV Maker Declares Strong Dividend; Check Record Date, Other Details - NDTV Profit</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=M%26M" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-M%26M/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/M%26M/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=SML%20Mahindra%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-kaynestech" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Kaynes Tech</span><span class="card-sym">KAYNES.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;3,804.6</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 33/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;8.89%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.56%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;14.12%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;19.02%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;13.24%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">25.1L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">14.0L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">15.4L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">1.8x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 5.1L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-21: 5.4L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-22: 5.3L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-23: 5.2L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--blue)" title="2026-07-24: 8.9L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--amber)" title="2026-07-27: 6.1L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--amber)" title="2026-07-28: 6.5L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-29: 60.3L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:13px;background:var(--green)" title="2026-07-30: 20.1L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:21px;background:var(--green)" title="2026-07-31: 32.7L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--red)">71.92</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">66.29</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">1.8x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">3379.27/3391.4</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-15.6%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">33/100 — NEUTRAL</div>
+      <div class="verdict-sig"><div>✓ Above EMA50 — mid-term intact</div><div>✓ MACD positive (66.29)</div><div>✓ Volume elevated (1.8x)</div><div>✓ 5d momentum: +19.78%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Tue, 28 Jul 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOdFBfSmwwTFpNS253NGlVLVJLZjdYRWkwbkI1TXZ0cGpvaDdPQ2VrVTQzU3UySWF4S1ppTndfN1c4U3BuSFZtV0h1dTB5bko2by1zWExNV25Gdk50amlseXpXN09SUTAxZEx5TGg3VGZzYXJkRzY3cm1lX2FzSTNLYkVBdW13OEFEVTl2TUZoQnpYMHZkR3ZiQ0lTMUZ3TlpDUUZjQWtUVVhKOUVlSS0xMV81a0dOUmtkeG1OUGhfT2ZSWGp5WUE?oc=5" target="_blank" rel="noopener noreferrer">Kaynes Technology share price jumps 8.2% on 43% rise in Q4FY25 net profit - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Wed, 13 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxNelFEc2twVk12OXpBZ0twN3pTbWJtTHVvQnM1ZDdPNDl2cmJqS0NRY2U3MDJVX2lSSERLVXRQcFBpRUIyeHk5RG9FNFZRVDNhRk1UUWNZMy1femNFRmc3VmZNNjNRZ3JJRUpNRDA1QVIzT3dXNzFOM3p5TmNQVlZPWGpjd29fcW9sRGlNN0x2UHdFbktzVjU2VVRGNFJ0bTNZZURBMzdOT1RNU0dpcERpbW12OS1jRGdwTVdJNmFpaGhpdHBmYm5mdWZjRnQ0bjZzZ0g1cmVGMWpwZkd30gHiAUFVX3lxTFBUR1lEc0x2ZzlnUzNDVzhTS0plMmhTWHRxS1ZXSEsyUWNwSElsTllyc3B5MDRYMDhLMUJGN3dUTkJ0MlU0eHExV2hxYnhYSHBSZThUWUhDZno0OW1mbkxqbGMwSzljNEpVSlJucW5OWXJjLV8ydWlqR0RZSWROQng3akNMalVSdERHMncxelF0UnJuczc0Ri1Jei1hYnMzM2dlU3pJV196Qkc5Nm9SdG52clVNMTBESnVLS3NGRXprNkJUdzJjZ1lkSmF0VTNIRXJ2VzN2V2xwNjJUQ2NIUWJ4bXc?oc=5" target="_blank" rel="noopener noreferrer">Kaynes Tech Standalone March 2026 Net Sales at Rs 688.11 crore, down 6.58% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Wed, 13 May 2026</span><span class="news-src">CNBC TV18</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPZU01b3A2QnFoWVhIUzByUEFBZGtRU0tGaDRzMTlabUttSkVSRVZGajZwQzg1a29aNUNMNlhTN3FPMFZtd1NCYUhic0hkZ0ptN0tWb052ZWFlZGF5R1J4ZlMwTDIxNkpTSzJWd09mdWVQeFpISEc1VG5ydTlISmRqdG1kdzBWTXl3UXhrZUFOWEdNdEFuN2x1dWJORVM4aks2TndKaW0wTXdTZy1JSl9SUVh5bjJfdEVTTWhHb1dVZ1g2MTc2dGfSAcsBQVVfeXFMUEVVbEpHRW0zZVpOMVYyc294UnIyNEttczBQVDJpS19oZXJybmN5OXQxLXNQUnVTUEt3UElfSDl6MVpaU1hiWGtYUnZvUGI5TjFCeHNKVWJZT3dMdkRCOXY1d2pQZHh5Q2JiSjB6VHRqeDZWYWM5UVY2YWlCQm03VENjZFk3RXFWOTNwOEo5RUFEVGRuQnF2cUdqRDAxVzVCR2pzaklPV092ckp2c1BiQ3dJRXIxalV1S0VmcFdYZE5WcUZnX3d4ZzNEOVE?oc=5" target="_blank" rel="noopener noreferrer">Kaynes Tech Q4 profit falls, margin slips despite 26% revenue growth - CNBC TV18</a></div></div><div class="news-item"><div><span class="news-date">Thu, 14 May 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxQMU94bkM3cUlMU1ZhSjdpN0JMY1AtNHhSN2pQN00wc09Nd2tCc3R2SjJMNmd3Slg2c2ZFVHlnWGNMR2J2RkdKN19LWUZfUVpZTDRrZC1tUTh2dFNBbHFVclZLdXU5RkRTU2h3OHJkaGFqUWNla1UwaWpNbllmSTFOR2dvTGVtaDNSYkpJLXhVZlpvcDZUcGQ4UVZ1Tk90VEdweFpTVDZnOW9PMG0yLVUzLWxscGVTOVBOTENkR3FRYmE0Sl9udS1NQkhLckZITlpfd1FaTlN5WWx4U1k?oc=5" target="_blank" rel="noopener noreferrer">Kaynes Technology FY26 Revenue Rises 33%; Results Published in Newspapers - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Thu, 14 May 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxQaXlnb1l0dHV2VFhWM2JkOWU0OUF5aHNDd2g3Z01va0hQd1hCdEl5TFBuTHVoSWF0RmxLUnlUOVlKYnVVampDN1pOUWthNVVHTEhYQWhUNXVlWW9HbDNjTjJzMVN0WVhSbEV2SUc2allPd3Y3M3Zna01iY09UbmNGaEZYRWtNYzJrTUNtOVkyNnhzOE1UYVUwZGlqdXo2UEYweGtrT0dsd2d0ZWR5U3BISFlPS01JRXdlclZNRENZaFdMc093MUZ2aVE2eWdtTGJUZk5hUTg3SWhsR2Rta2x0WXhySTZnS09sV3Npb9IB8gFBVV95cUxOeEcyX1dwTG5XdllkT3FOMXVGOGtFSWQ2dWhGSFYyeFFOTHJSS0FXdFhLa1JYNkJ5dFZ5MC1wdVhzaFVaSEdnbWY3eFVsSHJmdnh5bE5jNVhHTVcteFhtUkhnWEk2WGFRU1g1VUVNZ0ZJWm9JZ0tSc1FCN1BCaEZXVWRsYktteG9iR3IzbTNPbkM1WUNLRkh2X3NmUkZNQWZva0J4bmszUDRZU2FjUnhQcDRsOEFnU2lLQkFpanNPYlBxUWM0OC01UWd3VnF3VEx1RUVoSjlPRkFybDVpcmh3T19VRkp4WWlsQkhwVEJsQm5UUQ?oc=5" target="_blank" rel="noopener noreferrer">Kaynes Technology shares tank 19% on weak Q4; JM Fin downgrades to 'Reduce' - Business Standard</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=KAYNES" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-KAYNES/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/KAYNES/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Kaynes%20Tech%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-gujambujaexp" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Guj. Ambuja Exp</span><span class="card-sym">AMBUJACEM.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;172.6</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 23/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.03%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.04%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-2.53%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;105.28%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;12.51%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">32.4L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">25.2L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">33.3L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--amber)">1.29x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:9px;background:var(--blue)" title="2026-07-20: 15.0L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:14px;background:var(--blue)" title="2026-07-21: 23.3L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:8px;background:var(--blue)" title="2026-07-22: 12.6L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:9px;background:var(--blue)" title="2026-07-23: 15.0L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:8px;background:var(--blue)" title="2026-07-24: 14.0L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:7px;background:var(--amber)" title="2026-07-27: 11.4L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-28: 62.4L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:32px;background:var(--green)" title="2026-07-29: 50.5L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:16px;background:var(--green)" title="2026-07-30: 25.8L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:7px;background:var(--amber)" title="2026-07-31: 12.0L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div class="obv-warn">⚠ OBV DIVERGENCE — price near highs but volume declining. Possible distribution.</div>
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">50.04</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--green)">0.65</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--text)">1.29x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">431.28/431.6</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-5.5%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">23/100 — BEARISH</div>
+      <div class="verdict-sig"><div>✓ RSI healthy (50.04) — room to run</div><div>✓ Above EMA50 — mid-term intact</div><div>✓ MACD positive (0.65)</div><div>✓ 5d momentum: +1.66%</div><div>⚠ OBV DIVERGENCE — possible distribution</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiygJBVV95cUxNY3p5QXBVeHU1M3RxdjJYUHRZTmJNQ1BhUkd1WTA5VEVXZHFOOHZoanBFRmZsVnV1b1E0eHRJX2o5QUs3TTU5N2lELUJpWGxSSGt5aWlQWnp5VTlQYUxrckhLcWUwZlgwQW04c1F2SzVjN3NGbVVhcHRORXBKd0Z2ZHphTS1tb2E0d1UzZzdnNUwxcURpVGFtMjNLOVlSNHBKcFowcmRhVFllZDVaTk41YlVXakJIS0FPMFNaM2MzaDZRcVNsc2t2dTBYTHRfd0ozN1FSb2pHampmeFlTZlZvVUJCdWRBMUR1bEp4NWcwSmhsU1Ztb3FfaXNxZFNOREpQNFNJZlphbl9jUUFKNG1vdWVRdW1HRFV0Q19XMG1JdW03WjVMN0FTVjVYSlUxeEJPZUdtUkVXMjZ1bjBIeERackp0Wk1PSEhtekHSAc8CQVVfeXFMTk5wOFNGckQzczBDc3oyV3hMODN0MHNCNGRCUDRqVHhacEFVZFduaGFsSWs5M2k3SnA5c2hxS0lpSmhKeHJ6ZFZZYUdtTG1yLThLNGdRYklTeUpMNnlSU2pVZHdhSFhGWGNtQjdFZW5MY1NDV0FnalFoME9CaFlrTVVWSWtXMDlUTk1RTndHUFE0c2VCTmNHMDI2ZGtyclJSR29aOGp0Z2lKanBkQzFiS2MydVZBb2hweXE2UkxzSDYtNjNVRDBNd195bUczU21Vd1FoOEp3bkY5Y2wza1lQVXNvbW5GdGZlZnFDek9SbU9TazhJaGcxNFVBNEdFWWc5RXFzTFhnQXVuaU8zRV9ZSk5vWDVlalVoVEtXeEgzSEwzWVdIaWE1elZ4UEdSZjR2OTMxMjFKelhhcmkyR2pJQkZJX3lJaXpXcGRIQ0NFbG8?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: Astra Microwave, Navin Fluorine, Tata Steel, Swiggy, Mazagon Dock, Aarti... - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Sat, 03 Jan 2026</span><span class="news-src">CNBC TV18</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQRVphOUdEaEtFQm9yQ0tscFZjLUpES3VJbWM4R09HM2p6ZFFqREluZ0lReGpXR3BlUE1zUmRuazUtUlFnLXg2NUdhTDNZbXFESl9LT09KTm1lZHM5WGhsVVBtVnExcDRUX1VNbnhkbkZfNEhaZGhubDU5eEZwbGw2SjNzN3Fwa0VYcEE?oc=5" target="_blank" rel="noopener noreferrer">Gujarat Ambuja Exports Ltd. Share Price Live Today - CNBC TV18</a></div></div><div class="news-item"><div><span class="news-date">Mon, 11 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxOU1M5NTFqT0VXMGczd25UNTJWTE5xNkFTRlVnSUVLUzFKOWRoc1haTWw0RDFidjExdWlSYkhCWGU3QURyWVJVRk1vczdvUUY1QTQyTklBcGtmRmd1ckZvcVFvSTNmbnRBc3ZPU2dabzZ3RkVfb2c5cVNmODNsQWhqeXhDMXZKREEzWXNjbmpQSHJqT2w4WGpoWVV2eS11MzBKTF9McDdfUkNWck9xUkhxa2ZIVnBLMVRuTjlfcVRqZlgwVGliWEREczJmdlpMc2dnMXJLWHpZNUlmWFF0SVF6Y0Z30gHnAUFVX3lxTE9BSVF3MlBWTlBTOENqbElkYVF3T0EzVDd1eGVOWm8zUTJDRkNqN25ZZ0I2dGt1bEY1YzctN3Z6b2NZQUlHdUdEd0xCbmRlTGtqWkw1SWJTTW1IWWpwZnBoc0tCZno0cDZMZkhrSjhERS1NZXg4ampsWURDZ0tnSC1mWTR4MHVmZkNERlIyajhBaFlwVDVwR1RzWC02QVhCX3Npb1lHOTNKZkF3ZTdnYnNKRy1tVXprS052SDh6ZXRuSm91ejJOTXJWQnZHMDI2WTFEOHFxVXEtMHVYRGhGT2o3Q09TN0RBUQ?oc=5" target="_blank" rel="noopener noreferrer">Guj Amb Exports Standalone March 2026 Net Sales at Rs 1,466.49 crore, up 15.78% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Mon, 11 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi5AFBVV95cUxPd3JaVGRGc2hhdGd5SWh3YlJLZ3NPcVh3eHE5SHAwVDZkZzBpT1JZeXVZWXJQdjctRmJUUVlhT1l1Q1NydlRGSUFpVmFfSF9zZ3dwZExHanR6ejZGUEFsSG1TNnlQb2NjOEZhRXRRN1JHTzk3ZXpoVXlFVXNYWTRLY1Ytb0hnb3IwTkRjdkdNRTVpT0JyZW1aejU1OGhHaEhXa2NadHRYajgyVjBvWWZFd3RQRkJiNUk2a2hLNXRvNXNYZ0owNkV5UVhiNWpfdmxrcm5wSTBFbi0xOHItdFNoeDE5QUzSAeoBQVVfeXFMT2w1bld6U3JiUnpsWDIyLXJOQ0ZwM2pzbGhsRVFrZ2hwY05nZXRvNHhWalVfT3FiOE0wSkUxSm1QS2MxXzAxTUcweVF4dGlqUENsbWpaUjhPeUNaSDNSdF9LTDZHT1Rqb29lZ3M5a2hYckw4b0Q0dEpsazI3aFZ5LU1telN5SDctZVpqRkxNRHliWGJJeUE2WXZkeWJieDY0Z1FyOUtFOHdfRGdBaW9DbG9WeWZsdi03NGMtZWJUc3pycF94M2I1Y19zVjlfM3VVbVpUQkQ5TGxSejFnaWt4S3Y4MEFROEZjRldn?oc=5" target="_blank" rel="noopener noreferrer">Guj Amb Exports Consolidated March 2026 Net Sales at Rs 1,466.51 crore, up 15.78% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Sat, 08 Nov 2025</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxNSHp4eUhJZXhXYS03QlFnMVYyWjNzU1N2Q2VZVm5wRDdjQ1lCbWFwVmxwekVpZmQwMF9SeHM3cTRfd082clZHNU5zMlN4SW0wanY2Y2Z3Sm9mYjh3dHFXUzhwWlFmZl9tNmVuOHl0MkptWFVhTlFYTUJBT3p5bThiLTRHNU10dTRzTnFmTTJXM09HYUpYakQyMzNXTUZaWW9pWHhFMVNfa0ZlR3Uwek1ZcGFUX3BGaDR5dWt6cXE1LVhBXzhPZkR4SmpHSdIB0AFBVV95cUxQcUVkZVFHX3c1bEhDZ2ItUnZSTHoyazRXWDBLN21UNWJYallycHR1cDlQZlBBNFFucWVSeXM4UkRtNTJmZ0lJbTRxWDNkdWFjTnBlYWV2MXBXcmQ4ZXkzemRNR01rS1ZHdks3bVc3elFGaHRuc2N3SGtkUExYelFNTTR5TEFva29NOEl0d2V6U0xYdWcyX2FXeWhCb3NPOUh1OXNCNDNncGJqQmc5R3RtU0Q1WUx2VWw2UzNWdk9xc1poUVRVRlpWWXNlNVdwRTlz?oc=5" target="_blank" rel="noopener noreferrer">Q2 results today: Bajaj Steel, Poly Medicure, BMW among 113 firms on Nov 8 - Business Standard</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=AMBUJACEM" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-AMBUJACEM/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/AMBUJACEM/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Guj.%20Ambuja%20Exp%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-shkelkarco" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">S H Kelkar & Co.</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;170.0</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;8.77%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.02%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;2423.89%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;5.85%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOTjhkVW91WTRyM0RfaDV4cjJfcm5oemtwSk4yblBpN19DZDV3UkgwZ050UUdqTHFNenliN0xLUm1pQUotOW5nNHFndmF3MDdTUmlOZktDRFZ2b3hXLXlUR1cteXowdGJTalo0SkhUMGh6WlNWT2RDcG5vVENMWnhOVnUzTmxsVzZtUGF2N2VHcXlVMTFKRTVKNVY4bVhkNVIwVk5EZjVwMWFHS01nNXZsTlZlY2dsRWRaenNmMExzeG4yaUxMeXc?oc=5" target="_blank" rel="noopener noreferrer">S H Kelkar &amp; Company Q1 Results: Financials published for June 30 quarter - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Sat, 23 May 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxPQzZnYlNlQ2FXY1ZzNW5HUGVtTERfeG9YTVhFYUg1Q3h4M0laRGF5QV9IMWw0b2N5cU9pMy1qMm14RWtBTzVuNG9ucnlDa2xTN29icDdoZFJmeWVYaUFqR0lRTTlHb3MyY1VmRGdqVF9tOXRZMUtobVl0Vkh0cnBGRWgzSWtkSHlrcFpQNXpqSUFlaUVubDVfaGRnTmJGYVdLemhDYmJMUDdnY1FqLXYwNTQ2RE0zeWFnVUtiRG42R09IUkdTUk80dFdBWXJwZ9IB0wFBVV95cUxQS1JrX3Nka095TzhUWkRmNzJwamQzemtNRndLUF9XdTI0aldta3RPOHhIUVRJNUlBbDJhanFJcmowLXVid1drQTdYd1RUZkVIRkFkUktfa0Rlc1ZIT1RVTkRDcGNtTWlOcEV1R2hSX0p1clViX3E1Q0pSSnlXMkJSUkZMb0lqR2VDUGNBNDZlRnV6MFRJeHIzcEpRSkJYRzdCZzhpclVUVmVBb1g3UTByUzYwU05yb0p3WkJyaDc5UVdrb3BUeFllQ1kycHNPOHZfSWVv?oc=5" target="_blank" rel="noopener noreferrer">S H Kelkar's (NSE:SHK) Anemic Earnings Might Be Worse Than You Think - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Fri, 24 Jul 2026</span><span class="news-src">Upstox</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi9AFBVV95cUxOTENxQk9yRWNtbVV2V0twb2lSOXItcGFTVElaV0VEVHI2TUtaTnl0RmNWWktWajRud3I2eXNMM3NOQnUwRDZteTBob2o4OWhVRldFbE9nNnI5djdvQWt6NFcxdGFHcHdKWmwzNk5OYndoT0VuVktQT2NqYUZJZHZEb25aQVlVOEtTRkx3VTN6UUZhcVU2QVJxY21FTGZseWd2eTFuRkdMb3ZhbFFUcEJaWEQyZDBQU3hYQTI1LU1QM1Z2NHduVTBIdWNrc0lsd2IzX0JTQV96cGozT2ZIVnhDN0JvTlhpV3VpMmpXX1hnRnhuSzNS?oc=5" target="_blank" rel="noopener noreferrer">Hindustan Zinc Q1 results: Net profit surges 145% YoY to ₹5,469 crore, revenue climbs 77% in June quarter - Upstox</a></div></div><div class="news-item"><div><span class="news-date">Mon, 18 May 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxOZllIU2ptN3EwR1BsY0ZhX2NSeUM2OWxEcHotVHlzOTFuUWlUVzJZTFZQcjNLNjJxdXpTeWNKOFNEUFU0ZEx4bjRpS0M2czRnTFM4cXNCc0JZWHNhYW1sSDBybFRnNkN4WVNUOUVYSGlzNXp5WC02ZC0zXzY5M003ZlZjaHY3Vkdpc1lma2VJZXVVbi0tQWtRRlJQMkhzMmdqRGRMNWtmOFhPT2tyVVNoZzBDT3pVTV84Ukx0N3VfdmtfREwwRFNaTWliVDcyc3M3Rk1xOHJWQzdfZ9IB3wFBVV95cUxOWUQ1ak5XTWNPZ3BqVFEwOVk1WmFvdlBmVHRnTmROMi1PWDVnc1hrdTliMHVReVVLWHVhWDgxUUNTdURKWDJVWmJSNzhZVWk5UnpfX2Q5STBfLXFwd1pnZGFxcG1ZbU85M1ZoY0FTM0ZSQ1ppSTZrOHp0VTNTeEhOZmFXbVp4UTlJdVI4SzBDcjQ5ZmhMOTd3c2loamtlY1BjNkpacDh1ZFFyaUNxczZmc2pZRFBtSVdkZ0ZwMjZJZmVTblVQejN4U3lfN01XSm80cW5QbUVQaU5NZGV6OFdv?oc=5" target="_blank" rel="noopener noreferrer">S H Kelkar Standalone March 2026 Net Sales at Rs 336.43 crore, up 20.86% Y-o-Y - Moneycontrol.com</a></div></div><div class="news-item"><div><span class="news-date">Thu, 25 Jun 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFAwUnZmSlBldHNnYnN2OG1fWjNuUktXb0tiQVNEZzhoT2hRT1RySTQwNXJJazRaV3lGYnRKOXd5VGxZQWRicFU2TzNNdHdrWGZLQTJUdDBHQmlfaU14OTRFT1NfdWxvQldWTGZWUGQwXzliajZD?oc=5" target="_blank" rel="noopener noreferrer">SHK Forecast — Price Target — Prediction for 2027 - TradingView</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=S%20H%20Kelkar%20%26%20Co.%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-csmtechnologies" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">CSM Technologies</span><span class="card-sym">CSM.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;104.8</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 5/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.39%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.57%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;2.74%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.27%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;29.19%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">6.4L</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">4.5L</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">4.5L</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--amber)">1.41x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:22px;background:var(--green)" title="2026-07-20: 6.4L"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:12px;background:var(--blue)" title="2026-07-21: 3.8L"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:11px;background:var(--blue)" title="2026-07-22: 3.3L"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:10px;background:var(--blue)" title="2026-07-23: 3.1L"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:16px;background:var(--green)" title="2026-07-24: 4.9L"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:6px;background:var(--amber)" title="2026-07-27: 1.8L"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:12px;background:var(--amber)" title="2026-07-28: 3.5L"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:24px;background:var(--green)" title="2026-07-29: 7.1L"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:26px;background:var(--green)" title="2026-07-30: 7.6L"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-31: 11.7L"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--text)">56.22</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--red)">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--text)">1.41x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">101.42/—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-2.4%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">5/100 — BEARISH</div>
+      <div class="verdict-sig"><div>✓ 5d momentum: +5.18%</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Fri, 03 Jul 2026</span><span class="news-src">TradingView</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBRM3BaVEVQVU9VN3ZnVmJ6U0RTYUNMUU9oN21vMWpPNWZJVFVaOV9tYXRQdHhJdjAyQlVfVld4dVJfNHdqa196YUM5QlpUUExMN1VldVd4N0hCR1J6M19RcDBtYllUNzJyWFh3cG5tbnFIMjdKMEQ2MEF6cUc?oc=5" target="_blank" rel="noopener noreferrer">CSM Technologies Ltd. Income Statement – NSE:CSM - TradingView</a></div></div><div class="news-item"><div><span class="news-date">Thu, 02 Jul 2026</span><span class="news-src">Sahi</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTE11SzlCaXdVal8waFZwd1NMZlVaV1kycng5Rl9reThIQjlnU1pTck00Uk1WNVRveXk5ZmtkdF9zbWNYczljWFptODY1amU2U3FTWFRUZDBqN01wSkFRbjc5UVBaY1BPc1VsQ2xPZVp3MVI?oc=5" target="_blank" rel="noopener noreferrer">CSM Technologies Share Price Lists Flat: Hold or Sell? - Sahi</a></div></div><div class="news-item"><div><span class="news-date">Tue, 21 Jul 2026</span><span class="news-src">India Whispers</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOSW5zNmdDQ3kyTkZKYkdMRVZWN2UxVVYxMlNQY2NMbEFLbHhoZmlHbVVGd2JtVWxRVmcxNzZ3LU42LU1SeDBvbEFSbXlmX0pxTy1KMWhSQmJNaVBjcXVnWGdSMGtWRzY1Q1VjRE81eWVXblNxNWtpUTV4eHdRU3l0MXFrQ3BxVVNYM3l5eUZ6amc3eDJuaERaMWRZSmNwTnFuOVFFam1VcVQ0OXhUbV9aajhnZExRSkRzVGh6bkMzdw?oc=5" target="_blank" rel="noopener noreferrer">CSM Technologies delivers robust FY26 performance with net rise by 70% to Rs 24 crore - India Whispers</a></div></div><div class="news-item"><div><span class="news-date">Thu, 02 Jul 2026</span><span class="news-src">CNBC TV18</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOS1dUOVNxTVdhR1MycW1MSGJxYVZwSFBXTGROaldHc2J1aHEtUktFblNadDBiM1djNEN1S3pZRHpYNWI2YmE1ODdJbDVrMHhrY1NaaEpjRGp3X21mdkpyclJhNXpPaE85ZkFBbG5lUHpRd3c5WElKOEswcmxMd3ZRREU4ckhtdw?oc=5" target="_blank" rel="noopener noreferrer">CSM Technologies Ltd. Share Price Today - CSM Technologies Ltd. Stock Price Live NSE/BSE - CNBC TV18</a></div></div><div class="news-item"><div><span class="news-date">Tue, 21 Jul 2026</span><span class="news-src">Business Outreach Ma</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxNX0RmdE1MT0VaSk52OHZ6b2FxZlI2WFViWVhGVjJPOEFVLTlQMnpJU3NmUUZiUk83SUtxQi04X0Y1ZlhEazN1Nm5jSkpZX1puUEhRbWxnRU93eXpSWkxNT3lqNzRiU2RYdTBsUUp6ZDl1ZUNxNGk4MjE0bElfRzV1Z1c2YWlHU21GM0dBbGJ3?oc=5" target="_blank" rel="noopener noreferrer">CSM Technologies Stock Jumps 5% After FY26 Profit Surges 70% - Business Outreach Magazine</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=CSM" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-CSM/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/CSM/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=CSM%20Technologies%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-baikakajipoly" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Bai-Kakaji Poly.</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;251.8</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;12.46%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.92%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;21.18%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Thu, 16 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNQTk2SlJrNFJJNy1mdFRnRUtsNFcyLWR2OTVhNzZsY05odDJxb2Q2NGtSN00tdVE5cDMxYnRHVnhJZ3BpTUZwSFFjcDNBTFp5clZ6T0cxWGdaVjJrcVBWc2VkOW1WOW5Hc1RDOERPeFAxSUUzUkdPQUpRR0tpa0J3RGVWQ0RmVTVzUUZ0cmp3X2N2VExnMkMyS0RZUk14di05WUNtM1hMWEl3SXN2TXA2UlFMT09VQ0lCcnZlU1k3MWRxeUE1?oc=5" target="_blank" rel="noopener noreferrer">Bai-Kakaji Polymers executives meet Green Portfolio - scanx.trade</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Bai-Kakaji%20Poly.%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-rnitaisolution" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">RNIT AI Solution</span><span class="card-sym">—</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;64.4</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 0/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.83%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;4.99%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret</div><div class="metric-val">—</div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-70.80%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;20.15%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div style="font-size:11px;color:var(--text3)">Volume data unavailable — symbol not in yfinance</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          <div style="font-size:11px;color:var(--text3)">Chart data unavailable — add to CORRECTIONS map</div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNNzBadTUwMXdHTWdlTFEyWHp2TXlGa0g3QkFGQUotYklzUFRKcWg5M0doMGRUa1pYYWR3SlBiWVVxWWJudUNNdDk5REVUWUVvOHBKZDZJRlZHMWc2UVBEcmZGT1lFcnRhS3JQSS1HbjFVeUhLcmxWbTJ2RXhZa2pmRFZRdzgxQXJJeGhOdXdoTVU3clV2UkdFT0xfUjlDR0dPRlNBMDhiaTJPcnNSLVd2WGtlZ3BtVDhfRmxVd0JhUFk?oc=5" target="_blank" rel="noopener noreferrer">RNIT AI Solutions net profit rises 54% in Q1FY26 on revenue growth - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">livemint.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiigJBVV95cUxQdGlhb0RUeFN6cG1Ra3F5SU5NZ0pZd3poa3NJVmJzb1lRV0wxU0RTMnhQNnpqNHU0UVRQMHpKTHpDTVNReDIxZjIzVklYSnFMM2t3cFJMQnZtc0lBblpmRzdVVDl2Y1JyLVVtcnlTekRjbWNjRWg3eGdSNGFiQ2x3cE5wak5xdnM0UEI5SjNBdFRzb2tZLWw5RTNiSmhEU3VZWmhqaXpGVFBra1pzcUdSQ1JFaDlhOElJV3FCeV9hVXFhenhfYndUNVVFM2dNRnowS1pYZnlESTNpdm55YmdYUTQ4THVUX0tmZTdUYTktS21CLXhEQ3V0LXpkRTdkY1ViYzE3Z3hXbEVuUdIBjwJBVV95cUxQV01vZTdDVFNoRExZMV9aZVJlbU9LaDVvR3hnb1pQLXFMMlY4cUxNUHhlXzF1b19sa2poODlHWVk4UzFEZlREd0FQNV9UY19wZjdwSDZoYUdoOHJXSU5ibk5ZZ2oySlpqMjZjYU1vVnhCVTVSckdPNl9XUWZDejI5UTNvam1Hb0dWR3RKNENZODh5djVzRElzUTFMVTRVQ2YxeE4zM1Jlek5aMmRUSkxrNHBnMXduUERlRzd3QXp2YUgycURteWhDMTViS1hQUUkwUkVrRHNEdXFGYlJvSU9vMVZLNU1RckZoYXVlLUhHVWktaGpvVXVnRGVkYlZrVGJFalU1eC00T1RXZWZSZjdR?oc=5" target="_blank" rel="noopener noreferrer">Q1 results 2026: Adani Enterprises to Asian Paints among companies to declare Q1 results today; full list here - livemint.com</a></div></div><div class="news-item"><div><span class="news-date">Tue, 13 Jan 2026</span><span class="news-src">CNBC TV18</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQVlI5SHYwN3NaVjVzTzA3aEx6YnR4bmpWRjY4UE9STkM1TDdPeXkwaGxqWkhEQXY4RkV4Z3ZpQTFTUE5RTjVSNWFMY2g1cERCMF8yX1RzV3dscW00RUFOM1ZCQTJyQmdKWnVYUDVSVXRNblpyZVlBTkVVYXQteXNPVkJMMXdDZFk?oc=5" target="_blank" rel="noopener noreferrer">Rnit AI Solutions Ltd. Share Price Today - Rnit AI Solutions Ltd. Stock Price Live NSE/BSE - CNBC TV18</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxOeHl1cjhsU004dnVlZVhScWNxU3hRd1dFOW8tLXV0Ui0wbjR6dHVvOW9KOWdQU0hUT256Y2haaEVIemNUdWhNSWw3d2RiYkw0N25Fb2JiU2MxQk1EaTJ0clRhVXpjOVZOcnhpRzBncWN5cExKcFpIc0xMeUNtVHFXem1BbTVLRXV2VUlUZlJLWDQ1LVh6YlF4eE52Q2h3eHRXazBMUmIzQnJ6U1lnTmFWTXNGdklRcVJtYTZ3cU43TUVKeUdoaTFDSTBLaw?oc=5" target="_blank" rel="noopener noreferrer">RNIT AI Solutions shifts registered office to Telangana after AGM approval - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Thu, 19 Feb 2026</span><span class="news-src">Moneycontrol.com</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMirAJBVV95cUxOWkQ1eVFNRUhqY29jMlVqX1ZuSDhKVC1QSWtDWVZGYldzMG5xVC1KemtmQ1Rkc2hZZmZ4SWotd01YZjI0c01hU241amVHUGFsQ0hlVHYyTV9rdVZ2NlNSN0lVZWd4NFpvcUxpeVNaNzVleEI4UDc4d1pVY3NaSHZsd2JqUFMtb3lZRVozWThzQlJRczlSTmFnc3RIQ1ViaDdORVdKRThlcks3bFBjV0JsY09XU1pldFZNMU1pNWplM0F2V2lWWTVXclUxNU9XN1ktZEFNalBPZXlaMFU1WUxhZERKajRjdUJEbnB5OHhneWNYeHJndlRBQUFXUnZPQk5VWkFkU3g4TWxSR3B4dTM4NFJoQUxyS191V2FIQkRKU2daUXJLaklhRFVjNWXSAbICQVVfeXFMT3hLTExnOU1xMDl3UUszOXN3X1VIbWNoTHZLX0RDU013UEMyUVF5TTRlUXlUYlQ1Wkx0VTl5Q0J6YnB3eWl2a21uTTRrUFpjMkN1UktkOEZNSWcxZVh3a2JObnlKM24xazRRSGMwLU9hMkFvTmpLa3NlTjZRbkJMbnVCRmRUVHIwMlFSNU01a2tnR1ZuYVBIb2VNT3g1UFV0S0p4SDVrTWd0SlRGemE3TVpQQlNpYnpLT29Vc3hKMHYtd0hYcWpKcFdocnF1d0E5d0hDc3l3cTNySVBGdnJoVEs2eUFneGd5Y3llOGZ4eWxCSTQya1NHQ3pHaS13VHM5NkwwMFR1OGhLLThSRUJfMC1KSXJydm9SNHVqTTRyZGwwZU9ITEo0YzUzbEZtcnZuM0Z3?oc=5" target="_blank" rel="noopener noreferrer">Stocks to Watch Today: Dr Reddys Labs, Zydus Lifesciences, NCC, Pace Digitek, BL Kashyap, Jindal Saw,... - Moneycontrol.com</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=%E2%80%94" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-%E2%80%94/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/%E2%80%94/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=RNIT%20AI%20Solution%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div>
+    <div id="stock-balkrishnainds" class="stock-card">
+      <div class="card-header">
+        <div><span class="card-name">Balkrishna Inds</span><span class="card-sym">BALKRISHNA.NS</span></div>
+        <div style="text-align:right">
+          <div class="card-price">&#8377;2,473.5</div>
+          <div style="font-size:10px;color:var(--red);font-family:var(--mono)">Upside: 27/100</div>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-lbl">Freq</div><div class="metric-val" style="color:var(--amber)">2d</div></div>
+        <div class="metric"><div class="metric-lbl">Avg 1d ret</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;9.02%</span></div></div>
+        <div class="metric"><div class="metric-lbl">Week chg</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;7.22%</span></div></div>
+        <div class="metric"><div class="metric-lbl">1mo ret~yf</div><div class="metric-val"><span style="color:var(--red);font-weight:600">▼&nbsp;-7.26%</span></div></div>
+        <div class="metric"><div class="metric-lbl">QoQ profit</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;50.53%</span></div></div>
+        <div class="metric"><div class="metric-lbl">ROCE%</div><div class="metric-val"><span style="color:var(--green);font-weight:600">▲&nbsp;11.18%</span></div></div>
+      </div>
+      <div class="vol-section">
+        <div class="vol-title">Volume Analysis — Week vs Month vs 3-Month</div>
+        <div class="vol-summary">
+      <div class="vol-kpi"><div class="vol-kpi-val">26K</div><div class="vol-kpi-lbl">Vol 5d avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">13K</div><div class="vol-kpi-lbl">Vol 1mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val">17K</div><div class="vol-kpi-lbl">Vol 3mo avg</div></div>
+      <div class="vol-kpi"><div class="vol-kpi-val" style="color:var(--green)">2.01x</div><div class="vol-kpi-lbl">Wk/Mo ratio</div></div>
+    </div><div class="vol-bars"><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-20: 5K"></div><div class="vol-bar-lbl">07-20</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--blue)" title="2026-07-21: 8K"></div><div class="vol-bar-lbl">07-21</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-22: 6K"></div><div class="vol-bar-lbl">07-22</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:14px;background:var(--green)" title="2026-07-23: 27K"></div><div class="vol-bar-lbl">07-23</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:3px;background:var(--blue)" title="2026-07-24: 7K"></div><div class="vol-bar-lbl">07-24</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:6px;background:var(--amber)" title="2026-07-27: 12K"></div><div class="vol-bar-lbl">07-27</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:4px;background:var(--amber)" title="2026-07-28: 9K"></div><div class="vol-bar-lbl">07-28</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:5px;background:var(--amber)" title="2026-07-29: 11K"></div><div class="vol-bar-lbl">07-29</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:40px;background:var(--green)" title="2026-07-30: 73K"></div><div class="vol-bar-lbl">07-30</div></div><div class="vol-bar-wrap"><div class="vol-bar" style="height:14px;background:var(--green)" title="2026-07-31: 27K"></div><div class="vol-bar-lbl">07-31</div></div></div><div style="font-size:9px;color:var(--text3);margin-top:4px">Orange=this week · Green=above 1mo avg</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="col-title">Chart Analysis</div>
+          
+    <div class="ta-grid">
+      <div class="ta-cell"><div class="ta-lbl">RSI(14)</div><div class="ta-val" style="color:var(--green)">38.14</div></div>
+      <div class="ta-cell"><div class="ta-lbl">MACD</div><div class="ta-val" style="color:var(--red)">-0.24</div></div>
+      <div class="ta-cell"><div class="ta-lbl">Vol ratio</div><div class="ta-val" style="color:var(--green)">2.01x</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA20/50</div><div class="ta-val">17.84/18.14</div></div>
+      <div class="ta-cell"><div class="ta-lbl">EMA200</div><div class="ta-val">—</div></div>
+      <div class="ta-cell"><div class="ta-lbl">From 52w hi</div><div class="ta-val" style="color:var(--text)">-11.7%</div></div>
+    </div>
+    <div class="verdict-box warn">
+      <div class="verdict-title">27/100 — BEARISH</div>
+      <div class="verdict-sig"><div>✓ RSI healthy (38.14) — room to run</div><div>✓ Volume 2x+ (2.01x) — institutional activity</div></div>
+    </div>
+        </div>
+        <div class="col">
+          <div class="col-title">News</div>
+          <div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">Yahoo Finance</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU0d6eUNxZzVtWnFhd0JjWTdoM2dkZFdVTTd1dlF4Q2xuRnVyMkFkay1JMVZZVEFlYlBfMHQ0NmtpZXhBb010NG1SLXB4Z0lzc2NJN2lRU0FfTDVqNkhCdnZvTjJhc1M0TmRMcDBPYm9QS01mQVE3UDBxVm1MMkxma3A2VWxhRjlTTmNfZUNYUERtMUVqM1dSeFd2VUVLdkJxZElTVnpTQ3E?oc=5" target="_blank" rel="noopener noreferrer">Earnings To Watch: Balkrishna Industries Ltd (NSE:BALKRISIND) Q1 2027 -- GF Value Sees 74% Upside - Yahoo Finance</a></div></div><div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxQUko1MUxMQkN3blZZbXdHUnh1ZFB0MHNBMVEwVE9waVRpNmZiQXN2OHJwOHJnUWhyRmR4T0tQRzZxTTVqQ2hWMjh1QVJUZVlUMkpOaTZ6VVUxdmthU05BQi1pNk1ySWdwcl9HdmNYRFVCOWhONUx0Zk1jQXdtc3R3OXBzbGxxeUNFM0ExOG9BQUJwQmpCNXpzQ0lROTc2Z3R3V0dwQVNnbTlfRl9sZWJGUWliZ1JkN2h3MnpSMk9WR3ptdHAxNlM5b1p3?oc=5" target="_blank" rel="noopener noreferrer">Balkrishna Industries posts Q1 FY27 earnings call recording online - scanx.trade</a></div></div><div class="news-item"><div><span class="news-date">Thu, 30 Jul 2026</span><span class="news-src">Business Standard</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQUXZSZG1FWVhBbWJoSGhlV05kN1ZHb3Y4SzYwQ3NhMmt3VTk1cVFvMzlOaDNrZExfMWxDcV9HVW5ORTQ5cjNHU1NfN3R5ZEJKOWMxMDVwaE9SVlduR3ZQWXp5cEk5M2QwcmdHUkhycFdud2hFR2FvSGhOTTRiR3djQmg2SlF2MzdJSkhRQUE3RnN4c184Vm52MXZCQ3Y5Y2ZNZ2Y3cnoxWFhHVzJabkxiMmthMlVKMlFJYk1vdEQzODRtT2p3amdKWDlSbndnU1I4eFHSAdcBQVVfeXFMUEhBLW53TXExZGxETlA2bS1zc29oenRGdkJmYnZXX0llX2ZENzVCb2txWkJBNFFYUUo0RUZTNDdaOXZKTmZPVXpDMjdYbG1LTWZ2MEpOczJ6ZUVjT0JHUjllcTNTay1IR0NiUDdCLTBhYWJ2eHMycTdQQzM1Wmg3aUJUbVRxNm8tdUFKQWRjczBmREhjcHp0SXNINi15VW9YZzE5Ry1DVFcyMWV5N2JNaGh3Q2RTZkx1SjRUV09wc0NFb0hVX2lHN3lJQ3YtdXkwR3U5bEVtQjQ?oc=5" target="_blank" rel="noopener noreferrer">Balkrishna Industries soars 10% amid huge volume on healthy Q1 results - Business Standard</a></div></div><div class="news-item"><div><span class="news-date">Tue, 14 Jul 2026</span><span class="news-src">simplywall.st</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMi6AFBVV95cUxNWGZHV2tDWmFFaGg3c0dPaWhJRkd1OTFIa3paTWRSRTR2NHMzdE1TWEhWTEsxOVo2ZTQ3Z2ZCbldyYmhVNjNDSUhJbm9zbU9Rc0g0SWhjT0Y1RldjX0hjOVBUb0pKajRFSFJnSjkwY2JsMzIzV25KSndodllzU1VOaDZ0aWVwRm8tSmhPZ1VybTYxTFQzdU1IU0hicWUtY3lweTc4clFJSlp5RDJMamcwQmY3VWhNbmdJbG1HWGxjZFBNOUR0S1VVdkNyM0xYQTNDMGIwbGQzLXV0VHcxU1BWT21TN0swN21F0gHuAUFVX3lxTE4tQ18ySEdQamttdVM4ZVBSYXRHNzJ2TlZqRmw1S0Zzc3pEaDlaMnhLNUt1Q2V1dExOVlVORC1vZ2J0b0llVnBmN2VILWk3cmdoN2ZuNUwzdHNTYXN4MnZSbjdOaS1HYzF3cWg4WVJ3ZXYtQ2FUSXktQVVGdUlMWlczWU96RGNwQjEyYnhRSUVURHZIYXowLVNMeDFBenpRZGFrRF9RMkFwYTIzSkJpeWxhMlpZc3h6SVotMHRoUlYwdHlSUm1TZVZYakk1dTVpQ2J3LXFDUUxwS0QyUjJ1N0xOWGk3NWZYNFg1X3VHcnc?oc=5" target="_blank" rel="noopener noreferrer">We Think That There Are More Issues For Balkrishna Industries (NSE:BALKRISIND) Than Just Sluggish Earnings - simplywall.st</a></div></div><div class="news-item"><div><span class="news-date">Wed, 29 Jul 2026</span><span class="news-src">scanx.trade</span></div><div class="news-title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPUlZhal9jVEtFR3RLQTdrVWhWVk91ZTJWd01xOXZJMi12R2lOYXVqZ05FYVB3RDVONXdfU2M1NEZGSFpHT1Vqd2M3aUlzaGJzbGpqWTkzREM1Z3NLZ1lHbThBY19jMHJnZmJUdXZ6SWZsZHJYNGY1M2dBeEZ6ZzdJNHE2NFQydmFBODBmRDN2aWpMczlyY3lUYWlrd2tfSllZT1FGbHM4UkJwcUpMUlAyRUVjUU5CMzhyTTFfTGhvdGlCTnBnZ3c?oc=5" target="_blank" rel="noopener noreferrer">Balkrishna Industries Q1 Results: Net profit surges 56% YoY to ₹451 crore - scanx.trade</a></div></div>
+          <div class="col-title" style="margin-top:12px">Verify & Research</div><div class="research-links"><a class="research-link" href="https://www.nseindia.com/get-quotes/equity?symbol=BALKRISHNA" target="_blank" rel="noopener noreferrer">NSE quote & filings</a><a class="research-link" href="https://www.tradingview.com/symbols/NSE-BALKRISHNA/technicals/" target="_blank" rel="noopener noreferrer">TradingView technicals</a><a class="research-link" href="https://www.screener.in/company/BALKRISHNA/consolidated/" target="_blank" rel="noopener noreferrer">Screener fundamentals</a><a class="research-link" href="https://news.google.com/search?q=Balkrishna%20Inds%20stock%20NSE%20India" target="_blank" rel="noopener noreferrer">Google News</a></div>
+          <div class="col-title" style="margin-top:12px">Reddit</div>
+          <div style="font-size:11px;color:var(--text3)">No Reddit mentions</div>
+        </div>
+      </div>
+    </div></div></div>
+
+<div class="page-foot">Weekly Analysis v5 &middot; 2026-07-31 14:45 UTC &middot; Screener.in</div>
+</body></html>
