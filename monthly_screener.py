@@ -187,29 +187,29 @@ def extract_headers(table):
 
     if not row:
         raise RuntimeError("No header row found")
-
+    
     all_headers = [
         th.get_text(" ", strip=True)
         for th in row.find_all("th")
     ]
-
+    
+    print("RAW HEADER COUNT:", len(all_headers))
+    print("RAW HEADERS:", all_headers)
+    
     if not all_headers:
         raise RuntimeError("No headers found")
-
-    # "S.No." starts each repeated header block.
-    # Keep everything before the second occurrence.
+    
     try:
         first_sno = all_headers.index("S.No.")
         second_sno = all_headers.index("S.No.", first_sno + 1)
-
+    
         headers = all_headers[first_sno:second_sno]
-
+    
     except ValueError:
-        # No repeated S.No. found — use the headers as-is.
-        headers = all_headers
-
-    print(f"  Columns ({len(headers)}): {headers}")
-
+        headers = all_headers[first_sno:]
+    
+    print("FINAL HEADER COUNT:", len(headers))
+    print("FINAL HEADERS:", headers)
     return headers
 
 
