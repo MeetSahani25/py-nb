@@ -1,0 +1,67 @@
+name: Monthly Screener Report
+
+on:
+  schedule:
+    - cron: "30 12 28-31 * *"   # Check month-end at 6:00 PM IST
+  workflow_dispatch:
+
+jobs:
+  monthly_screener:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Check whether today is month-end
+        id: month_end
+        run: |
+          TODAY=$(date +'%Y-%m-%d')
+          TOMORROW=$(date -d "tomorrow" +'%Y-%m-%d')
+
+          TODAY_MONTH=$(date -d "$TODAY" +'%Y-%m')
+          TOMORROW_MONTH=$(date -d "$TOMORROW" +'%Y-%m')
+
+          echo "Today: $TODAY"
+          echo "Tomorrow: $TOMORROW"
+
+          if [ "$TODAY_MONTH" != "$TOMORROW_MONTH" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "✅ Today is the last day of the month"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️ Not month-end — skipping"
+          fi
+
+      - name: Run monthly screener
+        if: steps.month_end.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          python monthly_screener.py
+        env:
+          SCREENER_EMAIL: ${{ secrets.SCREENER_EMAIL }}
+          SCREENER_PASSWORD: ${{ secrets.SCREENER_PASSWORD }}
+
+      - name: Commit and push
+        if: steps.month_end.outputs.run == 'true' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add reports/monthly_screener/
+
+          git diff --cached --quiet || \
+            git commit -m "📊 Monthly screener $(date +'%Y-%m')"
+
+          git push
