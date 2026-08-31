@@ -1,0 +1,1583 @@
+{
+  "date": "2026-08-31",
+  "window_weeks": 4,
+  "gold": [
+    [
+      "PVP Ventures",
+      {
+        "score": 80,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 106.64,
+        "price_label": "strong uptrend",
+        "n_weeks": 5,
+        "total_freq": 9,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W35": 3,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Baazar Style",
+      {
+        "score": 79,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 38.43,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 8,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 3,
+          "2026-W34": 3
+        }
+      }
+    ],
+    [
+      "Cyient",
+      {
+        "score": 76,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 33.55,
+        "price_label": "strong uptrend",
+        "n_weeks": 4,
+        "total_freq": 6,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W35": 3,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Marine Electric.",
+      {
+        "score": 62,
+        "pattern": "blowout",
+        "pattern_desc": "Single-week blowout (4 days) — explosive entry",
+        "price_pct": 41.37,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 6,
+        "max_week_freq": 4,
+        "week_freq_map": {
+          "2026-W32": 4,
+          "2026-W33": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Bodal Chemicals",
+      {
+        "score": 62,
+        "pattern": "blowout",
+        "pattern_desc": "Single-week blowout (4 days) — explosive entry",
+        "price_pct": 57.83,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 6,
+        "max_week_freq": 4,
+        "week_freq_map": {
+          "2026-W34": 1,
+          "2026-W35": 4,
+          "2026-W36": 1
+        }
+      }
+    ]
+  ],
+  "silver": [
+    [
+      "Morepen Labs.",
+      {
+        "score": 75,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 39.45,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "M M Forgings",
+      {
+        "score": 72,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 12.7,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Airfloa Rail",
+      {
+        "score": 71,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 35.49,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Shree Refrigerat",
+      {
+        "score": 69,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 23.86,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 3
+        }
+      }
+    ],
+    [
+      "Parag Milk Foods",
+      {
+        "score": 66,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 12.84,
+        "price_label": "holding gains",
+        "n_weeks": 4,
+        "total_freq": 4,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Happy Forgings",
+      {
+        "score": 66,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 32.75,
+        "price_label": "strong uptrend",
+        "n_weeks": 4,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2,
+          "2026-W34": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Balu Forge",
+      {
+        "score": 65,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 29.4,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Entero Healthcar",
+      {
+        "score": 63,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 33.34,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 5,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W35": 3
+        }
+      }
+    ],
+    [
+      "Man Industries",
+      {
+        "score": 63,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 28.2,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Ram Ratna Wires",
+      {
+        "score": 61,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 21.93,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Uttam Sug.Mills",
+      {
+        "score": 60,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 32.83,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W34": 3
+        }
+      }
+    ],
+    [
+      "Ugar Sugar Works",
+      {
+        "score": 60,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 24.66,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Bliss GVS Pharma",
+      {
+        "score": 59,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 19.99,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Diffusion Eng",
+      {
+        "score": 58,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 19.55,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 3,
+          "2026-W33": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Kronox Lab",
+      {
+        "score": 56,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 32.97,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Aeroflex",
+      {
+        "score": 54,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 15.64,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Birla Cable",
+      {
+        "score": 53,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 16.09,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W33": 3,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Modison",
+      {
+        "score": 53,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 40.57,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 5,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Shukra Pharma.",
+      {
+        "score": 52,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 20.34,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W32": 3,
+          "2026-W33": 1
+        }
+      }
+    ],
+    [
+      "Prec. Wires (I)",
+      {
+        "score": 49,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 23.89,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Quality Power El",
+      {
+        "score": 49,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 21.26,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "MSTC",
+      {
+        "score": 49,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 17.2,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Genesys Intl.",
+      {
+        "score": 46,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": -22.22,
+        "price_label": "fading",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Atlanta Electric",
+      {
+        "score": 46,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 10.24,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Rishabh Instrum.",
+      {
+        "score": 41,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": 4.12,
+        "price_label": "flat hold",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "M.V.K. Agro",
+      {
+        "score": 34,
+        "pattern": "consistent",
+        "pattern_desc": "Consistent multi-week presence",
+        "price_pct": -23.49,
+        "price_label": "fading",
+        "n_weeks": 3,
+        "total_freq": 4,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W35": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Onix Solar",
+      {
+        "score": 34,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 14.95,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W35": 3,
+          "2026-W36": 1
+        }
+      }
+    ]
+  ],
+  "watch": [
+    [
+      "GRM Overseas",
+      {
+        "score": 46,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": -4.89,
+        "price_label": "slight fade",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Ratnaveer Precis",
+      {
+        "score": 58,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 18.99,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Apar Inds.",
+      {
+        "score": 65,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 11.54,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Hindustan Copper",
+      {
+        "score": 50,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 4.17,
+        "price_label": "flat hold",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Jayaswal Neco",
+      {
+        "score": 60,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 13.57,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Khaitan Chemical",
+      {
+        "score": 70,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 7.73,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "J.G.Chemicals",
+      {
+        "score": 68,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 18.8,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Fineotex Chem",
+      {
+        "score": 63,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 18.85,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Kiri Industries",
+      {
+        "score": 58,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 21.61,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "GNG Electronics",
+      {
+        "score": 50,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 14.3,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Kopran",
+      {
+        "score": 58,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 20.25,
+        "price_label": "strong uptrend",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W35": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "AVT Natural Prod",
+      {
+        "score": 65,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 13.3,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Finkurve Fin.",
+      {
+        "score": 55,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 9.47,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Jaykay Enter.",
+      {
+        "score": 50,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 8.39,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 1,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "GYFTR",
+      {
+        "score": 50,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 9.77,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W34": 1,
+          "2026-W35": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Vintage Coffee",
+      {
+        "score": 50,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 14.99,
+        "price_label": "holding gains",
+        "n_weeks": 3,
+        "total_freq": 3,
+        "max_week_freq": 1,
+        "week_freq_map": {
+          "2026-W34": 1,
+          "2026-W35": 1,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Steelcast",
+      {
+        "score": 36,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 8.67,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1
+        }
+      }
+    ],
+    [
+      "Alivus Life",
+      {
+        "score": 35,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 15.75,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "RNIT AI Solution",
+      {
+        "score": 35,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 25.67,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "NRB Bearings",
+      {
+        "score": 32,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 11.58,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Sanghvi Movers",
+      {
+        "score": 34,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 16.89,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1
+        }
+      }
+    ],
+    [
+      "KRBL",
+      {
+        "score": 66,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 19.72,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "PNGS Reva Diamo.",
+      {
+        "score": 56,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 21.49,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2
+        }
+      }
+    ],
+    [
+      "Aeroflex Enter.",
+      {
+        "score": 63,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 5.58,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Regaal Resources",
+      {
+        "score": 48,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 10.6,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Unimech Aero.",
+      {
+        "score": 36,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 14.13,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1
+        }
+      }
+    ],
+    [
+      "Avadh Sugar",
+      {
+        "score": 51,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 32.46,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Dhampur Sugar",
+      {
+        "score": 51,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 25.35,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Dhampur Bio",
+      {
+        "score": 51,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 25.39,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "V-Marc India",
+      {
+        "score": 49,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 24.57,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 2,
+          "2026-W33": 1
+        }
+      }
+    ],
+    [
+      "Sudeep Pharma",
+      {
+        "score": 46,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 15.58,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2
+        }
+      }
+    ],
+    [
+      "Sudarshan Pharma",
+      {
+        "score": 43,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 6.09,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2
+        }
+      }
+    ],
+    [
+      "GK Energy",
+      {
+        "score": 48,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 2.04,
+        "price_label": "flat hold",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Avalon Tech",
+      {
+        "score": 48,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 11.8,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Asian Energy",
+      {
+        "score": 48,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 13.34,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Akums Drugs",
+      {
+        "score": 53,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 9.1,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2
+        }
+      }
+    ],
+    [
+      "Electronics Mart",
+      {
+        "score": 61,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 16.75,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W32": 1,
+          "2026-W33": 2
+        }
+      }
+    ],
+    [
+      "Multi Comm. Exc.",
+      {
+        "score": 31,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 13.29,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Blue Cloud Soft.",
+      {
+        "score": 36,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 1.92,
+        "price_label": "flat hold",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "NELCO",
+      {
+        "score": 46,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 7.33,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Susan Electrical",
+      {
+        "score": 34,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 20.41,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "KRN Heat Exchan",
+      {
+        "score": 44,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 19.57,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Windlas Biotech",
+      {
+        "score": 31,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 2.32,
+        "price_label": "flat hold",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 2,
+          "2026-W34": 1
+        }
+      }
+    ],
+    [
+      "Standard Engineering Technology",
+      {
+        "score": 58,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 11.13,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Syncom Formul.",
+      {
+        "score": 56,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 22.54,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Shanti Gold",
+      {
+        "score": 43,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 8.85,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W34": 2
+        }
+      }
+    ],
+    [
+      "Alembic",
+      {
+        "score": 51,
+        "pattern": "escalating+return",
+        "pattern_desc": "Gap then return with escalating intensity — VCP signal 🔥",
+        "price_pct": 18.33,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W33": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "FlySBS Aviation",
+      {
+        "score": 46,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 12.38,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Balrampur Chini",
+      {
+        "score": 32,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 5.76,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Kilburn Engg.",
+      {
+        "score": 34,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 16.06,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Manali Petrochem",
+      {
+        "score": 50,
+        "pattern": "intermittent",
+        "pattern_desc": "Intermittent — early radar",
+        "price_pct": 15.04,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W36": 1
+        }
+      }
+    ],
+    [
+      "Marsons",
+      {
+        "score": 34,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 22.88,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "20 Microns",
+      {
+        "score": 48,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 9.64,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 1,
+          "2026-W35": 2
+        }
+      }
+    ],
+    [
+      "Amanta Healthcar",
+      {
+        "score": 31,
+        "pattern": "flat",
+        "pattern_desc": "Flat frequency — no escalation yet",
+        "price_pct": 10.0,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 2,
+          "2026-W35": 1
+        }
+      }
+    ],
+    [
+      "Welspun Corp",
+      {
+        "score": 53,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 4.31,
+        "price_label": "flat hold",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W34": 1,
+          "2026-W35": 2
+        }
+      }
+    ]
+  ],
+  "stage1_bases": [
+    {
+      "name": "PVP Ventures",
+      "n_weeks": 6,
+      "total_freq": 10,
+      "avg_per_week": 1.7,
+      "max_gap": 2,
+      "price_pct": 132.21,
+      "latest_cmp": 68.48,
+      "latest_qoqp": 446.71,
+      "latest_roce": 6.37
+    },
+    {
+      "name": "Vintage Coffee",
+      "n_weeks": 5,
+      "total_freq": 5,
+      "avg_per_week": 1.0,
+      "max_gap": 2,
+      "price_pct": 15.27,
+      "latest_cmp": 185.77,
+      "latest_qoqp": -1.05,
+      "latest_roce": 18.18
+    },
+    {
+      "name": "Fineotex Chem",
+      "n_weeks": 5,
+      "total_freq": 5,
+      "avg_per_week": 1.0,
+      "max_gap": 1,
+      "price_pct": 27.43,
+      "latest_cmp": 49.62,
+      "latest_qoqp": 10.07,
+      "latest_roce": 18.3
+    },
+    {
+      "name": "Kirl. Electric",
+      "n_weeks": 5,
+      "total_freq": 6,
+      "avg_per_week": 1.2,
+      "max_gap": 0,
+      "price_pct": 23.59,
+      "latest_cmp": 150.17,
+      "latest_qoqp": -115.37,
+      "latest_roce": 14.59
+    }
+  ]
+}
