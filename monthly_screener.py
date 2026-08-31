@@ -178,40 +178,48 @@ def fetch_page(session, url, page):
 def extract_headers(table):
     thead = table.find("thead")
 
-    if not thead:
-        raise RuntimeError("No table header found")
+    if thead:
+        row = thead.find("tr")
 
-    # Screener may repeat the complete header set multiple times
-    # inside the same <tr>. We only want the first header block.
-    row = thead.find("tr")
+        if not row:
+            raise RuntimeError("No header row found")
 
-    if not row:
-        raise RuntimeError("No header row found")
-    
-    all_headers = [
-        th.get_text(" ", strip=True)
-        for th in row.find_all("th")
-    ]
-    
-    print("RAW HEADER COUNT:", len(all_headers))
-    print("RAW HEADERS:", all_headers)
-    
+        all_headers = [
+            th.get_text(" ", strip=True)
+            for th in row.find_all("th")
+        ]
+    else:
+        # Some Screener result pages don't expose a <thead>.
+        # Fall back to the first row containing <th> elements.
+        first_header_row = table.find("tr")
+
+        if not first_header_row:
+            raise RuntimeError("No table header row found")
+
+        all_headers = [
+            th.get_text(" ", strip=True)
+            for th in first_header_row.find_all("th")
+        ]
+
     if not all_headers:
         raise RuntimeError("No headers found")
-    
-    try:
-        first_sno = all_headers.index("S.No.")
-        second_sno = all_headers.index("S.No.", first_sno + 1)
-    
-        headers = all_headers[first_sno:second_sno]
-    
-    except ValueError:
-        headers = all_headers[first_sno:]
-    
-    print("FINAL HEADER COUNT:", len(headers))
-    print("FINAL HEADERS:", headers)
-    return headers
 
+    # Screener can repeat the complete header block.
+    # Keep only the first block.
+    if "S.No." in all_headers:
+        first_sno = all_headers.index("S.No.")
+
+        try:
+            second_sno = all_headers.index("S.No.", first_sno + 1)
+            headers = all_headers[first_sno:second_sno]
+        except ValueError:
+            headers = all_headers[first_sno:]
+    else:
+        headers = all_headers
+
+    print(f"  Columns ({len(headers)}): {headers}")
+
+    return headers
 
 def extract_rows(table, headers):
     rows = []
