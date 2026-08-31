@@ -95,13 +95,45 @@ def parse_table(html):
         table = soup.find("table")
     if not table:
         raise ValueError("No data table found in page")
-
-    # Headers from first thead row only
+    # Screener may repeat the complete header block multiple times.
+    # Keep only the first header block.
     thead = table.find("thead")
+
     if thead:
-        headers = [th.get_text(strip=True) for th in thead.find("tr").find_all("th")]
+        row = thead.find("tr")
+        if not row:
+            raise RuntimeError("No header row found")
+
+        all_headers = [
+            th.get_text(" ", strip=True)
+            for th in row.find_all("th")
+        ]
     else:
-        headers = [th.get_text(strip=True) for th in table.find_all("th")]
+        # Some Screener responses don't expose <thead>.
+        # Fall back to the first row containing <th>.
+        row = table.find("tr")
+        if not row:
+            raise RuntimeError("No table header row found")
+
+        all_headers = [
+            th.get_text(" ", strip=True)
+            for th in row.find_all("th")
+        ]
+
+    if not all_headers:
+        raise RuntimeError("No headers found")
+
+    # "S.No." starts each repeated header block.
+    if "S.No." in all_headers:
+        first_sno = all_headers.index("S.No.")
+
+        try:
+            second_sno = all_headers.index("S.No.", first_sno + 1)
+            headers = all_headers[first_sno:second_sno]
+        except ValueError:
+            headers = all_headers[first_sno:]
+    else:
+        headers = all_headers
 
     print(f"  Columns ({len(headers)}): {headers}")
 
