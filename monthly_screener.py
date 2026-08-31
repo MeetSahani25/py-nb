@@ -179,25 +179,36 @@ def extract_headers(table):
     thead = table.find("thead")
 
     if not thead:
-        return [
-            th.get_text(" ", strip=True)
-            for th in table.find_all("th")
-        ]
+        raise RuntimeError("No table header found")
 
-    # Screener can repeat the header block in the same <tr>.
+    # Screener may repeat the complete header set multiple times
+    # inside the same <tr>. We only want the first header block.
+    row = thead.find("tr")
+
+    if not row:
+        raise RuntimeError("No header row found")
+
     all_headers = [
         th.get_text(" ", strip=True)
-        for th in thead.find_all("th")
+        for th in row.find_all("th")
     ]
 
-    headers = []
+    if not all_headers:
+        raise RuntimeError("No headers found")
 
-    for header in all_headers:
-        if header in headers:
-            # We have reached the repeated header block.
-            break
+    # "S.No." starts each repeated header block.
+    # Keep everything before the second occurrence.
+    try:
+        first_sno = all_headers.index("S.No.")
+        second_sno = all_headers.index("S.No.", first_sno + 1)
 
-        headers.append(header)
+        headers = all_headers[first_sno:second_sno]
+
+    except ValueError:
+        # No repeated S.No. found — use the headers as-is.
+        headers = all_headers
+
+    print(f"  Columns ({len(headers)}): {headers}")
 
     return headers
 
