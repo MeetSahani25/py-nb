@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silent Horse Monthly (4-Week) — 2026-09-04</title>
+<style>
+/* ── Bloomberg-inspired dark theme ─────────────────────────── */
+:root {
+  --bg:        #0d0f14;
+  --bg2:       #131620;
+  --bg3:       #1a1d2e;
+  --bg4:       #1e2235;
+  --border:    #252840;
+  --border2:   #2e3250;
+  --text:      #e2e4f0;
+  --text2:     #9198b8;
+  --text3:     #545c7a;
+  --amber:     #f0a500;
+  --amber-dim: #3d2900;
+  --green:     #00c875;
+  --green-dim: #002e1a;
+  --red:       #ff4560;
+  --red-dim:   #3d0010;
+  --blue:      #4a9eff;
+  --blue-dim:  #0a1f3d;
+  --mono:      'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+/* Header */
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+/* Stat strip */
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+/* Sections */
+.sec{border-bottom:1px solid var(--border)}
+.sec-head{padding:7px 24px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--amber)}
+.sec-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+/* Tables */
+table{width:100%;border-collapse:collapse}
+thead th{background:var(--bg3);color:var(--text3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:right;border-bottom:1px solid var(--border2);white-space:nowrap}
+thead th:first-child{text-align:left}
+tbody td{padding:7px 14px;border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+tbody td:first-child{text-align:left;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-weight:500}
+tbody tr:hover td{background:var(--bg4)}
+/* Pct colors */
+.up{color:var(--green);font-weight:600}
+.dn{color:var(--red);font-weight:600}
+.neu{color:var(--text2)}
+/* Stock card */
+.stock-card{border:1px solid var(--border);border-left:3px solid var(--amber);margin:12px 24px;border-radius:6px;overflow:hidden}
+.card-header{background:var(--bg3);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text)}
+.card-sym{font-size:10px;color:var(--text3);font-family:var(--mono);margin-left:8px}
+.card-price{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--amber)}
+.card-score-line{font-size:10px;color:var(--text2);margin-top:2px;text-align:right;font-family:var(--mono)}
+/* Metrics row */
+.metrics{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.metric{padding:8px 12px;border-right:1px solid var(--border)}
+.metric:last-child{border-right:none}
+.metric-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.metric-val{font-family:var(--mono);font-size:13px;font-weight:600}
+/* 3-col body */
+.card-body{display:grid;grid-template-columns:1fr 1fr 1fr}
+.col{padding:12px 14px;border-right:1px solid var(--border)}
+.col:last-child{border-right:none}
+.col-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--amber);margin-bottom:7px}
+/* TA grid */
+.ta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.ta-cell{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 7px}
+.ta-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px}
+.ta-val{font-family:var(--mono);font-size:12px;font-weight:600;margin-top:1px}
+/* Verdict box */
+.verdict-box{border-left:2px solid;padding:7px 10px;border-radius:3px;margin-top:6px}
+.verdict-box.strong{background:var(--green-dim);border-color:var(--green)}
+.verdict-box.moderate{background:var(--amber-dim);border-color:var(--amber)}
+.verdict-box.weak{background:var(--bg4);border-color:var(--border2)}
+.verdict-box.bearish{background:var(--red-dim);border-color:var(--red)}
+.verdict-title{font-size:11px;font-weight:600;margin-bottom:4px}
+.verdict-box.strong .verdict-title{color:var(--green)}
+.verdict-box.moderate .verdict-title{color:var(--amber)}
+.verdict-box.weak .verdict-title{color:var(--text2)}
+.verdict-box.bearish .verdict-title{color:var(--red)}
+.verdict-sig{font-size:10px;color:var(--text2);line-height:1.6}
+/* News */
+.news-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:9px;color:var(--text3);font-family:var(--mono)}
+.news-title{font-size:11px;color:var(--text2);line-height:1.4;margin-top:1px}
+/* Twits */
+.twit-summary{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:5px 10px;margin-bottom:6px;font-family:var(--mono);font-size:11px}
+.twit-item{font-size:10px;padding:3px 0;border-bottom:1px solid var(--border);color:var(--text2);line-height:1.4}
+/* Badges */
+.badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:600;letter-spacing:.4px}
+.badge-gold{background:var(--amber-dim);color:var(--amber)}
+.badge-silver{background:var(--blue-dim);color:var(--blue)}
+.badge-watch{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}
+.badge-fresh{background:var(--blue-dim);color:var(--blue)}
+.badge-recover{background:var(--green-dim);color:var(--green)}
+.badge-stage2{background:var(--green-dim);color:var(--green)}
+.badge-extended{background:var(--amber-dim);color:var(--amber)}
+.badge-danger{background:var(--red-dim);color:var(--red)}
+/* OBV warning */
+.obv-warn{background:var(--red-dim);border-left:3px solid var(--red);padding:8px 14px;font-size:11px;color:var(--red);font-weight:600}
+/* Vol bar chart */
+.vol-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:8px}
+.vol-kpi{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:6px 8px;text-align:center}
+.vol-kpi-val{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text)}
+.vol-kpi-lbl{font-size:9px;color:var(--text3);margin-top:2px;text-transform:uppercase}
+.vol-bars{display:flex;align-items:flex-end;gap:3px;height:44px;margin:4px 0}
+.vol-bar-wrap{display:flex;flex-direction:column;align-items:center;flex:1;gap:2px}
+.vol-bar{width:100%;border-radius:2px 2px 0 0;min-height:2px}
+.vol-bar.week{background:var(--amber)}
+.vol-bar.prior{background:var(--blue-dim);border:1px solid var(--blue)}
+.vol-bar-lbl{font-size:8px;color:var(--text3);font-family:var(--mono)}
+/* Week pattern boxes */
+.week-pattern{display:flex;gap:5px;margin:5px 0}
+.wk-box{width:24px;height:24px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:600}
+.wk-box.hit3{background:var(--amber);color:#000}
+.wk-box.hit2{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber)}
+.wk-box.hit1{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue)}
+.wk-box.miss{background:var(--bg4);color:var(--text3);border:1px solid var(--border)}
+/* Score breakdown */
+.score-list{font-size:10px;color:var(--text3);font-family:var(--mono);line-height:1.7}
+/* Stage 1 table */
+.stage1-note{padding:16px 24px;font-size:12px;color:var(--text3);background:var(--bg2);text-align:center}
+/* Footer */
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+/* Legend strip */
+.legend{display:flex;gap:16px;padding:8px 24px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:10px;color:var(--text3);flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px}
+</style></style></head><body>
+<div class="wrap">
+  <div class="top">
+    <h1>🐎 Silent Horse — Monthly (4-Week)</h1>
+    <p>Rolling 4-week window · last 4 weeks ending 2026-09-04 · Stage 1 vs Stage 3 detection active</p>
+  </div>
+  <div class="meta">
+    <span>📅 2026-09-04</span>
+    <span>🥇 Gold: <strong>5</strong></span>
+    <span>🥈 Silver: <strong>37</strong></span>
+    <span>👁 Watch: <strong>42</strong></span>
+    <span>🔍 Stage 1 (8wk): <strong>6</strong></span>
+  </div>
+
+  <div class="sec"><div class="sh"><h2>Stage context legend</h2></div><div class="sb">
+    <div class="stage-key">
+      <span class="sk" style="background:#185FA5">Fresh base</span> <span style="color:var(--color-text-secondary)">Down 25%+ from 52w high, low 3mo return — Stage 1 candidate, best risk/reward</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#3B6D11">Recovering</span> <span style="color:var(--color-text-secondary)">Was down, now bouncing — Stage 1→2 transition, high conviction</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#3B6D11">Stage 2 mid-run</span> <span style="color:var(--color-text-secondary)">Healthy uptrend, not overextended — still good entry</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#854F0B">Stage 2 extended / Near highs</span> <span style="color:var(--color-text-secondary)">Momentum intact but reduced margin of safety — manage position size</span>
+    </div>
+    <div class="stage-key">
+      <span class="sk" style="background:#A32D2D">Extended run / Stage 3 risk</span> <span style="color:var(--color-text-secondary)">Up 50%+ or near 52w high with weakening volume — VERIFY OBV before entering</span>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="sh"><h2>📊 Summary</h2></div><div class="sb"><div class="sg">
+    <div class="sb2"><div class="v">5</div><div class="l">Gold — deep dive</div></div>
+    <div class="sb2"><div class="v">37</div><div class="l">Silver — watchlist</div></div>
+    <div class="sb2"><div class="v">42</div><div class="l">Watch — seeding</div></div>
+    <div class="sb2"><div class="v">1</div><div class="l">Gold with clean OBV</div></div>
+    <div class="sb2"><div class="v">0</div><div class="l">Gold with OBV warning</div></div>
+  </div></div></div>
+
+  <div class="sec"><div class="sh"><h2>🥇 Gold Horses — Full Deep Dive</h2>
+  <p>5 stocks · 3+ weeks · freq &gt;5 · Stage context label + OBV divergence check on every card</p></div>
+  <div class="sb">
+<div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <span style="font-size:15px;font-weight:500">PVP Ventures</span>
+      <span style="font-size:10px;opacity:.5;margin-left:8px">PVPVENTURES.NS</span>
+      <span style="background:#f0c040;color:#2d2000;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin-left:8px">GOLD</span>
+      <span style="background:#888;color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;margin-left:6px">Unknown</span>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">₹68.5</div>
+      <div style="font-size:10px;opacity:.6">80/100 silent horse score</div>
+    </div>
+  </div>
+  
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">5/5</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">8d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div><span style="color:var(--green);font-weight:600">▲&nbsp;97.1%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div><span style="color:var(--green);font-weight:600">▲&nbsp;446.7%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div>—<div style="font-size:8px;color:var(--text3)"></div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">consistent</div></div>
+  </div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
+      <div style="display:flex;gap:8px"><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W32</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W33</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#93b4f7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">2</div><div style="color:var(--text3);margin-top:1px">W34</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W35</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W36</div></div></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">Consistent multi-week presence</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Week spread (5 wks): +25</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Total freq (8d): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Pattern (consistent): +8</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Price action (strong uptrend): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ QoQ profit (447%): +15</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
+      <em style="font-size:11px;color:var(--text3)">Technical data unavailable</em>
+    </div>
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
+      <div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 02 Sep 2026</div><div style="font-size:11px;line-height:1.4">20 Best Stocks Under 50 Rs In India September 2026 For High Returns - Samco</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 01 Sep 2026</div><div style="font-size:11px;line-height:1.4">Price Band Hitters, September 1, 2026 at 3:00 PM IST - HDFC Sky</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Thu, 20 Aug 2026</div><div style="font-size:11px;line-height:1.4">PVP Ventures Share Price Today With Price and Valuation View - Univest</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 03 Jun 2026</div><div style="font-size:11px;line-height:1.4">PVP Ventures Consolidated March 2026 Net Sales at Rs 41.44 crore, up 117.8% Y-o-Y - Moneycontrol.com</div></div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
+      <em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>
+    </div>
+    <div style="padding:11px 13px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
+      <em style="font-size:11px;color:var(--text3)">No StockTwits data</em>
+    </div>
+  </div>
+</div>
+<div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <span style="font-size:15px;font-weight:500">Baazar Style</span>
+      <span style="font-size:10px;opacity:.5;margin-left:8px">BAAZARSTYLE.NS</span>
+      <span style="background:#f0c040;color:#2d2000;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin-left:8px">GOLD</span>
+      <span style="background:#888;color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;margin-left:6px">Unknown</span>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">₹422.8</div>
+      <div style="font-size:10px;opacity:.6">79/100 silent horse score</div>
+    </div>
+  </div>
+  
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">3/5</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">7d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div><span style="color:var(--green);font-weight:600">▲&nbsp;31.8%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div><span style="color:var(--green);font-weight:600">▲&nbsp;108.7%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div>—<div style="font-size:8px;color:var(--text3)"></div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">escalating</div></div>
+  </div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
+      <div style="display:flex;gap:8px"><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W32</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W33</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W34</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W35</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W36</div></div></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">Accelerating appearances — accumulation escalating</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Week spread (3 wks): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Total freq (7d): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Pattern (escalating): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Price action (strong uptrend): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ QoQ profit (109%): +15</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
+      <em style="font-size:11px;color:var(--text3)">Technical data unavailable</em>
+    </div>
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
+      <div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 18 Aug 2026</div><div style="font-size:11px;line-height:1.4">Baazar Style Retail promoters sell 4.55 million shares on NSE - scanx.trade</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 18 Aug 2026</div><div style="font-size:11px;line-height:1.4">Baazar Style Retail locked at 5% upper circuit for 3rd day; here's why - Business Standard</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Mon, 17 Aug 2026</div><div style="font-size:11px;line-height:1.4">Bain Capital sells Rs 2,325 cr Embassy REIT stake; Baazar Style promoters offload 5.9% - Moneycontrol.com</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 05 May 2026</div><div style="font-size:11px;line-height:1.4">BAAZAR STYLE RETAIL LTD Share Price - Upstox</div></div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
+      <em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>
+    </div>
+    <div style="padding:11px 13px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
+      <em style="font-size:11px;color:var(--text3)">No StockTwits data</em>
+    </div>
+  </div>
+</div>
+<div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <span style="font-size:15px;font-weight:500">Cyient</span>
+      <span style="font-size:10px;opacity:.5;margin-left:8px">CYIENT.NS</span>
+      <span style="background:#f0c040;color:#2d2000;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin-left:8px">GOLD</span>
+      <span style="background:#888;color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;margin-left:6px">Neutral</span>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">₹1,174.8</div>
+      <div style="font-size:10px;opacity:.6">76/100 silent horse score</div>
+    </div>
+  </div>
+  
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">4/5</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">6d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div><span style="color:var(--green);font-weight:600">▲&nbsp;33.5%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div><span style="color:var(--green);font-weight:600">▲&nbsp;66.0%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div><span style="color:var(--green);font-weight:600">▲&nbsp;28.5%</span><div style="font-size:8px;color:var(--text3)">yf~</div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">consistent</div></div>
+  </div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
+      <div style="display:flex;gap:8px"><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W32</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W33</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W34</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W35</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W36</div></div></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">Consistent multi-week presence</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Week spread (4 wks): +25</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Total freq (6d): +13</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Pattern (consistent): +8</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Price action (strong uptrend): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ QoQ profit (66%): +15</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:7px">
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">RSI(14)</div><div style="font-weight:500;font-size:12px;color:#d94b4b">77.87</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">MACD</div><div style="font-weight:500;font-size:12px;color:#1a9e6d">71.71</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">Vol ratio</div><div style="font-weight:500;font-size:12px">0.66×</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">EMA20/50</div><div style="font-size:11px">1009.83/937.6</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">EMA200</div><div style="font-size:11px">—</div></div>
+      <div style="background:var(--bg4);padding:5px;border-radius:5px"><div style="font-size:9px;color:var(--text3)">From 52w high</div><div style="font-size:11px;font-weight:500;color:#555">-6.2%</div></div>
+    </div>
+    <div style="background:var(--green-dim);border:0.5px solid #c3e6c3;border-radius:6px;padding:7px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:3px">🔴 BEARISH</div><div style="font-size:11px;padding:2px 0;color:#A32D2D">⚠ RSI overbought (77.87) — caution ⚠</div><div style="font-size:11px;padding:2px 0;color:#2d5a27">✓ Price > EMA20 > EMA50 — bullish stack ✅</div><div style="font-size:11px;padding:2px 0;color:#2d5a27">✓ MACD positive (71.71)</div>
+    </div>
+    </div>
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
+      <div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Thu, 12 Feb 2026</div><div style="font-size:11px;line-height:1.4">Cyient (NSE:CYIENT) sheds 7.5% this week, as yearly returns fall more in line with earnings growth - simplywall.st</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 22 Jul 2026</div><div style="font-size:11px;line-height:1.4">Stocks to Watch Today: Maruti Suzuki, Aurobindo Pharma, Gabriel India, Cyient DLM, Mastek, Indian Hotels,... - Moneycontrol.com</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 05 May 2026</div><div style="font-size:11px;line-height:1.4">Key Reasons Why Cyient Share Price Is Falling in 2026 - Univest</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 15 Jul 2026</div><div style="font-size:11px;line-height:1.4">Dixon Tech, Kaynes Tech, Cyient DLM: EMS stocks surge on ₹1.9L cr semiconductor, mobile manufacturing boost - Upstox</div></div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
+      <em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>
+    </div>
+    <div style="padding:11px 13px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
+      <em style="font-size:11px;color:var(--text3)">No StockTwits data</em>
+    </div>
+  </div>
+</div>
+<div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <span style="font-size:15px;font-weight:500">Modison</span>
+      <span style="font-size:10px;opacity:.5;margin-left:8px">MODISON.NS</span>
+      <span style="background:#f0c040;color:#2d2000;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin-left:8px">GOLD</span>
+      <span style="background:#888;color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;margin-left:6px">Unknown</span>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">₹520.6</div>
+      <div style="font-size:10px;opacity:.6">69/100 silent horse score</div>
+    </div>
+  </div>
+  
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">3/5</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">7d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div><span style="color:var(--green);font-weight:600">▲&nbsp;61.2%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div><span style="color:var(--red);font-weight:600">▼&nbsp;-6.0%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div>—<div style="font-size:8px;color:var(--text3)"></div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">escalating+return</div></div>
+  </div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
+      <div style="display:flex;gap:8px"><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W32</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#93b4f7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">2</div><div style="color:var(--text3);margin-top:1px">W33</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#93b4f7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">2</div><div style="color:var(--text3);margin-top:1px">W34</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W35</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W36</div></div></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">Gap then return with escalating intensity — VCP signal 🔥</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Week spread (3 wks): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Total freq (7d): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Pattern (escalating+return): +20</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Price action (strong uptrend): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ QoQ profit (-6%): +0</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
+      <em style="font-size:11px;color:var(--text3)">Technical data unavailable</em>
+    </div>
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
+      <div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Fri, 04 Sep 2026</div><div style="font-size:11px;line-height:1.4">Modison Limited NSE:MODISONLTD Exchange Clarification on Price Move - Kalkine India</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Fri, 29 May 2026</div><div style="font-size:11px;line-height:1.4">Modison's (NSE:MODISONLTD) Promising Earnings May Rest On Soft Foundations - simplywall.st</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 08 Jul 2026</div><div style="font-size:11px;line-height:1.4">Modison Q1 FY27 Results Preview - Univest</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 26 May 2026</div><div style="font-size:11px;line-height:1.4">Momentum Stocks: Modison, Crizac, Indo Rama Synthetics locked at upper circuit - Moneycontrol.com</div></div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
+      <em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>
+    </div>
+    <div style="padding:11px 13px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
+      <em style="font-size:11px;color:var(--text3)">No StockTwits data</em>
+    </div>
+  </div>
+</div>
+<div style="border:0.5px solid #e0e4f0;border-radius:12px;margin-bottom:22px;overflow:hidden">
+  <div style="background:var(--bg3);color:#fff;padding:13px 18px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <span style="font-size:15px;font-weight:500">Bodal Chemicals</span>
+      <span style="font-size:10px;opacity:.5;margin-left:8px">BODALCHEMICA.NS</span>
+      <span style="background:#f0c040;color:#2d2000;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin-left:8px">GOLD</span>
+      <span style="background:#888;color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;margin-left:6px">Unknown</span>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:16px;font-weight:500">₹145.4</div>
+      <div style="font-size:10px;opacity:.6">66/100 silent horse score</div>
+    </div>
+  </div>
+  
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);border-bottom:0.5px solid #f0f0f0;font-size:10px">
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Weeks</div><div style="font-weight:500">3/5</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Total freq</div><div style="font-weight:500">8d</div></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">Price Δ</div><span style="color:var(--green);font-weight:600">▲&nbsp;93.1%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">QoQ profit</div><span style="color:var(--red);font-weight:600">▼&nbsp;-5.2%</span></div>
+    <div style="padding:7px 10px;border-right:0.5px solid #f0f0f0"><div style="color:var(--text3);font-size:9px">1mo return</div>—<div style="font-size:8px;color:var(--text3)"></div></div>
+    <div style="padding:7px 10px"><div style="color:var(--text3);font-size:9px">Pattern</div><div style="font-size:10px;font-weight:500">blowout</div></div>
+  </div>
+  <div style="padding:10px 16px;background:var(--bg3);border-bottom:0.5px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:11px;font-weight:500;color:var(--text);margin-bottom:5px">Weekly pattern</div>
+      <div style="display:flex;gap:8px"><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W32</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#f0f0f0;color:#ccc;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">0</div><div style="color:var(--text3);margin-top:1px">W33</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#d0d8ff;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">1</div><div style="color:var(--text3);margin-top:1px">W34</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">4</div><div style="color:var(--text3);margin-top:1px">W35</div></div><div style="text-align:center;font-size:10px"><div style="width:22px;height:22px;border-radius:4px;background:#4a6cf7;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;margin:0 auto">3</div><div style="color:var(--text3);margin-top:1px">W36</div></div></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:3px">Single-week blowout (4 days) — explosive entry</div></div>
+    <div style="text-align:right"><div style="font-size:10px;font-weight:500;color:var(--text);margin-bottom:3px">Score breakdown</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Week spread (3 wks): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Total freq (8d): +17</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Pattern (blowout): +12</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Price action (strong uptrend): +15</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ QoQ profit (-5%): +0</div><div style="font-size:10px;color:var(--text3);padding:1px 0">→ Blowout week (4d): +5</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:6px;color:var(--text)">📊 Chart + Stage Analysis</div>
+      <em style="font-size:11px;color:var(--text3)">Technical data unavailable</em>
+    </div>
+    <div style="padding:11px 13px;border-right:0.5px solid #f0f0f0">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">📰 News</div>
+      <div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Fri, 21 Aug 2026</div><div style="font-size:11px;line-height:1.4">With EPS Growth And More, Bodal Chemicals (NSE:BODALCHEM) Makes An Interesting Case - simplywall.st</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Mon, 17 Aug 2026</div><div style="font-size:11px;line-height:1.4">Bodal Chemicals schedules 40th AGM for September 25 via video conferencing - scanx.trade</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Wed, 12 Aug 2026</div><div style="font-size:11px;line-height:1.4">Pros and Cons of Bodal Chemicals Share 2026 | Dye Intermediate - Univest</div></div><div style="padding:4px 0;border-bottom:1px solid var(--border)"><div style="font-size:10px;color:var(--text3)">Tue, 07 Apr 2026</div><div style="font-size:11px;line-height:1.4">List of Petrochemical Stocks in India (2026) - INDmoney</div></div>
+      <div style="font-size:11px;font-weight:500;margin:9px 0 5px;color:var(--text)">🗣 Reddit</div>
+      <em style="font-size:11px;color:var(--text3)">No Reddit mentions</em>
+    </div>
+    <div style="padding:11px 13px">
+      <div style="font-size:11px;font-weight:500;margin-bottom:5px;color:var(--text)">💬 StockTwits</div>
+      <em style="font-size:11px;color:var(--text3)">No StockTwits data</em>
+    </div>
+  </div>
+</div></div></div>
+
+  <div class="sec"><div class="sh"><h2>🥈 Silver Horses — Watchlist</h2>
+  <p>37 stocks · 2+ weeks, freq &gt;3 OR blowout week</p></div>
+  <div style="padding:0 20px 16px"><table>
+    <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>QoQ profit</th><th>1mo return</th><th>Signal</th><th>Score</th></tr></thead>
+    <tbody><tr>
+      <td style="text-align:left;font-weight:500">Shukra Pharma.</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;33.0%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;968.8%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">76</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">IFCI</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;32.2%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;77.0%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">76</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Airfloa Rail</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;35.5%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;123.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">71</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Marine Electric.</td>
+      <td>4/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;28.4%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-5.7%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">69</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Manali Petrochem</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;26.3%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;121.6%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">69</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">M M Forgings</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.1%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;102.1%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">68</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Birla Cable</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W33:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:18px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;28.0%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;183.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">gap+return</td>
+      <td style="font-weight:500;color:#1a9e6d">68</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">AVT Natural Prod</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.8%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;41.2%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">68</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Welspun Special.</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.9%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;21.1%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">66</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Balu Forge</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;29.4%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;0.5%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">65</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Jaykay Enter.</td>
+      <td>4/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.7%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-97.5%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">65</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">GNG Electronics</td>
+      <td>4/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.1%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-31.4%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">64</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Morepen Labs.</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.3%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;258.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">64</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Entero Healthcar</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:18px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W35:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;33.3%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.3%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">63</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Man Industries</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;28.2%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.8%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#1a9e6d">63</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Kopran</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;28.2%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-64.5%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#1a9e6d">61</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Welspun Corp</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;14.5%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;182.1%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#1a9e6d">61</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">T B Z</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W36:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;56.6%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-49.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#1a9e6d">60</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Bliss GVS Pharma</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.0%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;38.8%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">59</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Rishabh Instrum.</td>
+      <td>4/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.0%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-3.3%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">58</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Windlas Biotech</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;16.3%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.2%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">54</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Syncom Formul.</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;34.7%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;0.1%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">54</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Happy Forgings</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.2%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.4%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">54</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Mukka Proteins</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W36:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.8%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-12.7%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#f0a500">54</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">GYFTR</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;14.5%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-14.4%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#f0a500">53</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">RBZ Jewellers Lt</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:18px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W36:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;38.7%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-22.2%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#f0a500">53</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Onix Solar</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">6d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W35:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W36:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;33.0%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-18.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#f0a500">53</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Aeroflex</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.6%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;6.5%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">51</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">M.V.K. Agro</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-19.7%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-79.2%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#f0a500">50</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Spice LoungeFood</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">5d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W36:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div></div></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-15.9%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-3.0%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating+return</td>
+      <td style="font-weight:500;color:#f0a500">50</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Quality Power El</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;21.3%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-7.6%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Uttam Sug.Mills</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W34:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;26.9%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-97.6%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">escalating</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">MSTC</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.2%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-24.6%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Alembic</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;26.1%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-3.3%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Marsons</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;26.9%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-73.7%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">49</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Capri Global</td>
+      <td>2/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#4a6cf7;border-radius:2px 2px 0 0" title="W35:3d"></div><div style="font-size:9px;color:var(--text3)">3</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:9px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.9%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;24.9%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">flat</td>
+      <td style="font-weight:500;color:#f0a500">47</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Atlanta Electric</td>
+      <td>3/5</td>
+      <td style="color:#185FA5;font-weight:500">4d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.2%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-54.2%</span></td>
+      <td>—</td>
+      <td style="font-size:11px">consistent</td>
+      <td style="font-weight:500;color:#f0a500">46</td>
+    </tr></tbody>
+  </table></div></div>
+
+  <div class="sec"><div class="sh"><h2>👁 Watch List</h2>
+  <p>42 stocks · 2 weeks, freq 3-4 · track for 3rd week reappearance</p></div>
+  <div style="padding:0 20px 16px"><table>
+    <thead><tr><th>Stock</th><th>Weeks</th><th>Freq</th><th>Pattern</th><th>Price Δ</th><th>Signal</th></tr></thead>
+    <tbody><tr>
+      <td style="text-align:left;font-weight:500">Gufic BioScience</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;4.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Brigade Enterpr.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">RIR Power Electr</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-3.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Hubtown</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;1.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Xtranet Techno.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;35.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Sh. Rama Multi.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;1.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Finkurve Fin.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Raghav Product.</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Vintage Coffee</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.0%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Parag Milk Foods</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">JTL Industries</td>
+      <td>3/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">GK Energy</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;2.0%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Avalon Tech</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Asian Energy</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Akums Drugs</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">SMS Pharma.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;3.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Electronics Mart</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W32:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;16.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Multi Comm. Exc.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Prec. Wires (I)</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;17.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Blue Cloud Soft.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;1.9%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">NELCO</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Susan Electrical</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.4%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Radhika Jeweltec</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;16.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">KRN Heat Exchan</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;19.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Standard Engineering Technology</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;11.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Yatra Online</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-0.4%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Kronox Lab</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;23.7%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Ram Ratna Wires</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Divgi Torq</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;3.0%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Ugar Sugar Works</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Shanti Gold</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;8.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Wheels India</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W33:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;20.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">FlySBS Aviation</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;12.4%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Balrampur Chini</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;5.8%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Kilburn Engg.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;16.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Antelopus Selan</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;18.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating+return</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Prime Focus</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W35:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;7.2%</span></td>
+      <td style="font-size:10px;color:var(--text3)">intermittent</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Genesys Intl.</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;35.1%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">20 Microns</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;9.6%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Amanta Healthcar</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W34:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W36:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.0%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Balaji Amines</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;13.5%</span></td>
+      <td style="font-size:10px;color:var(--text3)">flat</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Manaksia Steels</td>
+      <td>2/4</td>
+      <td>3d</td>
+      <td><div style="display:flex;align-items:flex-end;gap:3px;height:38px"><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W32:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W33:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:2px;background:#e8e8e8;border-radius:2px 2px 0 0" title="W34:0d"></div><div style="font-size:9px;color:var(--text3)">0</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:14px;background:#93b4f7;border-radius:2px 2px 0 0" title="W35:1d"></div><div style="font-size:9px;color:var(--text3)">1</div></div><div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="width:18px;height:28px;background:#93b4f7;border-radius:2px 2px 0 0" title="W36:2d"></div><div style="font-size:9px;color:var(--text3)">2</div></div></div></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;15.3%</span></td>
+      <td style="font-size:10px;color:var(--text3)">escalating</td>
+    </tr></tbody>
+  </table></div></div>
+
+  <div class="sec"><div class="sh"><h2>🔍 Stage 1 Bases — 8-Week Slow Tracker</h2><p>Appearing quietly 1-2×/week for 6+ weeks — Weinstein accumulation fingerprint</p></div><div style="padding:0 20px 16px"><table><thead><tr><th>Stock</th><th>Weeks</th><th>Avg/wk</th><th>Max gap</th><th>Price Δ</th><th>QoQ profit</th><th>CMP</th></tr></thead><tbody><tr>
+      <td style="text-align:left;font-weight:500">PVP Ventures</td>
+      <td>6w</td>
+      <td>1.7/wk</td>
+      <td>2w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;132.2%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;446.7%</span></td>
+      <td>₹68.5</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Fineotex Chem</td>
+      <td>5w</td>
+      <td>1.0/wk</td>
+      <td>1w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;27.4%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;10.1%</span></td>
+      <td>₹49.6</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Kirl. Electric</td>
+      <td>5w</td>
+      <td>1.2/wk</td>
+      <td>0w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;23.6%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-115.4%</span></td>
+      <td>₹150.2</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Aeroflex</td>
+      <td>5w</td>
+      <td>1.2/wk</td>
+      <td>1w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;23.7%</span></td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;6.5%</span></td>
+      <td>₹552.0</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">RNIT AI Solution</td>
+      <td>5w</td>
+      <td>1.4/wk</td>
+      <td>1w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;54.6%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-70.8%</span></td>
+      <td>₹95.8</td>
+    </tr><tr>
+      <td style="text-align:left;font-weight:500">Marine Electric.</td>
+      <td>5w</td>
+      <td>1.6/wk</td>
+      <td>1w</td>
+      <td><span style="color:var(--green);font-weight:600">▲&nbsp;60.2%</span></td>
+      <td><span style="color:var(--red);font-weight:600">▼&nbsp;-5.7%</span></td>
+      <td>₹432.6</td>
+    </tr></tbody></table></div></div>
+
+  <div class="foot">Silent Horse Report · Monthly (4-Week) · 2026-09-04 16:31 UTC</div>
+</div></body></html>
