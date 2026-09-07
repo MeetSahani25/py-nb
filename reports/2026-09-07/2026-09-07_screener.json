@@ -1,7 +1,7 @@
 {
   "date": "2026-09-07",
   "screen_url": "https://www.screener.in/screens/3664072/screen1/",
-  "total_stocks": 50,
+  "total_stocks": 67,
   "headers": [
     "S.No.",
     "Company",
@@ -25,7 +25,7 @@
   ],
   "stocks": [
     {
-      "S.No.": "1.",
+      "S.No.": "1",
       "Company": "XTRANET",
       "CMP Rs.": "279.83",
       "Vol 1d": "14335035",
@@ -46,7 +46,7 @@
       "ROCE %": "32.81"
     },
     {
-      "S.No.": "2.",
+      "S.No.": "2",
       "Company": "NEETUYOSHI",
       "CMP Rs.": "194.65",
       "Vol 1d": "168800",
@@ -67,7 +67,7 @@
       "ROCE %": "31.78"
     },
     {
-      "S.No.": "3.",
+      "S.No.": "3",
       "Company": "MSTCLTD",
       "CMP Rs.": "785.65",
       "Vol 1d": "1063914",
@@ -88,7 +88,7 @@
       "ROCE %": "30.28"
     },
     {
-      "S.No.": "4.",
+      "S.No.": "4",
       "Company": "JAMNAAUTO",
       "CMP Rs.": "126.61",
       "Vol 1d": "3907957",
@@ -109,7 +109,7 @@
       "ROCE %": "27.47"
     },
     {
-      "S.No.": "5.",
+      "S.No.": "5",
       "Company": "CEINSYS",
       "CMP Rs.": "708.75",
       "Vol 1d": "171061",
@@ -130,7 +130,7 @@
       "ROCE %": "27.46"
     },
     {
-      "S.No.": "6.",
+      "S.No.": "6",
       "Company": "AIRFLOA",
       "CMP Rs.": "508.50",
       "Vol 1d": "321500",
@@ -151,7 +151,7 @@
       "ROCE %": "25.87"
     },
     {
-      "S.No.": "7.",
+      "S.No.": "7",
       "Company": "CENTUM",
       "CMP Rs.": "4376.90",
       "Vol 1d": "855989",
@@ -172,7 +172,7 @@
       "ROCE %": "25.53"
     },
     {
-      "S.No.": "8.",
+      "S.No.": "8",
       "Company": "SUPRIYA",
       "CMP Rs.": "909.10",
       "Vol 1d": "1301456",
@@ -193,7 +193,7 @@
       "ROCE %": "25.13"
     },
     {
-      "S.No.": "9.",
+      "S.No.": "9",
       "Company": "SIGNPOST",
       "CMP Rs.": "269.50",
       "Vol 1d": "4007084",
@@ -214,7 +214,7 @@
       "ROCE %": "25.13"
     },
     {
-      "S.No.": "10.",
+      "S.No.": "10",
       "Company": "RADHIKAJWE",
       "CMP Rs.": "94.28",
       "Vol 1d": "33018102",
@@ -235,7 +235,7 @@
       "ROCE %": "25.07"
     },
     {
-      "S.No.": "11.",
+      "S.No.": "11",
       "Company": "RAJOOENG",
       "CMP Rs.": "54.16",
       "Vol 1d": "549404",
@@ -256,7 +256,7 @@
       "ROCE %": "24.70"
     },
     {
-      "S.No.": "12.",
+      "S.No.": "12",
       "Company": "BBOX",
       "CMP Rs.": "774.25",
       "Vol 1d": "1332014",
@@ -277,7 +277,7 @@
       "ROCE %": "21.56"
     },
     {
-      "S.No.": "13.",
+      "S.No.": "13",
       "Company": "VENUSPIPES",
       "CMP Rs.": "1805.40",
       "Vol 1d": "643167",
@@ -298,7 +298,7 @@
       "ROCE %": "21.27"
     },
     {
-      "S.No.": "14.",
+      "S.No.": "14",
       "Company": "BHARATSE",
       "CMP Rs.": "227.65",
       "Vol 1d": "787130",
@@ -319,7 +319,7 @@
       "ROCE %": "20.19"
     },
     {
-      "S.No.": "15.",
+      "S.No.": "15",
       "Company": "SOUTHWEST",
       "CMP Rs.": "222.26",
       "Vol 1d": "620668",
@@ -340,7 +340,7 @@
       "ROCE %": "20.02"
     },
     {
-      "S.No.": "16.",
+      "S.No.": "16",
       "Company": "AVALON",
       "CMP Rs.": "2352.50",
       "Vol 1d": "1721677",
@@ -361,7 +361,7 @@
       "ROCE %": "19.54"
     },
     {
-      "S.No.": "17.",
+      "S.No.": "17",
       "Company": "JOJO",
       "CMP Rs.": "211.30",
       "Vol 1d": "169509",
@@ -382,7 +382,7 @@
       "ROCE %": "19.49"
     },
     {
-      "S.No.": "18.",
+      "S.No.": "18",
       "Company": "NRBBEARING",
       "CMP Rs.": "483.00",
       "Vol 1d": "1080580",
@@ -403,7 +403,7 @@
       "ROCE %": "18.41"
     },
     {
-      "S.No.": "19.",
+      "S.No.": "19",
       "Company": "TALBROAUTO",
       "CMP Rs.": "431.80",
       "Vol 1d": "1872498",
@@ -424,7 +424,7 @@
       "ROCE %": "18.41"
     },
     {
-      "S.No.": "20.",
+      "S.No.": "20",
       "Company": "STAR",
       "CMP Rs.": "1178.80",
       "Vol 1d": "2716228",
@@ -445,7 +445,7 @@
       "ROCE %": "18.32"
     },
     {
-      "S.No.": "21.",
+      "S.No.": "21",
       "Company": "FCL",
       "CMP Rs.": "56.66",
       "Vol 1d": "45101061",
@@ -466,7 +466,7 @@
       "ROCE %": "18.30"
     },
     {
-      "S.No.": "22.",
+      "S.No.": "22",
       "Company": "PDMJEPAPER",
       "CMP Rs.": "101.43",
       "Vol 1d": "6066973",
@@ -487,7 +487,7 @@
       "ROCE %": "18.14"
     },
     {
-      "S.No.": "23.",
+      "S.No.": "23",
       "Company": "XCHANGING",
       "CMP Rs.": "64.30",
       "Vol 1d": "345266",
@@ -508,7 +508,7 @@
       "ROCE %": "18.02"
     },
     {
-      "S.No.": "24.",
+      "S.No.": "24",
       "Company": "GUJTHEM",
       "CMP Rs.": "429.30",
       "Vol 1d": "1144058",
@@ -529,7 +529,7 @@
       "ROCE %": "17.86"
     },
     {
-      "S.No.": "25.",
+      "S.No.": "25",
       "Company": "JASH",
       "CMP Rs.": "511.15",
       "Vol 1d": "521394",
@@ -550,7 +550,7 @@
       "ROCE %": "17.69"
     },
     {
-      "S.No.": "26.",
+      "S.No.": "26",
       "Company": "MGEL",
       "CMP Rs.": "15.72",
       "Vol 1d": "1508328",
@@ -571,7 +571,7 @@
       "ROCE %": "16.96"
     },
     {
-      "S.No.": "27.",
+      "S.No.": "27",
       "Company": "SYRMA",
       "CMP Rs.": "1634.80",
       "Vol 1d": "14102571",
@@ -592,7 +592,7 @@
       "ROCE %": "16.78"
     },
     {
-      "S.No.": "28.",
+      "S.No.": "28",
       "Company": "MVGJL",
       "CMP Rs.": "215.88",
       "Vol 1d": "3371382",
@@ -613,7 +613,7 @@
       "ROCE %": "15.63"
     },
     {
-      "S.No.": "29.",
+      "S.No.": "29",
       "Company": "MTARTECH",
       "CMP Rs.": "7519.00",
       "Vol 1d": "189668",
@@ -634,7 +634,7 @@
       "ROCE %": "15.20"
     },
     {
-      "S.No.": "30.",
+      "S.No.": "30",
       "Company": "SENORES",
       "CMP Rs.": "1497.50",
       "Vol 1d": "439795",
@@ -655,7 +655,7 @@
       "ROCE %": "15.13"
     },
     {
-      "S.No.": "31.",
+      "S.No.": "31",
       "Company": "NRL",
       "CMP Rs.": "132.78",
       "Vol 1d": "251730",
@@ -676,7 +676,7 @@
       "ROCE %": "15.12"
     },
     {
-      "S.No.": "32.",
+      "S.No.": "32",
       "Company": "ANUHPHR",
       "CMP Rs.": "90.29",
       "Vol 1d": "1220542",
@@ -697,7 +697,7 @@
       "ROCE %": "14.94"
     },
     {
-      "S.No.": "33.",
+      "S.No.": "33",
       "Company": "DOLPHIN",
       "CMP Rs.": "720.40",
       "Vol 1d": "423247",
@@ -718,7 +718,7 @@
       "ROCE %": "14.92"
     },
     {
-      "S.No.": "34.",
+      "S.No.": "34",
       "Company": "PITTIENG",
       "CMP Rs.": "1176.20",
       "Vol 1d": "1756342",
@@ -739,7 +739,7 @@
       "ROCE %": "14.84"
     },
     {
-      "S.No.": "35.",
+      "S.No.": "35",
       "Company": "GANESHBE",
       "CMP Rs.": "129.39",
       "Vol 1d": "588012",
@@ -760,7 +760,7 @@
       "ROCE %": "14.60"
     },
     {
-      "S.No.": "36.",
+      "S.No.": "36",
       "Company": "RISHABH",
       "CMP Rs.": "809.95",
       "Vol 1d": "826667",
@@ -781,7 +781,7 @@
       "ROCE %": "14.50"
     },
     {
-      "S.No.": "37.",
+      "S.No.": "37",
       "Company": "IONEXCHANG",
       "CMP Rs.": "439.10",
       "Vol 1d": "5207132",
@@ -802,7 +802,7 @@
       "ROCE %": "14.17"
     },
     {
-      "S.No.": "38.",
+      "S.No.": "38",
       "Company": "ARFIN",
       "CMP Rs.": "95.27",
       "Vol 1d": "4928096",
@@ -823,7 +823,7 @@
       "ROCE %": "13.96"
     },
     {
-      "S.No.": "39.",
+      "S.No.": "39",
       "Company": "RML",
       "CMP Rs.": "1388.20",
       "Vol 1d": "1024726",
@@ -844,7 +844,7 @@
       "ROCE %": "13.95"
     },
     {
-      "S.No.": "40.",
+      "S.No.": "40",
       "Company": "GMMPFAUDLR",
       "CMP Rs.": "1235.70",
       "Vol 1d": "1330787",
@@ -865,7 +865,7 @@
       "ROCE %": "13.64"
     },
     {
-      "S.No.": "41.",
+      "S.No.": "41",
       "Company": "SHREEPUSHK",
       "CMP Rs.": "514.90",
       "Vol 1d": "419459",
@@ -886,7 +886,7 @@
       "ROCE %": "12.97"
     },
     {
-      "S.No.": "42.",
+      "S.No.": "42",
       "Company": "AEROENTER",
       "CMP Rs.": "154.73",
       "Vol 1d": "3450138",
@@ -907,7 +907,7 @@
       "ROCE %": "12.63"
     },
     {
-      "S.No.": "43.",
+      "S.No.": "43",
       "Company": "MMP",
       "CMP Rs.": "444.95",
       "Vol 1d": "388765",
@@ -928,7 +928,7 @@
       "ROCE %": "12.49"
     },
     {
-      "S.No.": "44.",
+      "S.No.": "44",
       "Company": "SAKAR",
       "CMP Rs.": "1109.20",
       "Vol 1d": "339553",
@@ -949,7 +949,7 @@
       "ROCE %": "12.42"
     },
     {
-      "S.No.": "45.",
+      "S.No.": "45",
       "Company": "PAISALO",
       "CMP Rs.": "79.41",
       "Vol 1d": "36969710",
@@ -970,7 +970,7 @@
       "ROCE %": "12.38"
     },
     {
-      "S.No.": "46.",
+      "S.No.": "46",
       "Company": "CARTRADE",
       "CMP Rs.": "3179.90",
       "Vol 1d": "1313528",
@@ -991,7 +991,7 @@
       "ROCE %": "11.82"
     },
     {
-      "S.No.": "47.",
+      "S.No.": "47",
       "Company": "ALLTIME",
       "CMP Rs.": "214.65",
       "Vol 1d": "279996",
@@ -1012,7 +1012,7 @@
       "ROCE %": "11.57"
     },
     {
-      "S.No.": "48.",
+      "S.No.": "48",
       "Company": "SMCGLOBAL",
       "CMP Rs.": "84.95",
       "Vol 1d": "4014563",
@@ -1033,7 +1033,7 @@
       "ROCE %": "11.38"
     },
     {
-      "S.No.": "49.",
+      "S.No.": "49",
       "Company": "IOLCP",
       "CMP Rs.": "213.04",
       "Vol 1d": "10733007",
@@ -1054,7 +1054,7 @@
       "ROCE %": "11.29"
     },
     {
-      "S.No.": "50.",
+      "S.No.": "50",
       "Company": "ONIXSOLAR",
       "CMP Rs.": "423.20",
       "Vol 1d": "1077866",
@@ -1073,6 +1073,363 @@
       "6mth return %": "-14.99",
       "Sales growth %": "77.60",
       "ROCE %": "10.21"
+    },
+    {
+      "S.No.": "51",
+      "Company": "RITCO",
+      "CMP Rs.": "319.80",
+      "Vol 1d": "586934",
+      "Avg Vol 1Wk": "171010",
+      "1day return %": "5.96",
+      "1wk return %": "4.02",
+      "1mth return %": "7.55",
+      "Avg Vol 1Mth": "134613",
+      "3mth return %": "26.13",
+      "1Yr return %": "17.99",
+      "Mar Cap Rs.Cr.": "916.26",
+      "Qtr Profit Var %": "-43.36",
+      "Profit growth %": "-26.13",
+      "QoQ Sales %": "-6.82",
+      "QoQ Profits %": "-13.47",
+      "6mth return %": "62.21",
+      "Sales growth %": "16.89",
+      "ROCE %": "10.14"
+    },
+    {
+      "S.No.": "52",
+      "Company": "DCW",
+      "CMP Rs.": "47.99",
+      "Vol 1d": "5790877",
+      "Avg Vol 1Wk": "3411892",
+      "1day return %": "4.37",
+      "1wk return %": "5.33",
+      "1mth return %": "3.54",
+      "Avg Vol 1Mth": "1732497",
+      "3mth return %": "1.31",
+      "1Yr return %": "-35.89",
+      "Mar Cap Rs.Cr.": "1417.99",
+      "Qtr Profit Var %": "203.34",
+      "Profit growth %": "104.88",
+      "QoQ Sales %": "-11.03",
+      "QoQ Profits %": "91.10",
+      "6mth return %": "9.59",
+      "Sales growth %": "11.82",
+      "ROCE %": "9.69"
+    },
+    {
+      "S.No.": "53",
+      "Company": "RIR",
+      "CMP Rs.": "191.95",
+      "Vol 1d": "12311896",
+      "Avg Vol 1Wk": "3495704",
+      "1day return %": "13.00",
+      "1wk return %": "20.52",
+      "1mth return %": "18.90",
+      "Avg Vol 1Mth": "1123037",
+      "3mth return %": "13.38",
+      "1Yr return %": "-28.48",
+      "Mar Cap Rs.Cr.": "1590.21",
+      "Qtr Profit Var %": "-42.80",
+      "Profit growth %": "-6.55",
+      "QoQ Sales %": "18.15",
+      "QoQ Profits %": "215.91",
+      "6mth return %": "18.09",
+      "Sales growth %": "5.41",
+      "ROCE %": "7.93"
+    },
+    {
+      "S.No.": "54",
+      "Company": "WOCKPHARMA",
+      "CMP Rs.": "2208.00",
+      "Vol 1d": "4497685",
+      "Avg Vol 1Wk": "2307918",
+      "1day return %": "5.71",
+      "1wk return %": "17.22",
+      "1mth return %": "9.25",
+      "Avg Vol 1Mth": "1126133",
+      "3mth return %": "16.97",
+      "1Yr return %": "49.31",
+      "Mar Cap Rs.Cr.": "35911.80",
+      "Qtr Profit Var %": "973.63",
+      "Profit growth %": "983.41",
+      "QoQ Sales %": "-3.73",
+      "QoQ Profits %": "-34.76",
+      "6mth return %": "69.14",
+      "Sales growth %": "18.37",
+      "ROCE %": "7.55"
+    },
+    {
+      "S.No.": "55",
+      "Company": "GNRL",
+      "CMP Rs.": "113.96",
+      "Vol 1d": "3967822",
+      "Avg Vol 1Wk": "898326",
+      "1day return %": "14.80",
+      "1wk return %": "19.37",
+      "1mth return %": "21.34",
+      "Avg Vol 1Mth": "364196",
+      "3mth return %": "22.46",
+      "1Yr return %": "75.40",
+      "Mar Cap Rs.Cr.": "1742.56",
+      "Qtr Profit Var %": "488.08",
+      "Profit growth %": "812.55",
+      "QoQ Sales %": "-48.93",
+      "QoQ Profits %": "980.95",
+      "6mth return %": "20.21",
+      "Sales growth %": "93.58",
+      "ROCE %": "7.25"
+    },
+    {
+      "S.No.": "56",
+      "Company": "KOPRAN",
+      "CMP Rs.": "245.87",
+      "Vol 1d": "2877590",
+      "Avg Vol 1Wk": "1192863",
+      "1day return %": "5.73",
+      "1wk return %": "12.87",
+      "1mth return %": "35.67",
+      "Avg Vol 1Mth": "484583",
+      "3mth return %": "33.88",
+      "1Yr return %": "38.88",
+      "Mar Cap Rs.Cr.": "1186.38",
+      "Qtr Profit Var %": "-10.07",
+      "Profit growth %": "-28.42",
+      "QoQ Sales %": "-34.20",
+      "QoQ Profits %": "-64.49",
+      "6mth return %": "98.17",
+      "Sales growth %": "11.96",
+      "ROCE %": "6.65"
+    },
+    {
+      "S.No.": "57",
+      "Company": "SPICELOUNG",
+      "CMP Rs.": "27.12",
+      "Vol 1d": "1046711",
+      "Avg Vol 1Wk": "785356",
+      "1day return %": "4.99",
+      "1wk return %": "27.56",
+      "1mth return %": "6.69",
+      "Avg Vol 1Mth": "527008",
+      "3mth return %": "12.86",
+      "1Yr return %": "-44.55",
+      "Mar Cap Rs.Cr.": "1890.60",
+      "Qtr Profit Var %": "507.63",
+      "Profit growth %": "250.78",
+      "QoQ Sales %": "-14.63",
+      "QoQ Profits %": "-3.02",
+      "6mth return %": "-7.82",
+      "Sales growth %": "20.89",
+      "ROCE %": "6.42"
+    },
+    {
+      "S.No.": "58",
+      "Company": "JISLJALEQS",
+      "CMP Rs.": "32.51",
+      "Vol 1d": "18521596",
+      "Avg Vol 1Wk": "10636630",
+      "1day return %": "5.31",
+      "1wk return %": "14.96",
+      "1mth return %": "5.18",
+      "Avg Vol 1Mth": "5323532",
+      "3mth return %": "5.35",
+      "1Yr return %": "-39.48",
+      "Mar Cap Rs.Cr.": "2363.92",
+      "Qtr Profit Var %": "-207.18",
+      "Profit growth %": "-177.36",
+      "QoQ Sales %": "-17.30",
+      "QoQ Profits %": "6.51",
+      "6mth return %": "-8.71",
+      "Sales growth %": "8.81",
+      "ROCE %": "5.30"
+    },
+    {
+      "S.No.": "59",
+      "Company": "ZYDUSWELL",
+      "CMP Rs.": "555.35",
+      "Vol 1d": "8116380",
+      "Avg Vol 1Wk": "1766508",
+      "1day return %": "4.45",
+      "1wk return %": "4.70",
+      "1mth return %": "4.03",
+      "Avg Vol 1Mth": "632678",
+      "3mth return %": "9.05",
+      "1Yr return %": "14.42",
+      "Mar Cap Rs.Cr.": "17730.75",
+      "Qtr Profit Var %": "-7.04",
+      "Profit growth %": "-31.18",
+      "QoQ Sales %": "-3.21",
+      "QoQ Profits %": "-26.60",
+      "6mth return %": "44.51",
+      "Sales growth %": "66.27",
+      "ROCE %": "4.91"
+    },
+    {
+      "S.No.": "60",
+      "Company": "SOLARA",
+      "CMP Rs.": "697.05",
+      "Vol 1d": "2296072",
+      "Avg Vol 1Wk": "890684",
+      "1day return %": "9.06",
+      "1wk return %": "10.18",
+      "1mth return %": "38.69",
+      "Avg Vol 1Mth": "761561",
+      "3mth return %": "20.18",
+      "1Yr return %": "4.86",
+      "Mar Cap Rs.Cr.": "3327.10",
+      "Qtr Profit Var %": "55.04",
+      "Profit growth %": "-82.59",
+      "QoQ Sales %": "-1.47",
+      "QoQ Profits %": "69.90",
+      "6mth return %": "54.20",
+      "Sales growth %": "15.49",
+      "ROCE %": "4.86"
+    },
+    {
+      "S.No.": "61",
+      "Company": "WALCHANNAG",
+      "CMP Rs.": "223.36",
+      "Vol 1d": "2334075",
+      "Avg Vol 1Wk": "841441",
+      "1day return %": "7.07",
+      "1wk return %": "3.94",
+      "1mth return %": "-3.20",
+      "Avg Vol 1Mth": "737348",
+      "3mth return %": "-12.30",
+      "1Yr return %": "23.89",
+      "Mar Cap Rs.Cr.": "1516.07",
+      "Qtr Profit Var %": "111.36",
+      "Profit growth %": "97.53",
+      "QoQ Sales %": "-2.35",
+      "QoQ Profits %": "-59.86",
+      "6mth return %": "38.78",
+      "Sales growth %": "37.98",
+      "ROCE %": "4.17"
+    },
+    {
+      "S.No.": "62",
+      "Company": "RAYMOND",
+      "CMP Rs.": "772.40",
+      "Vol 1d": "3482247",
+      "Avg Vol 1Wk": "5087081",
+      "1day return %": "4.26",
+      "1wk return %": "22.24",
+      "1mth return %": "25.60",
+      "Avg Vol 1Mth": "1649290",
+      "3mth return %": "44.10",
+      "1Yr return %": "26.27",
+      "Mar Cap Rs.Cr.": "5137.64",
+      "Qtr Profit Var %": "1.85",
+      "Profit growth %": "228.88",
+      "QoQ Sales %": "0.45",
+      "QoQ Profits %": "158.59",
+      "6mth return %": "104.18",
+      "Sales growth %": "13.45",
+      "ROCE %": "3.14"
+    },
+    {
+      "S.No.": "63",
+      "Company": "TARC",
+      "CMP Rs.": "134.90",
+      "Vol 1d": "2183918",
+      "Avg Vol 1Wk": "1127020",
+      "1day return %": "6.23",
+      "1wk return %": "13.90",
+      "1mth return %": "3.15",
+      "Avg Vol 1Mth": "716791",
+      "3mth return %": "6.02",
+      "1Yr return %": "-14.85",
+      "Mar Cap Rs.Cr.": "3977.41",
+      "Qtr Profit Var %": "-58.23",
+      "Profit growth %": "91.44",
+      "QoQ Sales %": "4.04",
+      "QoQ Profits %": "1306.21",
+      "6mth return %": "-1.42",
+      "Sales growth %": "364.71",
+      "ROCE %": "2.26"
+    },
+    {
+      "S.No.": "64",
+      "Company": "KABRAEXTRU",
+      "CMP Rs.": "634.50",
+      "Vol 1d": "822722",
+      "Avg Vol 1Wk": "341342",
+      "1day return %": "9.56",
+      "1wk return %": "5.70",
+      "1mth return %": "41.44",
+      "Avg Vol 1Mth": "434218",
+      "3mth return %": "166.90",
+      "1Yr return %": "132.38",
+      "Mar Cap Rs.Cr.": "2216.73",
+      "Qtr Profit Var %": "77.14",
+      "Profit growth %": "-95.56",
+      "QoQ Sales %": "3.61",
+      "QoQ Profits %": "-125.22",
+      "6mth return %": "166.48",
+      "Sales growth %": "3.14",
+      "ROCE %": "0.06"
+    },
+    {
+      "S.No.": "65",
+      "Company": "ANDHRAPAP",
+      "CMP Rs.": "72.20",
+      "Vol 1d": "28464326",
+      "Avg Vol 1Wk": "6025415",
+      "1day return %": "12.02",
+      "1wk return %": "18.97",
+      "1mth return %": "20.63",
+      "Avg Vol 1Mth": "1620201",
+      "3mth return %": "17.59",
+      "1Yr return %": "-7.47",
+      "Mar Cap Rs.Cr.": "1433.25",
+      "Qtr Profit Var %": "42.28",
+      "Profit growth %": "-66.52",
+      "QoQ Sales %": "-25.29",
+      "QoQ Profits %": "292.75",
+      "6mth return %": "14.20",
+      "Sales growth %": "5.12",
+      "ROCE %": "0.04"
+    },
+    {
+      "S.No.": "66",
+      "Company": "E2E",
+      "CMP Rs.": "630.20",
+      "Vol 1d": "1775265",
+      "Avg Vol 1Wk": "1158448",
+      "1day return %": "4.76",
+      "1wk return %": "1.85",
+      "1mth return %": "9.51",
+      "Avg Vol 1Mth": "1047769",
+      "3mth return %": "54.16",
+      "1Yr return %": "117.31",
+      "Mar Cap Rs.Cr.": "12945.02",
+      "Qtr Profit Var %": "1645.07",
+      "Profit growth %": "-9.71",
+      "QoQ Sales %": "63.91",
+      "QoQ Profits %": "581.37",
+      "6mth return %": "165.64",
+      "Sales growth %": "130.70",
+      "ROCE %": "-0.51"
+    },
+    {
+      "S.No.": "67",
+      "Company": "KIRIINDUS",
+      "CMP Rs.": "583.20",
+      "Vol 1d": "4143354",
+      "Avg Vol 1Wk": "3204638",
+      "1day return %": "4.31",
+      "1wk return %": "9.85",
+      "1mth return %": "36.29",
+      "Avg Vol 1Mth": "1917650",
+      "3mth return %": "43.47",
+      "1Yr return %": "11.44",
+      "Mar Cap Rs.Cr.": "3800.25",
+      "Qtr Profit Var %": "2762.33",
+      "Profit growth %": "340.10",
+      "QoQ Sales %": "24.69",
+      "QoQ Profits %": "-43.49",
+      "6mth return %": "47.66",
+      "Sales growth %": "25.19",
+      "ROCE %": "-1.69"
     }
   ]
 }
