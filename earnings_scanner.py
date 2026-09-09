@@ -16,6 +16,8 @@ import requests
 from bs4 import BeautifulSoup
 import json, os, re, sys
 from datetime import datetime, date, timedelta
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+import time
 
 OUTPUT_DIR   = "reports"
 EARNINGS_DIR = os.path.join(OUTPUT_DIR, "earnings")
@@ -125,18 +127,231 @@ def login():
 
 # ── Fetch ─────────────────────────────────────────────────────────────────────
 
-def fetch_results_page(session, target_date):
-    """Fetch all results for a given date using ?all= param."""
-    url = (f"{RESULTS_BASE}?all="
-           f"&result_update_date__day={target_date.day}"
-           f"&result_update_date__month={target_date.month}"
-           f"&result_update_date__year={target_date.year}")
-    print(f"  Fetching: {url}")
-    resp = session.get(url, timeout=20)
-    resp.raise_for_status()
-    html = resp.text
+def build_results_url(target_date, page=1):
+    """
+    Build the Screener latest-results URL for a specific result date/page.
+    Page 1 keeps the existing URL shape; later pages use ?page=N.
+    """
+    params = [
+        ("all", ""),
+        ("result_update_date__day", str(target_date.day)),
+        ("result_update_date__month", str(target_date.month)),
+        ("result_update_date__year", str(target_date.year)),
+    ]
 
-    return html
+    if page > 1:
+        params.append(("page", str(page)))
+
+    return f"{RESULTS_BASE}?{urlencode(params)}"
+
+
+def pagination_info(html):
+    """
+    Extract page information from Screener's rendered result page.
+
+    Returns:
+        (current_page, total_pages, total_results)
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    page_text = soup.get_text(" ", strip=True)
+
+    current_page = 1
+    total_pages = None
+    total_results = None
+
+    match = re.search(
+        r"([\d,]+)\s+results found:\s*Showing page\s+(\d+)\s+of\s+(\d+)",
+        page_text,
+        re.IGNORECASE,
+    )
+
+    if match:
+        total_results = int(match.group(1).replace(",", ""))
+        current_page = int(match.group(2))
+        total_pages = int(match.group(3))
+        return current_page, total_pages, total_results
+
+    # Some date-filtered pages may expose pagination only through links.
+    page_numbers = []
+
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        parsed = urlparse(href)
+        query = parse_qs(parsed.query)
+
+        if "page" not in query:
+            continue
+
+        try:
+            page_number = int(query["page"][0])
+        except (ValueError, TypeError):
+            continue
+
+        page_numbers.append(page_number)
+
+    if page_numbers:
+        total_pages = max(page_numbers + [1])
+
+    return current_page, total_pages, total_results
+
+
+def next_page_from_links(html, current_page):
+    """
+    Find the smallest page number greater than current_page from Screener links.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    candidates = []
+
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        parsed = urlparse(href)
+        query = parse_qs(parsed.query)
+
+        if "page" not in query:
+            continue
+
+        try:
+            page_number = int(query["page"][0])
+        except (ValueError, TypeError):
+            continue
+
+        if page_number > current_page:
+            candidates.append(page_number)
+
+    if not candidates:
+        return None
+
+    return min(candidates)
+
+
+def fetch_results_page(session, target_date, page=1):
+    """
+    Fetch one page of Screener results for a given date.
+    Retries a small number of times on HTTP 429.
+    """
+    url = build_results_url(target_date, page)
+
+    if page > 1:
+        time.sleep(1.5)
+
+    print(f"  Fetching page {page}: {url}")
+
+    for attempt in range(3):
+        resp = session.get(url, timeout=20)
+
+        if resp.status_code == 429:
+            retry_after = resp.headers.get("Retry-After")
+
+            try:
+                delay = float(retry_after)
+            except (TypeError, ValueError):
+                delay = 4.0 * (attempt + 1)
+
+            print(
+                f"  ⚠  Screener rate-limited page {page} "
+                f"(attempt {attempt + 1}/3). Waiting {delay:.1f}s..."
+            )
+
+            if attempt == 2:
+                resp.raise_for_status()
+
+            time.sleep(delay)
+            continue
+
+        resp.raise_for_status()
+        return resp.text
+
+    raise RuntimeError(f"Could not fetch Screener page {page}")
+
+
+def fetch_all_results(session, target_date):
+    """
+    Fetch every Screener results page for target_date.
+
+    Uses Screener's reported page count when available, while also checking
+    actual pagination links. Stops safely if pages repeat or return no companies.
+    """
+    all_companies = []
+    seen_names = set()
+    seen_pages = set()
+
+    page = 1
+    reported_total_pages = None
+    reported_total_results = None
+    max_pages = 200
+
+    while page <= max_pages:
+        if page in seen_pages:
+            print(f"  ⚠  Page {page} was already fetched. Stopping.")
+            break
+
+        seen_pages.add(page)
+
+        html = fetch_results_page(session, target_date, page)
+
+        current_page, total_pages, total_results = pagination_info(html)
+
+        if total_pages is not None:
+            reported_total_pages = total_pages
+
+        if total_results is not None:
+            reported_total_results = total_results
+
+        companies = parse_results_cards(html)
+
+        print(
+            f"  📊 Page {current_page}: "
+            f"{len(companies)} companies parsed"
+        )
+
+        new_count = 0
+
+        for company in companies:
+            key = company.get("name", "").strip().casefold()
+            if not key or key in seen_names:
+                continue
+
+            seen_names.add(key)
+            all_companies.append(company)
+            new_count += 1
+
+        print(f"  → {new_count} new unique companies")
+
+        # If Screener says exactly how many pages exist, use that.
+        if reported_total_pages is not None and page >= reported_total_pages:
+            break
+
+        # Also inspect actual links. This protects us if the textual page
+        # count is missing or changes format.
+        linked_next = next_page_from_links(html, current_page)
+
+        if linked_next is not None:
+            page = linked_next
+        elif reported_total_pages is not None and page < reported_total_pages:
+            page += 1
+        else:
+            break
+
+    if page > max_pages:
+        print(f"  ⚠  Reached safety limit of {max_pages} pages.")
+
+    print(
+        f"\n  📦 Combined earnings results: "
+        f"{len(all_companies)} unique companies from {len(seen_pages)} page(s)"
+    )
+
+    if reported_total_results is not None:
+        print(
+            f"  📋 Screener reported {reported_total_results} total results"
+        )
+
+    if reported_total_pages is not None:
+        print(
+            f"  📄 Screener reported {reported_total_pages} page(s)"
+        )
+
+    return all_companies
+
 
 # ── Parse cards ───────────────────────────────────────────────────────────────
 
@@ -157,156 +372,245 @@ def parse_yoy(text):
 
 def parse_results_cards(html):
     """
-    Parse the card-based results page.
-    Each card is a div with class containing 'flex-row flex-space-between'
-    that contains a company link (href=/company/...) and a table.
+    Parse the current Screener card-based results page.
+
+    We do not depend on Screener's old 'margin-top-32' class. Instead we locate
+    company links and walk upward to the smallest container containing exactly
+    one company link, one results table, and the Price/M.Cap metadata.
     """
     soup = BeautifulSoup(html, "html.parser")
     companies = []
+    seen_company_urls = set()
 
-    # Find all card containers — they have the long flex class
-    # Each card = div containing /company/ link (not PDF) + a table
-    cards = soup.find_all("div", class_=lambda c: c and
-                          "flex-row" in " ".join(c) and
-                          "flex-space-between" in " ".join(c) and
-                          "margin-top-32" in " ".join(c))
+    company_links = soup.find_all("a", href=lambda h: h and "/company/" in h)
 
-    print(f"  Found {len(cards)} company cards")
+    print(f"  Found {len(company_links)} company links")
 
-    for card in cards:
+    for name_link in company_links:
         try:
-            # Get company name — first /company/ link that is NOT a PDF link
-            name_link = None
-            for a in card.find_all("a", href=True):
-                href = a.get("href","")
-                text = a.get_text(strip=True)
-                if "/company/" in href and text != "PDF" and text:
-                    name_link = a
-                    break
+            href = name_link.get("href", "")
+            name = name_link.get_text(" ", strip=True)
 
-            if not name_link:
-                continue
-
-            name = name_link.get_text(strip=True)
             if not name or len(name) < 2:
                 continue
 
-            # Get the table inside this card
+            if name.upper() == "PDF":
+                continue
+
+            # Find the actual company card.
+            card = None
+
+            # Preferred current Screener structure: a div whose class contains
+            # 'card' and which contains this company link.
+            for parent in name_link.parents:
+                if parent.name != "div":
+                    continue
+
+                classes = parent.get("class", [])
+                class_text = " ".join(classes)
+
+                if "card" in classes or "card-large" in classes:
+                    if parent.find("table"):
+                        card = parent
+                        break
+
+            # Fallback: structure-independent search.
+            if card is None:
+                for parent in name_link.parents:
+                    if parent.name != "div":
+                        continue
+
+                    tables = parent.find_all("table")
+                    links = [
+                        a for a in parent.find_all("a", href=True)
+                        if "/company/" in a.get("href", "")
+                        and a.get_text(" ", strip=True)
+                    ]
+
+                    if (
+                        len(tables) == 1
+                        and len(links) == 1
+                    ):
+                        card_text = parent.get_text(" ", strip=True)
+
+                        if (
+                            re.search(r"\bPrice\b", card_text, re.IGNORECASE)
+                            and re.search(r"M\.Cap", card_text, re.IGNORECASE)
+                        ):
+                            card = parent
+                            break
+
+            if card is None:
+                continue
+
+            company_url = href.split("?")[0]
+            if company_url in seen_company_urls:
+                continue
+            seen_company_urls.add(company_url)
+
             table = card.find("table")
             if not table:
                 continue
 
-            # Parse Price, M.Cap, PE from card text
             card_text = card.get_text(" ", strip=True)
-            price  = None
-            mcap   = None
-            pe     = None
 
-            p_match  = re.search(r"Price\s*[₹]?\s*([\d,]+\.?\d*)", card_text)
-            m_match  = re.search(r"M\.Cap\s*[₹]?\s*([\d,]+\.?\d*)", card_text)
-            pe_match = re.search(r"PE\s+([\d.]+)", card_text)
+            price = None
+            mcap = None
+            pe = None
 
-            if p_match:  price = safe_float(p_match.group(1))
-            if m_match:  mcap  = safe_float(m_match.group(1))
-            if pe_match: pe    = safe_float(pe_match.group(1))
+            p_match = re.search(
+                r"\bPrice\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
+                card_text,
+                re.IGNORECASE,
+            )
+            m_match = re.search(
+                r"\bM\.?Cap\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
+                card_text,
+                re.IGNORECASE,
+            )
+            pe_match = re.search(
+                r"\bPE\s+([\-]?\d+(?:\.\d+)?)",
+                card_text,
+                re.IGNORECASE,
+            )
 
-            # Parse the result table
-            # Structure: rows = Sales, EBIDT, Net profit, EPS
-            # Cols: [metric_name, YoY%, latest_q, prev_q, year_ago_q]
+            if p_match:
+                price = safe_float(p_match.group(1))
+
+            if m_match:
+                mcap = safe_float(m_match.group(1))
+
+            if pe_match:
+                pe = safe_float(pe_match.group(1))
+
+            # Parse result table.
             thead = table.find("thead")
             tbody = table.find("tbody") or table
 
-            # Get quarter labels
             quarters = []
             if thead:
-                ths = thead.find_all(["th","td"])
-                quarters = [th.get_text(strip=True) for th in ths]
+                ths = thead.find_all(["th", "td"])
+                quarters = [
+                    th.get_text(" ", strip=True)
+                    for th in ths
+                ]
 
             rows_data = {}
+
             for tr in tbody.find_all("tr"):
-                tds = tr.find_all(["td","th"])
-                if len(tds) < 2: continue
-                row_name = tds[0].get_text(strip=True).lower()
-                if not row_name: continue
-                vals = [td.get_text(strip=True) for td in tds[1:]]
+                tds = tr.find_all(["td", "th"])
+
+                if len(tds) < 2:
+                    continue
+
+                row_name = tds[0].get_text(" ", strip=True).lower()
+
+                if not row_name:
+                    continue
+
+                vals = [
+                    td.get_text(" ", strip=True)
+                    for td in tds[1:]
+                ]
+
                 rows_data[row_name] = vals
 
-            def get_yoy(key):
-                for k, vals in rows_data.items():
-                    if key in k and vals:
-                        return parse_yoy(vals[0])
+            def get_yoy(*keys):
+                for key in keys:
+                    for row_name, vals in rows_data.items():
+                        if key in row_name and vals:
+                            value = parse_yoy(vals[0])
+                            if value is not None:
+                                return value
+
                 return None
 
-            def get_qvals(key):
-                for k, vals in rows_data.items():
-                    if key in k and len(vals) >= 2:
-                        return [safe_float(re.sub(r"[%↑↓▲▼,]","",v).strip())
-                                for v in vals[1:4]]
+            def get_qvals(*keys):
+                for key in keys:
+                    for row_name, vals in rows_data.items():
+                        if key in row_name and len(vals) >= 2:
+                            out = [
+                                safe_float(
+                                    re.sub(
+                                        r"[%↑↓▲▼,]",
+                                        "",
+                                        value
+                                    ).strip()
+                                )
+                                for value in vals[1:4]
+                            ]
+
+                            while len(out) < 3:
+                                out.append(None)
+
+                            return out
+
                 return [None, None, None]
 
-            sales_yoy  = get_yoy("sales") or get_yoy("revenue")
-            ebidt_yoy  = get_yoy("ebidt") or get_yoy("ebitda")
-            profit_yoy = get_yoy("net profit") or get_yoy("profit")
-            eps_yoy    = get_yoy("eps")
+            sales_yoy = get_yoy("sales", "revenue")
+            ebidt_yoy = get_yoy("ebidt", "ebitda")
+            profit_yoy = get_yoy("net profit", "profit")
+            eps_yoy = get_yoy("eps")
 
-            sales_q    = get_qvals("sales") or get_qvals("revenue")
-            ebidt_q    = get_qvals("ebidt") or get_qvals("ebitda")
-            profit_q   = get_qvals("net profit") or get_qvals("profit")
-            eps_q      = get_qvals("eps")
+            sales_q = get_qvals("sales", "revenue")
+            ebidt_q = get_qvals("ebidt", "ebitda")
+            profit_q = get_qvals("net profit", "profit")
+            eps_q = get_qvals("eps")
 
             companies.append({
-                "name":       name,
-                "price":      price,
-                "mcap":       mcap,
-                "pe":         pe,
-                "quarters":   quarters,
-                "sales_yoy":  sales_yoy,
-                "ebidt_yoy":  ebidt_yoy,
+                "name": name,
+                "price": price,
+                "mcap": mcap,
+                "pe": pe,
+                "quarters": quarters,
+                "sales_yoy": sales_yoy,
+                "ebidt_yoy": ebidt_yoy,
                 "profit_yoy": profit_yoy,
-                "eps_yoy":    eps_yoy,
-                "sales_q":    sales_q,
-                "ebidt_q":    ebidt_q,
-                "profit_q":   profit_q,
-                "eps_q":      eps_q,
-                "rows_raw":   rows_data,
+                "eps_yoy": eps_yoy,
+                "sales_q": sales_q,
+                "ebidt_q": ebidt_q,
+                "profit_q": profit_q,
+                "eps_q": eps_q,
+                "rows_raw": rows_data,
             })
 
         except Exception as e:
+            print(
+                f"  ⚠  Could not parse a company card: {e}"
+            )
             continue
 
-    # Deduplicate
-    seen = set()
-    unique = []
-    for c in companies:
-        if c["name"] not in seen:
-            seen.add(c["name"])
-            unique.append(c)
-
-    return unique
-
+    print(f"  ✅ Parsed {len(companies)} unique company cards")
+    return companies
 
 
 # ── Filter ────────────────────────────────────────────────────────────────────
 
 def apply_filters(companies):
-    """Filter: Mkt Cap > 500 Cr AND Net Profit YoY > 50%."""
+    """
+    Strict filter:
+      - Market Cap > 500 Cr
+      - Net Profit YoY > 50%
+    """
     filtered = []
+
     for c in companies:
         mcap = c.get("mcap")
-        pyoy = c.get("profit_yoy")
-        
-        # Skip if missing key data
-        if mcap is None and pyoy is None:
+        profit_yoy = c.get("profit_yoy")
+
+        if mcap is None or profit_yoy is None:
             continue
-        
-        # Apply filters
-        mcap_ok   = mcap  is None or mcap  >= MIN_MCAP_CR        # include if mcap unknown
-        if mcap_ok:
+
+        if mcap > MIN_MCAP_CR and profit_yoy > MIN_PROFIT_YOY_PC:
             filtered.append(c)
-    
-    # Sort by profit YoY descending
-    filtered.sort(key=lambda x: x.get("profit_yoy") or 0, reverse=True)
+
+    filtered.sort(
+        key=lambda x: x.get("profit_yoy") or 0,
+        reverse=True,
+    )
+
     return filtered
+
 
 # ── HTML ──────────────────────────────────────────────────────────────────────
 
@@ -442,12 +746,11 @@ def main(target_date=None):
     session, logged_in = login()
 
     try:
-        html = fetch_results_page(session, target_date)
+        companies = fetch_all_results(session, target_date)
     except Exception as e:
         print(f"  ❌ Fetch failed: {e}")
         return
 
-    companies = parse_results_cards(html)
     print(f"  📊 {len(companies)} companies parsed")
 
     if not companies:
@@ -460,7 +763,7 @@ def main(target_date=None):
         return
 
     filtered = apply_filters(companies)
-    print(f"  ✅ {len(filtered)} companies passed filters (MCap>{MIN_MCAP_CR}Cr, ProfitYoY>{MIN_PROFIT_YOY_PC}%)")
+    print(f"  ✅ {len(filtered)} companies passed filters (MCap>{MIN_MCAP_CR}Cr AND ProfitYoY>{MIN_PROFIT_YOY_PC}%)")
 
     # Save outputs
     os.makedirs(EARNINGS_DIR, exist_ok=True)
