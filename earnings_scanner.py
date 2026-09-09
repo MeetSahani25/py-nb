@@ -279,6 +279,7 @@ def fetch_all_results(session, target_date):
     reported_total_pages = None
     reported_total_results = None
     max_pages = 200
+    last_html = None
 
     while page <= max_pages:
         if page in seen_pages:
@@ -288,8 +289,11 @@ def fetch_all_results(session, target_date):
         seen_pages.add(page)
 
         html = fetch_results_page(session, target_date, page)
+        last_html = html
 
         current_page, total_pages, total_results = pagination_info(html)
+        if current_page < 1:
+            current_page = page
 
         if total_pages is not None:
             reported_total_pages = total_pages
@@ -350,7 +354,7 @@ def fetch_all_results(session, target_date):
             f"  📄 Screener reported {reported_total_pages} page(s)"
         )
 
-    return all_companies
+    return all_companies, last_html
 
 
 # ── Parse cards ───────────────────────────────────────────────────────────────
@@ -372,17 +376,20 @@ def parse_yoy(text):
 
 def parse_results_cards(html):
     """
-    Parse the current Screener card-based results page.
+    Parse Screener's current card-based latest-results page.
 
-    We do not depend on Screener's old 'margin-top-32' class. Instead we locate
-    company links and walk upward to the smallest container containing exactly
-    one company link, one results table, and the Price/M.Cap metadata.
+    We intentionally avoid depending on Screener CSS class names. For each
+    /company/ link, walk up the DOM until finding the nearest container with
+    exactly one results table plus Price and M.Cap metadata.
     """
     soup = BeautifulSoup(html, "html.parser")
     companies = []
     seen_company_urls = set()
 
-    company_links = soup.find_all("a", href=lambda h: h and "/company/" in h)
+    company_links = soup.find_all(
+        "a",
+        href=lambda h: h and "/company/" in h
+    )
 
     print(f"  Found {len(company_links)} company links")
 
@@ -391,67 +398,46 @@ def parse_results_cards(html):
             href = name_link.get("href", "")
             name = name_link.get_text(" ", strip=True)
 
-            if not name or len(name) < 2:
-                continue
-
-            if name.upper() == "PDF":
-                continue
-
-            # Find the actual company card.
-            card = None
-
-            # Preferred current Screener structure: a div whose class contains
-            # 'card' and which contains this company link.
-            for parent in name_link.parents:
-                if parent.name != "div":
-                    continue
-
-                classes = parent.get("class", [])
-                class_text = " ".join(classes)
-
-                if "card" in classes or "card-large" in classes:
-                    if parent.find("table"):
-                        card = parent
-                        break
-
-            # Fallback: structure-independent search.
-            if card is None:
-                for parent in name_link.parents:
-                    if parent.name != "div":
-                        continue
-
-                    tables = parent.find_all("table")
-                    links = [
-                        a for a in parent.find_all("a", href=True)
-                        if "/company/" in a.get("href", "")
-                        and a.get_text(" ", strip=True)
-                    ]
-
-                    if (
-                        len(tables) == 1
-                        and len(links) == 1
-                    ):
-                        card_text = parent.get_text(" ", strip=True)
-
-                        if (
-                            re.search(r"\bPrice\b", card_text, re.IGNORECASE)
-                            and re.search(r"M\.Cap", card_text, re.IGNORECASE)
-                        ):
-                            card = parent
-                            break
-
-            if card is None:
+            if not name or len(name) < 2 or name.upper() == "PDF":
                 continue
 
             company_url = href.split("?")[0]
+
             if company_url in seen_company_urls:
                 continue
-            seen_company_urls.add(company_url)
 
-            table = card.find("table")
-            if not table:
+            card = None
+
+            # Find the nearest parent containing exactly one result table.
+            # This is deliberately class-independent.
+            for parent in name_link.parents:
+                if parent.name not in ("div", "article", "section", "li"):
+                    continue
+
+                tables = parent.find_all("table")
+
+                if len(tables) != 1:
+                    continue
+
+                parent_text = parent.get_text(" ", strip=True)
+
+                if not re.search(r"\bPrice\b", parent_text, re.IGNORECASE):
+                    continue
+
+                if not re.search(r"M\.?Cap", parent_text, re.IGNORECASE):
+                    continue
+
+                card = parent
+                break
+
+            if card is None:
                 continue
 
+            table = card.find("table")
+            if table is None:
+                continue
+
+            seen_company_urls.add(company_url)
             card_text = card.get_text(" ", strip=True)
 
             price = None
@@ -476,14 +462,11 @@ def parse_results_cards(html):
 
             if p_match:
                 price = safe_float(p_match.group(1))
-
             if m_match:
                 mcap = safe_float(m_match.group(1))
-
             if pe_match:
                 pe = safe_float(pe_match.group(1))
 
-            # Parse result table.
             thead = table.find("thead")
             tbody = table.find("tbody") or table
 
@@ -499,12 +482,10 @@ def parse_results_cards(html):
 
             for tr in tbody.find_all("tr"):
                 tds = tr.find_all(["td", "th"])
-
                 if len(tds) < 2:
                     continue
 
                 row_name = tds[0].get_text(" ", strip=True).lower()
-
                 if not row_name:
                     continue
 
@@ -512,7 +493,6 @@ def parse_results_cards(html):
                     td.get_text(" ", strip=True)
                     for td in tds[1:]
                 ]
-
                 rows_data[row_name] = vals
 
             def get_yoy(*keys):
@@ -522,7 +502,6 @@ def parse_results_cards(html):
                             value = parse_yoy(vals[0])
                             if value is not None:
                                 return value
-
                 return None
 
             def get_qvals(*keys):
@@ -575,9 +554,7 @@ def parse_results_cards(html):
             })
 
         except Exception as e:
-            print(
-                f"  ⚠  Could not parse a company card: {e}"
-            )
+            print(f"  ⚠  Could not parse a company card: {e}")
             continue
 
     print(f"  ✅ Parsed {len(companies)} unique company cards")
@@ -746,7 +723,7 @@ def main(target_date=None):
     session, logged_in = login()
 
     try:
-        companies = fetch_all_results(session, target_date)
+        companies, last_html = fetch_all_results(session, target_date)
     except Exception as e:
         print(f"  ❌ Fetch failed: {e}")
         return
@@ -754,12 +731,26 @@ def main(target_date=None):
     print(f"  📊 {len(companies)} companies parsed")
 
     if not companies:
-        print("  ⚠  No company cards found — page structure may have changed or no results today")
-        # Save debug HTML
+        print(
+            "  ⚠  No company cards found — page structure may have changed "
+            "or no results today"
+        )
+
         os.makedirs(EARNINGS_DIR, exist_ok=True)
-        with open(os.path.join(EARNINGS_DIR, f"debug_{target_date}.html"), "w") as f:
-            f.write(html)
-        print(f"  💾 Raw HTML saved to earnings/debug_{target_date}.html for inspection")
+
+        debug_path = os.path.join(
+            EARNINGS_DIR,
+            f"debug_{target_date}.html"
+        )
+
+        if last_html:
+            with open(debug_path, "w", encoding="utf-8") as f:
+                f.write(last_html)
+
+            print(f"  💾 Raw HTML saved to {debug_path}")
+        else:
+            print("  ⚠  No HTML available for debug output.")
+
         return
 
     filtered = apply_filters(companies)
