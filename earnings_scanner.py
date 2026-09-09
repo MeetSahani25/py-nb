@@ -129,8 +129,10 @@ def login():
 
 def build_results_url(target_date, page=1):
     """
-    Build the Screener latest-results URL for a specific result date/page.
-    Page 1 keeps the existing URL shape; later pages use ?page=N.
+    Build Screener's latest-results URL for a specific result date/page.
+
+    Screener's latest-results paginator uses the query parameter `p`, not
+    `page`. The first page is simply the base URL; later pages use p=N.
     """
     params = [
         ("all", ""),
@@ -140,78 +142,83 @@ def build_results_url(target_date, page=1):
     ]
 
     if page > 1:
-        params.append(("page", str(page)))
+        params.append(("p", str(page)))
 
     return f"{RESULTS_BASE}?{urlencode(params)}"
 
 
 def pagination_info(html):
     """
-    Extract page information from Screener's rendered result page.
+    Read Screener's actual paginator.
 
     Returns:
         (current_page, total_pages, total_results)
     """
     soup = BeautifulSoup(html, "html.parser")
-    page_text = soup.get_text(" ", strip=True)
 
     current_page = 1
     total_pages = None
     total_results = None
 
-    match = re.search(
-        r"([\d,]+)\s+results found:\s*Showing page\s+(\d+)\s+of\s+(\d+)",
-        page_text,
-        re.IGNORECASE,
-    )
-
-    if match:
-        total_results = int(match.group(1).replace(",", ""))
-        current_page = int(match.group(2))
-        total_pages = int(match.group(3))
-        return current_page, total_pages, total_results
-
-    # Some date-filtered pages may expose pagination only through links.
-    page_numbers = []
-
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        parsed = urlparse(href)
-        query = parse_qs(parsed.query)
-
-        if "page" not in query:
-            continue
-
+    current = soup.select_one("p.paginator .this-page")
+    if current:
         try:
-            page_number = int(query["page"][0])
+            current_page = int(current.get_text(strip=True))
         except (ValueError, TypeError):
-            continue
+            pass
 
-        page_numbers.append(page_number)
+    paginator = soup.select_one("p.paginator")
 
-    if page_numbers:
-        total_pages = max(page_numbers + [1])
+    if paginator:
+        page_numbers = [current_page]
+
+        for a in paginator.find_all("a", href=True):
+            query = parse_qs(urlparse(a["href"]).query)
+
+            if "p" not in query:
+                continue
+
+            try:
+                page_numbers.append(int(query["p"][0]))
+            except (ValueError, TypeError):
+                continue
+
+        if page_numbers:
+            total_pages = max(page_numbers)
+
+        match = re.search(
+            r"([\d,]+)\s+results",
+            paginator.get_text(" ", strip=True),
+            re.IGNORECASE,
+        )
+
+        if match:
+            total_results = int(match.group(1).replace(",", ""))
 
     return current_page, total_pages, total_results
 
 
 def next_page_from_links(html, current_page):
     """
-    Find the smallest page number greater than current_page from Screener links.
+    Find the smallest Screener paginator page > current_page.
+    Screener uses query parameter `p`.
     """
     soup = BeautifulSoup(html, "html.parser")
     candidates = []
 
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        parsed = urlparse(href)
-        query = parse_qs(parsed.query)
+    paginator = soup.select_one("p.paginator")
 
-        if "page" not in query:
+    if not paginator:
+        return None
+
+    for a in paginator.find_all("a", href=True):
+        query = parse_qs(urlparse(a["href"]).query)
+
+        if "p" not in query:
             continue
 
         try:
-            page_number = int(query["page"][0])
+            page_number = int(query["p"][0])
         except (ValueError, TypeError):
             continue
 
@@ -278,7 +285,7 @@ def fetch_all_results(session, target_date):
     page = 1
     reported_total_pages = None
     reported_total_results = None
-    max_pages = 200
+    max_pages = 500
     last_html = None
 
     while page <= max_pages:
@@ -376,69 +383,56 @@ def parse_yoy(text):
 
 def parse_results_cards(html):
     """
-    Parse Screener's current card-based latest-results page.
+    Parse Screener's actual latest-results structure.
 
-    We intentionally avoid depending on Screener CSS class names. For each
-    /company/ link, walk up the DOM until finding the nearest container with
-    exactly one results table plus Price and M.Cap metadata.
+    Each company is represented by two adjacent blocks:
+      1. Header div with the /company/ link and Price/M.Cap/PE.
+      2. Following div containing the results table.
+
+    The debug HTML for 2026-08-13 shows 25 result tables and 50 company links
+    because every company also has a separate PDF link. We therefore parse
+    the company header blocks, then pair each header with its following table.
     """
     soup = BeautifulSoup(html, "html.parser")
     companies = []
-    seen_company_urls = set()
 
-    company_links = soup.find_all(
-        "a",
-        href=lambda h: h and "/company/" in h
+    # This is the actual company header block observed in Screener HTML.
+    headers = soup.select(
+        "div.flex-row.flex-space-between.flex-align-center.margin-top-32"
     )
 
-    print(f"  Found {len(company_links)} company links")
+    print(f"  Found {len(headers)} company result blocks")
 
-    for name_link in company_links:
+    for header in headers:
         try:
-            href = name_link.get("href", "")
+            name_link = header.find(
+                "a",
+                href=lambda h: h and "/company/" in h
+            )
+
+            if not name_link:
+                continue
+
             name = name_link.get_text(" ", strip=True)
 
-            if not name or len(name) < 2 or name.upper() == "PDF":
+            if not name or name.upper() == "PDF":
                 continue
 
-            company_url = href.split("?")[0]
+            # The actual results table is the next sibling block.
+            table_holder = header.find_next_sibling(
+                "div",
+                class_=lambda c: c and "responsive-holder" in c
+            )
 
-            if company_url in seen_company_urls:
+            if table_holder is None:
                 continue
 
-            card = None
+            table = table_holder.find("table")
 
-            # Find the nearest parent containing exactly one result table.
-            # This is deliberately class-independent.
-            for parent in name_link.parents:
-                if parent.name not in ("div", "article", "section", "li"):
-                    continue
-
-                tables = parent.find_all("table")
-
-                if len(tables) != 1:
-                    continue
-
-                parent_text = parent.get_text(" ", strip=True)
-
-                if not re.search(r"\bPrice\b", parent_text, re.IGNORECASE):
-                    continue
-
-                if not re.search(r"M\.?Cap", parent_text, re.IGNORECASE):
-                    continue
-
-                card = parent
-                break
-
-            if card is None:
-                continue
-
-            table = card.find("table")
             if table is None:
                 continue
 
-            seen_company_urls.add(company_url)
-            card_text = card.get_text(" ", strip=True)
+            card_text = header.get_text(" ", strip=True)
 
             price = None
             mcap = None
@@ -450,7 +444,7 @@ def parse_results_cards(html):
                 re.IGNORECASE,
             )
             m_match = re.search(
-                r"\bM\.?Cap\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
+                r"\bM\.Cap\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
                 card_text,
                 re.IGNORECASE,
             )
@@ -462,8 +456,10 @@ def parse_results_cards(html):
 
             if p_match:
                 price = safe_float(p_match.group(1))
+
             if m_match:
                 mcap = safe_float(m_match.group(1))
+
             if pe_match:
                 pe = safe_float(pe_match.group(1))
 
@@ -471,6 +467,7 @@ def parse_results_cards(html):
             tbody = table.find("tbody") or table
 
             quarters = []
+
             if thead:
                 ths = thead.find_all(["th", "td"])
                 quarters = [
@@ -482,10 +479,12 @@ def parse_results_cards(html):
 
             for tr in tbody.find_all("tr"):
                 tds = tr.find_all(["td", "th"])
+
                 if len(tds) < 2:
                     continue
 
                 row_name = tds[0].get_text(" ", strip=True).lower()
+
                 if not row_name:
                     continue
 
@@ -493,6 +492,7 @@ def parse_results_cards(html):
                     td.get_text(" ", strip=True)
                     for td in tds[1:]
                 ]
+
                 rows_data[row_name] = vals
 
             def get_yoy(*keys):
@@ -554,11 +554,24 @@ def parse_results_cards(html):
             })
 
         except Exception as e:
-            print(f"  ⚠  Could not parse a company card: {e}")
+            print(f"  ⚠  Could not parse company block: {e}")
             continue
 
-    print(f"  ✅ Parsed {len(companies)} unique company cards")
-    return companies
+    # Deduplicate by company name.
+    seen = set()
+    unique = []
+
+    for company in companies:
+        key = company["name"].strip().casefold()
+
+        if not key or key in seen:
+            continue
+
+        seen.add(key)
+        unique.append(company)
+
+    print(f"  ✅ Parsed {len(unique)} unique company cards")
+    return unique
 
 
 # ── Filter ────────────────────────────────────────────────────────────────────
