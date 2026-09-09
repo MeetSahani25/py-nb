@@ -1,819 +1,213 @@
 """
-earnings_scanner.py v2
-Fetches Screener.in /results/latest/?all= for a given date.
-Parses the card-based layout (each company = one card with
-Sales / EBIDT / Net Profit / EPS across 3 quarters + YoY%).
-Filters: Mkt Cap > 500 Cr AND Net Profit YoY > 50%.
-Outputs a dark-themed HTML report showing only the filtered cards,
-styled exactly like the Screener mobile card layout.
+send_email.py
 
-Usage:
-  python earnings_scanner.py              # yesterday's results
-  python earnings_scanner.py 2026-06-02   # specific date
+Email contents:
+- Every day:
+    - Today's Screener CSV
+    - Today's Screener HTML
+
+- Friday only:
+    - Weekly Analysis HTML
+    - Silent Horse 4-week HTML
+    - Silent Horse 3-week HTML
+
+No historical daily CSVs are attached.
 """
 
-import requests
-from bs4 import BeautifulSoup
-import json, os, re, sys
-from datetime import datetime, date, timedelta
-from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
-import time
+import os
+import smtplib
+import glob
 
-OUTPUT_DIR   = "reports"
-EARNINGS_DIR = os.path.join(OUTPUT_DIR, "earnings")
-LOGIN_URL    = "https://www.screener.in/login/"
-RESULTS_BASE = "https://www.screener.in/results/latest/"
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+from datetime import date
 
-EMAIL    = os.environ.get("SCREENER_EMAIL",    "")
-PASSWORD = os.environ.get("SCREENER_PASSWORD", "")
 
-# ── Filters ───────────────────────────────────────────────────────────────────
-MIN_MCAP_CR       = 500    # Market cap in Crores
-MIN_PROFIT_YOY_PC = 50     # Net profit YoY growth %
+SENDER = os.environ.get("EMAIL_SENDER", "")
+PASSWORD = os.environ.get("EMAIL_PASSWORD", "")
+RECEIVER = os.environ.get("EMAIL_RECEIVER", "")
 
-# ── Dark CSS ──────────────────────────────────────────────────────────────────
-DARK_CSS = """
-:root{
-  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
-  --border:#252840;--border2:#2e3250;
-  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
-  --amber:#f0a500;--amber-dim:#3d2900;
-  --green:#00c875;--green-dim:#002e1a;
-  --red:#ff4560;--red-dim:#3d0010;
-  --blue:#4a9eff;--blue-dim:#0a1f3d;
-  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-     background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
-.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);
-  padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
-.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
-.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
-.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);
-  padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column;gap:2px}
-.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
-.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
-.filter-bar{background:var(--bg3);border-bottom:1px solid var(--border);
-  padding:8px 24px;font-size:11px;color:var(--text2);display:flex;gap:20px}
-.filter-tag{background:var(--amber-dim);color:var(--amber);padding:2px 10px;
-  border-radius:3px;font-weight:600;font-family:var(--mono);font-size:10px}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:16px;padding:16px 24px}
-/* ── Company card ── */
-.card{background:var(--bg2);border:1px solid var(--border);
-  border-radius:8px;overflow:hidden}
-.card-header{background:var(--bg3);padding:12px 16px;
-  border-bottom:1px solid var(--border)}
-.card-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
-.card-meta{display:flex;gap:16px;font-family:var(--mono);font-size:11px;color:var(--text2)}
-.card-meta span strong{color:var(--amber)}
-/* ── Result table ── */
-.result-table{width:100%;border-collapse:collapse;font-size:12px}
-.result-table th{padding:7px 12px;text-align:right;font-size:9px;font-weight:600;
-  text-transform:uppercase;letter-spacing:.4px;color:var(--text3);
-  background:var(--bg4);border-bottom:1px solid var(--border2);white-space:nowrap}
-.result-table th:first-child{text-align:left}
-.result-table td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);
-  font-family:var(--mono);font-size:12px;white-space:nowrap}
-.result-table td:first-child{text-align:left;font-family:-apple-system,
-  BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text2);font-size:11px}
-.result-table tr:last-child td{border-bottom:none}
-.result-table tr:hover td{background:var(--bg4)}
-/* ── YoY badge ── */
-.yoy{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600}
-.yoy.up{color:var(--green)}
-.yoy.dn{color:var(--red)}
-.yoy.neu{color:var(--text3)}
-/* ── Profit highlight ── */
-.profit-highlight{background:var(--green-dim);border-top:1px solid var(--green)}
-.profit-highlight td:first-child{color:var(--green) !important;font-weight:600}
-/* ── Empty state ── */
-.empty{padding:40px 24px;text-align:center;color:var(--text3);font-size:13px}
-.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);
-  background:var(--bg2);border-top:1px solid var(--border);text-align:center}
-"""
+REPORTS = "reports"
 
-# ── Login ─────────────────────────────────────────────────────────────────────
 
-def login():
-    s = requests.Session()
-    s.headers.update({
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept":     "text/html,application/xhtml+xml,*/*;q=0.8",
-        "Accept-Language": "en-IN,en;q=0.9",
-        "Referer":    "https://www.screener.in/",
-    })
-    if not EMAIL or not PASSWORD:
-        print("  ⚠  No credentials — will fetch as guest (limited data)")
-        return s, False
+def latest(pattern):
+    files = sorted(glob.glob(pattern), reverse=True)
+    return files[0] if files else None
 
-    resp = s.get(LOGIN_URL, timeout=15)
-    soup = BeautifulSoup(resp.text, "html.parser")
-    csrf_inp = soup.find("input", {"name": "csrfmiddlewaretoken"})
-    csrf = csrf_inp["value"] if csrf_inp else s.cookies.get("csrftoken", "")
 
-    s.headers.update({"Referer": LOGIN_URL, "Origin": "https://www.screener.in"})
-    r = s.post(LOGIN_URL, data={
-        "csrfmiddlewaretoken": csrf,
-        "username": EMAIL,
-        "password": PASSWORD,
-    }, timeout=15)
-
-    ok = bool(s.cookies.get("sessionid")) or "logout" in r.text.lower()
-    print(f"  {'✅ Logged in' if ok else '⚠  Login uncertain'} as {EMAIL}")
-    return s, ok
-
-# ── Fetch ─────────────────────────────────────────────────────────────────────
-
-def build_results_url(target_date, page=1):
+def todays_screener_file(extension):
     """
-    Build the Screener latest-results URL for a specific result date/page.
-    Page 1 keeps the existing URL shape; later pages use ?page=N.
+    Return today's Screener report only.
     """
-    params = [
-        ("all", ""),
-        ("result_update_date__day", str(target_date.day)),
-        ("result_update_date__month", str(target_date.month)),
-        ("result_update_date__year", str(target_date.year)),
+    today = date.today().isoformat()
+
+    path = os.path.join(
+        REPORTS,
+        today,
+        f"{today}_screener.{extension}"
+    )
+
+    return path if os.path.exists(path) else None
+
+
+def is_friday():
+    return date.today().weekday() == 4
+
+
+def build_body():
+    today = date.today().strftime("%d %b %Y")
+
+    lines = [
+        f"📊 SCREENER DAILY REPORT — {today}",
+        "=" * 45,
+        "",
+        "Today's Screener report is attached:",
+        "  • CSV",
+        "  • HTML",
+        "",
     ]
 
-    if page > 1:
-        params.append(("page", str(page)))
-
-    return f"{RESULTS_BASE}?{urlencode(params)}"
-
-
-def pagination_info(html):
-    """
-    Extract page information from Screener's rendered result page.
-
-    Returns:
-        (current_page, total_pages, total_results)
-    """
-    soup = BeautifulSoup(html, "html.parser")
-    page_text = soup.get_text(" ", strip=True)
-
-    current_page = 1
-    total_pages = None
-    total_results = None
-
-    match = re.search(
-        r"([\d,]+)\s+results found:\s*Showing page\s+(\d+)\s+of\s+(\d+)",
-        page_text,
-        re.IGNORECASE,
-    )
-
-    if match:
-        total_results = int(match.group(1).replace(",", ""))
-        current_page = int(match.group(2))
-        total_pages = int(match.group(3))
-        return current_page, total_pages, total_results
-
-    # Some date-filtered pages may expose pagination only through links.
-    page_numbers = []
-
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        parsed = urlparse(href)
-        query = parse_qs(parsed.query)
-
-        if "page" not in query:
-            continue
-
-        try:
-            page_number = int(query["page"][0])
-        except (ValueError, TypeError):
-            continue
-
-        page_numbers.append(page_number)
-
-    if page_numbers:
-        total_pages = max(page_numbers + [1])
-
-    return current_page, total_pages, total_results
-
-
-def next_page_from_links(html, current_page):
-    """
-    Find the smallest page number greater than current_page from Screener links.
-    """
-    soup = BeautifulSoup(html, "html.parser")
-    candidates = []
-
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        parsed = urlparse(href)
-        query = parse_qs(parsed.query)
-
-        if "page" not in query:
-            continue
-
-        try:
-            page_number = int(query["page"][0])
-        except (ValueError, TypeError):
-            continue
-
-        if page_number > current_page:
-            candidates.append(page_number)
-
-    if not candidates:
-        return None
-
-    return min(candidates)
-
-
-def fetch_results_page(session, target_date, page=1):
-    """
-    Fetch one page of Screener results for a given date.
-    Retries a small number of times on HTTP 429.
-    """
-    url = build_results_url(target_date, page)
-
-    if page > 1:
-        time.sleep(1.5)
-
-    print(f"  Fetching page {page}: {url}")
-
-    for attempt in range(3):
-        resp = session.get(url, timeout=20)
-
-        if resp.status_code == 429:
-            retry_after = resp.headers.get("Retry-After")
-
-            try:
-                delay = float(retry_after)
-            except (TypeError, ValueError):
-                delay = 4.0 * (attempt + 1)
-
-            print(
-                f"  ⚠  Screener rate-limited page {page} "
-                f"(attempt {attempt + 1}/3). Waiting {delay:.1f}s..."
-            )
-
-            if attempt == 2:
-                resp.raise_for_status()
-
-            time.sleep(delay)
-            continue
-
-        resp.raise_for_status()
-        return resp.text
-
-    raise RuntimeError(f"Could not fetch Screener page {page}")
-
-
-def fetch_all_results(session, target_date):
-    """
-    Fetch every Screener results page for target_date.
-
-    Uses Screener's reported page count when available, while also checking
-    actual pagination links. Stops safely if pages repeat or return no companies.
-    """
-    all_companies = []
-    seen_names = set()
-    seen_pages = set()
-
-    page = 1
-    reported_total_pages = None
-    reported_total_results = None
-    max_pages = 200
-    last_html = None
-
-    while page <= max_pages:
-        if page in seen_pages:
-            print(f"  ⚠  Page {page} was already fetched. Stopping.")
-            break
-
-        seen_pages.add(page)
-
-        html = fetch_results_page(session, target_date, page)
-        last_html = html
-
-        current_page, total_pages, total_results = pagination_info(html)
-        if current_page < 1:
-            current_page = page
-
-        if total_pages is not None:
-            reported_total_pages = total_pages
-
-        if total_results is not None:
-            reported_total_results = total_results
-
-        companies = parse_results_cards(html)
-
-        print(
-            f"  📊 Page {current_page}: "
-            f"{len(companies)} companies parsed"
-        )
-
-        new_count = 0
-
-        for company in companies:
-            key = company.get("name", "").strip().casefold()
-            if not key or key in seen_names:
-                continue
-
-            seen_names.add(key)
-            all_companies.append(company)
-            new_count += 1
-
-        print(f"  → {new_count} new unique companies")
-
-        # If Screener says exactly how many pages exist, use that.
-        if reported_total_pages is not None and page >= reported_total_pages:
-            break
-
-        # Also inspect actual links. This protects us if the textual page
-        # count is missing or changes format.
-        linked_next = next_page_from_links(html, current_page)
-
-        if linked_next is not None:
-            page = linked_next
-        elif reported_total_pages is not None and page < reported_total_pages:
-            page += 1
-        else:
-            break
-
-    if page > max_pages:
-        print(f"  ⚠  Reached safety limit of {max_pages} pages.")
-
-    print(
-        f"\n  📦 Combined earnings results: "
-        f"{len(all_companies)} unique companies from {len(seen_pages)} page(s)"
-    )
-
-    if reported_total_results is not None:
-        print(
-            f"  📋 Screener reported {reported_total_results} total results"
-        )
-
-    if reported_total_pages is not None:
-        print(
-            f"  📄 Screener reported {reported_total_pages} page(s)"
-        )
-
-    return all_companies, last_html
-
-
-# ── Parse cards ───────────────────────────────────────────────────────────────
-
-def safe_float(v):
-    if v is None: return None
-    s = str(v).replace(",","").replace("%","").replace("₹","").replace("Cr","").strip()
-    if s in ("","—","-","N/A","na","NA","--"): return None
-    try: return float(s)
-    except: return None
-
-def parse_yoy(text):
-    """Parse YoY % from text like '11%↑' or '-97%↓' or '11%'."""
-    if not text: return None
-    text = text.strip()
-    # Remove arrow characters
-    text = text.replace("↑","").replace("↓","").replace("▲","").replace("▼","").strip()
-    return safe_float(text)
-
-def parse_results_cards(html):
-    """
-    Parse Screener's current card-based latest-results page.
-
-    We intentionally avoid depending on Screener CSS class names. For each
-    /company/ link, walk up the DOM until finding the nearest container with
-    exactly one results table plus Price and M.Cap metadata.
-    """
-    soup = BeautifulSoup(html, "html.parser")
-    companies = []
-    seen_company_urls = set()
-
-    company_links = soup.find_all(
-        "a",
-        href=lambda h: h and "/company/" in h
-    )
-
-    print(f"  Found {len(company_links)} company links")
-
-    for name_link in company_links:
-        try:
-            href = name_link.get("href", "")
-            name = name_link.get_text(" ", strip=True)
-
-            if not name or len(name) < 2 or name.upper() == "PDF":
-                continue
-
-            company_url = href.split("?")[0]
-
-            if company_url in seen_company_urls:
-                continue
-
-            card = None
-
-            # Find the nearest parent containing exactly one result table.
-            # This is deliberately class-independent.
-            for parent in name_link.parents:
-                if parent.name not in ("div", "article", "section", "li"):
-                    continue
-
-                tables = parent.find_all("table")
-
-                if len(tables) != 1:
-                    continue
-
-                parent_text = parent.get_text(" ", strip=True)
-
-                if not re.search(r"\bPrice\b", parent_text, re.IGNORECASE):
-                    continue
-
-                if not re.search(r"M\.?Cap", parent_text, re.IGNORECASE):
-                    continue
-
-                card = parent
-                break
-
-            if card is None:
-                continue
-
-            table = card.find("table")
-            if table is None:
-                continue
-
-            seen_company_urls.add(company_url)
-            card_text = card.get_text(" ", strip=True)
-
-            price = None
-            mcap = None
-            pe = None
-
-            p_match = re.search(
-                r"\bPrice\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
-                card_text,
-                re.IGNORECASE,
-            )
-            m_match = re.search(
-                r"\bM\.?Cap\s*[₹]?\s*([\d,]+(?:\.\d+)?)",
-                card_text,
-                re.IGNORECASE,
-            )
-            pe_match = re.search(
-                r"\bPE\s+([\-]?\d+(?:\.\d+)?)",
-                card_text,
-                re.IGNORECASE,
-            )
-
-            if p_match:
-                price = safe_float(p_match.group(1))
-            if m_match:
-                mcap = safe_float(m_match.group(1))
-            if pe_match:
-                pe = safe_float(pe_match.group(1))
-
-            thead = table.find("thead")
-            tbody = table.find("tbody") or table
-
-            quarters = []
-            if thead:
-                ths = thead.find_all(["th", "td"])
-                quarters = [
-                    th.get_text(" ", strip=True)
-                    for th in ths
-                ]
-
-            rows_data = {}
-
-            for tr in tbody.find_all("tr"):
-                tds = tr.find_all(["td", "th"])
-                if len(tds) < 2:
-                    continue
-
-                row_name = tds[0].get_text(" ", strip=True).lower()
-                if not row_name:
-                    continue
-
-                vals = [
-                    td.get_text(" ", strip=True)
-                    for td in tds[1:]
-                ]
-                rows_data[row_name] = vals
-
-            def get_yoy(*keys):
-                for key in keys:
-                    for row_name, vals in rows_data.items():
-                        if key in row_name and vals:
-                            value = parse_yoy(vals[0])
-                            if value is not None:
-                                return value
-                return None
-
-            def get_qvals(*keys):
-                for key in keys:
-                    for row_name, vals in rows_data.items():
-                        if key in row_name and len(vals) >= 2:
-                            out = [
-                                safe_float(
-                                    re.sub(
-                                        r"[%↑↓▲▼,]",
-                                        "",
-                                        value
-                                    ).strip()
-                                )
-                                for value in vals[1:4]
-                            ]
-
-                            while len(out) < 3:
-                                out.append(None)
-
-                            return out
-
-                return [None, None, None]
-
-            sales_yoy = get_yoy("sales", "revenue")
-            ebidt_yoy = get_yoy("ebidt", "ebitda")
-            profit_yoy = get_yoy("net profit", "profit")
-            eps_yoy = get_yoy("eps")
-
-            sales_q = get_qvals("sales", "revenue")
-            ebidt_q = get_qvals("ebidt", "ebitda")
-            profit_q = get_qvals("net profit", "profit")
-            eps_q = get_qvals("eps")
-
-            companies.append({
-                "name": name,
-                "price": price,
-                "mcap": mcap,
-                "pe": pe,
-                "quarters": quarters,
-                "sales_yoy": sales_yoy,
-                "ebidt_yoy": ebidt_yoy,
-                "profit_yoy": profit_yoy,
-                "eps_yoy": eps_yoy,
-                "sales_q": sales_q,
-                "ebidt_q": ebidt_q,
-                "profit_q": profit_q,
-                "eps_q": eps_q,
-                "rows_raw": rows_data,
-            })
-
-        except Exception as e:
-            print(f"  ⚠  Could not parse a company card: {e}")
-            continue
-
-    print(f"  ✅ Parsed {len(companies)} unique company cards")
-    return companies
-
-
-# ── Filter ────────────────────────────────────────────────────────────────────
-
-def apply_filters(companies):
-    """
-    Strict filter:
-      - Market Cap > 500 Cr
-      - Net Profit YoY > 50%
-    """
-    filtered = []
-
-    for c in companies:
-        mcap = c.get("mcap")
-        profit_yoy = c.get("profit_yoy")
-
-        if mcap is None or profit_yoy is None:
-            continue
-
-        if mcap > MIN_MCAP_CR and profit_yoy > MIN_PROFIT_YOY_PC:
-            filtered.append(c)
-
-    filtered.sort(
-        key=lambda x: x.get("profit_yoy") or 0,
-        reverse=True,
-    )
-
-    return filtered
-
-
-# ── HTML ──────────────────────────────────────────────────────────────────────
-
-def fmt_num(v, d=2):
-    if v is None: return "—"
-    try: return f"{float(v):,.{d}f}"
-    except: return str(v)
-
-def fmt_yoy(v):
-    if v is None: return '<span class="yoy neu">—</span>'
-    cls = "up" if v > 0 else "dn" if v < 0 else "neu"
-    arrow = "↑" if v > 0 else "↓" if v < 0 else ""
-    return f'<span class="yoy {cls}">{arrow}{abs(v):.0f}%</span>'
-
-def company_card_html(c):
-    q = c.get("quarters", [])
-    # Quarter labels for header
-    q_labels = q[1:4] if len(q) >= 4 else (q[1:] if len(q) > 1 else ["Q1","Q2","Q3"])
-    while len(q_labels) < 3: q_labels.append("—")
-
-    profit_yoy_val = c.get("profit_yoy")
-    profit_color   = "var(--green)" if profit_yoy_val and profit_yoy_val >= 50 else "var(--amber)"
-
-    rows_html = ""
-    metrics = [
-        ("Sales",       c["sales_yoy"],  c["sales_q"]),
-        ("EBIDT",       c["ebidt_yoy"],  c["ebidt_q"]),
-        ("Net Profit",  c["profit_yoy"], c["profit_q"]),
-        ("EPS",         c["eps_yoy"],    c["eps_q"]),
+    if is_friday():
+        lines += [
+            "FRIDAY REPORTS",
+            "  • Weekly Analysis",
+            "  • Silent Horse — 4 Week",
+            "  • Silent Horse — 3 Week",
+            "",
+        ]
+
+    lines += [
+        "=" * 45,
+        "Open the HTML file in Chrome for the full report.",
+        "",
+        "Screen: https://www.screener.in/screens/3664072/screen1/",
     ]
-    for label, yoy, qvals in metrics:
-        qvals = qvals or [None, None, None]
-        while len(qvals) < 3: qvals.append(None)
-        is_profit = "profit" in label.lower()
-        row_style = f'style="background:var(--green-dim)"' if is_profit else ""
-        label_style = f'style="color:var(--green);font-weight:600"' if is_profit else ""
-        rows_html += f"""<tr {row_style}>
-          <td {label_style}>{label}</td>
-          <td>{fmt_yoy(yoy)}</td>
-          <td>{fmt_num(qvals[0])}</td>
-          <td>{fmt_num(qvals[1])}</td>
-          <td>{fmt_num(qvals[2])}</td>
-        </tr>"""
 
-    return f"""
-    <div class="card">
-      <div class="card-header">
-        <div class="card-name">{c['name']}</div>
-        <div class="card-meta">
-          <span>Price <strong>₹{fmt_num(c['price'], 2)}</strong></span>
-          <span>M.Cap <strong>₹{fmt_num(c['mcap'], 0)} Cr</strong></span>
-          <span>PE <strong>{fmt_num(c['pe'], 1)}</strong></span>
-          <span style="color:{profit_color};font-weight:600;font-family:var(--mono)">
-            Profit YoY {fmt_yoy(profit_yoy_val)}
-          </span>
-        </div>
-      </div>
-      <table class="result-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>YoY</th>
-            <th>{q_labels[0]}</th>
-            <th>{q_labels[1]}</th>
-            <th>{q_labels[2]}</th>
-          </tr>
-        </thead>
-        <tbody>{rows_html}</tbody>
-      </table>
-    </div>"""
+    return "\n".join(lines)
 
-def build_html(filtered, total_fetched, report_date):
-    cards_html = "".join(company_card_html(c) for c in filtered)
-    if not cards_html:
-        cards_html = '<div class="empty">No companies matched the filters today.<br>Try lowering the profit growth threshold or check if results were filed.</div>'
 
-    return f"""<!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Earnings Scanner — {report_date}</title>
-<style>{DARK_CSS}</style>
-</head><body>
+def attach(msg, path):
+    if not path or not os.path.exists(path):
+        return
 
-<div class="page-header">
-  <div class="page-title">⚡ EARNINGS SCANNER — {report_date}</div>
-  <div class="page-meta">QUARTERLY RESULTS · {total_fetched} COMPANIES REPORTED · {len(filtered)} PASSED FILTERS</div>
-</div>
+    with open(path, "rb") as f:
+        part = MIMEBase("application", "octet-stream")
+        part.set_payload(f.read())
 
-<div class="stat-strip">
-  <div class="stat">
-    <div class="stat-val">{total_fetched}</div>
-    <div class="stat-lbl">Results filed</div>
-  </div>
-  <div class="stat">
-    <div class="stat-val" style="color:var(--green)">{len(filtered)}</div>
-    <div class="stat-lbl">Passed filters</div>
-  </div>
-  <div class="stat">
-    <div class="stat-val" style="color:var(--text3)">{total_fetched - len(filtered)}</div>
-    <div class="stat-lbl">Filtered out</div>
-  </div>
-</div>
+    encoders.encode_base64(part)
 
-<div class="filter-bar">
-  <span>Active filters:</span>
-  <span class="filter-tag">M.Cap &gt; ₹{MIN_MCAP_CR} Cr</span>
-  <span class="filter-tag">Sorted by Profit YoY ↓</span>
-  <span>Sorted by highest profit growth</span>
-</div>
+    part.add_header(
+        "Content-Disposition",
+        f'attachment; filename="{os.path.basename(path)}"'
+    )
 
-<div class="cards-grid">{cards_html}</div>
+    msg.attach(part)
 
-<div class="page-foot">
-  Earnings Scanner v2 · {datetime.utcnow().strftime('%Y-%m-%d %H:%M')} UTC · Source: Screener.in/results/latest/
-</div>
-</body></html>"""
+    print(f"  📎 {os.path.basename(path)}")
 
-# ── Main ──────────────────────────────────────────────────────────────────────
 
-def main(target_date=None):
-    today = date.today()
+def main():
+    if not SENDER or not PASSWORD or not RECEIVER:
+        print("  ❌ Email credentials missing")
+        return
 
-    if target_date is None:
-        # Default: yesterday (results filed after market close previous day)
-        target_date = today - timedelta(days=1)
-        # Skip weekends
-        if target_date.weekday() == 6: target_date -= timedelta(days=2)
-        if target_date.weekday() == 5: target_date -= timedelta(days=1)
+    today = date.today().strftime("%d %b %Y")
 
-    print(f"\n⚡ Earnings Scanner v2 — results for {target_date}")
+    if is_friday():
+        subject = f"📊 Screener Daily + Weekly + Silent Horse — {today}"
+    else:
+        subject = f"📊 Screener Daily Report — {today}"
 
-    session, logged_in = login()
+    msg = MIMEMultipart("mixed")
+    msg["From"] = SENDER
+    msg["To"] = RECEIVER
+    msg["Subject"] = subject
+
+    msg.attach(
+        MIMEText(build_body(), "plain")
+    )
+
+    print(f"\n📧 Sending to {RECEIVER}...")
+
+    # ─────────────────────────────────────────────
+    # DAILY: Today's Screener CSV
+    # ─────────────────────────────────────────────
+
+    attach(
+        msg,
+        todays_screener_file("csv")
+    )
+
+    # ─────────────────────────────────────────────
+    # DAILY: Today's Screener HTML
+    # ─────────────────────────────────────────────
+
+    attach(
+        msg,
+        todays_screener_file("html")
+    )
+
+    # ─────────────────────────────────────────────
+    # FRIDAY ONLY
+    # ─────────────────────────────────────────────
+
+    if is_friday():
+
+        attach(
+            msg,
+            latest(
+                os.path.join(
+                    REPORTS,
+                    "weekly",
+                    "week_*_analysis.html"
+                )
+            )
+        )
+
+        attach(
+            msg,
+            latest(
+                os.path.join(
+                    REPORTS,
+                    "monthly",
+                    "silent_horse_4wk_*.html"
+                )
+            )
+        )
+
+        attach(
+            msg,
+            latest(
+                os.path.join(
+                    REPORTS,
+                    "monthly",
+                    "silent_horse_3wk_*.html"
+                )
+            )
+        )
 
     try:
-        companies, last_html = fetch_all_results(session, target_date)
-    except Exception as e:
-        print(f"  ❌ Fetch failed: {e}")
-        return
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
+            s.login(SENDER, PASSWORD)
+            s.sendmail(
+                SENDER,
+                RECEIVER,
+                msg.as_string()
+            )
 
-    print(f"  📊 {len(companies)} companies parsed")
+        print("  ✅ Email sent!")
 
-    if not companies:
+    except smtplib.SMTPAuthenticationError:
         print(
-            "  ⚠  No company cards found — page structure may have changed "
-            "or no results today"
+            "  ❌ Auth failed — check EMAIL_PASSWORD "
+            "(use App Password)"
         )
 
-        os.makedirs(EARNINGS_DIR, exist_ok=True)
+    except Exception as e:
+        print(f"  ❌ Failed: {e}")
 
-        debug_path = os.path.join(
-            EARNINGS_DIR,
-            f"debug_{target_date}.html"
-        )
-
-        if last_html:
-            with open(debug_path, "w", encoding="utf-8") as f:
-                f.write(last_html)
-
-            print(f"  💾 Raw HTML saved to {debug_path}")
-        else:
-            print("  ⚠  No HTML available for debug output.")
-
-        return
-
-    filtered = apply_filters(companies)
-    print(f"  ✅ {len(filtered)} companies passed filters (MCap>{MIN_MCAP_CR}Cr AND ProfitYoY>{MIN_PROFIT_YOY_PC}%)")
-
-    # Save outputs
-    os.makedirs(EARNINGS_DIR, exist_ok=True)
-    date_str  = target_date.isoformat()
-    html_path = os.path.join(EARNINGS_DIR, f"earnings_{date_str}.html")
-    json_path = os.path.join(EARNINGS_DIR, f"earnings_{date_str}.json")
-
-    with open(html_path, "w", encoding="utf-8") as f:
-        f.write(build_html(filtered, len(companies), date_str))
-    print(f"  ✅ HTML → {html_path}")
-
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump({
-            "date":           date_str,
-            "total_fetched":  len(companies),
-            "total_filtered": len(filtered),
-            "filters": {
-                "min_mcap_cr":       MIN_MCAP_CR,
-                "min_profit_yoy_pc": MIN_PROFIT_YOY_PC,
-            },
-            "companies": [{
-                "name":       c["name"],
-                "price":      c["price"],
-                "mcap":       c["mcap"],
-                "pe":         c["pe"],
-                "sales_yoy":  c["sales_yoy"],
-                "ebidt_yoy":  c["ebidt_yoy"],
-                "profit_yoy": c["profit_yoy"],
-                "eps_yoy":    c["eps_yoy"],
-            } for c in filtered]
-        }, f, indent=2, ensure_ascii=False)
-    print(f"  ✅ JSON → {json_path}")
-
-    if filtered:
-        print(f"\n  Top picks:")
-        for c in filtered[:5]:
-            print(f"    {c['name']:30s} Profit YoY: {c.get('profit_yoy','?')}%  MCap: ₹{c.get('mcap','?')}Cr")
-
-def run_recent(days_back=3):
-    """Run scanner for last N trading days to avoid missing any results."""
-    today = date.today()
-    ran = []
-    d = today - timedelta(days=1)  # start from yesterday
-    attempts = 0
-    while len(ran) < days_back and attempts < 10:
-        attempts += 1
-        if d.weekday() < 5:  # Mon-Fri only
-            print(f"\n{'='*50}")
-            main(d)
-            ran.append(d)
-        d -= timedelta(days=1)
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        try:
-            # Specific date: python earnings_scanner.py 2026-06-02
-            main(date.fromisoformat(sys.argv[1]))
-        except ValueError:
-            print(f"Invalid date: {sys.argv[1]} — use YYYY-MM-DD")
-    else:
-        # Default: scan last 3 trading days
-        run_recent(days_back=3)
+    main()
