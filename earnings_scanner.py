@@ -3,7 +3,7 @@ earnings_scanner.py v2
 Fetches Screener.in /results/latest/?all= for a given date.
 Parses the card-based layout (each company = one card with
 Sales / EBIDT / Net Profit / EPS across 3 quarters + YoY%).
-Filters: Mkt Cap > 500 Cr AND Net Profit YoY > 50%.
+No filters are applied for now; all parsed companies are included.
 Outputs a dark-themed HTML report showing only the filtered cards,
 styled exactly like the Screener mobile card layout.
 
@@ -26,10 +26,6 @@ RESULTS_BASE = "https://www.screener.in/results/latest/"
 
 EMAIL    = os.environ.get("SCREENER_EMAIL",    "")
 PASSWORD = os.environ.get("SCREENER_PASSWORD", "")
-
-# ── Filters ───────────────────────────────────────────────────────────────────
-MIN_MCAP_CR       = 500    # Market cap in Crores
-MIN_PROFIT_YOY_PC = 50     # Net profit YoY growth %
 
 # ── Dark CSS ──────────────────────────────────────────────────────────────────
 DARK_CSS = """
@@ -577,29 +573,8 @@ def parse_results_cards(html):
 # ── Filter ────────────────────────────────────────────────────────────────────
 
 def apply_filters(companies):
-    """
-    Strict filter:
-      - Market Cap > 500 Cr
-      - Net Profit YoY > 50%
-    """
-    filtered = []
-
-    for c in companies:
-        mcap = c.get("mcap")
-        profit_yoy = c.get("profit_yoy")
-
-        if mcap is None or profit_yoy is None:
-            continue
-
-        if mcap > MIN_MCAP_CR and profit_yoy > MIN_PROFIT_YOY_PC:
-            filtered.append(c)
-
-    filtered.sort(
-        key=lambda x: x.get("profit_yoy") or 0,
-        reverse=True,
-    )
-
-    return filtered
+    # No filters for now: include every parsed company.
+    return companies
 
 
 # ── HTML ──────────────────────────────────────────────────────────────────────
@@ -675,7 +650,7 @@ def company_card_html(c):
 def build_html(filtered, total_fetched, report_date):
     cards_html = "".join(company_card_html(c) for c in filtered)
     if not cards_html:
-        cards_html = '<div class="empty">No companies matched the filters today.<br>Try lowering the profit growth threshold or check if results were filed.</div>'
+        cards_html = '<div class="empty">No companies were parsed today.<br>Check if results were filed or if Screener changed its page structure.</div>'
 
     return f"""<!DOCTYPE html>
 <html lang="en"><head>
@@ -687,7 +662,7 @@ def build_html(filtered, total_fetched, report_date):
 
 <div class="page-header">
   <div class="page-title">⚡ EARNINGS SCANNER — {report_date}</div>
-  <div class="page-meta">QUARTERLY RESULTS · {total_fetched} COMPANIES REPORTED · {len(filtered)} PASSED FILTERS</div>
+  <div class="page-meta">QUARTERLY RESULTS · {total_fetched} COMPANIES REPORTED</div>
 </div>
 
 <div class="stat-strip">
@@ -695,21 +670,11 @@ def build_html(filtered, total_fetched, report_date):
     <div class="stat-val">{total_fetched}</div>
     <div class="stat-lbl">Results filed</div>
   </div>
-  <div class="stat">
-    <div class="stat-val" style="color:var(--green)">{len(filtered)}</div>
-    <div class="stat-lbl">Passed filters</div>
-  </div>
-  <div class="stat">
-    <div class="stat-val" style="color:var(--text3)">{total_fetched - len(filtered)}</div>
-    <div class="stat-lbl">Filtered out</div>
-  </div>
 </div>
 
 <div class="filter-bar">
-  <span>Active filters:</span>
-  <span class="filter-tag">M.Cap &gt; ₹{MIN_MCAP_CR} Cr</span>
-  <span class="filter-tag">Sorted by Profit YoY ↓</span>
-  <span>Sorted by highest profit growth</span>
+  <span>No filters applied</span>
+  <span>Showing all parsed companies</span>
 </div>
 
 <div class="cards-grid">{cards_html}</div>
@@ -767,7 +732,7 @@ def main(target_date=None):
         return
 
     filtered = apply_filters(companies)
-    print(f"  ✅ {len(filtered)} companies passed filters (MCap>{MIN_MCAP_CR}Cr AND ProfitYoY>{MIN_PROFIT_YOY_PC}%)")
+    print(f"  ✅ No filters applied — {len(filtered)} companies included")
 
     # Save outputs
     os.makedirs(EARNINGS_DIR, exist_ok=True)
@@ -784,10 +749,7 @@ def main(target_date=None):
             "date":           date_str,
             "total_fetched":  len(companies),
             "total_filtered": len(filtered),
-            "filters": {
-                "min_mcap_cr":       MIN_MCAP_CR,
-                "min_profit_yoy_pc": MIN_PROFIT_YOY_PC,
-            },
+            "filters": None,
             "companies": [{
                 "name":       c["name"],
                 "price":      c["price"],
@@ -802,7 +764,7 @@ def main(target_date=None):
     print(f"  ✅ JSON → {json_path}")
 
     if filtered:
-        print(f"\n  Top picks:")
+        print(f"\n  First 5 companies:")
         for c in filtered[:5]:
             print(f"    {c['name']:30s} Profit YoY: {c.get('profit_yoy','?')}%  MCap: ₹{c.get('mcap','?')}Cr")
 
