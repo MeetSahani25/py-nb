@@ -1,10 +1,6988 @@
 {
   "date": "2026-08-13",
   "total_fetched": 698,
-  "total_filtered": 0,
-  "filters": {
-    "min_mcap_cr": 500,
-    "min_profit_yoy_pc": 50
-  },
-  "companies": []
+  "total_filtered": 698,
+  "filters": null,
+  "companies": [
+    {
+      "name": "Kothari Ferment.",
+      "price": 41.5,
+      "mcap": 62.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Flex Foods",
+      "price": 46.0,
+      "mcap": 57.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ashiana Agro Ind",
+      "price": 11.5,
+      "mcap": 5.29,
+      "pe": 132.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kesar Enterprise",
+      "price": 9.89,
+      "mcap": 99.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Virat Crane Inds",
+      "price": 32.9,
+      "mcap": 67.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Regency Ceramics",
+      "price": 35.5,
+      "mcap": 93.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alpine Housing",
+      "price": 120.0,
+      "mcap": 208.0,
+      "pe": 27.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Arcee Industries",
+      "price": 12.0,
+      "mcap": 6.17,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dynacons Sys.",
+      "price": 1022.0,
+      "mcap": 1301.0,
+      "pe": 15.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Teamo Production",
+      "price": 0.5,
+      "mcap": 52.8,
+      "pe": 9.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cenlub Industrie",
+      "price": 181.0,
+      "mcap": 84.6,
+      "pe": 10.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "G K Consultants",
+      "price": 11.0,
+      "mcap": 12.4,
+      "pe": 113.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jumbo Finance",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "WSFX Global",
+      "price": 63.5,
+      "mcap": 80.6,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kumbhat Fin.",
+      "price": 19.0,
+      "mcap": 10.2,
+      "pe": 12.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Healthy Investm.",
+      "price": 3.2,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "PMC Fincorp",
+      "price": 1.59,
+      "mcap": 113.0,
+      "pe": 17.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Arigato Universe",
+      "price": 53.0,
+      "mcap": 32.3,
+      "pe": 12.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Clenon Enterpri",
+      "price": 39.8,
+      "mcap": 43.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tarapur Trans",
+      "price": 13.0,
+      "mcap": 24.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Steelco Gujarat",
+      "price": 243.0,
+      "mcap": 153.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Titan Intech",
+      "price": 0.94,
+      "mcap": 88.5,
+      "pe": 15.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Virat Industries",
+      "price": 450.0,
+      "mcap": 664.0,
+      "pe": 107.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Birla Cotsyn",
+      "price": 17.2,
+      "mcap": 454.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "True Green",
+      "price": 210.0,
+      "mcap": 692.0,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sh. Karthik Pap.",
+      "price": 7.97,
+      "mcap": 15.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Johnson Pharma",
+      "price": 0.47,
+      "mcap": 25.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Wardwizard Healt",
+      "price": 45.3,
+      "mcap": 1.11,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nikhil Adhesives",
+      "price": 82.5,
+      "mcap": 379.0,
+      "pe": 17.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Lovable Lingerie",
+      "price": 69.6,
+      "mcap": 103.0,
+      "pe": 13.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Spright Agro",
+      "price": 0.37,
+      "mcap": 39.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Yuranus Infrast.",
+      "price": 65.8,
+      "mcap": 23.0,
+      "pe": 31.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Progrex Ventures",
+      "price": 30.7,
+      "mcap": 11.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Padmanabh Alloys",
+      "price": 19.3,
+      "mcap": 10.4,
+      "pe": 10.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Scintilla Comm",
+      "price": 10.2,
+      "mcap": 10.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Crane Infra",
+      "price": 11.1,
+      "mcap": 8.02,
+      "pe": 14.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "HCKK Ventures",
+      "price": 32.0,
+      "mcap": 11.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Surya India",
+      "price": 18.2,
+      "mcap": 12.8,
+      "pe": 4.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AVI Polymers",
+      "price": 17.6,
+      "mcap": 166.0,
+      "pe": 7.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jet Freight",
+      "price": 20.1,
+      "mcap": 93.3,
+      "pe": 12.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sanginita Chemi.",
+      "price": 63.1,
+      "mcap": 381.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Airan",
+      "price": 17.7,
+      "mcap": 220.0,
+      "pe": 14.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Classic Leasing",
+      "price": 55.0,
+      "mcap": 67.4,
+      "pe": 47.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Apex Frozen Food",
+      "price": 381.0,
+      "mcap": 1189.0,
+      "pe": 24.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Raw Edge Indust.",
+      "price": 15.0,
+      "mcap": 15.1,
+      "pe": 37.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Manorama Indust.",
+      "price": 2093.0,
+      "mcap": 13225.0,
+      "pe": 50.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "R O Jewels",
+      "price": 1.4,
+      "mcap": 7.07,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Fino Payments",
+      "price": 138.0,
+      "mcap": 1144.0,
+      "pe": 46.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "HP Adhesives",
+      "price": 35.7,
+      "mcap": 329.0,
+      "pe": 140.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sanstar",
+      "price": 109.0,
+      "mcap": 2188.0,
+      "pe": 49.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Globale Tessile",
+      "price": 11.3,
+      "mcap": 11.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Om Freight Forwa",
+      "price": 87.8,
+      "mcap": 297.0,
+      "pe": 15.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Fujiyama Power",
+      "price": 452.0,
+      "mcap": 13868.0,
+      "pe": 33.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ansal Housing",
+      "price": 5.05,
+      "mcap": 35.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sanwaria Consum.",
+      "price": 0.19,
+      "mcap": 5.42,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Winro Commercial",
+      "price": 244.0,
+      "mcap": 30.6,
+      "pe": 0.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Salasar Techno",
+      "price": 5.08,
+      "mcap": 886.0,
+      "pe": 64.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shradha Realty",
+      "price": 30.8,
+      "mcap": 250.0,
+      "pe": 9.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shreeoswal Seeds",
+      "price": 13.1,
+      "mcap": 120.0,
+      "pe": 9.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Innovana Think.",
+      "price": 303.0,
+      "mcap": 623.0,
+      "pe": 20.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Maximus Interna.",
+      "price": 14.5,
+      "mcap": 197.0,
+      "pe": 22.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Steel Strips Inf",
+      "price": 18.6,
+      "mcap": 15.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kshitij Polyline",
+      "price": 3.44,
+      "mcap": 84.9,
+      "pe": 21.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Denta Water",
+      "price": 283.0,
+      "mcap": 757.0,
+      "pe": 14.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Unicommerce",
+      "price": 85.5,
+      "mcap": 962.0,
+      "pe": 45.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Avishkar Infra",
+      "price": 567.0,
+      "mcap": 1271.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gaudium IVF",
+      "price": 117.0,
+      "mcap": 846.0,
+      "pe": 36.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Country Club Hos",
+      "price": 12.6,
+      "mcap": 204.0,
+      "pe": 25.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Engineers India",
+      "price": 273.0,
+      "mcap": 15393.0,
+      "pe": 19.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Indowind Energy",
+      "price": 9.02,
+      "mcap": 144.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Madhucon Project",
+      "price": 4.52,
+      "mcap": 33.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mefcom Capital",
+      "price": 12.2,
+      "mcap": 55.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Swelect Energy",
+      "price": 577.0,
+      "mcap": 878.0,
+      "pe": 20.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Panacea Biotec",
+      "price": 394.0,
+      "mcap": 2403.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Crest Ventures",
+      "price": 361.0,
+      "mcap": 1026.0,
+      "pe": 31.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Simran Farms",
+      "price": 185.0,
+      "mcap": 88.8,
+      "pe": 17.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Terai Tea Co",
+      "price": 123.0,
+      "mcap": 84.8,
+      "pe": 12.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nicco Parks",
+      "price": 80.3,
+      "mcap": 384.0,
+      "pe": 65.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mayur Leather",
+      "price": 39.5,
+      "mcap": 19.1,
+      "pe": 43.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mitcon Consult.",
+      "price": 82.3,
+      "mcap": 143.0,
+      "pe": 14.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sunil Healthcare",
+      "price": 78.0,
+      "mcap": 81.2,
+      "pe": 22.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tejnaksh Health.",
+      "price": 13.8,
+      "mcap": 28.0,
+      "pe": 22.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Balmer Law. Inv.",
+      "price": 72.0,
+      "mcap": 1600.0,
+      "pe": 8.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Accuracy Shippi.",
+      "price": 4.28,
+      "mcap": 64.7,
+      "pe": 17.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Niyogin Fintech",
+      "price": 54.3,
+      "mcap": 605.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Accedere",
+      "price": 54.5,
+      "mcap": 26.9,
+      "pe": 35.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bandaram Pharma",
+      "price": 21.3,
+      "mcap": 38.2,
+      "pe": 38.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "GB Global",
+      "price": 9.3,
+      "mcap": 3.08,
+      "pe": 0.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Response Info.",
+      "price": 21.6,
+      "mcap": 18.2,
+      "pe": 7.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JSW Cement",
+      "price": 121.0,
+      "mcap": 16459.0,
+      "pe": 20.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shanti Gold",
+      "price": 261.0,
+      "mcap": 2006.0,
+      "pe": 10.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "IP Rings",
+      "price": 153.0,
+      "mcap": 194.0,
+      "pe": 41.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Starlite Comp.",
+      "price": 3.64,
+      "mcap": 6.22,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ajanta Soya",
+      "price": 23.1,
+      "mcap": 186.0,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "India Infras.",
+      "price": 8.46,
+      "mcap": 2.37,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Megh Mayur Infra",
+      "price": 0.13,
+      "mcap": 0.08,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sheraton Proper.",
+      "price": 11.5,
+      "mcap": 1.38,
+      "pe": 0.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bharat Rasayan",
+      "price": 1167.0,
+      "mcap": 1940.0,
+      "pe": 14.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Centuple Global",
+      "price": 35.5,
+      "mcap": 19.4,
+      "pe": 15.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Country Condo",
+      "price": 6.5,
+      "mcap": 50.7,
+      "pe": 81.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alfa Transformer",
+      "price": 34.3,
+      "mcap": 31.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sankhya Infotech",
+      "price": 7.5,
+      "mcap": 10.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cranex",
+      "price": 85.7,
+      "mcap": 68.7,
+      "pe": 27.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Silicon Valley",
+      "price": 0.03,
+      "mcap": 0.39,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Indoworth Hold.",
+      "price": 10.0,
+      "mcap": 1.25,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ashtasidhhi Ind",
+      "price": 13.9,
+      "mcap": 10.4,
+      "pe": 69.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gallops Enterp.",
+      "price": 38.0,
+      "mcap": 19.0,
+      "pe": 952.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Frontier Capital",
+      "price": 10.7,
+      "mcap": 17.9,
+      "pe": 358.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Veerhealth Care",
+      "price": 49.8,
+      "mcap": 99.7,
+      "pe": 76.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "PS IT Infra",
+      "price": 1.78,
+      "mcap": 9.57,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "BNR Udyog",
+      "price": 37.4,
+      "mcap": 11.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JPT Securities",
+      "price": 16.9,
+      "mcap": 5.07,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Novelix Pharma.",
+      "price": 78.1,
+      "mcap": 222.0,
+      "pe": 61.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Systematix Sec.",
+      "price": 13.0,
+      "mcap": 6.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Epuja Spiritech",
+      "price": 0.99,
+      "mcap": 11.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cubex Tubings",
+      "price": 80.0,
+      "mcap": 114.0,
+      "pe": 15.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "ITI",
+      "price": 267.0,
+      "mcap": 25779.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shraddha Prime",
+      "price": 151.0,
+      "mcap": 606.0,
+      "pe": 9.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rathi Steel",
+      "price": 22.5,
+      "mcap": 194.0,
+      "pe": 13.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Castora Agri Commodities",
+      "price": 13.9,
+      "mcap": 6.83,
+      "pe": 52.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "VIP Clothing",
+      "price": 21.5,
+      "mcap": 193.0,
+      "pe": 20.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Amit Internation",
+      "price": 3.33,
+      "mcap": 6.31,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rollatainers",
+      "price": 4.7,
+      "mcap": 119.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "N G Industries",
+      "price": 115.0,
+      "mcap": 38.5,
+      "pe": 20.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Parker Agrochem",
+      "price": 20.3,
+      "mcap": 9.71,
+      "pe": 8.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Victoria Enterpr",
+      "price": 23.6,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JMG Corporation",
+      "price": 5.67,
+      "mcap": 13.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ajwa Fun World",
+      "price": 36.6,
+      "mcap": 23.4,
+      "pe": 0.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kuwer Industries",
+      "price": 10.4,
+      "mcap": 9.42,
+      "pe": 2.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ashapura Inti.",
+      "price": 1.55,
+      "mcap": 3.91,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Objectone Inform",
+      "price": 6.48,
+      "mcap": 6.81,
+      "pe": 6.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "B.C. Power",
+      "price": 1.68,
+      "mcap": 11.7,
+      "pe": 16.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Raama Finance",
+      "price": 17.2,
+      "mcap": 139.0,
+      "pe": 18.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Econo Trade Indi",
+      "price": 6.43,
+      "mcap": 12.0,
+      "pe": 5.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Citizen Solar",
+      "price": 209.0,
+      "mcap": 294.0,
+      "pe": 14.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nexus Surgical",
+      "price": 32.0,
+      "mcap": 17.5,
+      "pe": 22.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kusam Electr.",
+      "price": 5.18,
+      "mcap": 0.12,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Iconik Sports",
+      "price": 38.2,
+      "mcap": 129.0,
+      "pe": 27.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mansoon Trading",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Panjon",
+      "price": 24.5,
+      "mcap": 42.0,
+      "pe": 68.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "UFM Industries",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Scan Projects",
+      "price": 114.0,
+      "mcap": 32.9,
+      "pe": 47.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alstone Textiles",
+      "price": 0.16,
+      "mcap": 100.0,
+      "pe": 83.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SAL Automotive",
+      "price": 202.0,
+      "mcap": 96.9,
+      "pe": 16.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Callista Indus.",
+      "price": 144.0,
+      "mcap": 137.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sunshine Capital",
+      "price": 0.23,
+      "mcap": 120.0,
+      "pe": 59.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Agro Phos India",
+      "price": 21.7,
+      "mcap": 44.0,
+      "pe": 8.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Salem Erode Inv.",
+      "price": 26.2,
+      "mcap": 60.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Starlineps Enter",
+      "price": 8.58,
+      "mcap": 370.0,
+      "pe": 62.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Diligent Media",
+      "price": 2.51,
+      "mcap": 30.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Medico Remedies",
+      "price": 35.4,
+      "mcap": 292.0,
+      "pe": 21.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Affordable Robo.",
+      "price": 162.0,
+      "mcap": 192.0,
+      "pe": 33.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vishwaraj Sugar",
+      "price": 5.66,
+      "mcap": 123.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Assam Entrade",
+      "price": 804.0,
+      "mcap": 116.0,
+      "pe": 61.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Samrat Forgings",
+      "price": 218.0,
+      "mcap": 109.0,
+      "pe": 23.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Baazar Style",
+      "price": 398.0,
+      "mcap": 3030.0,
+      "pe": 111.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hilltone Softwar",
+      "price": 39.4,
+      "mcap": 52.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dev Information",
+      "price": 23.9,
+      "mcap": 136.0,
+      "pe": 24.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prime Fresh",
+      "price": 167.0,
+      "mcap": 232.0,
+      "pe": 15.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bodhi Tree",
+      "price": 7.87,
+      "mcap": 142.0,
+      "pe": 21.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pavna Industries",
+      "price": 15.2,
+      "mcap": 212.0,
+      "pe": 28.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kamdhenu Venture",
+      "price": 4.49,
+      "mcap": 148.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Caspian Corporat",
+      "price": 33.7,
+      "mcap": 42.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Stanley Lifesty.",
+      "price": 138.0,
+      "mcap": 791.0,
+      "pe": 114.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brainbees Solut.",
+      "price": 173.0,
+      "mcap": 9007.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Aayush Wellness",
+      "price": 25.6,
+      "mcap": 125.0,
+      "pe": 29.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Arrow Greentech",
+      "price": 803.0,
+      "mcap": 1207.0,
+      "pe": 18.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Asian Hotels (E)",
+      "price": 137.0,
+      "mcap": 228.0,
+      "pe": 21.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Asian Energy",
+      "price": 536.0,
+      "mcap": 2598.0,
+      "pe": 40.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Elixir Capital",
+      "price": 102.0,
+      "mcap": 59.4,
+      "pe": 9.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "W H Brady",
+      "price": 484.0,
+      "mcap": 121.0,
+      "pe": 24.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brigade Enterpr.",
+      "price": 663.0,
+      "mcap": 21650.0,
+      "pe": 31.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Centum Electron",
+      "price": 4250.0,
+      "mcap": 6266.0,
+      "pe": 71.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "DCM",
+      "price": 75.0,
+      "mcap": 138.0,
+      "pe": 113.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Excel Industries",
+      "price": 989.0,
+      "mcap": 1242.0,
+      "pe": 17.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "GOCL Corpn.",
+      "price": 432.0,
+      "mcap": 2137.0,
+      "pe": 8.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Harri. Malayalam",
+      "price": 188.0,
+      "mcap": 345.0,
+      "pe": 12.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "IndiaNivesh",
+      "price": 6.71,
+      "mcap": 25.3,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jindal Photo",
+      "price": 1019.0,
+      "mcap": 1051.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "KNR Construct.",
+      "price": 123.0,
+      "mcap": 3457.0,
+      "pe": 10.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kothari Products",
+      "price": 66.5,
+      "mcap": 388.0,
+      "pe": 39.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Max Financial",
+      "price": 1468.0,
+      "mcap": 50301.0,
+      "pe": 463.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Radaan Media.",
+      "price": 2.94,
+      "mcap": 16.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Samtex Fashion",
+      "price": 1.14,
+      "mcap": 8.49,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shree Pacetronix",
+      "price": 143.0,
+      "mcap": 53.6,
+      "pe": 16.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Swan Corp",
+      "price": 278.0,
+      "mcap": 8705.0,
+      "pe": 38.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brahmaputra Inf.",
+      "price": 157.0,
+      "mcap": 459.0,
+      "pe": 7.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Catvision Ltd",
+      "price": 19.6,
+      "mcap": 10.7,
+      "pe": 17.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sambandam Spg.",
+      "price": 113.0,
+      "mcap": 47.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ecofinity Atomix",
+      "price": 67.8,
+      "mcap": 47.2,
+      "pe": 15.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Amit Securities",
+      "price": 39.3,
+      "mcap": 27.9,
+      "pe": 46.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MPDL Ltd",
+      "price": 30.6,
+      "mcap": 21.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Eco Hotels",
+      "price": 10.7,
+      "mcap": 66.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Galaxy Surfact.",
+      "price": 2289.0,
+      "mcap": 8098.0,
+      "pe": 22.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MSTC",
+      "price": 764.0,
+      "mcap": 5375.0,
+      "pe": 22.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Abhishek Infra.",
+      "price": 8.44,
+      "mcap": 4.26,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mercury EV-Tech",
+      "price": 37.8,
+      "mcap": 720.0,
+      "pe": 157.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sharpline Broadc",
+      "price": 9.3,
+      "mcap": 26.6,
+      "pe": 3.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Azad India",
+      "price": 89.3,
+      "mcap": 486.0,
+      "pe": 157.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Marble City",
+      "price": 120.0,
+      "mcap": 313.0,
+      "pe": 43.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Artificial Elect",
+      "price": 83.3,
+      "mcap": 231.0,
+      "pe": 4.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "John Cockerill",
+      "price": 8140.0,
+      "mcap": 4018.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shivam Autotech",
+      "price": 16.9,
+      "mcap": 221.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Raj Oil Mills",
+      "price": 42.2,
+      "mcap": 65.4,
+      "pe": 15.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tirupati Sarjan",
+      "price": 8.55,
+      "mcap": 28.2,
+      "pe": 5.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Omkar Pharmachem",
+      "price": 7.96,
+      "mcap": 8.03,
+      "pe": 89.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Trinity League",
+      "price": 9.65,
+      "mcap": 7.64,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dynamic Micro",
+      "price": 9.75,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hit Kit Global",
+      "price": 2.38,
+      "mcap": 12.8,
+      "pe": 142.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Yuvraaj Hygiene",
+      "price": 10.7,
+      "mcap": 96.8,
+      "pe": 21.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Beryl Securities",
+      "price": 27.1,
+      "mcap": 13.1,
+      "pe": 23.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tilak Ventures",
+      "price": 1.27,
+      "mcap": 170.0,
+      "pe": 14.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shukra Bullions",
+      "price": 23.3,
+      "mcap": 11.7,
+      "pe": 166.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ashirwad Cap.",
+      "price": 2.67,
+      "mcap": 24.0,
+      "pe": 18.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Siddha Ventures",
+      "price": 4.5,
+      "mcap": 4.5,
+      "pe": 450.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Unijolly Invest.",
+      "price": 4.55,
+      "mcap": 0.09,
+      "pe": 0.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shikhar Leasing",
+      "price": 0.79,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dynamic Portfol",
+      "price": 14.2,
+      "mcap": 16.7,
+      "pe": 30.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nihar Info Glob.",
+      "price": 6.25,
+      "mcap": 6.5,
+      "pe": 17.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mena Mani Inds.",
+      "price": 14.7,
+      "mcap": 171.0,
+      "pe": 153.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Peeti Securities",
+      "price": 19.9,
+      "mcap": 7.48,
+      "pe": 28.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Inani Securities",
+      "price": 29.8,
+      "mcap": 13.6,
+      "pe": 271.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Visagar Polytex",
+      "price": 0.52,
+      "mcap": 15.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shyamkamal Inv",
+      "price": 11.8,
+      "mcap": 31.2,
+      "pe": 48.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Southern Gas",
+      "price": 25.0,
+      "mcap": 0.06,
+      "pe": 0.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "RDB Rasayans",
+      "price": 165.0,
+      "mcap": 292.0,
+      "pe": 7.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SGN Telecoms",
+      "price": 0.64,
+      "mcap": 5.17,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Turner Industrie",
+      "price": 0.72,
+      "mcap": 0.29,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Elango Industrie",
+      "price": 13.0,
+      "mcap": 4.97,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Metal Coatings",
+      "price": 52.8,
+      "mcap": 38.7,
+      "pe": 15.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Stratmont Indus.",
+      "price": 64.7,
+      "mcap": 184.0,
+      "pe": 84.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dhanvantri Jeev.",
+      "price": 25.0,
+      "mcap": 10.2,
+      "pe": 20.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kiduja India",
+      "price": 19.9,
+      "mcap": 47.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Grandma Trading",
+      "price": 0.64,
+      "mcap": 8.36,
+      "pe": 835.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AI Champ.Inds.",
+      "price": 18.7,
+      "mcap": 57.5,
+      "pe": 12.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sundaram Multi.",
+      "price": 1.2,
+      "mcap": 56.9,
+      "pe": 16.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sarthak Industri",
+      "price": 24.8,
+      "mcap": 23.0,
+      "pe": 8.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "NR International",
+      "price": 5.0,
+      "mcap": 5.34,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Integ. Thermopl.",
+      "price": 8.39,
+      "mcap": 5.28,
+      "pe": 1.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "KIFS Financial",
+      "price": 116.0,
+      "mcap": 125.0,
+      "pe": 15.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ampvolts",
+      "price": 25.7,
+      "mcap": 66.0,
+      "pe": 22.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mangalam Industr",
+      "price": 0.56,
+      "mcap": 79.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "TTI Enterprise",
+      "price": 7.19,
+      "mcap": 18.3,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prism Finance",
+      "price": 27.0,
+      "mcap": 17.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Thakkers Group",
+      "price": 29.6,
+      "mcap": 4.68,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AP Tanneries",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Adline Chem Lab",
+      "price": 11.5,
+      "mcap": 6.74,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Lyons Corporate",
+      "price": 21.0,
+      "mcap": 9.83,
+      "pe": 33.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sangam Health",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Adhbhut Infra.",
+      "price": 13.5,
+      "mcap": 14.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Saumya Cons",
+      "price": 121.0,
+      "mcap": 83.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Amar Vanijya",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Karma Energy Ltd",
+      "price": 37.8,
+      "mcap": 43.8,
+      "pe": 49.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Neeraj Paper Mkt",
+      "price": 19.0,
+      "mcap": 20.9,
+      "pe": 36.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Garbi Finvest",
+      "price": 9.14,
+      "mcap": 10.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "R G F Capital",
+      "price": 1.62,
+      "mcap": 24.3,
+      "pe": 135.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Modern Engineer.",
+      "price": 25.0,
+      "mcap": 38.6,
+      "pe": 5.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kalyani Commerc.",
+      "price": 145.0,
+      "mcap": 14.5,
+      "pe": 5.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SPA CAPT SER",
+      "price": 200.0,
+      "mcap": 61.6,
+      "pe": 37.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Easun Capital Ma",
+      "price": 48.2,
+      "mcap": 25.2,
+      "pe": 38.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Quantum Digital",
+      "price": 43.4,
+      "mcap": 13.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Chordia Food",
+      "price": 106.0,
+      "mcap": 42.8,
+      "pe": 63.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "K S Oils",
+      "price": 0.44,
+      "mcap": 20.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Natraj Proteins",
+      "price": 39.9,
+      "mcap": 15.0,
+      "pe": 3.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kothari Sugars",
+      "price": 28.4,
+      "mcap": 235.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "BKV Industries",
+      "price": 9.48,
+      "mcap": 14.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vadilal Enterp.",
+      "price": 10401.0,
+      "mcap": 891.0,
+      "pe": 65.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Twin Roses Trade",
+      "price": 3.67,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Citurgia Biochem",
+      "price": 107.0,
+      "mcap": 1407.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sh. Jagdamba Pol",
+      "price": 652.0,
+      "mcap": 563.0,
+      "pe": 11.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ceeta Industries",
+      "price": 38.0,
+      "mcap": 55.1,
+      "pe": 74.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ambitious Plasto",
+      "price": 8.51,
+      "mcap": 4.94,
+      "pe": 29.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Royal Cush. Vin.",
+      "price": 16.0,
+      "mcap": 58.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Intl. Data Mgt.",
+      "price": 38.0,
+      "mcap": 8.36,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Salora Intl.",
+      "price": 24.4,
+      "mcap": 21.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Marsons",
+      "price": 135.0,
+      "mcap": 2321.0,
+      "pe": 52.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Envair Electrody",
+      "price": 45.5,
+      "mcap": 21.1,
+      "pe": 2112.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kennametal India",
+      "price": 4747.0,
+      "mcap": 10423.0,
+      "pe": 53.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Candour Techtex",
+      "price": 62.6,
+      "mcap": 153.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Libord Finance",
+      "price": 15.3,
+      "mcap": 24.1,
+      "pe": 171.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "First Custodian",
+      "price": 61.0,
+      "mcap": 9.15,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Manipal Fin. Cor",
+      "price": 17.6,
+      "mcap": 14.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Baid Finserv",
+      "price": 12.0,
+      "mcap": 195.0,
+      "pe": 12.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "G S Auto Intl.",
+      "price": 20.7,
+      "mcap": 66.3,
+      "pe": 16.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rajasthan Securities",
+      "price": 57.6,
+      "mcap": 442.0,
+      "pe": 6.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Guj. Raffia Inds",
+      "price": 40.9,
+      "mcap": 22.4,
+      "pe": 19.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Innovative Tech",
+      "price": 14.7,
+      "mcap": 33.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hind.Tin Works",
+      "price": 116.0,
+      "mcap": 120.0,
+      "pe": 12.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Diamond Power",
+      "price": 335.0,
+      "mcap": 19967.0,
+      "pe": 107.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "UTL Industries",
+      "price": 1.4,
+      "mcap": 4.61,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "I Power Solution",
+      "price": 14.7,
+      "mcap": 8.68,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Chase Bright St.",
+      "price": 25.5,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mahalaxmi Seam.",
+      "price": 9.5,
+      "mcap": 5.02,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Crimson Metal",
+      "price": 24.8,
+      "mcap": 11.0,
+      "pe": 73.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Risa Internatio.",
+      "price": 0.45,
+      "mcap": 7.18,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kakatiya Textile",
+      "price": 8.7,
+      "mcap": 5.05,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "United Textiles",
+      "price": 21.7,
+      "mcap": 6.51,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sanrhea Tech.",
+      "price": 161.0,
+      "mcap": 91.4,
+      "pe": 13.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bhandari Hosiery",
+      "price": 3.0,
+      "mcap": 99.6,
+      "pe": 13.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dynamic Industri",
+      "price": 130.0,
+      "mcap": 39.4,
+      "pe": 22.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Binayaka Tex Pr",
+      "price": 1747.0,
+      "mcap": 124.0,
+      "pe": 56.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Relaxo Footwear",
+      "price": 326.0,
+      "mcap": 8115.0,
+      "pe": 43.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mohit Paper Mill",
+      "price": 26.5,
+      "mcap": 37.1,
+      "pe": 5.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sh. Rajeshw. Pap",
+      "price": 1.71,
+      "mcap": 2.13,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "U P Hotels",
+      "price": 1400.0,
+      "mcap": 760.0,
+      "pe": 24.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Best Eastern Hot",
+      "price": 15.1,
+      "mcap": 25.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shahi Shipping",
+      "price": 12.0,
+      "mcap": 17.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "ABC India",
+      "price": 64.2,
+      "mcap": 34.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Neelkanth",
+      "price": 31.6,
+      "mcap": 13.8,
+      "pe": 29.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Triliance Poly",
+      "price": 45.2,
+      "mcap": 23.1,
+      "pe": 85.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Foundry Fuel",
+      "price": 5.2,
+      "mcap": 4.17,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shakti Press",
+      "price": 11.7,
+      "mcap": 32.9,
+      "pe": 16.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Speedage Comm.",
+      "price": 9.5,
+      "mcap": 0.93,
+      "pe": 0.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Yamini Invest",
+      "price": 0.61,
+      "mcap": 32.1,
+      "pe": 641.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brady & Morris",
+      "price": 675.0,
+      "mcap": 152.0,
+      "pe": 31.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vaishno Cement",
+      "price": 2.77,
+      "mcap": 2.48,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ashoka Refinerie",
+      "price": 15.5,
+      "mcap": 5.26,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Harig Crankshaft",
+      "price": 30.6,
+      "mcap": 32.2,
+      "pe": 2.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Olympic Managem",
+      "price": 10.6,
+      "mcap": 3.19,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "M Lakhamsi Ind",
+      "price": 11.1,
+      "mcap": 6.6,
+      "pe": 8.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Varun Mercan.",
+      "price": 1.08,
+      "mcap": 0.22,
+      "pe": 2.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ramgopal Polytex",
+      "price": 30.1,
+      "mcap": 43.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kabsons Industri",
+      "price": 20.0,
+      "mcap": 34.9,
+      "pe": 268.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sri Amarna. Fin.",
+      "price": 7.77,
+      "mcap": 7.75,
+      "pe": 2.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Adcon Capital",
+      "price": 0.49,
+      "mcap": 9.72,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Superior Finleas",
+      "price": 1.54,
+      "mcap": 4.62,
+      "pe": 154.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MASK INVESTMENTS",
+      "price": 153.0,
+      "mcap": 46.8,
+      "pe": 519.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Maheshwari Logi.",
+      "price": 71.0,
+      "mcap": 210.0,
+      "pe": 13.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nitiraj Engineer",
+      "price": 229.0,
+      "mcap": 235.0,
+      "pe": 98.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Manomay Tex Indi",
+      "price": 230.0,
+      "mcap": 414.0,
+      "pe": 20.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "M K Proteins",
+      "price": 4.03,
+      "mcap": 151.0,
+      "pe": 32.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ace Integrated",
+      "price": 17.5,
+      "mcap": 17.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "We Win Ltd",
+      "price": 42.0,
+      "mcap": 43.8,
+      "pe": 10.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tirupati Forge",
+      "price": 69.3,
+      "mcap": 901.0,
+      "pe": 147.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Uniinfo Telecom",
+      "price": 11.2,
+      "mcap": 12.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Latteys Industri",
+      "price": 21.5,
+      "mcap": 124.0,
+      "pe": 29.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rajnish Wellness",
+      "price": 0.4,
+      "mcap": 40.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dangee Dums",
+      "price": 2.83,
+      "mcap": 43.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rajnandini Metal",
+      "price": 3.29,
+      "mcap": 91.0,
+      "pe": 43.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Artemis Electri.",
+      "price": 17.0,
+      "mcap": 427.0,
+      "pe": 48.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "City Pulse Multi",
+      "price": 103.0,
+      "mcap": 154.0,
+      "pe": 74.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Indigo Paints",
+      "price": 1111.0,
+      "mcap": 5312.0,
+      "pe": 32.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rita Finance and",
+      "price": 12.1,
+      "mcap": 12.1,
+      "pe": 19.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Achyut Healthcar",
+      "price": 6.94,
+      "mcap": 168.0,
+      "pe": 523.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Arihant Academy",
+      "price": 500.0,
+      "mcap": 303.0,
+      "pe": 32.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Robust Hotels",
+      "price": 167.0,
+      "mcap": 286.0,
+      "pe": 10.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Khazanchi Jewell",
+      "price": 766.0,
+      "mcap": 1895.0,
+      "pe": 18.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Plaza Wires",
+      "price": 59.7,
+      "mcap": 260.0,
+      "pe": 24.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alicon Cast.",
+      "price": 738.0,
+      "mcap": 1209.0,
+      "pe": 32.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alps Industries",
+      "price": 3.43,
+      "mcap": 13.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "GE Power",
+      "price": 659.0,
+      "mcap": 4427.0,
+      "pe": 12.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Asian Tea & Exp",
+      "price": 9.52,
+      "mcap": 23.3,
+      "pe": 70.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Barak Valley",
+      "price": 44.0,
+      "mcap": 97.4,
+      "pe": 48.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bengal & Assam",
+      "price": 6150.0,
+      "mcap": 7017.0,
+      "pe": 9.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Elgi Equipments",
+      "price": 619.0,
+      "mcap": 19601.0,
+      "pe": 42.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Everest Kanto",
+      "price": 103.0,
+      "mcap": 1160.0,
+      "pe": 8.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "The Invest.Trust",
+      "price": 97.5,
+      "mcap": 508.0,
+      "pe": 15.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Palred Technolog",
+      "price": 50.8,
+      "mcap": 65.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Future Market",
+      "price": 9.31,
+      "mcap": 55.4,
+      "pe": 6.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gokul Refoils",
+      "price": 42.8,
+      "mcap": 422.0,
+      "pe": 20.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Haz.Multi Proj.",
+      "price": 19.9,
+      "mcap": 540.0,
+      "pe": 18.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hind.Appliances",
+      "price": 91.0,
+      "mcap": 91.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Intrasoft Tech.",
+      "price": 82.6,
+      "mcap": 134.0,
+      "pe": 9.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Trans India",
+      "price": 2.97,
+      "mcap": 21.1,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jai Corp",
+      "price": 97.5,
+      "mcap": 1710.0,
+      "pe": 18.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kanani Industrie",
+      "price": 1.5,
+      "mcap": 29.9,
+      "pe": 13.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Keynote Finan.",
+      "price": 247.0,
+      "mcap": 136.0,
+      "pe": 23.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "3B Blackbio",
+      "price": 1476.0,
+      "mcap": 1265.0,
+      "pe": 22.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kohinoor Foods",
+      "price": 30.9,
+      "mcap": 114.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "KRBL",
+      "price": 434.0,
+      "mcap": 9953.0,
+      "pe": 13.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mac Charles(I)",
+      "price": 684.0,
+      "mcap": 890.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Maithan Alloys",
+      "price": 1077.0,
+      "mcap": 3133.0,
+      "pe": 10.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Media Matrix",
+      "price": 13.8,
+      "mcap": 1557.0,
+      "pe": 219.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sigma Advanced System",
+      "price": 755.0,
+      "mcap": 14344.0,
+      "pe": 86.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Minal Industries",
+      "price": 5.78,
+      "mcap": 111.0,
+      "pe": 299.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Praj Industries",
+      "price": 327.0,
+      "mcap": 6003.0,
+      "pe": 118.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Precot",
+      "price": 660.0,
+      "mcap": 792.0,
+      "pe": 15.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Anjani Foods",
+      "price": 17.2,
+      "mcap": 48.0,
+      "pe": 52.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sakuma Exports",
+      "price": 1.6,
+      "mcap": 252.0,
+      "pe": 23.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Technvision Ven.",
+      "price": 4928.0,
+      "mcap": 3069.0,
+      "pe": 1023.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tata Motors PVeh",
+      "price": 303.0,
+      "mcap": 111592.0,
+      "pe": 112.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Thacker & Co.",
+      "price": 1045.0,
+      "mcap": 114.0,
+      "pe": 6.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "TIL",
+      "price": 249.0,
+      "mcap": 2058.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "21st Cent. Mgmt.",
+      "price": 38.8,
+      "mcap": 39.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Weizmann",
+      "price": 72.6,
+      "mcap": 114.0,
+      "pe": 18.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Welspun Living",
+      "price": 210.0,
+      "mcap": 19887.0,
+      "pe": 71.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sammaan Capital",
+      "price": 150.0,
+      "mcap": 17444.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ventura Guaranty",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Trade-Wings",
+      "price": 485.0,
+      "mcap": 145.0,
+      "pe": 107.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Comfort Comtrade",
+      "price": 14.1,
+      "mcap": 14.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ace Men",
+      "price": 116.0,
+      "mcap": 150.0,
+      "pe": 935.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Genus Power",
+      "price": 329.0,
+      "mcap": 10028.0,
+      "pe": 15.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Premier",
+      "price": 2.87,
+      "mcap": 8.71,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Manali Petrochem",
+      "price": 87.2,
+      "mcap": 1500.0,
+      "pe": 12.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Titan Biotech",
+      "price": 420.0,
+      "mcap": 1735.0,
+      "pe": 51.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jullundur Motor",
+      "price": 97.1,
+      "mcap": 222.0,
+      "pe": 6.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Titan Securities",
+      "price": 41.7,
+      "mcap": 104.0,
+      "pe": 7.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pansari Develop.",
+      "price": 281.0,
+      "mcap": 491.0,
+      "pe": 24.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Yogi Infra Proj.",
+      "price": 6.59,
+      "mcap": 11.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Raja Bahadur Int",
+      "price": 5000.0,
+      "mcap": 125.0,
+      "pe": 961.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AGI Infra",
+      "price": 283.0,
+      "mcap": 3550.0,
+      "pe": 34.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Samsrita Labs",
+      "price": 12.1,
+      "mcap": 27.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ganges Securitie",
+      "price": 116.0,
+      "mcap": 116.0,
+      "pe": 40.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Indian Acrylics",
+      "price": 5.95,
+      "mcap": 80.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "USG Tech",
+      "price": 8.44,
+      "mcap": 33.3,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Decipher Labs",
+      "price": 5.7,
+      "mcap": 5.76,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gayatri Highways",
+      "price": 1.94,
+      "mcap": 46.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kemistar Corp.",
+      "price": 53.0,
+      "mcap": 57.0,
+      "pe": 82.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Aartech Solonics",
+      "price": 52.5,
+      "mcap": 166.0,
+      "pe": 31.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SAB Industries",
+      "price": 183.0,
+      "mcap": 275.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Madhav Marbles",
+      "price": 34.8,
+      "mcap": 31.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hindusthan Udyog",
+      "price": 3.31,
+      "mcap": 2.05,
+      "pe": 0.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sai Capital",
+      "price": 144.0,
+      "mcap": 40.9,
+      "pe": 3.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Praveg",
+      "price": 264.0,
+      "mcap": 688.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Deep Health AI",
+      "price": 1.86,
+      "mcap": 26.8,
+      "pe": 5.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ratnabhumi Dev.",
+      "price": 174.0,
+      "mcap": 238.0,
+      "pe": 193.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sigachi Indust.",
+      "price": 35.3,
+      "mcap": 1353.0,
+      "pe": 60.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Osiajee Texfab",
+      "price": 280.0,
+      "mcap": 151.0,
+      "pe": 25.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SRM Contractors",
+      "price": 453.0,
+      "mcap": 1038.0,
+      "pe": 8.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AWFIS Space",
+      "price": 254.0,
+      "mcap": 1815.0,
+      "pe": 21.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Virya Resources",
+      "price": 806.0,
+      "mcap": 121.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tomorrow Tech.",
+      "price": 7.19,
+      "mcap": 82.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kundan Minerals",
+      "price": 1.08,
+      "mcap": 3.15,
+      "pe": 0.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Abate As Indust",
+      "price": 8.6,
+      "mcap": 136.0,
+      "pe": 11.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Crysdale Ind",
+      "price": 13.2,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gem Aromatics",
+      "price": 165.0,
+      "mcap": 859.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Goldstar Power",
+      "price": 7.5,
+      "mcap": 215.0,
+      "pe": 5.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Satiate Agri",
+      "price": 22.1,
+      "mcap": 6.47,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "VST Till. Tract.",
+      "price": 4074.0,
+      "mcap": 3542.0,
+      "pe": 32.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JSL Industries",
+      "price": 766.0,
+      "mcap": 89.9,
+      "pe": 27.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Uniroyal Marine",
+      "price": 15.8,
+      "mcap": 10.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sam Industries",
+      "price": 37.8,
+      "mcap": 41.9,
+      "pe": 11.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "DCW",
+      "price": 48.1,
+      "mcap": 1419.0,
+      "pe": 19.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jolly Plastic",
+      "price": 40.0,
+      "mcap": 97.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MFL India",
+      "price": 0.38,
+      "mcap": 13.7,
+      "pe": 3.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MPS Pharmaa",
+      "price": 1.99,
+      "mcap": 3.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "LEEL Electricals",
+      "price": 2.5,
+      "mcap": 10.1,
+      "pe": 3.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hercules Investments",
+      "price": 120.0,
+      "mcap": 385.0,
+      "pe": 49.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Panasonic Carbon",
+      "price": 437.0,
+      "mcap": 210.0,
+      "pe": 10.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rishi Laser",
+      "price": 142.0,
+      "mcap": 141.0,
+      "pe": 51.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Crescentis Capital",
+      "price": 101.0,
+      "mcap": 172.0,
+      "pe": 146.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Woodsvilla",
+      "price": 15.3,
+      "mcap": 9.21,
+      "pe": 115.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "TCFC Finance",
+      "price": 25.5,
+      "mcap": 26.7,
+      "pe": 46.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JMD Ventures",
+      "price": 7.15,
+      "mcap": 20.6,
+      "pe": 38.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Satani Bearings",
+      "price": 286.0,
+      "mcap": 572.0,
+      "pe": 5197.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Impex Ferro Tech",
+      "price": 4.99,
+      "mcap": 42.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kretto Syscon",
+      "price": 0.43,
+      "mcap": 29.1,
+      "pe": 1456.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pan Electronics",
+      "price": 26.1,
+      "mcap": 10.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nirav Commercial",
+      "price": 687.0,
+      "mcap": 26.8,
+      "pe": 74.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "MFS Intercorp",
+      "price": 13.9,
+      "mcap": 6.01,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JBF Industries",
+      "price": 4.3,
+      "mcap": 35.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rudra Ecovation",
+      "price": 21.7,
+      "mcap": 258.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Krishna Vent.",
+      "price": 47.1,
+      "mcap": 50.8,
+      "pe": 158.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Suryaamba Spinni",
+      "price": 116.0,
+      "mcap": 34.2,
+      "pe": 17.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Royale Manor",
+      "price": 28.2,
+      "mcap": 55.9,
+      "pe": 23.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Coastal Roadways",
+      "price": 24.0,
+      "mcap": 9.98,
+      "pe": 6.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Balurghat Tech",
+      "price": 12.2,
+      "mcap": 22.3,
+      "pe": 14.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Monotype India",
+      "price": 0.29,
+      "mcap": 20.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Choksi Laborator",
+      "price": 173.0,
+      "mcap": 121.0,
+      "pe": 63.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bentley Commerc.",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Creative Eye",
+      "price": 6.13,
+      "mcap": 11.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Magnanimous Trad",
+      "price": 0.24,
+      "mcap": 0.54,
+      "pe": 0.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Lords Mark Industries",
+      "price": 83.1,
+      "mcap": 3546.0,
+      "pe": 41.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "KMG Milk Food",
+      "price": 50.0,
+      "mcap": 26.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "GCM Securit.",
+      "price": 0.66,
+      "mcap": 12.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rekvina Labs",
+      "price": 57.1,
+      "mcap": 63.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kaizen Agro",
+      "price": 10.7,
+      "mcap": 55.2,
+      "pe": 250.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vadilal Dairy",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Talbros Engg.",
+      "price": 639.0,
+      "mcap": 325.0,
+      "pe": 10.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vantage Knowledg",
+      "price": 0.81,
+      "mcap": 27.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hi-Klass Trading",
+      "price": 91.4,
+      "mcap": 276.0,
+      "pe": 38.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "A B Infrabuild",
+      "price": 11.6,
+      "mcap": 738.0,
+      "pe": 37.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Aveer Foods",
+      "price": 551.0,
+      "mcap": 247.0,
+      "pe": 62.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AJC Jewel",
+      "price": 245.0,
+      "mcap": 149.0,
+      "pe": 14.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Autoline Industr",
+      "price": 86.1,
+      "mcap": 391.0,
+      "pe": 16.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Avanti Feeds",
+      "price": 807.0,
+      "mcap": 10996.0,
+      "pe": 20.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AXISCADES Tech.",
+      "price": 1876.0,
+      "mcap": 7959.0,
+      "pe": 242.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bhartiya Intl.",
+      "price": 1108.0,
+      "mcap": 1486.0,
+      "pe": 58.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dai-ichi Karkari",
+      "price": 352.0,
+      "mcap": 268.0,
+      "pe": 113.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Elcid Investment",
+      "price": 108000.0,
+      "mcap": 2160.0,
+      "pe": 22.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "IDream Film",
+      "price": 580.0,
+      "mcap": 15679.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jay Shree Tea",
+      "price": 94.9,
+      "mcap": 275.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Maha Rashtra Apx",
+      "price": 52.5,
+      "mcap": 151.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nagpur Power",
+      "price": 205.0,
+      "mcap": 269.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "NDA Securities",
+      "price": 26.6,
+      "mcap": 15.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "R C F",
+      "price": 113.0,
+      "mcap": 6216.0,
+      "pe": 14.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Solid Stone Co",
+      "price": 24.3,
+      "mcap": 13.0,
+      "pe": 26.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SSPDL Ltd",
+      "price": 13.9,
+      "mcap": 18.0,
+      "pe": 2.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Technocraf.Inds.",
+      "price": 3170.0,
+      "mcap": 7176.0,
+      "pe": 21.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "TVS Srichakra",
+      "price": 5169.0,
+      "mcap": 3964.0,
+      "pe": 38.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Superhouse Ltd",
+      "price": 180.0,
+      "mcap": 202.0,
+      "pe": 25.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jagatjit Inds.",
+      "price": 151.0,
+      "mcap": 708.0,
+      "pe": 61.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Polychem",
+      "price": 1899.0,
+      "mcap": 76.0,
+      "pe": 5.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bemco Hydraulics",
+      "price": 109.0,
+      "mcap": 478.0,
+      "pe": 29.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prem. Explosives",
+      "price": 667.0,
+      "mcap": 3585.0,
+      "pe": 104.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jeevan Scienti.",
+      "price": 82.0,
+      "mcap": 165.0,
+      "pe": 47.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Endurance Tech.",
+      "price": 2756.0,
+      "mcap": 38787.0,
+      "pe": 39.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SMT Engineering",
+      "price": 333.0,
+      "mcap": 602.0,
+      "pe": 24.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Spencer's Retail",
+      "price": 29.2,
+      "mcap": 264.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kranti Industrie",
+      "price": 48.8,
+      "mcap": 62.3,
+      "pe": 39.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tega Inds.",
+      "price": 1678.0,
+      "mcap": 12595.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "ACS Tech",
+      "price": 60.0,
+      "mcap": 416.0,
+      "pe": 37.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "HMA Agro Inds.",
+      "price": 20.0,
+      "mcap": 1003.0,
+      "pe": 4.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Honasa Consumer",
+      "price": 471.0,
+      "mcap": 15380.0,
+      "pe": 60.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JHS Svend.Retail",
+      "price": 17.2,
+      "mcap": 14.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JTEKT India",
+      "price": 121.0,
+      "mcap": 3352.0,
+      "pe": 43.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jay Ushin",
+      "price": 833.0,
+      "mcap": 322.0,
+      "pe": 17.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Keto Motors",
+      "price": 277.0,
+      "mcap": 1950.0,
+      "pe": 7499.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Riga Sugar Co",
+      "price": 5.25,
+      "mcap": 7.58,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Monind",
+      "price": 20.9,
+      "mcap": 7.69,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pentokey Organy",
+      "price": 34.8,
+      "mcap": 21.8,
+      "pe": 80.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "M P Agro Inds.",
+      "price": 8.74,
+      "mcap": 5.07,
+      "pe": 84.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brawn Biotech",
+      "price": 23.3,
+      "mcap": 6.99,
+      "pe": 8.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cresanto Global",
+      "price": 5.12,
+      "mcap": 2.19,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Desh Rakshak",
+      "price": 26.9,
+      "mcap": 15.3,
+      "pe": 27.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Elnet Technolog",
+      "price": 314.0,
+      "mcap": 126.0,
+      "pe": 6.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "BLS Infotech",
+      "price": 1.37,
+      "mcap": 60.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Magna Electrocas",
+      "price": 1439.0,
+      "mcap": 609.0,
+      "pe": 39.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ingersoll-Rand",
+      "price": 4694.0,
+      "mcap": 14813.0,
+      "pe": 53.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Taparia Tools",
+      "price": 12.7,
+      "mcap": 19.3,
+      "pe": 0.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "ITL Industries",
+      "price": 364.0,
+      "mcap": 123.0,
+      "pe": 12.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mehta Securities",
+      "price": 21.0,
+      "mcap": 6.5,
+      "pe": 108.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Anna Infrastruct",
+      "price": 27.5,
+      "mcap": 10.4,
+      "pe": 18.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sugal & Damani",
+      "price": 66.0,
+      "mcap": 41.3,
+      "pe": 18.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Veer Energy",
+      "price": 13.3,
+      "mcap": 19.9,
+      "pe": 49.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Asia Pack",
+      "price": 55.0,
+      "mcap": 14.5,
+      "pe": 103.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Stanpacks(India)",
+      "price": 13.9,
+      "mcap": 8.47,
+      "pe": 121.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kaira Can",
+      "price": 1490.0,
+      "mcap": 137.0,
+      "pe": 60.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sh. Rama Multi.",
+      "price": 45.0,
+      "mcap": 597.0,
+      "pe": 23.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cords Cable",
+      "price": 363.0,
+      "mcap": 471.0,
+      "pe": 19.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bloom Industries",
+      "price": 30.5,
+      "mcap": 20.2,
+      "pe": 16.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prakash Steelage",
+      "price": 3.8,
+      "mcap": 66.0,
+      "pe": 106.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Seasons Textiles",
+      "price": 17.8,
+      "mcap": 13.3,
+      "pe": 102.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Birla Trans.Carp",
+      "price": 7.5,
+      "mcap": 2.13,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cityman",
+      "price": 12.7,
+      "mcap": 14.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Page Industries",
+      "price": 35395.0,
+      "mcap": 39417.0,
+      "pe": 50.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "A D S Diagnostic",
+      "price": 11.3,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "V2 Retail",
+      "price": 220.0,
+      "mcap": 8011.0,
+      "pe": 48.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "DCM Shriram Inds",
+      "price": 42.4,
+      "mcap": 364.0,
+      "pe": 11.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Gorani Industrie",
+      "price": 44.4,
+      "mcap": 23.8,
+      "pe": 170.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Birla Capital",
+      "price": 0.2,
+      "mcap": 0.94,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dhansafal Fin",
+      "price": 2.43,
+      "mcap": 55.2,
+      "pe": 47.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "JOJO",
+      "price": 222.0,
+      "mcap": 1533.0,
+      "pe": 226.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Swadeshi Polytex",
+      "price": 37.0,
+      "mcap": 144.0,
+      "pe": 33.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Caprolactam Chem",
+      "price": 49.1,
+      "mcap": 22.6,
+      "pe": 53.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Adinath Textiles",
+      "price": 22.5,
+      "mcap": 15.3,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Julien Agro",
+      "price": 1.17,
+      "mcap": 13.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Denis Chem Lab",
+      "price": 71.2,
+      "mcap": 98.7,
+      "pe": 12.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Arman Holdings",
+      "price": 117.0,
+      "mcap": 60.9,
+      "pe": 36.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hemadri Cements",
+      "price": 50.9,
+      "mcap": 33.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Adhata Global",
+      "price": 23.1,
+      "mcap": 10.9,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pushpsons Inds",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kabra Commercial",
+      "price": 25.8,
+      "mcap": 7.58,
+      "pe": 18.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Uday Jewellery",
+      "price": 175.0,
+      "mcap": 596.0,
+      "pe": 17.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vishal Bearings",
+      "price": 55.5,
+      "mcap": 59.9,
+      "pe": 374.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "New Light Industries",
+      "price": 1.4,
+      "mcap": 12.3,
+      "pe": 58.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "KIOCL",
+      "price": 374.0,
+      "mcap": 22721.0,
+      "pe": 584.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sarthak Metals",
+      "price": 62.2,
+      "mcap": 86.7,
+      "pe": 17.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Zodiac Energy",
+      "price": 233.0,
+      "mcap": 352.0,
+      "pe": 13.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Synergy Green",
+      "price": 601.0,
+      "mcap": 931.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Northern Spirits",
+      "price": 129.0,
+      "mcap": 207.0,
+      "pe": 7.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "G K P Printing",
+      "price": 7.29,
+      "mcap": 16.0,
+      "pe": 66.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shahlon Silk",
+      "price": 23.8,
+      "mcap": 212.0,
+      "pe": 51.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Atam Valves",
+      "price": 55.6,
+      "mcap": 63.5,
+      "pe": 34.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "VMS TMT",
+      "price": 44.1,
+      "mcap": 219.0,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Asian Star Co.",
+      "price": 575.0,
+      "mcap": 919.0,
+      "pe": 27.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bajaj Hindusthan",
+      "price": 21.4,
+      "mcap": 5102.0,
+      "pe": 39.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "The Bombay Burmah",
+      "price": 1449.0,
+      "mcap": 10139.0,
+      "pe": 8.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Cerebra Integr.",
+      "price": 2.86,
+      "mcap": 34.7,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "CESC",
+      "price": 150.0,
+      "mcap": 19847.0,
+      "pe": 12.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dynemic Products",
+      "price": 235.0,
+      "mcap": 296.0,
+      "pe": 14.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Emami Realty Ltd",
+      "price": 69.0,
+      "mcap": 361.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "IL&FS Inv.Manag.",
+      "price": 9.97,
+      "mcap": 307.0,
+      "pe": 75.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ipca Labs.",
+      "price": 1964.0,
+      "mcap": 49802.0,
+      "pe": 36.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jubilant Food.",
+      "price": 476.0,
+      "mcap": 31291.0,
+      "pe": 82.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kaveri Seed Co.",
+      "price": 722.0,
+      "mcap": 3712.0,
+      "pe": 14.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kirl. Electric",
+      "price": 123.0,
+      "mcap": 813.0,
+      "pe": 53.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Minda Corp",
+      "price": 701.0,
+      "mcap": 16758.0,
+      "pe": 41.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rajapalayam Mill",
+      "price": 763.0,
+      "mcap": 703.0,
+      "pe": 5.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Rane Holdings",
+      "price": 1686.0,
+      "mcap": 2409.0,
+      "pe": 30.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Reliance Communi",
+      "price": 0.93,
+      "mcap": 257.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SIL Investments",
+      "price": 461.0,
+      "mcap": 489.0,
+      "pe": 9.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Solar Industries",
+      "price": 22355.0,
+      "mcap": 202147.0,
+      "pe": 101.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Themis Medicare",
+      "price": 133.0,
+      "mcap": 1222.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Usha Mart. Edu.",
+      "price": 5.08,
+      "mcap": 13.4,
+      "pe": 32.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Zuari Industries",
+      "price": 274.0,
+      "mcap": 811.0,
+      "pe": 7.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vikram Kamats",
+      "price": 34.2,
+      "mcap": 62.2,
+      "pe": 40.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mahamaya Steel",
+      "price": 1326.0,
+      "mcap": 2175.0,
+      "pe": 218.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kalyani Invest.",
+      "price": 5022.0,
+      "mcap": 2185.0,
+      "pe": 53.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dhunseri Invest.",
+      "price": 1000.0,
+      "mcap": 616.0,
+      "pe": 6.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "PBM Polytex",
+      "price": 60.9,
+      "mcap": 43.0,
+      "pe": 23.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Riddhi Siddhi Gl",
+      "price": 755.0,
+      "mcap": 538.0,
+      "pe": 38.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Indraprastha Gas",
+      "price": 153.0,
+      "mcap": 21412.0,
+      "pe": 15.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Bhilwara Tech",
+      "price": 42.3,
+      "mcap": 251.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prerna Infra.",
+      "price": 23.5,
+      "mcap": 85.0,
+      "pe": 23.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Wealth First Por",
+      "price": 848.0,
+      "mcap": 919.0,
+      "pe": 27.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "General Insuranc",
+      "price": 350.0,
+      "mcap": 61448.0,
+      "pe": 6.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "RPSG Ventures",
+      "price": 864.0,
+      "mcap": 2859.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "TCM",
+      "price": 46.2,
+      "mcap": 34.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jyot Internatio.",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Max Healthcare",
+      "price": 1038.0,
+      "mcap": 101287.0,
+      "pe": 67.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nidhi Granites",
+      "price": 262.0,
+      "mcap": 209.0,
+      "pe": 25.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brand Concepts",
+      "price": 161.0,
+      "mcap": 199.0,
+      "pe": 111.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Alan Scott Ente.",
+      "price": 240.0,
+      "mcap": 160.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Dreamfolks Servi",
+      "price": 68.6,
+      "mcap": 362.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sunil Agro Foods",
+      "price": 82.2,
+      "mcap": 24.7,
+      "pe": 43.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sakthi Sugars",
+      "price": 19.6,
+      "mcap": 233.0,
+      "pe": 8.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Computer Point",
+      "price": 3.37,
+      "mcap": 10.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Global Infratech",
+      "price": 96.1,
+      "mcap": 13.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Golech.Glob.Fin.",
+      "price": 26.5,
+      "mcap": 14.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Finkurve Fin.",
+      "price": 67.6,
+      "mcap": 942.0,
+      "pe": 32.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sangal Papers",
+      "price": 198.0,
+      "mcap": 25.9,
+      "pe": 6.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sharda Ispat",
+      "price": 155.0,
+      "mcap": 78.5,
+      "pe": 10.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SAB Events",
+      "price": 6.63,
+      "mcap": 6.95,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "ECS Biztech",
+      "price": 13.2,
+      "mcap": 27.1,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sheetal Cool",
+      "price": 648.0,
+      "mcap": 676.0,
+      "pe": 32.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Veranda Learning",
+      "price": 234.0,
+      "mcap": 2251.0,
+      "pe": 34.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Juniper Hotels",
+      "price": 213.0,
+      "mcap": 4747.0,
+      "pe": 25.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Godrej Industrie",
+      "price": 1133.0,
+      "mcap": 38175.0,
+      "pe": 31.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Informed Techn.",
+      "price": 82.0,
+      "mcap": 34.2,
+      "pe": 29.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Inv.& Prec.Cast.",
+      "price": 1351.0,
+      "mcap": 1350.0,
+      "pe": 90.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kernex Microsys.",
+      "price": 1716.0,
+      "mcap": 2885.0,
+      "pe": 15.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Relic Tech.",
+      "price": 70.5,
+      "mcap": 39.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ucal",
+      "price": 148.0,
+      "mcap": 328.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Unitech",
+      "price": 3.92,
+      "mcap": 1023.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hind Aluminium",
+      "price": 97.4,
+      "mcap": 62.3,
+      "pe": 16.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "A B Real Estate",
+      "price": 1338.0,
+      "mcap": 14934.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Galada Power",
+      "price": 22.5,
+      "mcap": 20.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shree Rama News.",
+      "price": 32.7,
+      "mcap": 484.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Xchanging Sol.",
+      "price": 63.3,
+      "mcap": 703.0,
+      "pe": 11.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Classic Electric",
+      "price": 2.71,
+      "mcap": 2.41,
+      "pe": 26.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sri Ramakr. Mill",
+      "price": 57.0,
+      "mcap": 40.6,
+      "pe": 1.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Amagi Media Labs",
+      "price": 584.0,
+      "mcap": 12863.0,
+      "pe": 126.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Lincoln Pharma.",
+      "price": 638.0,
+      "mcap": 1275.0,
+      "pe": 13.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Polyspin Exports",
+      "price": 28.3,
+      "mcap": 27.6,
+      "pe": 4.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "XL Energy",
+      "price": 0.25,
+      "mcap": 0.57,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Era Infra Engg.",
+      "price": 1.43,
+      "mcap": 49.7,
+      "pe": 63.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mukta Arts",
+      "price": 58.1,
+      "mcap": 133.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shalimar Paints",
+      "price": 83.9,
+      "mcap": 709.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "GACM Tech-DVR",
+      "price": 0.49,
+      "mcap": 9.29,
+      "pe": 1.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Kajal Syn & Silk",
+      "price": null,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Altius Telecom",
+      "price": 175.0,
+      "mcap": 53330.0,
+      "pe": 42.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Zodiac-JRD MKJ",
+      "price": 37.2,
+      "mcap": 40.8,
+      "pe": 10.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Porwal Auto Comp",
+      "price": 52.6,
+      "mcap": 88.6,
+      "pe": 6.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Parle Industries",
+      "price": 5.75,
+      "mcap": 28.1,
+      "pe": 80.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Jeet Mach. Tools",
+      "price": 0.68,
+      "mcap": null,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "AastamangalamFin",
+      "price": 31.8,
+      "mcap": 49.4,
+      "pe": 5.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Mega Fin (India)",
+      "price": 30.4,
+      "mcap": 24.8,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Swadeshi Inds",
+      "price": 72.6,
+      "mcap": 168.0,
+      "pe": 101.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brijlaxmi Leas.",
+      "price": 8.2,
+      "mcap": 5.3,
+      "pe": 8.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shalibhadra Fin.",
+      "price": 82.9,
+      "mcap": 256.0,
+      "pe": 12.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "SKF India",
+      "price": 1534.0,
+      "mcap": 7577.0,
+      "pe": 51.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Vesuvius India",
+      "price": 421.0,
+      "mcap": 8537.0,
+      "pe": 33.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "N D Metal Inds.",
+      "price": 75.0,
+      "mcap": 18.6,
+      "pe": 77.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Ruby Mills",
+      "price": 475.0,
+      "mcap": 1590.0,
+      "pe": 36.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tusaldah",
+      "price": 125.0,
+      "mcap": 29.3,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sanco Trans",
+      "price": 672.0,
+      "mcap": 121.0,
+      "pe": 14.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sri Havisha",
+      "price": 1.35,
+      "mcap": 20.4,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Flomic Global",
+      "price": 43.0,
+      "mcap": 78.2,
+      "pe": 14.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Prime Capital Ma",
+      "price": 5.5,
+      "mcap": 5.5,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "M E T S",
+      "price": 165.0,
+      "mcap": 90.7,
+      "pe": 12.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Purshottam Inves",
+      "price": 34.3,
+      "mcap": 25.4,
+      "pe": 26.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Corporate Merch",
+      "price": 43.0,
+      "mcap": 273.0,
+      "pe": 203.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "G G Engineering",
+      "price": 0.47,
+      "mcap": 74.5,
+      "pe": 31.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shreeji Translog",
+      "price": 8.08,
+      "mcap": 56.5,
+      "pe": 14.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Chandrima Mercan",
+      "price": 15.5,
+      "mcap": 517.0,
+      "pe": 207.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "I R C T C",
+      "price": 470.0,
+      "mcap": 37564.0,
+      "pe": 27.2,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Secmark Consult.",
+      "price": 141.0,
+      "mcap": 151.0,
+      "pe": 46.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Atal Realtech",
+      "price": 17.0,
+      "mcap": 210.0,
+      "pe": 30.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Usha Financial",
+      "price": 50.0,
+      "mcap": 217.0,
+      "pe": 8.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Globe Civil",
+      "price": 44.7,
+      "mcap": 269.0,
+      "pe": 10.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Laxmi India Fin.",
+      "price": 132.0,
+      "mcap": 693.0,
+      "pe": 12.3,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Brandman Retail",
+      "price": 172.0,
+      "mcap": 317.0,
+      "pe": 10.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Hexagon Nutri.",
+      "price": 67.4,
+      "mcap": 829.0,
+      "pe": 19.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Black Box",
+      "price": 763.0,
+      "mcap": 13546.0,
+      "pe": 47.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "M T N L",
+      "price": 25.2,
+      "mcap": 1585.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "McNally Bharat",
+      "price": 300.0,
+      "mcap": 999.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nicco Uco All.",
+      "price": 0.29,
+      "mcap": 2.41,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Oricon Enterpris",
+      "price": 52.1,
+      "mcap": 802.0,
+      "pe": 48.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Pennar Industrie",
+      "price": 178.0,
+      "mcap": 2408.0,
+      "pe": 16.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sudarshan Chem.",
+      "price": 1262.0,
+      "mcap": 10042.0,
+      "pe": 98.9,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Shree TirupatiBa",
+      "price": 25.5,
+      "mcap": 208.0,
+      "pe": 22.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nisus Finance",
+      "price": 158.0,
+      "mcap": 377.0,
+      "pe": 5.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "A.K.Capital Serv",
+      "price": 1692.0,
+      "mcap": 1125.0,
+      "pe": 9.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Nimbus Projects",
+      "price": 156.0,
+      "mcap": 288.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Equippp Social",
+      "price": 23.8,
+      "mcap": 246.0,
+      "pe": 132.8,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Titagarh Rail",
+      "price": 876.0,
+      "mcap": 11795.0,
+      "pe": 60.7,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Veritas (India)",
+      "price": 164.0,
+      "mcap": 441.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Petronet LNG",
+      "price": 286.0,
+      "mcap": 42543.0,
+      "pe": 10.1,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Octal Credit Cap",
+      "price": 18.8,
+      "mcap": 9.43,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sharika Enterpr.",
+      "price": 18.8,
+      "mcap": 81.6,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "IndiGrid Trust",
+      "price": 174.0,
+      "mcap": 19797.0,
+      "pe": 35.0,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "East WestFreight",
+      "price": 2.3,
+      "mcap": 29.2,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Sonal Mercantile",
+      "price": 88.6,
+      "mcap": 131.0,
+      "pe": 6.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Universus Photo",
+      "price": 566.0,
+      "mcap": 616.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Balu Forge",
+      "price": 542.0,
+      "mcap": 6576.0,
+      "pe": 24.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Integra Essentia",
+      "price": 1.06,
+      "mcap": 184.0,
+      "pe": null,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Yatra Online",
+      "price": 115.0,
+      "mcap": 1805.0,
+      "pe": 52.5,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    }
+  ]
 }
