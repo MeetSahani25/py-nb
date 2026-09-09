@@ -27,6 +27,9 @@ RESULTS_BASE = "https://www.screener.in/results/latest/"
 EMAIL    = os.environ.get("SCREENER_EMAIL",    "")
 PASSWORD = os.environ.get("SCREENER_PASSWORD", "")
 
+# ── Filters ───────────────────────────────────────────────────────────────────
+MIN_MCAP_CR = 500    # Market cap in Crores
+
 # ── Dark CSS ──────────────────────────────────────────────────────────────────
 DARK_CSS = """
 :root{
@@ -573,8 +576,12 @@ def parse_results_cards(html):
 # ── Filter ────────────────────────────────────────────────────────────────────
 
 def apply_filters(companies):
-    # No filters for now: include every parsed company.
-    return companies
+    """Keep only companies with market cap > 500 Cr."""
+    filtered = [
+        c for c in companies
+        if c.get("mcap") is not None and c.get("mcap") > MIN_MCAP_CR
+    ]
+    return filtered
 
 
 # ── HTML ──────────────────────────────────────────────────────────────────────
@@ -673,8 +680,9 @@ def build_html(filtered, total_fetched, report_date):
 </div>
 
 <div class="filter-bar">
-  <span>No filters applied</span>
-  <span>Showing all parsed companies</span>
+  <span>Active filter:</span>
+  <span class="filter-tag">M.Cap &gt; ₹{MIN_MCAP_CR} Cr</span>
+  <span>Showing companies above market-cap threshold</span>
 </div>
 
 <div class="cards-grid">{cards_html}</div>
@@ -732,7 +740,7 @@ def main(target_date=None):
         return
 
     filtered = apply_filters(companies)
-    print(f"  ✅ No filters applied — {len(filtered)} companies included")
+    print(f"  ✅ {len(filtered)} companies passed market-cap filter (MCap>{MIN_MCAP_CR}Cr)")
 
     # Save outputs
     os.makedirs(EARNINGS_DIR, exist_ok=True)
@@ -749,7 +757,7 @@ def main(target_date=None):
             "date":           date_str,
             "total_fetched":  len(companies),
             "total_filtered": len(filtered),
-            "filters": None,
+            "filters": {"min_mcap_cr": MIN_MCAP_CR},
             "companies": [{
                 "name":       c["name"],
                 "price":      c["price"],
