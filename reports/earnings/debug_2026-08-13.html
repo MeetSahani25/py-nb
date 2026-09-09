@@ -1,0 +1,4678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>
+  Latest quarterly results
+ - Screener</title>
+    
+
+    <!-- plausible -->
+    <script defer
+            event-user="free"
+            
+            
+            data-domain="screener.in"
+            src="https://plausible.screener.in/js/script.pageview-props.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+    <script src="https://rybbit.screener.in/api/script.js"
+            data-site-id="5494427e1dc0"
+            defer></script>
+
+    <!-- FONT -->
+    <link rel="stylesheet" href="https://cdn-static.screener.in/inter/inter.c622a5e75782.css" />
+    <link rel="stylesheet" href="https://cdn-static.screener.in/fontello/css/fontello.1d1b3a0a264b.css?v=3" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/normalize.a2444750a947.css" media="all">
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/skeleton.c6872bc14f71.css" media="all">
+    <link rel="stylesheet" href="https://cdn-static.screener.in/css/custom.dcd91b872a3c.css" media="all">
+
+    
+<style>
+  main {
+    max-width: 720px;
+  }
+
+  #sidebar {
+    margin-top: 18px;
+  }
+
+  @media (min-width: 576px) {
+    #sidebar {
+      margin-left: 72px;
+      max-width: 300px;
+      min-width: 18%;
+    }
+
+    #sidebar .card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    #sidebar {
+      /* align sidebar content till right */
+      margin-right: calc(-1 * var(--container-padding));
+    }
+  }
+</style>
+
+    
+  <style>
+  .change {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .paginator {
+    margin: 32px 0 16px;
+  }
+
+  .paginator a {
+    padding: 4px 8px;
+    background: var(--base);
+    border-radius: 4px;
+    border: 1px solid;
+  }
+
+  </style>
+
+
+    <meta name="author" content="Mittal Analytics Private Limited">
+
+    <!-- PWA manifest -->
+    <meta name="theme-color"
+          content="#fff"
+          media="(prefers-color-scheme: light)">
+    <meta name="theme-color"
+          content="#222530"
+          media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/static/manifest.json">
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://cdn-static.screener.in/favicon/apple-touch-icon.b6e5f24bf7d3.png">
+    <link rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="https://cdn-static.screener.in/favicon/favicon-32x32.00205914303a.png">
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="https://cdn-static.screener.in/favicon/favicon-16x16.2b35594b2f33.png">
+    <link rel="mask-icon"
+          href="https://cdn-static.screener.in/favicon/safari-pinned-tab.adbe3ed3c5ad.svg"
+          color="#8ED443">
+    <meta name="msapplication-TileColor" content="#da532c">
+  </head>
+
+  <body class="light flex-column">
+    
+      <nav class="u-full-width no-print">
+        <div id="mobile-search"><div class="has-addon left-addon dropdown-typeahead">
+  <i class="addon icon-search"></i>
+  <input
+    aria-label="Search for a company"
+    type="search"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="Search for a company"
+    class="u-full-width"
+    
+    data-company-search="true">
+</div>
+</div>
+
+<ul class="bottom-menu-bar hide-from-tablet-landscape">
+  
+    <li class="">
+      <a href="/">
+        <i class="icon-news"></i>
+        <br>
+        Feed
+      </a>
+    </li>
+  
+
+  <li class="">
+    <a href="/explore/">
+      <i class="icon-screens"></i>
+      <br>
+      Screens
+    </a>
+  </li>
+
+  <li>
+    <button type="button"
+            onclick="MobileMenu.toggleSearch(this)"
+            class="round height-48 button-primary"
+            title="Search">
+      <i class="icon-search" style="font-size: 18px"></i>
+    </button>
+  </li>
+
+  <li>
+    <button class="button-plain" onclick="Modal.showInModal('#nav-tools-menu')">
+      <i class="icon-tools"></i>
+      <br>
+      Tools
+    </button>
+  </li>
+
+  
+    <li class="">
+      <button class="button-plain" onclick="Modal.showInModal('#nav-user-menu')">
+        <i class="icon-user"></i>
+        <br>
+        Account
+      </button>
+    </li>
+  
+</ul>
+
+        <div class="top-nav-holder">
+          <div class="container">
+
+
+
+<div class="layer-holder top-navigation">
+  <div class="layer flex flex-space-between"
+       style="align-items: center;
+              height: 50px">
+    <div class="flex" style="align-items: center">
+      <a href="/" class="logo-holder">
+        <img alt="Screener Logo"
+             class="logo"
+             src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg" />
+      </a>
+
+      <div class="desktop-links" style="margin-left: 48px">
+        <a href="/">
+          
+            Feed
+          
+        </a>
+        <a href="/explore/">Screens</a>
+        <div class="dropdown-menu">
+          <button class="button-plain"
+                  type="button"
+                  onclick="Utils.toggleDropdown(event)">
+            Tools
+            <i class="icon-down"></i>
+          </button>
+          <ul class="dropdown-content flex-column tools-menu"
+              style="width: 350px"
+              id="nav-tools-menu">
+            <li>
+              <a href="/screen/new/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square height-56">
+                  <img src="https://cdn-static.screener.in/icons/screens.e960a5daedf9.svg" alt="Create a stock screen">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Create a stock screen</div>
+                  <div class="sub font-size-13">Run queries on 10 years of financial data</div>
+                </div>
+              </a>
+            </li>
+            <li class="flex flex-align-center no-hover" style="padding: 4px 0;">
+              <div class="button button-primary premium-indicator flex flex-align-center">
+                <img src="https://cdn-static.screener.in/icons/crown.fb0d2413ee43.svg"
+                     alt="Premium icon"
+                     style="margin-right: 8px">
+                <span>Premium features</span>
+              </div>
+              <hr class="flex-grow" style="padding: 0; margin: 0;">
+            </li>
+            
+              <li>
+                <a href="/ai/"
+                   class="flex flex-align-center flex-gap-16">
+                  <div class="bg-stripes square height-56">
+                    <img src="https://cdn-static.screener.in/icons/ai.970ef1d1cabb.svg" alt="Screener AI">
+                  </div>
+                  <div>
+                    <div class="font-weight-500 font-size-14">Screener AI</div>
+                    <div class="sub font-size-13">Extract valuable insights from hundreds of company documents.</div>
+                  </div>
+                </a>
+              </li>
+            
+            <li>
+              <a href="/hs/" class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square height-56">
+                  <img src="https://cdn-static.screener.in/icons/export.d623f0029933.svg" alt="Commodity Prices">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Commodity Prices</div>
+                  <div class="sub font-size-13">Analyze price trends for 10,000+ commodities over the past 10 years.</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/people/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square height-56">
+                  <img src="https://cdn-static.screener.in/icons/shares.10acc20cb936.svg"
+                       alt="Search shareholders by name">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Search shareholders</div>
+                  <div class="sub font-size-13">Find all companies where a person owns more than 1% of shares.</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/announcements/"
+                 class="flex flex-align-center flex-gap-16">
+                <div class="bg-stripes square height-56">
+                  <img src="https://cdn-static.screener.in/icons/loudspeaker.88769927f6eb.svg" alt="Loudspeaker">
+                </div>
+                <div>
+                  <div class="font-weight-500 font-size-14">Company Announcements</div>
+                  <div class="sub font-size-13">
+                    Stay updated. Search, filter and set alerts for the newest disclosures and developments.
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+              <li style="padding: 16px;">
+                <a href="/premium/?driver=top-nav-tools"
+                   class="button button-primary text-align-center"
+                   style="color: var(--white);
+                          padding: 10px 24px">Upgrade to premium</a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-from-tablet-landscape flex flex-gap-16"
+         style="justify-content: flex-end;
+                flex: 1 1 400px">
+      <div class="search" id="desktop-search"><div class="has-addon left-addon dropdown-typeahead">
+  <i class="addon icon-search"></i>
+  <input
+    aria-label="Search for a company"
+    type="search"
+    autocomplete="off"
+    spellcheck="false"
+    placeholder="Search for a company"
+    class="u-full-width"
+    
+    data-company-search="true">
+</div>
+</div>
+
+      
+        <div id="account-dropdown" class="dropdown-menu">
+          <button class="account" type="button" onclick="Utils.toggleDropdown(event)">
+            <i class="icon-user-line blue-icon"></i>
+            Meet
+            
+            <i class="icon-down"></i>
+          </button>
+
+          <div class="dropdown-content flex-column font-size-14 font-weight-500"
+               style="right: 0;
+                      width: 154px"
+               id="nav-user-menu">
+            <a href="/user/account/">
+              <i class="icon-settings"></i>
+              Profile
+            </a>
+            <a href="/alerts/">
+              <i class="icon-bell"></i>
+              Alerts
+            </a>
+            <a href="/notebook/">
+              <i class="icon-book-open"></i>
+              Notebook
+            </a>
+            
+            
+              <a href="/premium/?driver=user-nav-dropdown">
+                <i class="icon-crown"></i>
+                Upgrade
+              </a>
+            
+            
+              
+                <a href="/ai/?driver=user-nav-dropdown">
+                  <i class="icon-chat-ai"></i>
+                  Screener AI
+                </a>
+              
+            
+            <hr class="no-hover">
+            <form action="/logout/" method="post" style="padding: 0">
+              <input type="hidden" name="csrfmiddlewaretoken" value="kquQG5x8GGOfyuKkjtuIewT9cxew96fD92ozPq0SSqewSHT2mhRSMevqlcPjKl9k">
+              <button type="submit"
+                      class="button-plain"
+                      style="width: 100%;
+                             padding: 4px 16px">
+                <i class="icon-off"></i>
+                Logout
+              </button>
+            </form>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+        </div>
+      </nav>
+    
+
+    
+    
+
+    
+<div class="container flex-grow">
+  <div class="breadcrumb">
+  
+    <ul>
+      
+        <li>
+          
+            <a href="/">Dashboard</a>
+          
+        </li>
+      
+        <li>
+          
+            Latest results
+          
+        </li>
+      
+    </ul>
+  
+</div>
+  <div class="flex flex-column-mobile">
+    <main class="flex-grow">
+      
+
+
+  
+    
+    
+    
+
+    
+    
+  
+
+
+
+
+
+
+      
+  <h1 class="h2">Latest quarterly results</h1>
+
+  <div class="no-card change-list">
+    <div id="toolbar-wrapper">
+      
+        
+
+<div id="toolbar"><form id="changelist-search" method="get" role="search">
+<div><!-- DIV needed for valid HTML -->
+<label for="searchbar"><img src="https://cdn-static.screener.in/admin/img/search.7cf54ff789c6.svg" alt="Search"></label>
+<input type="text" size="40" name="q" value="" id="searchbar">
+<input type="submit" value="Search">
+
+    <span class="small quiet">698 results (<a href="?">4640 total</a>)</span>
+
+
+    <input type="hidden" name="all" value="">
+
+    <input type="hidden" name="result_update_date__day" value="13">
+
+    <input type="hidden" name="result_update_date__month" value="8">
+
+    <input type="hidden" name="result_update_date__year" value="2026">
+
+</div>
+
+</form></div>
+
+
+      
+      
+        <button type="button"
+                class="hide-from-tablet-landscape"
+                data-title="Filters"
+                onclick="Modal.showInModal('#change-list-filters', this)">
+          <i class="icon-filter"></i> Filters
+        </button>
+      
+    </div>
+    
+      
+<nav class="toplinks">
+
+
+<a href="?all=&amp;result_update_date__month=8&amp;result_update_date__year=2026" class="date-back">&lsaquo; August 2026</a>
+
+
+
+13 August
+
+
+
+</nav>
+
+
+    
+  </div>
+
+
+  <div data-messages>
+    
+  </div>
+  <div class="mark-visited" data-page-results>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/507474/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Kothari Ferment.</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1819/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">41.5</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">62.2</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 28%</span></td>
+              <td data-sales-latest-quarter>30.4</td>
+              <td>32.5</td>
+              <td>23.8</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 59%</span></td>
+              <td>2.64</td>
+              <td>2.91</td>
+              <td>1.66</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 105%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.06</td>
+              <td>1.27</td>
+              <td>-1.12</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 105%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.04
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.85
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.75
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/523672/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Flex Foods</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1032/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">46.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">57.2</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 48%</span></td>
+              <td data-sales-latest-quarter>59.7</td>
+              <td>56.3</td>
+              <td>40.5</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 244%</span></td>
+              <td>8.88</td>
+              <td>6.82</td>
+              <td>-6.18</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 90%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-1.32</td>
+              <td>-2.49</td>
+              <td>-13.0</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 90%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-1.06
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-2.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-10.41
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/519174/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Ashiana Agro Ind</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/271/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">11.5</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">5.29</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">132.3</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 33%</span></td>
+              <td data-sales-latest-quarter>0.12</td>
+              <td>0.22</td>
+              <td>0.18</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 17%</span></td>
+              <td>-0.05</td>
+              <td>-0.01</td>
+              <td>-0.06</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 100%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.02</td>
+              <td>0.02</td>
+              <td>-0.01</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 100%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.04
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.04
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.02
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/507180/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Kesar Enterprise</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1753/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">9.89</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">99.7</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 100%</span></td>
+              <td data-sales-latest-quarter>0.04</td>
+              <td>166</td>
+              <td>20.2</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 3%</span></td>
+              <td>-8.87</td>
+              <td>-6.12</td>
+              <td>-8.65</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 20%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-18.5</td>
+              <td>-7.34</td>
+              <td>-15.4</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 20%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-1.84
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.73
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-1.53
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/519457/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Virat Crane Inds</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3675/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">32.9</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">67.2</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 10%</span></td>
+              <td data-sales-latest-quarter>44.7</td>
+              <td>50.5</td>
+              <td>40.5</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 76%</span></td>
+              <td>-0.14</td>
+              <td>0.34</td>
+              <td>-0.58</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 10%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.97</td>
+              <td>-0.78</td>
+              <td>-1.08</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 11%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.47
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.38
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.53
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/REGENCERAM/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Regency Ceramics</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/2713/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">35.5</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">93.8</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 173%</span></td>
+              <td data-sales-latest-quarter>18.3</td>
+              <td>11.3</td>
+              <td>6.72</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 268%</span></td>
+              <td>-15.3</td>
+              <td>-11.8</td>
+              <td>-4.15</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 31%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-2.57</td>
+              <td>-12.5</td>
+              <td>-1.96</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 31%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.97
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-4.72
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.74
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/526519/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Alpine Housing</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/147/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">120</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">208</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">27.8</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 3%</span></td>
+              <td data-sales-latest-quarter>16.8</td>
+              <td>20.9</td>
+              <td>17.3</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 142%</span></td>
+              <td>3.05</td>
+              <td>4.63</td>
+              <td>1.26</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 261%</span>
+                
+              </td>
+              <td data-np-latest-quarter>1.95</td>
+              <td>2.62</td>
+              <td>0.54</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 265%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.13
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.51
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.31
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/520121/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Arcee Industries</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/228/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">12.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">6.17</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 300%</span></td>
+              <td>-0.28</td>
+              <td>-0.10</td>
+              <td>-0.07</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 182%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.31</td>
+              <td>0.00</td>
+              <td>-0.11</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 186%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.60
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.00
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.21
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/DSSL/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Dynacons Sys.</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/864/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">1,022</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">1,301</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">15.4</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 5%</span></td>
+              <td data-sales-latest-quarter>311</td>
+              <td>402</td>
+              <td>329</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 26%</span></td>
+              <td>39.9</td>
+              <td>36.4</td>
+              <td>31.7</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 0%</span>
+                
+              </td>
+              <td data-np-latest-quarter>19.6</td>
+              <td>19.1</td>
+              <td>19.6</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 0%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;15.36
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;15.02
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;15.41
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/TPHQ/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Teamo Production</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1129/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">0.50</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">52.8</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">9</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 19%</span></td>
+              <td data-sales-latest-quarter>33.7</td>
+              <td>15.2</td>
+              <td>28.3</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 3750%</span></td>
+              <td>8.47</td>
+              <td>-8.32</td>
+              <td>0.22</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 811%</span>
+                
+              </td>
+              <td data-np-latest-quarter>6.47</td>
+              <td>-6.24</td>
+              <td>0.71</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 500%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.06
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.06
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.01
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/522251/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Cenlub Industrie</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/602/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">181</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">84.6</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">10.5</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 22%</span></td>
+              <td data-sales-latest-quarter>17.1</td>
+              <td>23.1</td>
+              <td>14.0</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 33%</span></td>
+              <td>2.30</td>
+              <td>3.19</td>
+              <td>1.73</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 10%</span>
+                
+              </td>
+              <td data-np-latest-quarter>1.67</td>
+              <td>3.37</td>
+              <td>1.52</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 10%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;3.58
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;7.23
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;3.26
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/531758/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">G K Consultants</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1138/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">11.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">12.4</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">113.1</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 40%</span></td>
+              <td data-sales-latest-quarter>0.28</td>
+              <td>0.26</td>
+              <td>0.47</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 0%</span></td>
+              <td>0.17</td>
+              <td>-0.51</td>
+              <td>0.17</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 0%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.17</td>
+              <td>-0.54</td>
+              <td>0.17</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 0%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.15
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.48
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.15
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/511060/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Jumbo Finance</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1662/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 13%</span></td>
+              <td data-sales-latest-quarter>0.26</td>
+              <td>0.21</td>
+              <td>0.23</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 8%</span></td>
+              <td>0.13</td>
+              <td>0.31</td>
+              <td>0.12</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 333%</span>
+                
+              </td>
+              <td data-np-latest-quarter>1.30</td>
+              <td>-0.24</td>
+              <td>0.30</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 331%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.67
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.49
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.62
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/511147/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">WSFX Global</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3724/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">63.5</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">80.6</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">12.9</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 28%</span></td>
+              <td data-sales-latest-quarter>23.2</td>
+              <td>25.0</td>
+              <td>18.2</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 6%</span></td>
+              <td>1.06</td>
+              <td>1.08</td>
+              <td>1.13</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 88%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.30</td>
+              <td>0.55</td>
+              <td>0.16</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 85%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.24
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.44
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.13
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/526869/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Kumbhat Fin.</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1845/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">19.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">10.2</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">12.5</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 35%</span></td>
+              <td data-sales-latest-quarter>1.97</td>
+              <td>2.10</td>
+              <td>1.46</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 23%</span></td>
+              <td>0.70</td>
+              <td>1.57</td>
+              <td>0.57</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 9%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.10</td>
+              <td>1.15</td>
+              <td>0.11</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 10%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.19
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.16
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.21
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/503689/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Healthy Investm.</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1299/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">3.20</span>
+            </span>
+          
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 33%</span></td>
+              <td>-0.04</td>
+              <td>-0.04</td>
+              <td>-0.06</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 106%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.05</td>
+              <td>0.04</td>
+              <td>-0.86</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 106%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;2.04
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.63
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-35.10
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/534060/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">PMC Fincorp</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/2574/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">1.59</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">113</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">17.8</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 6%</span></td>
+              <td data-sales-latest-quarter>6.38</td>
+              <td>3.78</td>
+              <td>6.79</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 9%</span></td>
+              <td>5.73</td>
+              <td>0.04</td>
+              <td>6.32</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 6%</span>
+                
+              </td>
+              <td data-np-latest-quarter>4.32</td>
+              <td>-0.41</td>
+              <td>4.09</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 0%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.06
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.01
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.06
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/530267/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Arigato Universe</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/2826/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">53.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">32.3</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">12.2</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>4.18</td>
+              <td>8.82</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 388%</span></td>
+              <td>0.46</td>
+              <td>0.37</td>
+              <td>-0.16</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 671%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.40</td>
+              <td>1.17</td>
+              <td>-0.07</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 700%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.66
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.92
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.11
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/517564/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Clenon Enterpri</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1066/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">39.8</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">43.5</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change down">⇣ 100%</span></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.30</td>
+              <td>0.90</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 4%</span></td>
+              <td>-0.56</td>
+              <td>-0.53</td>
+              <td>-0.54</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 3%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.63</td>
+              <td>-0.60</td>
+              <td>-0.61</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 18%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.58
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.55
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.71
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/TARAPUR/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Tarapur Trans</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3359/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">13.0</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">24.7</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>0.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 183%</span></td>
+              <td>-0.34</td>
+              <td>-0.21</td>
+              <td>-0.12</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 540%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-0.44</td>
+              <td>-1.26</td>
+              <td>0.10</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 560%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.23
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.65
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.05
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/500399/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Steelco Gujarat</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3197/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">243</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">153</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 15712%</span></td>
+              <td data-sales-latest-quarter>52.2</td>
+              <td>33.6</td>
+              <td>0.33</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 131%</span></td>
+              <td>-4.21</td>
+              <td>-7.66</td>
+              <td>-1.82</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change down">⇣ 223%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-15.0</td>
+              <td>-16.1</td>
+              <td>-4.64</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change down">⇣ 1425%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-23.79
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-5.39
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-1.56
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/521005/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Titan Intech</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/1469/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">0.94</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">88.5</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">15.6</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 47%</span></td>
+              <td data-sales-latest-quarter>7.32</td>
+              <td>9.19</td>
+              <td>4.97</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change down">⇣ 64%</span></td>
+              <td>0.58</td>
+              <td>2.55</td>
+              <td>1.59</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 16%</span>
+                
+              </td>
+              <td data-np-latest-quarter>0.74</td>
+              <td>0.51</td>
+              <td>0.64</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 0%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.01
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.01
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.01
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/VIRAT/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Virat Industries</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/3676/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">450</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">664</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">107.4</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 10%</span></td>
+              <td data-sales-latest-quarter>9.46</td>
+              <td>5.10</td>
+              <td>8.61</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 403%</span></td>
+              <td>1.51</td>
+              <td>-0.37</td>
+              <td>0.30</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 142%</span>
+                
+              </td>
+              <td data-np-latest-quarter>2.13</td>
+              <td>1.05</td>
+              <td>0.88</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 141%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;1.47
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.72
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;0.61
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/533006/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">Birla Cotsyn</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/491/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">17.2</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">454</span>
+              Cr
+            </span>
+          
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td></td>
+              <td data-sales-latest-quarter>15.4</td>
+              <td>14.9</td>
+              <td>0.00</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 53%</span></td>
+              <td>-1.06</td>
+              <td>-0.61</td>
+              <td>-2.24</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 53%</span>
+                
+              </td>
+              <td data-np-latest-quarter>-1.90</td>
+              <td>-1.96</td>
+              <td>-4.01</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 53%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.07
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.07
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.15
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+      <div class="flex-row flex-space-between flex-align-center margin-top-32 margin-bottom-16 margin-left-4 margin-right-4">
+        <div>
+          <a href="/company/533407/#quarters"
+             class="font-weight-500"
+             target="_blank">
+            <span class="hover-link ink-900">True Green</span>
+            <i class="icon-link-ext"></i>
+          </a>
+          <a href="/company/source/quarter/653/6/2026/"
+             class="plausible-event-name=Latest+Results+PDF margin-left-12 smaller"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="hover-link sub">PDF</span>
+            <i class="icon-file-pdf small"></i>
+          </a>
+        </div>
+        <div class="font-size-14">
+          
+            <span class="sub">
+              Price
+              ₹ <span class="strong">210</span>
+            </span>
+          
+          
+            <span class="sub margin-left-16" data-mcap>
+              M.Cap
+              ₹ <span class="strong">692</span>
+              Cr
+            </span>
+          
+          
+            <span class="sub margin-left-16">
+              PE
+              <span class="strong">12.9</span>
+            </span>
+          
+          
+        </div>
+      </div>
+      <div class="bg-base border-radius-8 padding-small responsive-holder">
+        <table class="data-table margin-0">
+          <thead>
+            
+              <tr>
+                <th class="text"></th>
+                <th>YOY</th>
+                <th>
+                  
+                    Jun 2026
+                  
+                </th>
+                <th>
+                  
+                    Mar 2026
+                  
+                </th>
+                <th>
+                  
+                    Jun 2025
+                  
+                </th>
+              </tr>
+            
+          </thead>
+          <tbody>
+            <tr data-sales>
+              <td class="text">Sales</td>
+              <td><span class="change up">⇡ 3142%</span></td>
+              <td data-sales-latest-quarter>228</td>
+              <td>190</td>
+              <td>7.02</td>
+            </tr>
+            <tr data-ebidt>
+              <td class="text">EBIDT</td>
+              <td><span class="change up">⇡ 2045%</span></td>
+              <td>36.9</td>
+              <td>43.5</td>
+              <td>1.72</td>
+            </tr>
+            <tr data-net-profit>
+              <td class="text">Net profit</td>
+              <td>
+                
+                  <span class="change up">⇡ 5703%</span>
+                
+              </td>
+              <td data-np-latest-quarter>21.8</td>
+              <td>28.7</td>
+              <td>-0.39</td>
+            </tr>
+            <tr data-eps>
+              <td class="text">EPS</td>
+              <td><span class="change up">⇡ 5625%</span></td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;6.63
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;8.70
+              </td>
+              <td>
+                <span class="ink-600">₹</span>&nbsp;-0.12
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    
+  </div>
+
+  <div data-paging>
+
+<p class="paginator">
+
+
+    <span class="this-page">1</span> 
+
+    <a href="?all=&amp;p=2&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">2</a> 
+
+    <a href="?all=&amp;p=3&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">3</a> 
+
+    <a href="?all=&amp;p=4&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">4</a> 
+
+    … 
+
+    <a href="?all=&amp;p=27&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">27</a> 
+
+    <a href="?all=&amp;p=28&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026" class="end">28</a> 
+
+
+698 results
+
+
+</p>
+</div>
+
+    </main>
+    <aside id="sidebar" class="flex-grow show-from-tablet-landscape">
+      
+  
+    <div class="sidebar-panel" id="change-list-filters">
+      <div class="title flex flex-space-between flex-align-center">
+        <span class="show-from-tablet-landscape">
+          <i class="icon-filter ink-700"></i>
+          Filter
+        </span>
+        
+      </div>
+
+      <div class="content">
+        
+          <div class="change-list-filter"><details open>
+  <summary>By Industry</summary>
+  <div class="bordered border-radius-8 overflow-hidden"
+       data-searchable-filter>
+    <div class="border-bottom padding-8">
+      <input class="small u-full-width"
+             type="search"
+             placeholder="Search industries"
+             aria-label="Search industries"
+             oninput="filterIndustryChoices(this)">
+    </div>
+    <ul class="filter-options">
+      
+        <li class="selected"
+            >
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">
+            
+              All industries
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Finance Non Banking Financial Company (NBFC)">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050101004">
+            
+              Non Banking Financial Company (NBFC) - 63
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Commercial Services &amp; Supplies Trading &amp; Distributors">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090104001">
+            
+              Trading &amp; Distributors - 36
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Realty Residential, Commercial Projects">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020501001">
+            
+              Residential, Commercial Projects - 31
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Textiles &amp; Apparels Other Textile Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020301002">
+            
+              Other Textile Products - 30
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Finance Other Financial Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050101005">
+            
+              Other Financial Services - 29
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Commercial Services &amp; Supplies Diversified Commercial Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090104004">
+            
+              Diversified Commercial Services - 24
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Manufacturing Industrial Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070204008">
+            
+              Industrial Products - 23
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Iron &amp; Steel Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205015">
+            
+              Iron &amp; Steel Products - 20
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Pharmaceuticals &amp; Biotechnology Pharmaceuticals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN060101001">
+            
+              Pharmaceuticals - 20
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Auto Components Auto Components &amp; Equipments">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020102001">
+            
+              Auto Components &amp; Equipments - 17
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Construction Civil Construction">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070101001">
+            
+              Civil Construction - 16
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Packaging">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205008">
+            
+              Packaging - 16
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Gems, Jewellery And Watches">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201005">
+            
+              Gems, Jewellery And Watches - 14
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Leisure Services Hotels &amp; Resorts">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020601001">
+            
+              Hotels &amp; Resorts - 12
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="IT - Services IT Enabled Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN080102001">
+            
+              IT Enabled Services - 12
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Packaged Foods">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104004">
+            
+              Packaged Foods - 12
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Specialty Chemicals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101002">
+            
+              Specialty Chemicals - 12
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Finance Investment Company">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050101003">
+            
+              Investment Company - 11
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural Food &amp; other Products Other Agricultural Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040101004">
+            
+              Other Agricultural Products - 10
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Electrical Equipment Other Electrical Equipment">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070203002">
+            
+              Other Electrical Equipment - 10
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Healthcare Services Healthcare Service Provider">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN060103002">
+            
+              Healthcare Service Provider - 9
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="IT - Software Software Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN080101002">
+            
+              Software Products - 9
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural Food &amp; other Products Sugar">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040101002">
+            
+              Sugar - 9
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Commodity Chemicals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101001">
+            
+              Commodity Chemicals - 8
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="IT - Software Computers - Software &amp; Consulting">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN080101001">
+            
+              Computers - Software &amp; Consulting - 8
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Services Logistics Solution Provider">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090102002">
+            
+              Logistics Solution Provider - 8
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Textiles &amp; Apparels Garments &amp; Apparels">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020301001">
+            
+              Garments &amp; Apparels - 7
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Castings &amp; Forgings">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205004">
+            
+              Castings &amp; Forgings - 6
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural Food &amp; other Products Edible Oil">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040101001">
+            
+              Edible Oil - 6
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Electrical Equipment Heavy Electrical Equipment">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070203001">
+            
+              Heavy Electrical Equipment - 6
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Plastic Products - Industrial">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205009">
+            
+              Plastic Products - Industrial - 6
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Cement &amp; Cement Products Cement &amp; Cement Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010203001">
+            
+              Cement &amp; Cement Products - 5
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Entertainment Film Production, Distribution &amp; Exhibition">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020402001">
+            
+              Film Production, Distribution &amp; Exhibition - 5
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Other Food Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104003">
+            
+              Other Food Products - 5
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Paper, Forest &amp; Jute Products Paper &amp; Paper Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010401001">
+            
+              Paper &amp; Paper Products - 5
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Petrochemicals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101006">
+            
+              Petrochemicals - 5
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Commercial Services &amp; Supplies Business Process Outsourcing (BPO)/ Knowledge Process Outsourcing (KPO)">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090104005">
+            
+              Business Process Outsourcing (BPO)/ Knowledge Process Outsourcing (KPO) - 4
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Retailing Speciality Retail">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020603001">
+            
+              Speciality Retail - 4
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Aerospace &amp; Defense Aerospace &amp; Defense">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070201001">
+            
+              Aerospace &amp; Defense - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Cables - Electricals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205003">
+            
+              Cables - Electricals - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Compressors, Pumps &amp; Diesel Engines">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205017">
+            
+              Compressors, Pumps &amp; Diesel Engines - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Commercial Services &amp; Supplies Consulting Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090104002">
+            
+              Consulting Services - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Dairy Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104002">
+            
+              Dairy Products - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Diversified Diversified">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN120101001">
+            
+              Diversified - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Retailing Diversified Retail">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020603003">
+            
+              Diversified Retail - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Explosives">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101005">
+            
+              Explosives - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Ferrous Metals Ferro &amp; Silica Manganese">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010301001">
+            
+              Ferro &amp; Silica Manganese - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Fertilizers &amp; Agrochemicals Fertilizers">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010102001">
+            
+              Fertilizers - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Finance Holding Company">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050101006">
+            
+              Holding Company - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Other Construction Materials Other Construction Materials">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010204001">
+            
+              Other Construction Materials - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Paints">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201015">
+            
+              Paints - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Power Power Generation">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN110101004">
+            
+              Power Generation - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Services Road Transport">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090102004">
+            
+              Road Transport - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural Food &amp; other Products Tea &amp; Coffee">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040101003">
+            
+              Tea &amp; Coffee - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Telecom -  Equipment &amp; Accessories Telecom -  Equipment &amp; Accessories">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN100102001">
+            
+              Telecom -  Equipment &amp; Accessories - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Leisure Services Tour, Travel Related Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020601005">
+            
+              Tour, Travel Related Services - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Textiles &amp; Apparels Trading - Textile Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020301003">
+            
+              Trading - Textile Products - 3
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Aluminium, Copper &amp; Zinc Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205014">
+            
+              Aluminium, Copper &amp; Zinc Products - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Leisure Services Amusement Parks/ Other Recreation">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020601003">
+            
+              Amusement Parks/ Other Recreation - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="IT - Hardware Computers Hardware &amp; Equipments">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN080103001">
+            
+              Computers Hardware &amp; Equipments - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural, Commercial &amp; Construction Vehicles Construction Vehicles">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070202003">
+            
+              Construction Vehicles - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Consumer Electronics">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201003">
+            
+              Consumer Electronics - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Retailing Distributors">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020603006">
+            
+              Distributors - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Other Consumer Services E-Learning">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020602002">
+            
+              E-Learning - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Retailing E-Retail/ E-Commerce">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020603004">
+            
+              E-Retail/ E-Commerce - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Other Consumer Services Education">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020602001">
+            
+              Education - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Electrodes &amp; Refractories">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205018">
+            
+              Electrodes &amp; Refractories - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Media Electronic Media">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020401002">
+            
+              Electronic Media - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Footwear">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201017">
+            
+              Footwear - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Furniture, Home Furnishing">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201018">
+            
+              Furniture, Home Furnishing - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Granites &amp; Marbles">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201020">
+            
+              Granites &amp; Marbles - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Healthcare Services Healthcare Research, Analytics &amp; Technology">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN060103003">
+            
+              Healthcare Research, Analytics &amp; Technology - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Healthcare Services Hospital">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN060103001">
+            
+              Hospital - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Leather And Leather Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201009">
+            
+              Leather And Leather Products - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Gas LPG/CNG/PNG/LNG Supplier">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN030101003">
+            
+              LPG/CNG/PNG/LNG Supplier - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Meat Products including Poultry">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104006">
+            
+              Meat Products including Poultry - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Entertainment Media &amp; Entertainment">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020402003">
+            
+              Media &amp; Entertainment - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Healthcare Equipment &amp; Supplies Medical Equipment &amp; Supplies">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN060102001">
+            
+              Medical Equipment &amp; Supplies - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Capital Markets Other Capital Market related Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050103007">
+            
+              Other Capital Market related Services - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Automobiles Passenger Cars &amp; Utility Vehicles">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020101001">
+            
+              Passenger Cars &amp; Utility Vehicles - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Leisure Services Restaurants">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020601002">
+            
+              Restaurants - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Seafood">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104005">
+            
+              Seafood - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Capital Markets Stockbroking &amp; Allied">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050103006">
+            
+              Stockbroking &amp; Allied - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Telecom - Services Telecom - Cellular &amp; Fixed line services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN100101001">
+            
+              Telecom - Cellular &amp; Fixed line services - 2
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Abrasives &amp; Bearings">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205016">
+            
+              Abrasives &amp; Bearings - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Media Advertising &amp; Media Agencies">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020401001">
+            
+              Advertising &amp; Media Agencies - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Infrastructure Airport &amp; Airport services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090103001">
+            
+              Airport &amp; Airport services - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Non - Ferrous Metals Aluminium">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010302001">
+            
+              Aluminium - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Food Products Animal Feed">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040104001">
+            
+              Animal Feed - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Capital Markets Asset Management Company">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050103001">
+            
+              Asset Management Company - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Beverages Breweries &amp; Distilleries">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040102001">
+            
+              Breweries &amp; Distilleries - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Ceramics">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201019">
+            
+              Ceramics - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumable Fuels Coal">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN030104001">
+            
+              Coal - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Non - Ferrous Metals Copper">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010302002">
+            
+              Copper - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural, Commercial &amp; Construction Vehicles Dealers-Commercial Vehicles, Tractors, Construction Vehicles">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070202004">
+            
+              Dealers-Commercial Vehicles, Tractors, Construction Vehicles - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Entertainment Digital Entertainment">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020402002">
+            
+              Digital Entertainment - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Dyes And Pigments">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101004">
+            
+              Dyes And Pigments - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Financial Technology (Fintech) Financial Technology (Fintech)">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050105001">
+            
+              Financial Technology (Fintech) - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Insurance General Insurance">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050104001">
+            
+              General Insurance - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Household Appliances">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201007">
+            
+              Household Appliances - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Household Products Household Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040106001">
+            
+              Household Products - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Houseware">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201008">
+            
+              Houseware - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Finance Housing Finance Company">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050101002">
+            
+              Housing Finance Company - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Industrial Gases">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101009">
+            
+              Industrial Gases - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Minerals &amp; Mining Industrial Minerals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010304001">
+            
+              Industrial Minerals - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Power Integrated Power Utilities">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN110101005">
+            
+              Integrated Power Utilities - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Paper, Forest &amp; Jute Products Jute &amp; Jute Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010401003">
+            
+              Jute &amp; Jute Products - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Insurance Life Insurance">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050104002">
+            
+              Life Insurance - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Oil Oil Equipment &amp; Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN030102004">
+            
+              Oil Equipment &amp; Services - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Banks Other Bank">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN050102003">
+            
+              Other Bank - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Other Industrial Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205012">
+            
+              Other Industrial Products - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Telecom - Services Other Telecom Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN100101003">
+            
+              Other Telecom Services - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Personal Products Personal Care">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040105001">
+            
+              Personal Care - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Fertilizers &amp; Agrochemicals Pesticides &amp; Agrochemicals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010102002">
+            
+              Pesticides &amp; Agrochemicals - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumer Durables Plywood Boards/ Laminates">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020201012">
+            
+              Plywood Boards/ Laminates - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Power Power - Transmission">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN110101003">
+            
+              Power - Transmission - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Power Power Distribution">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN110101006">
+            
+              Power Distribution - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Printing &amp; Publication Printing &amp; Publication">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020403001">
+            
+              Printing &amp; Publication - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Printing Inks">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101007">
+            
+              Printing Inks - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Manufacturing Railway Wagons">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070204005">
+            
+              Railway Wagons - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Petroleum Products Refineries &amp; Marketing">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN030103001">
+            
+              Refineries &amp; Marketing - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Infrastructure Road AssetsToll, Annuity, Hybrid-Annuity">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090103004">
+            
+              Road AssetsToll, Annuity, Hybrid-Annuity - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Industrial Products Rubber">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070205011">
+            
+              Rubber - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Services Shipping">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090102005">
+            
+              Shipping - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Ferrous Metals Sponge Iron">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010301003">
+            
+              Sponge Iron - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Household Products Stationary">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN040106004">
+            
+              Stationary - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Telecom - Services Telecom - Infrastructure">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN100101002">
+            
+              Telecom - Infrastructure - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Agricultural, Commercial &amp; Construction Vehicles Tractors">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN070202001">
+            
+              Tractors - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Auto Components Trading - Auto components">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020102007">
+            
+              Trading - Auto components - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Chemicals &amp; Petrochemicals Trading - Chemicals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010101008">
+            
+              Trading - Chemicals - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Consumable Fuels Trading - Coal">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN030104002">
+            
+              Trading - Coal - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Metals &amp; Minerals Trading Trading - Minerals">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN010305002">
+            
+              Trading - Minerals - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Transport Services Transport Related Services">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN090102006">
+            
+              Transport Related Services - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Auto Components Tyres &amp; Rubber Products">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN020102006">
+            
+              Tyres &amp; Rubber Products - 1
+            
+          </a>
+        </li>
+      
+        <li 
+            data-filter-option data-filter-search="Other Utilities Water Supply &amp; Management">
+          <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sectors=IN110201001">
+            
+              Water Supply &amp; Management - 1
+            
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</details>
+
+<script>
+  function filterIndustryChoices (inputEl) {
+    var query = inputEl.value.trim().toLowerCase()
+    var filterEl = inputEl.closest('[data-searchable-filter]')
+    filterEl.querySelectorAll('[data-filter-option]').forEach(function (optionEl) {
+      optionEl.hidden = !optionEl.dataset.filterSearch.toLowerCase().includes(query)
+    })
+  }
+</script>
+</div>
+        
+          <div class="change-list-filter"><details data-filter-title="Market Cap" open>
+  <summary>By Market Cap</summary>
+  <ul>
+    
+      <li class="selected">
+        <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">All</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=0_to_50&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">0 - 50 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=50_to_500&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">50 - 500 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=500_to_5000&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">500 - 5,000 Cr</a>
+      </li>
+    
+      <li >
+        <a href="?all=&amp;mcap=above_5000&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">&gt; 5,000 Cr</a>
+      </li>
+    
+    <li >
+      <form>
+        <input class="small"
+               type="text"
+               name="mcap_min"
+               style="max-width: 60px"
+               placeholder="Min"
+               value="">
+        <input class="small"
+               type="text"
+               name="mcap_max"
+               style="max-width: 60px"
+               placeholder="Max"
+               value="">
+        <input type="hidden" name="mcap" value="custom">
+        <input type="submit" class="button button-small" value="Go">
+      </form>
+    </li>
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Sorting" open>
+  <summary>
+     By Sorting 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">Latest</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sort=growth">Sales Growth</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sort=turnaround">Turnaround</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sort=pe">TTM PE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sort=qtr-pe">Qtr PE</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Exchange" open>
+  <summary>
+     By Exchange 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">All</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sme=bse">BSE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sme=nse">NSE</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sme=sme">SME</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;sme=main-board">Non SME</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+          <div class="change-list-filter">
+<details data-filter-title="Watchlist" open>
+  <summary>
+     By Watchlist 
+  </summary>
+  <ul>
+  
+    <li class="selected">
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026">No Filter</a></li>
+  
+    <li>
+    <a href="?all=&amp;result_update_date__day=13&amp;result_update_date__month=8&amp;result_update_date__year=2026&amp;watchlist=1836871">In Core Watchlist</a></li>
+  
+  </ul>
+</details>
+</div>
+        
+      </div>
+    </div>
+  
+
+    </aside>
+  </div>
+</div>
+
+
+    
+      
+
+<footer id="large-footer">
+  <div class="flex-row flex-space-between flex-column-tablet container no-print">
+    <div class="hide-from-tablet" style="margin-bottom: 16px;">
+      <img src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg"
+           alt="Screener Logo"
+           style="max-width: 120px"
+           class="logo">
+    </div>
+
+    <div class="show-from-tablet" style="padding: 0 64px 0 0;">
+      <img src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg"
+           alt="Screener Logo"
+           style="max-width: 120px"
+           class="logo">
+      <p class="font-size-19" style="font-weight: 500;">Stock analysis and screening tool</p>
+      <p class="sub">
+        Mittal Analytics Private Ltd &copy; 2009-2026
+        <br>
+        Made with <i class="icon-heart red"></i> in India.
+      </p>
+      <p class="sub font-size-13">Data provided by C-MOTS Internet Technologies Pvt Ltd</p>
+      <p class="font-size-13 sub">
+        <a href="/guides/terms/" class="underline-link">Terms</a> & <a href="/guides/privacy/" class="underline-link">Privacy</a>.
+      </p>
+    </div>
+
+    <div class="flex flex-end flex-space-between flex-grow"
+         style="max-width: 600px">
+      <div class="flex-grow">
+        <div class="title">Product</div>
+        <ul class="items">
+          <li>
+            <a href="/premium/?driver=footer">Premium</a>
+          </li>
+          <li>
+            <a href="/docs/changelog/">What's new?</a>
+          </li>
+          <li>
+            <a href="https://bit.ly/learnscreener">Learn</a>
+          </li>
+          <li>
+            <button class="a2hs button-secondary button-small">
+              <i class="icon-flash"></i>
+              Install
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-grow">
+        <div class="title">Team</div>
+        <ul class="items">
+          <li>
+            <a href="/guides/about-us/">About us</a>
+          </li>
+          <li>
+            <a href="/support/">Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-grow">
+        <div class="title">Theme</div>
+        <ul class="items">
+          <li>
+            <button onclick="SetTheme('light')"
+                    aria-label="Set light theme"
+                    class="button-plain">
+              <i class="icon-sun"></i>
+              Light
+            </button>
+          </li>
+          <li>
+            <button onclick="SetTheme('dark')"
+                    aria-label="Set dark theme"
+                    class="button-plain">
+              <i class="icon-moon"></i>
+              Dark
+            </button>
+          </li>
+          <li>
+            <button onclick="SetTheme('auto')"
+                    aria-label="Set auto theme"
+                    class="button-plain">
+              <i class="icon-monitor"></i>
+              Auto
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hide-from-tablet">
+      <hr>
+      <p class="sub">Mittal Analytics Private Ltd &copy; 2009-2026</p>
+      <p class="sub">Data provided by C-MOTS Internet Technologies Pvt Ltd</p>
+      <p class="sub">
+        <a href="/guides/terms/" class="underline-link">Terms</a>
+        & <a href="/guides/privacy/" class="underline-link">Privacy</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+    
+
+    <!-- Important JS (which provide global objects)- check below too -->
+    <script src="https://cdn-static.screener.in/js/utils.0147599e8f13.js"></script>
+    <script src="https://cdn-static.screener.in/js/modal.ccacae1a5594.js"></script>
+    <script src="https://cdn-static.screener.in/js/typeahead.8dcc9ac93685.js"></script>
+    <script src="https://cdn-static.screener.in/js/filter.component.48935d3ab300.js"></script>
+
+    <!-- Independent JS scripts for page interactions -->
+    <script src="https://cdn-static.screener.in/js/navbar.3fe7f0f4a630.js"></script>
+    <script src="https://cdn-static.screener.in/js/company.search.e48f94642999.js"></script>
+    
+    
+
+    <!-- Service worker installer for PWA -->
+    <script src="https://cdn-static.screener.in/js/pwa.6ade38a669c4.js"></script>
+  </body>
+</html>
