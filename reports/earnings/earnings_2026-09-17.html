@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earnings Scanner — 2026-09-17</title>
+<style>
+:root{
+  --bg:#0d0f14;--bg2:#131620;--bg3:#1a1d2e;--bg4:#1e2235;
+  --border:#252840;--border2:#2e3250;
+  --text:#e2e4f0;--text2:#9198b8;--text3:#545c7a;
+  --amber:#f0a500;--amber-dim:#3d2900;
+  --green:#00c875;--green-dim:#002e1a;
+  --red:#ff4560;--red-dim:#3d0010;
+  --blue:#4a9eff;--blue-dim:#0a1f3d;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+.page-header{background:var(--bg2);border-bottom:2px solid var(--amber);
+  padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.page-title{font-size:16px;font-weight:600;color:var(--amber);letter-spacing:.5px}
+.page-meta{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.stat-strip{background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:10px 24px;display:flex;gap:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-val{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--amber)}
+.stat-lbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.filter-bar{background:var(--bg3);border-bottom:1px solid var(--border);
+  padding:8px 24px;font-size:11px;color:var(--text2);display:flex;gap:20px}
+.filter-tag{background:var(--amber-dim);color:var(--amber);padding:2px 10px;
+  border-radius:3px;font-weight:600;font-family:var(--mono);font-size:10px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:16px;padding:16px 24px}
+/* ── Company card ── */
+.card{background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden}
+.card-header{background:var(--bg3);padding:12px 16px;
+  border-bottom:1px solid var(--border)}
+.card-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.card-meta{display:flex;gap:16px;font-family:var(--mono);font-size:11px;color:var(--text2)}
+.card-meta span strong{color:var(--amber)}
+/* ── Result table ── */
+.result-table{width:100%;border-collapse:collapse;font-size:12px}
+.result-table th{padding:7px 12px;text-align:right;font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.4px;color:var(--text3);
+  background:var(--bg4);border-bottom:1px solid var(--border2);white-space:nowrap}
+.result-table th:first-child{text-align:left}
+.result-table td{padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);
+  font-family:var(--mono);font-size:12px;white-space:nowrap}
+.result-table td:first-child{text-align:left;font-family:-apple-system,
+  BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text2);font-size:11px}
+.result-table tr:last-child td{border-bottom:none}
+.result-table tr:hover td{background:var(--bg4)}
+/* ── YoY badge ── */
+.yoy{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600}
+.yoy.up{color:var(--green)}
+.yoy.dn{color:var(--red)}
+.yoy.neu{color:var(--text3)}
+/* ── Profit highlight ── */
+.profit-highlight{background:var(--green-dim);border-top:1px solid var(--green)}
+.profit-highlight td:first-child{color:var(--green) !important;font-weight:600}
+/* ── Empty state ── */
+.empty{padding:40px 24px;text-align:center;color:var(--text3);font-size:13px}
+.page-foot{padding:10px 24px;font-size:10px;color:var(--text3);font-family:var(--mono);
+  background:var(--bg2);border-top:1px solid var(--border);text-align:center}
+</style>
+</head><body>
+
+<div class="page-header">
+  <div class="page-title">⚡ EARNINGS SCANNER — 2026-09-17</div>
+  <div class="page-meta">QUARTERLY RESULTS · 4 COMPANIES REPORTED</div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat">
+    <div class="stat-val">4</div>
+    <div class="stat-lbl">Results filed</div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span>Active filter:</span>
+  <span class="filter-tag">M.Cap &gt; ₹500 Cr</span>
+  <span>Showing companies above market-cap threshold</span>
+</div>
+
+<div class="cards-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Orissa Minerals</div>
+        <div class="card-meta">
+          <span>Price <strong>₹3,880.00</strong></span>
+          <span>M.Cap <strong>₹2,326 Cr</strong></span>
+          <span>PE <strong>700.6</strong></span>
+          <span style="color:var(--amber);font-weight:600;font-family:var(--mono)">
+            Profit YoY <span class="yoy neu">—</span>
+          </span>
+        </div>
+      </div>
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>YoY</th>
+            <th>YOY</th>
+            <th>Jun 2026</th>
+            <th>Mar 2026</th>
+          </tr>
+        </thead>
+        <tbody><tr >
+          <td >Sales</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>28.60</td>
+          <td>29.00</td>
+          <td>19.40</td>
+        </tr><tr >
+          <td >EBIDT</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>9.02</td>
+          <td>-9.34</td>
+          <td>0.89</td>
+        </tr><tr style="background:var(--green-dim)">
+          <td style="color:var(--green);font-weight:600">Net Profit</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>3.45</td>
+          <td>-7.61</td>
+          <td>-2.79</td>
+        </tr><tr >
+          <td >EPS</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>5.75</td>
+          <td>-12.68</td>
+          <td>-4.65</td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Skyways Air Ser.</div>
+        <div class="card-meta">
+          <span>Price <strong>₹130.00</strong></span>
+          <span>M.Cap <strong>₹1,892 Cr</strong></span>
+          <span>PE <strong>35.4</strong></span>
+          <span style="color:var(--amber);font-weight:600;font-family:var(--mono)">
+            Profit YoY <span class="yoy neu">—</span>
+          </span>
+        </div>
+      </div>
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>YoY</th>
+            <th>YOY</th>
+            <th>Jun 2026</th>
+            <th>Mar 2026</th>
+          </tr>
+        </thead>
+        <tbody><tr >
+          <td >Sales</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>1,217.00</td>
+          <td>788.00</td>
+          <td>639.00</td>
+        </tr><tr >
+          <td >EBIDT</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>49.90</td>
+          <td>34.90</td>
+          <td>27.30</td>
+        </tr><tr style="background:var(--green-dim)">
+          <td style="color:var(--green);font-weight:600">Net Profit</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>26.80</td>
+          <td>21.70</td>
+          <td>11.00</td>
+        </tr><tr >
+          <td >EPS</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>1.69</td>
+          <td>1.27</td>
+          <td>0.60</td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-name">Tempsens Instruments</div>
+        <div class="card-meta">
+          <span>Price <strong>₹537.00</strong></span>
+          <span>M.Cap <strong>₹4,500 Cr</strong></span>
+          <span>PE <strong>65.6</strong></span>
+          <span style="color:var(--amber);font-weight:600;font-family:var(--mono)">
+            Profit YoY <span class="yoy neu">—</span>
+          </span>
+        </div>
+      </div>
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>YoY</th>
+            <th>YOY</th>
+            <th>Jun 2026</th>
+            <th>Mar 2026</th>
+          </tr>
+        </thead>
+        <tbody><tr >
+          <td >Sales</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>119.00</td>
+          <td>133.00</td>
+          <td>89.00</td>
+        </tr><tr >
+          <td >EBIDT</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>23.80</td>
+          <td>28.70</td>
+          <td>20.60</td>
+        </tr><tr style="background:var(--green-dim)">
+          <td style="color:var(--green);font-weight:600">Net Profit</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>16.30</td>
+          <td>21.10</td>
+          <td>14.10</td>
+        </tr><tr >
+          <td >EPS</td>
+          <td><span class="yoy neu">—</span></td>
+          <td>1.88</td>
+          <td>2.45</td>
+          <td>1.65</td>
+        </tr></tbody>
+      </table>
+    </div></div>
+
+<div class="page-foot">
+  Earnings Scanner v2 · 2026-09-22 14:25 UTC · Source: Screener.in/results/latest/
+</div>
+</body></html>

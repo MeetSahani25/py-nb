@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-17",
+  "total_fetched": 4,
+  "total_filtered": 3,
+  "filters": {
+    "min_mcap_cr": 500
+  },
+  "companies": [
+    {
+      "name": "Orissa Minerals",
+      "price": 3880.0,
+      "mcap": 2326.0,
+      "pe": 700.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Skyways Air Ser.",
+      "price": 130.0,
+      "mcap": 1892.0,
+      "pe": 35.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    },
+    {
+      "name": "Tempsens Instruments",
+      "price": 537.0,
+      "mcap": 4500.0,
+      "pe": 65.6,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    }
+  ]
+}

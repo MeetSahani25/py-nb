@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-21",
+  "total_fetched": 1,
+  "total_filtered": 1,
+  "filters": {
+    "min_mcap_cr": 500
+  },
+  "companies": [
+    {
+      "name": "Lumino Inds",
+      "price": 108.0,
+      "mcap": 3296.0,
+      "pe": 19.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    }
+  ]
+}

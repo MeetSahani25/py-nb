@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-18",
+  "total_fetched": 3,
+  "total_filtered": 1,
+  "filters": {
+    "min_mcap_cr": 500
+  },
+  "companies": [
+    {
+      "name": "Hy-Tech Engineer",
+      "price": 71.0,
+      "mcap": 674.0,
+      "pe": 29.4,
+      "sales_yoy": null,
+      "ebidt_yoy": null,
+      "profit_yoy": null,
+      "eps_yoy": null
+    }
+  ]
+}
