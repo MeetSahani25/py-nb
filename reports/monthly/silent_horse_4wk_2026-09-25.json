@@ -1,0 +1,107 @@
+{
+  "date": "2026-09-25",
+  "window_weeks": 4,
+  "gold": [],
+  "silver": [
+    [
+      "Onix Solar",
+      {
+        "score": 49,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 21.5,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W35": 1,
+          "2026-W36": 3
+        }
+      }
+    ],
+    [
+      "Bodal Chemicals",
+      {
+        "score": 49,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 46.8,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 4,
+        "max_week_freq": 3,
+        "week_freq_map": {
+          "2026-W35": 1,
+          "2026-W36": 3
+        }
+      }
+    ]
+  ],
+  "watch": [
+    [
+      "Manaksia Steels",
+      {
+        "score": 51,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 15.31,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W35": 1,
+          "2026-W36": 2
+        }
+      }
+    ],
+    [
+      "Kopran",
+      {
+        "score": 46,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 15.11,
+        "price_label": "strong uptrend",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W35": 1,
+          "2026-W36": 2
+        }
+      }
+    ],
+    [
+      "IFCI",
+      {
+        "score": 58,
+        "pattern": "escalating",
+        "pattern_desc": "Accelerating appearances — accumulation escalating",
+        "price_pct": 12.69,
+        "price_label": "holding gains",
+        "n_weeks": 2,
+        "total_freq": 3,
+        "max_week_freq": 2,
+        "week_freq_map": {
+          "2026-W35": 1,
+          "2026-W36": 2
+        }
+      }
+    ]
+  ],
+  "stage1_bases": [
+    {
+      "name": "PVP Ventures",
+      "n_weeks": 5,
+      "total_freq": 9,
+      "avg_per_week": 1.8,
+      "max_gap": 0,
+      "price_pct": 106.64,
+      "latest_cmp": 68.48,
+      "latest_qoqp": 446.71,
+      "latest_roce": 6.37
+    }
+  ]
+}
